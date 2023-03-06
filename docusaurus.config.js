@@ -96,7 +96,7 @@ const config = {
           // },
           {
             label: "GitHub",
-            href: `https://github.com/${process.env.ORGANIZATION_NAME}/${process.env.PROJECT_NAME}`,
+            href: `https://github.com/${process.env.ORGANIZATION_NAME}/aries-cloudagent-python`,
             position: "right",
           },
         ],
@@ -118,7 +118,7 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: `https://github.com/${process.env.ORGANIZATION_NAME}/${process.env.PROJECT_NAME}`,
+                href: `https://github.com/${process.env.ORGANIZATION_NAME}/aries-cloudagent-python`,
               },
             ],
           },
