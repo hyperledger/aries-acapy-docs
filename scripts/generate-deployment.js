@@ -2,6 +2,12 @@ const path = require("path");
 const fse = require("fs-extra");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
+const commander = require("commander");
+
+commander
+  .usage("[OPTIONS]")
+  .option("-t, --tag <value>", "tag version of docs")
+  .parse(process.argv);
 
 const adminFiles = [
   "CHANGELOG.md",
@@ -19,7 +25,7 @@ const dirMapping = {
   "demo/collateral": "demo/collateral",
 };
 
-const rootPath = path.resolve(__dirname, "../..");
+const rootPath = path.resolve(__dirname, "../tmp");
 const docsPath = path.resolve(rootPath, "docs");
 const docusaurusPath = path.resolve(rootPath, "docs/docusaurus/docs");
 const assetsPath = path.resolve(rootPath, "docs/assets");
@@ -128,4 +134,5 @@ async function copyFiles(from, to, filter) {
   }
 }
 
+// const options = commander.opts();
 main();
