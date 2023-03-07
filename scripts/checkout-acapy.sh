@@ -1,6 +1,7 @@
 #! /bin/bash
 
 tmpPath="../tmp"
+docsPath="../docs"
 gitRepo="https://github.com/hyperledger/aries-cloudagent-python.git"
 
 help() {
@@ -33,7 +34,7 @@ while getopts ":ht:" option; do
 done
 
 # In the scripts directory
-cd "$(dirname "$0")"
+cd $(dirname "$0")
 rm -rf $tmpPath
 gh repo clone $gitRepo $tmpPath
 
@@ -51,3 +52,9 @@ if [[ ! -z $gitTag ]]; then
 else
     node generate-deployment.js
 fi
+
+# Cleanup
+rsync -a $tmpPath/docs/docusaurus/docs/* $docsPath
+rsync -a $docsPath/docs/docs/assets* ../static/docs
+rm -rf $docsPath/docs/docs
+rm -rf $tmpPath
