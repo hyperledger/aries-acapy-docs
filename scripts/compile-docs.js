@@ -54,6 +54,19 @@ async function main() {
       )}`
     );
 
+    await fse.writeFile(
+      path.resolve(path.resolve(docusaurusPath, "code"), "_category_.yml"),
+      `label: Code`
+    );
+
+    await fse.writeFile(
+      path.resolve(
+        path.resolve(docusaurusPath, "code", "generated"),
+        "_category_.yml"
+      ),
+      `label: Docstrings`
+    );
+
     // Clean up code docs
     await fse.remove(path.resolve(docusaurusPath, "code", ".doctrees"));
     await fse.remove(path.resolve(docusaurusPath, "code", "docusaurus"));
@@ -106,6 +119,11 @@ async function main() {
     // Admin docs
     await copyFiles(rootPath, path.resolve(docusaurusPath, "admin"), (file) =>
       adminFiles.includes(file)
+    );
+
+    await fse.writeFile(
+      path.resolve(path.resolve(docusaurusPath, "admin"), "_category_.yml"),
+      `label: Admin`
     );
   } catch (err) {
     console.error(err);

@@ -38,6 +38,13 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
           editUrl: `https://github.com/${process.env.ORGANIZATION_NAME}/${process.env.PROJECT_NAME}/tree/${process.env.BRANCH_NAME}/docs/docusaurus`,
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "Main",
+              banner: "none",
+            },
+          },
         },
         blog: false, // Disable the blog plugin
         theme: {
@@ -54,14 +61,6 @@ const config = {
         indexBlog: false,
       },
     ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'code',
-    //     path: '../rtd/build/',
-    //     routeBasePath: 'code',
-    //   },
-    // ],
   ],
 
   themeConfig:
@@ -81,26 +80,25 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "index",
+            docId: "docs/README",
             position: "left",
             label: "Documentation",
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'index',
-          //   position: 'left',
-          //   label: 'Code',
-          //   docsPluginId: 'code'
-          // },
           {
+            type: "doc",
+            docId: "code/index",
             position: "left",
             label: "Code",
-            href: "https://aries-cloud-agent-python.readthedocs.io/en/latest/",
+          },
+          {
+            type: "doc",
+            docId: "demo/README",
+            position: "left",
+            label: "Demo",
           },
           {
             type: "docsVersionDropdown",
             position: "right",
-            sidebarId: "1.0",
           },
           {
             label: "GitHub",
