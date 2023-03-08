@@ -50,6 +50,7 @@ fi
 cd "../scripts"
 if [[ ! -z $gitTag ]]; then
     node compile-docs.js -t $gitTag
+    node compile-versions.js -t $gitTag
     # Cleanup
     rsync -a $tmpPath/docs/docusaurus/docs/* $versionedDocsPath/version-$gitTag
     rsync -a $versionedDocsPath/version-$gitTag/docs/docs/assets* ../static/versioned_docs/version-$gitTag
