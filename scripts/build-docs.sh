@@ -2,6 +2,7 @@
 
 tmpPath="../tmp"
 docsPath="../docs"
+versionedDocsPath="../versioned_docs"
 gitRepo="https://github.com/hyperledger/aries-cloudagent-python.git"
 
 help() {
@@ -48,13 +49,16 @@ fi
 # In the scripts directory
 cd "../scripts"
 if [[ ! -z $gitTag ]]; then
-    node generate-deployment.js -t $gitTag
+    node compile-docs.js -t $gitTag
+    # Cleanup
+    rsync -a $tmpPath/docs/docusaurus/docs/* $versionedDocsPath/version-$gitTag
+    rsync -a $versionedDocsPath/version-$gitTag/docs/docs/assets* ../static/versioned_docs/version-$gitTag
+    rm -rf $versionedDocsPath/version-$gitTag/docs/docs
 else
-    node generate-deployment.js
+    node compile-docs.js
+    # Cleanup
+    rsync -a $tmpPath/docs/docusaurus/docs/* $docsPath
+    rsync -a $docsPath/docs/docs/assets* ../static/docs
+    rm -rf $docsPath/docs/docs
 fi
-
-# Cleanup
-rsync -a $tmpPath/docs/docusaurus/docs/* $docsPath
-rsync -a $docsPath/docs/docs/assets* ../static/docs
-rm -rf $docsPath/docs/docs
 rm -rf $tmpPath
