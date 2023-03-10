@@ -13,13 +13,14 @@ help() {
     Options:
 
     -t  Git tag to checkout. Default branch is main
+    -m  Run modifiers on built docs
     -h  Help
 
 EOF
     exit 1
 }
 
-while getopts ":ht:" option; do
+while getopts "ht:m" option; do
     case $option in
     h) # display Help
         help
@@ -27,6 +28,8 @@ while getopts ":ht:" option; do
         ;;
     t) # Enter a Git tag to checkout
         gitTag=$OPTARG ;;
+    m) # Run modifiers on build
+        modifiers=true ;;
     \?) # Invalid option
         echo "Error: Invalid option"
         exit
@@ -55,11 +58,21 @@ if [[ ! -z $gitTag ]]; then
     rsync -a $tmpPath/docs/docusaurus/docs/* $versionedDocsPath/version-$gitTag
     rsync -a $versionedDocsPath/version-$gitTag/docs/docs/assets* ../static/versioned_docs/version-$gitTag
     rm -rf $versionedDocsPath/version-$gitTag/docs/docs
+
+    if [[ ! -z $modifiers ]]; then
+        # Run modifications
+        node run-modifiers.js -t $gitTag
+    fi
 else
     node compile-docs.js
     # Cleanup
     rsync -a $tmpPath/docs/docusaurus/docs/* $docsPath
     rsync -a $docsPath/docs/docs/assets* ../static/docs
     rm -rf $docsPath/docs/docs
+
+    if [[ ! -z $modifiers ]]; then
+        # Run modifications
+        node run-modifiers.js
+    fi
 fi
 rm -rf $tmpPath
