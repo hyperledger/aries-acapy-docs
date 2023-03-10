@@ -37,6 +37,10 @@ while getopts "ht:m" option; do
     esac
 done
 
+# Install yarn
+yarn --version
+yarn install --immutable
+
 # In the scripts directory
 cd $(dirname "$0")
 rm -rf $tmpPath
