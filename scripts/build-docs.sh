@@ -40,6 +40,7 @@ done
 # In the scripts directory
 cd $(dirname "$0")
 rm -rf $tmpPath
+gh auth login --web
 gh repo clone $gitRepo $tmpPath
 
 # In the tmp directory

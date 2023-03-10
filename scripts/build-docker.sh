@@ -6,5 +6,5 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list >/dev/null
 
 apt update &&
-    apt install python python3-pip gh -y &&
+    apt install rsync python python3-pip gh -y &&
     pip install -U sphinx sphinx-markdown-builder

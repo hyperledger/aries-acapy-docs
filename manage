@@ -71,6 +71,10 @@ stop)
 build)
     build
     ;;
+build-docs)
+    configureEnvironment
+    docker container run --rm -i -p 3000:3000 --volume $(pwd):/app acapy-docs ./scripts/build-docs.sh $@
+    ;;
 *)
     usage
     ;;
