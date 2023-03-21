@@ -39,7 +39,7 @@ done
 
 # Install yarn
 yarn --version
-yarn install --immutable
+yarn install
 
 # In the scripts directory
 cd $(dirname "$0")

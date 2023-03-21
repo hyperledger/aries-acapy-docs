@@ -26,12 +26,9 @@ const assetsPath = path.resolve(rootPath, "docs/assets");
 const developerPath = path.resolve(rootPath, "docs/GettingStartedAriesDev");
 const demoPath = path.resolve(rootPath, "demo");
 const demoCollateralPath = path.resolve(rootPath, "demo/collateral");
-const rstPath = path.resolve(rootPath, "docs/generated");
 
 /**
  * Steps:
- * - Build markdown files from docs/internal to docs/code
- * - Clean up generated code .md files
  * - Copy all .md|.png files from root to docs/docs
  * - Copy all files from docs/assets to docs/docs/assets
  * - Copy docs/GettingStartedAriesDev to docs/developer
@@ -45,32 +42,6 @@ async function main() {
     if (await fse.exists(docusaurusPath)) {
       await fse.remove(docusaurusPath);
     }
-
-    // Build code docs
-    await exec(
-      `sphinx-build -b markdown -a -E -c ${docsPath} ${docsPath} ${path.resolve(
-        docusaurusPath,
-        "code"
-      )}`
-    );
-
-    await fse.writeFile(
-      path.resolve(path.resolve(docusaurusPath, "code"), "_category_.yml"),
-      `label: Code`
-    );
-
-    await fse.writeFile(
-      path.resolve(
-        path.resolve(docusaurusPath, "code", "generated"),
-        "_category_.yml"
-      ),
-      `label: Docstrings`
-    );
-
-    // Clean up code docs
-    await fse.remove(path.resolve(docusaurusPath, "code", ".doctrees"));
-    await fse.remove(path.resolve(docusaurusPath, "code", "docusaurus"));
-    await fse.remove(path.resolve(docusaurusPath, "code", "rtd"));
 
     // Main docs
     await copyFiles(
@@ -107,13 +78,6 @@ async function main() {
       demoCollateralPath,
       path.resolve(docusaurusPath, dirMapping["demo/collateral"]),
       (file) => file.endsWith(".md") || file.endsWith(".png")
-    );
-
-    // Generated rst docs
-    await copyFiles(
-      rstPath,
-      path.resolve(docusaurusPath, dirMapping["docs/generated"]),
-      () => true
     );
 
     // Admin docs
