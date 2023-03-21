@@ -3,45 +3,11 @@ const path = require("path");
 module.exports = {
   [path.resolve(
     __dirname,
-    "../versioned_docs/version-0.8.0-rc0/code/generated/aries_cloudagent.indy.models.md"
-  )]: {
-    modifiers: {
-      [`#### GE(_ = Relation(fortran='GE', wql='$gte', math='>=', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ )`]: `<!-- #### GE(_ = Relation(fortran='GE', wql='$gte', math='>=', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ ) -->`,
-      [`#### GT(_ = Relation(fortran='GT', wql='$gt', math='>', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ )`]: `<!-- #### GT(_ = Relation(fortran='GT', wql='$gt', math='>', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ ) -->`,
-      [`#### LE(_ = Relation(fortran='LE', wql='$lte', math='<=', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ )`]: `<!-- #### LE(_ = Relation(fortran='LE', wql='$lte', math='<=', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ ) -->`,
-      [`#### LT(_ = Relation(fortran='LT', wql='$lt', math='<', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ )`]: `<!-- #### LT(_ = Relation(fortran='LT', wql='$lt', math='<', yes=<function Predicate.<lambda>>, no=<function Predicate.<lambda>>_ ) -->`,
-    },
-  },
-  [path.resolve(
-    __dirname,
-    "../versioned_docs/version-0.8.0-rc0/code/generated/aries_cloudagent.ledger.md"
-  )]: {
-    modifiers: {
-      [`#### _abstract async_ txn_submit(request_json: str, sign: bool, taa_accept: ~typing.Optional[bool] = None, sign_did: ~aries_cloudagent.wallet.did_info.DIDInfo = <object object>, write_ledger: bool = True)`]: `<!-- #### _abstract async_ txn_submit(request_json: str, sign: bool, taa_accept: ~typing.Optional[bool] = None, sign_did: ~aries_cloudagent.wallet.did_info.DIDInfo = <object object>, write_ledger: bool = True) -->`,
-      [`#### _async_ txn_submit(request_json: str, sign: bool, taa_accept: ~typing.Optional[bool] = None, sign_did: ~aries_cloudagent.wallet.did_info.DIDInfo = <object object>, write_ledger: bool = True)`]: `<!-- #### _async_ txn_submit(request_json: str, sign: bool, taa_accept: ~typing.Optional[bool] = None, sign_did: ~aries_cloudagent.wallet.did_info.DIDInfo = <object object>, write_ledger: bool = True) -->`,
-      [`Write the provided (signed and possibly endorsed) transaction to the ledger.`]: `<!-- Write the provided (signed and possibly endorsed) transaction to the ledger. -->`,
-      [`#### _async_ txn_submit(request_json: str, sign: ~typing.Optional[bool] = None, taa_accept: ~typing.Optional[bool] = None, sign_did: ~aries_cloudagent.wallet.did_info.DIDInfo = <object object>, write_ledger: bool = True)`]: `<!-- #### _async_ txn_submit(request_json: str, sign: ~typing.Optional[bool] = None, taa_accept: ~typing.Optional[bool] = None, sign_did: ~aries_cloudagent.wallet.did_info.DIDInfo = <object object>, write_ledger: bool = True) -->`,
-      [`Submit a signed (and endorsed) transaction to the ledger.`]: `<!-- Submit a signed (and endorsed) transaction to the ledger. -->`,
-    },
-  },
-  [path.resolve(
-    __dirname,
     "../versioned_docs/version-0.8.0-rc0/admin/PUBLISHING.md"
   )]: {
     title: "How to Publish a New Version",
     modifiers: {
       [`[Container Images and Github Actions]()`]: `_Container Images and Github Actions_`,
-    },
-  },
-  [path.resolve(
-    __dirname,
-    "../versioned_docs/version-0.8.0-rc0/code/generated/aries_cloudagent.ledger.merkel_validation.md"
-  )]: {
-    modifiers: {
-      [`### _class_ aries_cloudagent.ledger.merkel_validation.hasher.HexTreeHasher(hashfunc=<built-in function openssl_sha256>)`]: `<!-- ### _class_ aries_cloudagent.ledger.merkel_validation.hasher.HexTreeHasher(hashfunc=<built-in function openssl_sha256>) -->`,
-      [`Bases: \`TreeHasher\``]: `<!-- Bases: \`TreeHasher\` -->`,
-      [`### _class_ aries_cloudagent.ledger.merkel_validation.hasher.TreeHasher(hashfunc=<built-in function openssl_sha256>)`]: `<!-- ### _class_ aries_cloudagent.ledger.merkel_validation.hasher.TreeHasher(hashfunc=<built-in function openssl_sha256>) -->`,
-      [`Bases: [\`object\`](https://docs.python.org/3/library/functions.html#object)`]: `<!-- Bases: [\`object\`](https://docs.python.org/3/library/functions.html#object) -->`,
     },
   },
   [path.resolve(
