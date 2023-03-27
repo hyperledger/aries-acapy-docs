@@ -80,12 +80,16 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-header__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -182,13 +186,156 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome!
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../acapy-README/" class="md-tabs__link">
+      ACA-Py README
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../features/DevReadMe/" class="md-tabs__link">
+        Features
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Demos
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gettingStarted/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../deploying/deploymentModel/" class="md-tabs__link">
+        Deploying
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../testing/Logging/" class="md-tabs__link">
+        Testing/Troubleshooting
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/CONTRIBUTING/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../CHANGELOG/" class="md-tabs__link">
+      Release Notes
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -201,8 +348,10 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-nav__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -269,7 +418,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
       
       
       
@@ -306,7 +457,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/SupportedRFCs/" class="md-nav__link">
-        Supported Aries AIPs and RFCs
+        Supported Aries Interop Profiles and RFCs
       </a>
     </li>
   
@@ -631,7 +782,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
       
       
       
@@ -918,7 +1071,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
       
       
       
@@ -1009,7 +1164,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
       
       
       
@@ -1100,7 +1257,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
       
       
       
@@ -1229,10 +1388,10 @@
   
 
 
-<h1 id="alice-gets-a-mobile-agent">Alice Gets a Mobile Agent! <!-- omit in toc --></h1>
+<h1 id="alice-gets-a-mobile-agent">Alice Gets a Mobile Agent! <!-- omit in toc --><a class="headerlink" href="#alice-gets-a-mobile-agent" title="Permanent link">&para;</a></h1>
 <p>In this demo, we'll again use our familiar Faber ACA-Py agent to issue credentials to Alice, but this time Alice will use a mobile wallet. To do this we need to run the Faber agent on a publicly accessible port, and Alice will need a compatible mobile wallet. We'll provide pointers to where you can get them.</p>
 <p>This demo also introduces revocation of credentials.</p>
-<h1 id="contents">Contents <!-- omit in toc --></h1>
+<h1 id="contents">Contents <!-- omit in toc --><a class="headerlink" href="#contents" title="Permanent link">&para;</a></h1>
 <ul>
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#get-a-mobile-agent">Get a mobile agent</a></li>
@@ -1250,78 +1409,78 @@
 <li><a href="#send-a-connectionless-proof-request">Send a Connectionless Proof Request</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>This demo can be run on your local machine or on Play with Docker (PWD), and will demonstrate credential exchange and proof exchange as well as revocation with a mobile agent. Both approaches (running locally and on PWD) will be described, for the most part the commands are the same, but there are a couple of different parameters you need to provide when starting up.</p>
 <p>If you are not familiar with how revocation is currently implemented in Hyperledger Indy, <a href="https://github.com/hyperledger/indy-hipe/tree/master/text/0011-cred-revocation">this article</a> provides a good background on the technique. A challenge with revocation as it is currently implemented in Hyperledger Indy is the need for the prover (the agent creating the proof) to download tails files associated with the credentials it holds.</p>
-<h3 id="get-a-mobile-agent">Get a mobile agent</h3>
+<h3 id="get-a-mobile-agent">Get a mobile agent<a class="headerlink" href="#get-a-mobile-agent" title="Permanent link">&para;</a></h3>
 <p>Of course for this, you need to have a mobile agent. To find, install and setup a compatible mobile agent, follow the instructions <a href="https://github.com/bcgov/identity-kit-poc/blob/master/docs/GettingApp.md">here</a>.</p>
-<h3 id="running-locally-in-docker">Running Locally in Docker</h3>
+<h3 id="running-locally-in-docker">Running Locally in Docker<a class="headerlink" href="#running-locally-in-docker" title="Permanent link">&para;</a></h3>
 <p>Open a new bash shell and in a project directory run the following:</p>
-<pre><code class="language-bash">git clone https://github.com/hyperledger/aries-cloudagent-python.git
-cd aries-cloudagent-python/demo
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hyperledger/aries-cloudagent-python.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>aries-cloudagent-python/demo
+</code></pre></div>
 <p>We'll come back to this in a minute, when we start the <code>faber</code> agent!</p>
 <p>There are a couple of extra steps you need to take to prepare to run the Faber agent locally:</p>
-<h4 id="install-ngrok-and-jq">Install ngrok and jq</h4>
+<h4 id="install-ngrok-and-jq">Install ngrok and jq<a class="headerlink" href="#install-ngrok-and-jq" title="Permanent link">&para;</a></h4>
 <p><a href="https://ngrok.com/">ngrok</a> is used to expose public endpoints for services running locally on your computer.</p>
 <p><a href="https://github.com/stedolan/jq">jq</a> is a json parser that is used to automatically detect the endpoints exposed by ngrok.</p>
 <p>You can install ngrok from <a href="https://ngrok.com/">here</a></p>
 <p>You can download jq releases <a href="https://github.com/stedolan/jq/releases">here</a></p>
-<h4 id="expose-services-publicly-using-ngrok">Expose services publicly using ngrok</h4>
+<h4 id="expose-services-publicly-using-ngrok">Expose services publicly using ngrok<a class="headerlink" href="#expose-services-publicly-using-ngrok" title="Permanent link">&para;</a></h4>
 <p>Note that this is <em>only required when running docker on your local machine</em>. When you run on PWD a public endpoint for your agent is exposed automatically.</p>
 <p>Since the mobile agent will need some way to communicate with the agent running on your local machine in docker, we will need to create a publicly accesible url for some services on your machine. The easiest way to do this is with <a href="https://ngrok.com/">ngrok</a>. Once ngrok is installed, create a tunnel to your local machine:</p>
-<pre><code class="language-bash">ngrok http 8020
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ngrok<span class="w"> </span>http<span class="w"> </span><span class="m">8020</span>
+</code></pre></div>
 <p>This service is used for your local aca-py agent - it is the endpoint that is advertised for other Aries agents to connect to.</p>
 <p>You will see something like this:</p>
-<pre><code>Forwarding                    http://abc123.ngrok.io -&gt; http://localhost:8020
-Forwarding                    https://abc123.ngrok.io -&gt; http://localhost:8020
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Forwarding                    http://abc123.ngrok.io -&gt; http://localhost:8020
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Forwarding                    https://abc123.ngrok.io -&gt; http://localhost:8020
+</code></pre></div>
 <p>This creates a public url for ports 8020 on your local machine.</p>
 <p>Note that an ngrok process is created automatically for your tails server.</p>
 <p>Keep this process running as we'll come back to it in a moment.</p>
-<h3 id="running-in-play-with-docker">Running in Play With Docker</h3>
+<h3 id="running-in-play-with-docker">Running in Play With Docker<a class="headerlink" href="#running-in-play-with-docker" title="Permanent link">&para;</a></h3>
 <p>To run the necessary terminal sessions in your browser, go to the Docker playground service <a href="https://labs.play-with-docker.com/">Play with Docker</a>. Don't know about Play with Docker? Check <a href="https://github.com/cloudcompass/ToIPLabs/blob/master/docs/LFS173x/RunningLabs.md#running-on-play-with-docker">this out</a> to learn more.</p>
 <p>Open a new bash shell and in a project directory run the following:</p>
-<pre><code class="language-bash">git clone https://github.com/hyperledger/aries-cloudagent-python.git
-cd aries-cloudagent-python/demo
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hyperledger/aries-cloudagent-python.git
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>aries-cloudagent-python/demo
+</code></pre></div>
 <p>We'll come back to this in a minute, when we start the <code>faber</code> agent!</p>
-<h3 id="run-an-instance-of-indy-tails-server">Run an instance of indy-tails-server</h3>
+<h3 id="run-an-instance-of-indy-tails-server">Run an instance of indy-tails-server<a class="headerlink" href="#run-an-instance-of-indy-tails-server" title="Permanent link">&para;</a></h3>
 <p>For revocation to function, we need another component running that is used to store what are called tails files.</p>
 <p>If you are not running with revocation enabled you can skip this step.</p>
-<h4 id="running-locally-in-a-bash-shell">Running locally in a bash shell?</h4>
+<h4 id="running-locally-in-a-bash-shell">Running locally in a bash shell?<a class="headerlink" href="#running-locally-in-a-bash-shell" title="Permanent link">&para;</a></h4>
 <p>Open a new bash shell, and in a project directory, run:</p>
-<pre><code class="language-bash">git clone https://github.com/bcgov/indy-tails-server.git
-cd indy-tails-server/docker
-./manage build
-./manage start
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bcgov/indy-tails-server.git
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>indy-tails-server/docker
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>./manage<span class="w"> </span>build
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>./manage<span class="w"> </span>start
+</code></pre></div>
 <p>This will run the required components for the tails server to function and make a tails server available on port 6543.</p>
 <p>This will also automatically start an ngrok server that will expose a public url for your tails server - this is required to support mobile agents. The docker output will look something like this:</p>
-<pre><code class="language-bash">ngrok-tails-server_1  | t=2020-05-13T22:51:14+0000 lvl=info msg=&quot;started tunnel&quot; obj=tunnels name=&quot;command_line (http)&quot; addr=http://tails-server:6543 url=http://c5789aa0.ngrok.io
-ngrok-tails-server_1  | t=2020-05-13T22:51:14+0000 lvl=info msg=&quot;started tunnel&quot; obj=tunnels name=command_line addr=http://tails-server:6543 url=https://c5789aa0.ngrok.io
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ngrok-tails-server_1<span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="nv">t</span><span class="o">=</span><span class="m">2020</span>-05-13T22:51:14+0000<span class="w"> </span><span class="nv">lvl</span><span class="o">=</span>info<span class="w"> </span><span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;started tunnel&quot;</span><span class="w"> </span><span class="nv">obj</span><span class="o">=</span>tunnels<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;command_line (http)&quot;</span><span class="w"> </span><span class="nv">addr</span><span class="o">=</span>http://tails-server:6543<span class="w"> </span><span class="nv">url</span><span class="o">=</span>http://c5789aa0.ngrok.io
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ngrok-tails-server_1<span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="nv">t</span><span class="o">=</span><span class="m">2020</span>-05-13T22:51:14+0000<span class="w"> </span><span class="nv">lvl</span><span class="o">=</span>info<span class="w"> </span><span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;started tunnel&quot;</span><span class="w"> </span><span class="nv">obj</span><span class="o">=</span>tunnels<span class="w"> </span><span class="nv">name</span><span class="o">=</span>command_line<span class="w"> </span><span class="nv">addr</span><span class="o">=</span>http://tails-server:6543<span class="w"> </span><span class="nv">url</span><span class="o">=</span>https://c5789aa0.ngrok.io
+</code></pre></div>
 <p>Note the server name in the <code>url=https://c5789aa0.ngrok.io</code> parameter (<code>https://c5789aa0.ngrok.io</code>) - this is the external url for your tails server. Make sure you use the <code>https</code> url!</p>
-<h4 id="running-in-play-with-docker_1">Running in Play with Docker?</h4>
+<h4 id="running-in-play-with-docker_1">Running in Play with Docker?<a class="headerlink" href="#running-in-play-with-docker_1" title="Permanent link">&para;</a></h4>
 <p>Run the same steps on <em>PWD</em> as you would run locally (see above).  Open a new shell (click on "ADD NEW INSTANCE") to run the tails server.</p>
 <p>Note that with <em>Play with Docker</em> it can be challenging to capture the information you need from the log file as it scrolls by, you can try leaving off the <code>--events</code> option when you run the Faber agent to reduce the quantity of information logged to the screen.</p>
-<h3 id="run-faber-with-extra-parameters">Run <code>faber</code> With Extra Parameters</h3>
-<h4 id="running-locally-in-a-bash-shell_1">Running locally in a bash shell?</h4>
+<h3 id="run-faber-with-extra-parameters">Run <code>faber</code> With Extra Parameters<a class="headerlink" href="#run-faber-with-extra-parameters" title="Permanent link">&para;</a></h3>
+<h4 id="running-locally-in-a-bash-shell_1">Running locally in a bash shell?<a class="headerlink" href="#running-locally-in-a-bash-shell_1" title="Permanent link">&para;</a></h4>
 <p>If you are running in a <em>local bash shell</em>, navigate to <a href="/demo">The demo directory</a> and run:</p>
-<pre><code class="language-bash">TAILS_NETWORK=docker_tails-server LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber --aip 10 --revocation --events
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">TAILS_NETWORK</span><span class="o">=</span>docker_tails-server<span class="w"> </span><span class="nv">LEDGER_URL</span><span class="o">=</span>http://test.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--aip<span class="w"> </span><span class="m">10</span><span class="w"> </span>--revocation<span class="w"> </span>--events
+</code></pre></div>
 <p>(Note that we have to start faber with <code>--aip 10</code> for compatibility with mobile clients.)</p>
 <p>The <code>TAILS_NETWORK</code> parameter lets the demo script know how to connect to the tails server (which should be running in a separate shell on the same machine).</p>
-<h4 id="running-in-play-with-docker_2">Running in Play with Docker?</h4>
+<h4 id="running-in-play-with-docker_2">Running in Play with Docker?<a class="headerlink" href="#running-in-play-with-docker_2" title="Permanent link">&para;</a></h4>
 <p>If you are running in <em>Play with Docker</em>, navigate to <a href="/demo">The demo directory</a> and run:</p>
-<pre><code class="language-bash">PUBLIC_TAILS_URL=https://c4f7fbb85911.ngrok.io LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber --aip 10 --revocation --events
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">PUBLIC_TAILS_URL</span><span class="o">=</span>https://c4f7fbb85911.ngrok.io<span class="w"> </span><span class="nv">LEDGER_URL</span><span class="o">=</span>http://test.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--aip<span class="w"> </span><span class="m">10</span><span class="w"> </span>--revocation<span class="w"> </span>--events
+</code></pre></div>
 <p>The <code>PUBLIC_TAILS_URL</code> parameter lets the demo script know how to connect to the tails server. This can be running in another PWD session, or even on your local machine - the ngrok endpoint is public and will map to the correct location.</p>
 <p>Use the ngrok url for the tails server that you noted earlier.</p>
 <p>*Note that you <em>must</em> use the <code>https</code> url for the tails server endpoint.</p>
 <p>*Note - you may want to leave off the <code>--events</code> option when you run the Faber agent, if you are finding you are getting too much logging output.</p>
-<h4 id="waiting-for-the-faber-agent-to-start">Waiting for the Faber agent to start ...</h4>
+<h4 id="waiting-for-the-faber-agent-to-start">Waiting for the Faber agent to start ...<a class="headerlink" href="#waiting-for-the-faber-agent-to-start" title="Permanent link">&para;</a></h4>
 <p>The <code>Preparing agent image...</code> step on the first run takes a bit of time, so while we wait, let's look at the details of the commands. Running Faber is similar to the instructions in the <a href="../AriesOpenAPIDemo/">Aries OpenAPI Demo</a> "Play with Docker" section, except:</p>
 <ul>
 <li>We are using the BCovrin Test network because that is a network that the mobile agents can be configured to use.</li>
@@ -1337,7 +1496,7 @@ ngrok-tails-server_1  | t=2020-05-13T22:51:14+0000 lvl=info msg=&quot;started tu
     <img src="/demo/collateral/revocation-2-ledger.png" alt="Ledger">
 </details>
 
-<h2 id="accept-the-invitation">Accept the Invitation</h2>
+<h2 id="accept-the-invitation">Accept the Invitation<a class="headerlink" href="#accept-the-invitation" title="Permanent link">&para;</a></h2>
 <p>When the Faber agent starts up it automatically creates an invitation and generates a QR code on the screen. On your mobile app, select "SCAN CODE" (or equivalent) and point your camera at the generated QR code. The mobile agent should automatically capture the code and ask you to confirm the connection. Confirm it.</p>
 <details>
     <summary>Click here to view screenshot</summary>
@@ -1355,14 +1514,14 @@ ngrok-tails-server_1  | t=2020-05-13T22:51:14+0000 lvl=info msg=&quot;started tu
 </details>
 
 <p>Switch your browser back to Play with Docker. You should see that the connection has been established, and there is a prompt for what actions you want to take, e.g. "Issue Credential", "Send Proof Request" and so on.</p>
-<p>Tip: If your screen is too small to display the QR code (this can happen in Play With Docker because the shell is only given a small portion of the browser) you can copy the invitation url to a site like https://www.the-qrcode-generator.com/ to convert the invitation url into a QR code that you can scan. Make sure you select the <code>URL</code> option, and copy the <code>invitation_url</code>, which will look something like:</p>
-<pre><code class="language-bash">https://abfde260.ngrok.io?c_i=eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9jb25uZWN0aW9ucy8xLjAvaW52aXRhdGlvbiIsICJAaWQiOiAiZjI2ZjA2YTItNWU1Mi00YTA5LWEwMDctOTNkODBiZTYyNGJlIiwgInJlY2lwaWVudEtleXMiOiBbIjlQRFE2alNXMWZwZkM5UllRWGhCc3ZBaVJrQmVKRlVhVmI0QnRQSFdWbTFXIl0sICJsYWJlbCI6ICJGYWJlci5BZ2VudCIsICJzZXJ2aWNlRW5kcG9pbnQiOiAiaHR0cHM6Ly9hYmZkZTI2MC5uZ3Jvay5pbyJ9
-</code></pre>
+<p>Tip: If your screen is too small to display the QR code (this can happen in Play With Docker because the shell is only given a small portion of the browser) you can copy the invitation url to a site like <a href="https://www.the-qrcode-generator.com/">https://www.the-qrcode-generator.com/</a> to convert the invitation url into a QR code that you can scan. Make sure you select the <code>URL</code> option, and copy the <code>invitation_url</code>, which will look something like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>https://abfde260.ngrok.io?c_i<span class="o">=</span>eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9jb25uZWN0aW9ucy8xLjAvaW52aXRhdGlvbiIsICJAaWQiOiAiZjI2ZjA2YTItNWU1Mi00YTA5LWEwMDctOTNkODBiZTYyNGJlIiwgInJlY2lwaWVudEtleXMiOiBbIjlQRFE2alNXMWZwZkM5UllRWGhCc3ZBaVJrQmVKRlVhVmI0QnRQSFdWbTFXIl0sICJsYWJlbCI6ICJGYWJlci5BZ2VudCIsICJzZXJ2aWNlRW5kcG9pbnQiOiAiaHR0cHM6Ly9hYmZkZTI2MC5uZ3Jvay5pbyJ9
+</code></pre></div>
 <p>Or this:</p>
-<pre><code class="language-bash">http://ip10-0-121-4-bquqo816b480a4bfn3kg-8020.direct.play-with-docker.com?c_i=eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9jb25uZWN0aW9ucy8xLjAvaW52aXRhdGlvbiIsICJAaWQiOiAiZWI2MTI4NDUtYmU1OC00YTNiLTk2MGUtZmE3NDUzMGEwNzkyIiwgInJlY2lwaWVudEtleXMiOiBbIkFacEdoMlpIOTJVNnRFRTlmYk13Z3BqQkp3TEUzRFJIY1dCbmg4Y2FqdzNiIl0sICJzZXJ2aWNlRW5kcG9pbnQiOiAiaHR0cDovL2lwMTAtMC0xMjEtNC1icXVxbzgxNmI0ODBhNGJmbjNrZy04MDIwLmRpcmVjdC5wbGF5LXdpdGgtdm9uLnZvbnguaW8iLCAibGFiZWwiOiAiRmFiZXIuQWdlbnQifQ==
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>http://ip10-0-121-4-bquqo816b480a4bfn3kg-8020.direct.play-with-docker.com?c_i<span class="o">=</span><span class="nv">eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9jb25uZWN0aW9ucy8xLjAvaW52aXRhdGlvbiIsICJAaWQiOiAiZWI2MTI4NDUtYmU1OC00YTNiLTk2MGUtZmE3NDUzMGEwNzkyIiwgInJlY2lwaWVudEtleXMiOiBbIkFacEdoMlpIOTJVNnRFRTlmYk13Z3BqQkp3TEUzRFJIY1dCbmg4Y2FqdzNiIl0sICJzZXJ2aWNlRW5kcG9pbnQiOiAiaHR0cDovL2lwMTAtMC0xMjEtNC1icXVxbzgxNmI0ODBhNGJmbjNrZy04MDIwLmRpcmVjdC5wbGF5LXdpdGgtdm9uLnZvbnguaW8iLCAibGFiZWwiOiAiRmFiZXIuQWdlbnQifQ</span><span class="o">==</span>
+</code></pre></div>
 <p>Note that this will use the ngrok endpoint if you are running locally, or your PWD endpoint if you are running on PWD.</p>
-<h2 id="issue-a-credential">Issue a Credential</h2>
+<h2 id="issue-a-credential">Issue a Credential<a class="headerlink" href="#issue-a-credential" title="Permanent link">&para;</a></h2>
 <p>We will use the Faber console to issue a credential. This could be done using the Swagger API as we have done in the connection process. We'll leave that as an exercise to the user.</p>
 <p>In the Faber console, select option <code>1</code> to send a credential to the mobile agent.</p>
 <details>
@@ -1371,13 +1530,13 @@ ngrok-tails-server_1  | t=2020-05-13T22:51:14+0000 lvl=info msg=&quot;started tu
 </details>
 
 <p>The Faber agent outputs details to the console; e.g.,</p>
-<pre><code class="language-text">Faber      | Credential: state = credential-issued, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24066b2a2a
-Faber      | Revocation registry ID: CMqNjZ8e59jDuBYcquce4D:4:CMqNjZ8e59jDuBYcquce4D:3:CL:50:faber.agent.degree_schema:CL_ACCUM:4f4fb2e4-3a59-45b1-8921-578d005a7ff6
-Faber      | Credential revocation ID: 1
-Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24066b2a2a
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Faber      | Credential: state = credential-issued, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24066b2a2a
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Faber      | Revocation registry ID: CMqNjZ8e59jDuBYcquce4D:4:CMqNjZ8e59jDuBYcquce4D:3:CL:50:faber.agent.degree_schema:CL_ACCUM:4f4fb2e4-3a59-45b1-8921-578d005a7ff6
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Faber      | Credential revocation ID: 1
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24066b2a2a
+</code></pre></div>
 <p>The revocation registry id and credential revocation id only appear if revocation is active. If you are doing revocation, you to need the <code>Revocation registry id</code> later, so we recommend that you copy it it now and paste it into a text file or someplace that you can access later. If you don't write it down, you can get the Id from the Admin API using the <strong><code>GET /revocation/active-registry/{cred_def_id}</code></strong> endpoint, and passing in the credential definition Id (which you can get from the <strong><code>GET /credential-definitions/created</code></strong> endpoint).</p>
-<h3 id="accept-the-credential">Accept the Credential</h3>
+<h3 id="accept-the-credential">Accept the Credential<a class="headerlink" href="#accept-the-credential" title="Permanent link">&para;</a></h3>
 <p>The credential offer should automatically show up in the mobile agent. Accept the offered credential following the instructions provided by the mobile agent. That will look something like this:</p>
 <details>
     <summary>Click here to view screenshot</summary>
@@ -1392,7 +1551,7 @@ Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24
     <img src="/demo/collateral/S-3-credential-3.jpg" alt="Credential Acceptance">
 </details>
 
-<h2 id="issue-a-presentation-request">Issue a Presentation Request</h2>
+<h2 id="issue-a-presentation-request">Issue a Presentation Request<a class="headerlink" href="#issue-a-presentation-request" title="Permanent link">&para;</a></h2>
 <p>We will use the Faber console to ask mobile agent for a proof. This could be done using the Swagger API, but we'll leave that as an exercise to the user.</p>
 <p>In the Faber console, select option <code>2</code> to send a proof request to the mobile agent.</p>
 <details>
@@ -1400,7 +1559,7 @@ Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24
     <img src="/demo/collateral/S-4-proof-0.png" alt="Request Proof">
 </details>
 
-<h2 id="present-the-proof">Present the Proof</h2>
+<h2 id="present-the-proof">Present the Proof<a class="headerlink" href="#present-the-proof" title="Permanent link">&para;</a></h2>
 <p>The presentation (proof) request should automatically show up in the mobile agent. Follow the instructions provided by the mobile agent to prepare and send the proof back to Faber. That will look something like this:</p>
 <details>
     <summary>Click here to view screenshot</summary>
@@ -1417,14 +1576,14 @@ Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24
 
 <p>If the mobile agent is able to successfully prepare and send the proof, you can go back to the Play with Docker terminal to see the status of the proof.</p>
 <p>The process should "just work" for the non-revocation use case. If you are using revocation, your results may vary. As of writing this, we get failures on the wallet side with some mobile wallets, and on the Faber side with others (an error in the Indy SDK). As the results improve, we'll update this. Please let us know through GitHub issues if you have any problems running this.</p>
-<h2 id="review-the-proof">Review the Proof</h2>
+<h2 id="review-the-proof">Review the Proof<a class="headerlink" href="#review-the-proof" title="Permanent link">&para;</a></h2>
 <p>In the Faber console window, the proof should be received as validated.</p>
 <details>
     <summary>Click here to view screenshot</summary>
     <img src="/demo/collateral/S-4-proof-4.png" alt="Proof Validation">
 </details>
 
-<h2 id="revoke-the-credential-and-send-another-proof-request">Revoke the Credential and Send Another Proof Request</h2>
+<h2 id="revoke-the-credential-and-send-another-proof-request">Revoke the Credential and Send Another Proof Request<a class="headerlink" href="#revoke-the-credential-and-send-another-proof-request" title="Permanent link">&para;</a></h2>
 <p>If you have enabled revocation, you can try revoking the credential and publishing its pending revoked status (<code>faber</code> options <code>5</code> and <code>6</code>). For the revocation step, You will need the revocation registry identifier and the credential revocation identifier (which is 1 for the first credential you issued), as the Faber agent logged them to the console at credential issue.</p>
 <p>Once that is done, try sending another proof request and see what happens! Experiment with immediate and pending publication. Note that immediate publication also publishes any pending revocations on its revocation registry.</p>
 <details>
@@ -1432,13 +1591,13 @@ Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24
     <img src="/demo/collateral/revocation-3-console.png" alt="Revocation">
 </details>
 
-<h2 id="send-a-connectionless-proof-request">Send a Connectionless Proof Request</h2>
+<h2 id="send-a-connectionless-proof-request">Send a Connectionless Proof Request<a class="headerlink" href="#send-a-connectionless-proof-request" title="Permanent link">&para;</a></h2>
 <p>A connectionless proof request works the same way as a regular proof request, however it does not require a connection to be established between the Verifier and Holder/Prover.</p>
 <p>This is supported in the Faber demo, however note that it will only work when running Faber on the Docker playground service <a href="https://labs.play-with-docker.com/">Play with Docker</a>.  (This is because both the Faber agent <em>and</em> controller both need to be exposed to the mobile agent.)</p>
 <p>If you have gone through the above steps, you can delete the Faber connection in your mobile agent (however <em>do not</em> delete the credential that Faber issued to you).</p>
 <p>Then in the faber demo, select option <code>2a</code> - Faber will display a QR code which you can scan with your mobile agent.  You will see the same proof request displayed in your mobile agent, which you can respond to.</p>
 <p>Behind the scenes, the Faber controller delivers the proof request information (linked from the url encoded in the QR code) directly to your mobile agent, without establishing and agent-to-agent connection first.  If you are interested in the underlying mechanics, you can review the <code>faber.py</code> code in the repository.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>That’s the Faber-Mobile Alice demo. Feel free to play with the Swagger API and experiment further and figure out what an instance of a controller has to do to make things work.</p>
 <!-- Docs to Markdown version 1.0β17 -->
 
@@ -1453,9 +1612,52 @@ Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24
           
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../AriesOpenAPIDemo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Open API Tutorial" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Open API Tutorial
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Endorser/" class="md-footer__link md-footer__link--next" aria-label="Next: Hyperledger Indy Endorser In Action" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Hyperledger Indy Endorser In Action
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1478,7 +1680,7 @@ Faber      | Credential: state = done, cred_ex_id = ba3089d6-92da-4cb7-9062-7f24
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>

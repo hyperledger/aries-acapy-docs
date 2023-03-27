@@ -80,12 +80,16 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-header__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -182,13 +186,156 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome!
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../acapy-README/" class="md-tabs__link">
+      ACA-Py README
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../features/DevReadMe/" class="md-tabs__link">
+        Features
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../demo/" class="md-tabs__link">
+        Demos
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gettingStarted/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deploymentModel/" class="md-tabs__link md-tabs__link--active">
+        Deploying
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../testing/Logging/" class="md-tabs__link">
+        Testing/Troubleshooting
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/CONTRIBUTING/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../CHANGELOG/" class="md-tabs__link">
+      Release Notes
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -201,8 +348,10 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-nav__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -269,7 +418,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
       
       
       
@@ -306,7 +457,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/SupportedRFCs/" class="md-nav__link">
-        Supported Aries AIPs and RFCs
+        Supported Aries Interop Profiles and RFCs
       </a>
     </li>
   
@@ -500,7 +651,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
       
       
       
@@ -619,7 +772,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
       
       
       
@@ -1047,7 +1202,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
       
       
       
@@ -1138,7 +1295,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
       
       
       
@@ -1289,45 +1448,45 @@
   
 
 
-<h1 id="databases">Databases</h1>
+<h1 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h1>
 <p>Your wallet stores secret keys, connections and other information.
 You have different choices to store this information.
 The wallet supports 2 different databases to store data, SQLite and PostgreSQL.</p>
-<h2 id="sqlite">SQLite</h2>
+<h2 id="sqlite">SQLite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h2>
 <p>If the wallet is configured the default way in eg. <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/demo-args.yaml">demo-args.yaml</a>, without explicit wallet-storage, a sqlite database file is used.</p>
-<pre><code class="language-yaml"># demo-args.yaml
-wallet-type: indy
-wallet-name: wallet
-wallet-key: wallet-password
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># demo-args.yaml</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">wallet-type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indy</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">wallet-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wallet</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">wallet-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wallet-password</span>
+</code></pre></div>
 <p>For this configuration, a folder called wallet will be created which contains a file called <code>sqlite.db</code>.</p>
-<h2 id="postgresql">PostgreSQL</h2>
+<h2 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h2>
 <p>The wallet can be configured to use PostgreSQL as storage.</p>
-<pre><code class="language-yaml"># demo-args.yaml
-wallet-type: indy
-wallet-name: wallet
-wallet-key: wallet-password
-
-wallet-storage-type: postgres_storage
-wallet-storage-config: &quot;{\&quot;url\&quot;:\&quot;db:5432\&quot;,\&quot;wallet_scheme\&quot;:\&quot;DatabasePerWallet\&quot;}&quot;
-wallet-storage-creds: &quot;{\&quot;account\&quot;:\&quot;postgres\&quot;,\&quot;password\&quot;:\&quot;mysecretpassword\&quot;,\&quot;admin_account\&quot;:\&quot;postgres\&quot;,\&quot;admin_password\&quot;:\&quot;mysecretpassword\&quot;}&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># demo-args.yaml</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">wallet-type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indy</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">wallet-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wallet</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">wallet-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wallet-password</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">wallet-storage-type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres_storage</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">wallet-storage-config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{\&quot;url\&quot;:\&quot;db:5432\&quot;,\&quot;wallet_scheme\&quot;:\&quot;DatabasePerWallet\&quot;}&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nt">wallet-storage-creds</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{\&quot;account\&quot;:\&quot;postgres\&quot;,\&quot;password\&quot;:\&quot;mysecretpassword\&quot;,\&quot;admin_account\&quot;:\&quot;postgres\&quot;,\&quot;admin_password\&quot;:\&quot;mysecretpassword\&quot;}&quot;</span>
+</code></pre></div>
 <p>In this case the hostname for the database is <code>db</code> on port 5432.</p>
 <p>A docker-compose file could look like this:</p>
-<pre><code class="language-yaml"># docker-compose.yml
-version: '3'
-services:
-  # acapy ...
-  # database
-  db:
-    image: postgres:10
-    environment:
-      POSTGRES_PASSWORD: mysecretpassword
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
-    ports:
-      - &quot;5432:5432&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># docker-compose.yml</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="c1"># acapy ...</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1"># database</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:10</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysecretpassword</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+</code></pre></div>
 
 
 
@@ -1340,9 +1499,52 @@ services:
           
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ContainerImagesAndGithubActions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ACA-Py Container Images" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                ACA-Py Container Images
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../RedisPlugins/" class="md-footer__link md-footer__link--next" aria-label="Next: Persistent Queues and Caching" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Persistent Queues and Caching
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1365,7 +1567,7 @@ services:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>

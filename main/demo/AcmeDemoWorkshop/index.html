@@ -80,12 +80,16 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-header__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -182,13 +186,156 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome!
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../acapy-README/" class="md-tabs__link">
+      ACA-Py README
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../features/DevReadMe/" class="md-tabs__link">
+        Features
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Demos
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gettingStarted/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../deploying/deploymentModel/" class="md-tabs__link">
+        Deploying
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../testing/Logging/" class="md-tabs__link">
+        Testing/Troubleshooting
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/CONTRIBUTING/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../CHANGELOG/" class="md-tabs__link">
+      Release Notes
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -201,8 +348,10 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-nav__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -269,7 +418,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
       
       
       
@@ -306,7 +457,7 @@
   
     <li class="md-nav__item">
       <a href="../../features/SupportedRFCs/" class="md-nav__link">
-        Supported Aries AIPs and RFCs
+        Supported Aries Interop Profiles and RFCs
       </a>
     </li>
   
@@ -676,7 +827,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
       
       
       
@@ -963,7 +1116,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
       
       
       
@@ -1054,7 +1209,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
       
       
       
@@ -1145,7 +1302,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
       
       
       
@@ -1303,203 +1462,203 @@
   
 
 
-<h1 id="acme-controller-workshop">Acme Controller Workshop</h1>
+<h1 id="acme-controller-workshop">Acme Controller Workshop<a class="headerlink" href="#acme-controller-workshop" title="Permanent link">&para;</a></h1>
 <p>In this workshop we will add some functionality to a third participant in the Alice/Faber drama - namely, Acme Inc.  After completing her education at Faber College, Alice is going to apply for a job at Acme Inc.  To do this she must provide proof of education (once she has completed the interview and other non-Indy tasks), and then Acme will issue her an employment credential.</p>
-<p>Note that an updated Acme controller is available here: https://github.com/ianco/aries-cloudagent-python/tree/acme_workshop/demo if you just want to skip ahead ...  There is also an alternate solution with some additional functionality available here:  https://github.com/ianco/aries-cloudagent-python/tree/agent_workshop/demo</p>
-<h2 id="preview-of-the-acme-controller">Preview of the Acme Controller</h2>
+<p>Note that an updated Acme controller is available here: <a href="https://github.com/ianco/aries-cloudagent-python/tree/acme_workshop/demo">https://github.com/ianco/aries-cloudagent-python/tree/acme_workshop/demo</a> if you just want to skip ahead ...  There is also an alternate solution with some additional functionality available here:  <a href="https://github.com/ianco/aries-cloudagent-python/tree/agent_workshop/demo">https://github.com/ianco/aries-cloudagent-python/tree/agent_workshop/demo</a></p>
+<h2 id="preview-of-the-acme-controller">Preview of the Acme Controller<a class="headerlink" href="#preview-of-the-acme-controller" title="Permanent link">&para;</a></h2>
 <p>There is already a skeleton of the Acme controller in place, you can run it as follows.  (Note that beyond establishing a connection it doesn't actually do anything yet.)</p>
 <p>To run the Acme controller template, first run Alice and Faber so that Alice can prove her education experience:</p>
 <p>Open 2 bash shells, and in each run:</p>
-<pre><code class="language-bash">git clone https://github.com/hyperledger/aries-cloudagent-python.git
-cd aries-cloudagent-python/demo
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hyperledger/aries-cloudagent-python.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>aries-cloudagent-python/demo
+</code></pre></div>
 <p>In one shell run Faber:</p>
-<pre><code class="language-bash">LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">LEDGER_URL</span><span class="o">=</span>http://dev.greenlight.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>faber
+</code></pre></div>
 <p>... and in the second shell run Alice:</p>
-<pre><code class="language-bash">LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo alice
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">LEDGER_URL</span><span class="o">=</span>http://dev.greenlight.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>alice
+</code></pre></div>
 <p>When Faber has produced an invitation, copy it over to Alice.</p>
 <p>Then, in the Faber shell, select option <code>1</code> to issue a credential to Alice.  (You can select option <code>2</code> if you like, to confirm via proof.)</p>
 <p>Then, in the Faber shell, enter <code>X</code> to exit the controller, and then run the Acme controller:</p>
-<pre><code class="language-bash">LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo acme
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">LEDGER_URL</span><span class="o">=</span>http://dev.greenlight.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>acme
+</code></pre></div>
 <p>In the Alice shell, select option <code>4</code> (to enter a new invitation) and then copy over Acme's invitation once it's available.</p>
 <p>Then, in the Acme shell, you can select option <code>2</code> and then option <code>1</code>, which don't do anything ... yet!!!</p>
-<h2 id="asking-alice-for-a-proof-of-education">Asking Alice for a Proof of Education</h2>
+<h2 id="asking-alice-for-a-proof-of-education">Asking Alice for a Proof of Education<a class="headerlink" href="#asking-alice-for-a-proof-of-education" title="Permanent link">&para;</a></h2>
 <p>In the Acme code <code>acme.py</code> we are going to add code to issue a proof request to Alice, and then validate the received proof.</p>
 <p>First the following import statements and constants that we will need near the top of acme.py:</p>
-<pre><code class="language-python">import random
-
-from datetime import date
-from uuid import uuid4
-</code></pre>
-<pre><code class="language-python">TAILS_FILE_COUNT = int(os.getenv(&quot;TAILS_FILE_COUNT&quot;, 100))
-CRED_PREVIEW_TYPE = &quot;https://didcomm.org/issue-credential/2.0/credential-preview&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">random</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">TAILS_FILE_COUNT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;TAILS_FILE_COUNT&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">CRED_PREVIEW_TYPE</span> <span class="o">=</span> <span class="s2">&quot;https://didcomm.org/issue-credential/2.0/credential-preview&quot;</span>
+</code></pre></div>
 <p>Next locate the code that is triggered by option <code>2</code>:</p>
-<pre><code class="language-python">            elif option == &quot;2&quot;:
-                log_status(&quot;#20 Request proof of degree from alice&quot;)
-                # TODO presentation requests
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>            <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>                <span class="n">log_status</span><span class="p">(</span><span class="s2">&quot;#20 Request proof of degree from alice&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>                <span class="c1"># TODO presentation requests</span>
+</code></pre></div>
 <p>Replace the <code># TODO</code> comment with the following code:</p>
-<pre><code class="language-python">                req_attrs = [
-                    {
-                        &quot;name&quot;: &quot;name&quot;,
-                        &quot;restrictions&quot;: [{&quot;schema_name&quot;: &quot;degree schema&quot;}]
-                    },
-                    {
-                        &quot;name&quot;: &quot;date&quot;,
-                        &quot;restrictions&quot;: [{&quot;schema_name&quot;: &quot;degree schema&quot;}]
-                    },
-                    {
-                        &quot;name&quot;: &quot;degree&quot;,
-                        &quot;restrictions&quot;: [{&quot;schema_name&quot;: &quot;degree schema&quot;}]
-                    }
-                ]
-                req_preds = []
-                indy_proof_request = {
-                    &quot;name&quot;: &quot;Proof of Education&quot;,
-                    &quot;version&quot;: &quot;1.0&quot;,
-                    &quot;nonce&quot;: str(uuid4().int),
-                    &quot;requested_attributes&quot;: {
-                        f&quot;0_{req_attr['name']}_uuid&quot;: req_attr
-                        for req_attr in req_attrs
-                    },
-                    &quot;requested_predicates&quot;: {}
-                }
-                proof_request_web_request = {
-                    &quot;connection_id&quot;: agent.connection_id,
-                    &quot;presentation_request&quot;: {&quot;indy&quot;: indy_proof_request},
-                }
-                # this sends the request to our agent, which forwards it to Alice
-                # (based on the connection_id)
-                await agent.admin_POST(
-                    &quot;/present-proof-2.0/send-request&quot;,
-                    proof_request_web_request
-                )
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>                <span class="n">req_attrs</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                    <span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                        <span class="s2">&quot;restrictions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;schema_name&quot;</span><span class="p">:</span> <span class="s2">&quot;degree schema&quot;</span><span class="p">}]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                    <span class="p">},</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>                    <span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>                        <span class="s2">&quot;restrictions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;schema_name&quot;</span><span class="p">:</span> <span class="s2">&quot;degree schema&quot;</span><span class="p">}]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>                    <span class="p">},</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>                    <span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;degree&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>                        <span class="s2">&quot;restrictions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;schema_name&quot;</span><span class="p">:</span> <span class="s2">&quot;degree schema&quot;</span><span class="p">}]</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>                    <span class="p">}</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>                <span class="p">]</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>                <span class="n">req_preds</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>                <span class="n">indy_proof_request</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Proof of Education&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>                    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>                    <span class="s2">&quot;nonce&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">int</span><span class="p">),</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>                    <span class="s2">&quot;requested_attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>                        <span class="sa">f</span><span class="s2">&quot;0_</span><span class="si">{</span><span class="n">req_attr</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_uuid&quot;</span><span class="p">:</span> <span class="n">req_attr</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>                        <span class="k">for</span> <span class="n">req_attr</span> <span class="ow">in</span> <span class="n">req_attrs</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>                    <span class="p">},</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>                    <span class="s2">&quot;requested_predicates&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>                <span class="p">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>                <span class="n">proof_request_web_request</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>                    <span class="s2">&quot;connection_id&quot;</span><span class="p">:</span> <span class="n">agent</span><span class="o">.</span><span class="n">connection_id</span><span class="p">,</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>                    <span class="s2">&quot;presentation_request&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;indy&quot;</span><span class="p">:</span> <span class="n">indy_proof_request</span><span class="p">},</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>                <span class="p">}</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>                <span class="c1"># this sends the request to our agent, which forwards it to Alice</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>                <span class="c1"># (based on the connection_id)</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>                <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">admin_POST</span><span class="p">(</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>                    <span class="s2">&quot;/present-proof-2.0/send-request&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>                    <span class="n">proof_request_web_request</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>                <span class="p">)</span>
+</code></pre></div>
 <p>Now we need to handle receipt of the proof.  Locate the code that handles received proofs (this is in a webhook callback):</p>
-<pre><code class="language-python">        if state == &quot;presentation-received&quot;:
-            # TODO handle received presentations
-            pass
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;presentation-received&quot;</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>            <span class="c1"># TODO handle received presentations</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>            <span class="k">pass</span>
+</code></pre></div>
 <p>then replace the <code># TODO</code> comment and the <code>pass</code> statement:</p>
-<pre><code class="language-python">            log_status(&quot;#27 Process the proof provided by X&quot;)
-            log_status(&quot;#28 Check if proof is valid&quot;)
-            proof = await self.admin_POST(
-                f&quot;/present-proof-2.0/records/{pres_ex_id}/verify-presentation&quot;
-            )
-            self.log(&quot;Proof = &quot;, proof[&quot;verified&quot;])
-
-            # if presentation is a degree schema (proof of education),
-            # check values received
-            pres_req = message[&quot;by_format&quot;][&quot;pres_request&quot;][&quot;indy&quot;]
-            pres = message[&quot;by_format&quot;][&quot;pres&quot;][&quot;indy&quot;]
-            is_proof_of_education = (
-                pres_req[&quot;name&quot;] == &quot;Proof of Education&quot;
-            )
-            if is_proof_of_education:
-                log_status(&quot;#28.1 Received proof of education, check claims&quot;)
-                for (referent, attr_spec) in pres_req[&quot;requested_attributes&quot;].items():
-                    if referent in pres['requested_proof']['revealed_attrs']:
-                        self.log(
-                            f&quot;{attr_spec['name']}: &quot;
-                            f&quot;{pres['requested_proof']['revealed_attrs'][referent]['raw']}&quot;
-                        )
-                    else:
-                        self.log(
-                            f&quot;{attr_spec['name']}: &quot;
-                            &quot;(attribute not revealed)&quot;
-                        )
-                for id_spec in pres[&quot;identifiers&quot;]:
-                    # just print out the schema/cred def id's of presented claims
-                    self.log(f&quot;schema_id: {id_spec['schema_id']}&quot;)
-                    self.log(f&quot;cred_def_id {id_spec['cred_def_id']}&quot;)
-                # TODO placeholder for the next step
-            else:
-                # in case there are any other kinds of proofs received
-                self.log(&quot;#28.1 Received &quot;, pres_req[&quot;name&quot;])
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>            <span class="n">log_status</span><span class="p">(</span><span class="s2">&quot;#27 Process the proof provided by X&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>            <span class="n">log_status</span><span class="p">(</span><span class="s2">&quot;#28 Check if proof is valid&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>            <span class="n">proof</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_POST</span><span class="p">(</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>                <span class="sa">f</span><span class="s2">&quot;/present-proof-2.0/records/</span><span class="si">{</span><span class="n">pres_ex_id</span><span class="si">}</span><span class="s2">/verify-presentation&quot;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>            <span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Proof = &quot;</span><span class="p">,</span> <span class="n">proof</span><span class="p">[</span><span class="s2">&quot;verified&quot;</span><span class="p">])</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="c1"># if presentation is a degree schema (proof of education),</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="c1"># check values received</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>            <span class="n">pres_req</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s2">&quot;by_format&quot;</span><span class="p">][</span><span class="s2">&quot;pres_request&quot;</span><span class="p">][</span><span class="s2">&quot;indy&quot;</span><span class="p">]</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>            <span class="n">pres</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="s2">&quot;by_format&quot;</span><span class="p">][</span><span class="s2">&quot;pres&quot;</span><span class="p">][</span><span class="s2">&quot;indy&quot;</span><span class="p">]</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>            <span class="n">is_proof_of_education</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>                <span class="n">pres_req</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Proof of Education&quot;</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>            <span class="p">)</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>            <span class="k">if</span> <span class="n">is_proof_of_education</span><span class="p">:</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>                <span class="n">log_status</span><span class="p">(</span><span class="s2">&quot;#28.1 Received proof of education, check claims&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>                <span class="k">for</span> <span class="p">(</span><span class="n">referent</span><span class="p">,</span> <span class="n">attr_spec</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pres_req</span><span class="p">[</span><span class="s2">&quot;requested_attributes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>                    <span class="k">if</span> <span class="n">referent</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">[</span><span class="s1">&#39;requested_proof&#39;</span><span class="p">][</span><span class="s1">&#39;revealed_attrs&#39;</span><span class="p">]:</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>                        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">attr_spec</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pres</span><span class="p">[</span><span class="s1">&#39;requested_proof&#39;</span><span class="p">][</span><span class="s1">&#39;revealed_attrs&#39;</span><span class="p">][</span><span class="n">referent</span><span class="p">][</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>                        <span class="p">)</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>                    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>                        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">attr_spec</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>                            <span class="s2">&quot;(attribute not revealed)&quot;</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>                        <span class="p">)</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>                <span class="k">for</span> <span class="n">id_spec</span> <span class="ow">in</span> <span class="n">pres</span><span class="p">[</span><span class="s2">&quot;identifiers&quot;</span><span class="p">]:</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>                    <span class="c1"># just print out the schema/cred def id&#39;s of presented claims</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;schema_id: </span><span class="si">{</span><span class="n">id_spec</span><span class="p">[</span><span class="s1">&#39;schema_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cred_def_id </span><span class="si">{</span><span class="n">id_spec</span><span class="p">[</span><span class="s1">&#39;cred_def_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>                <span class="c1"># TODO placeholder for the next step</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>                <span class="c1"># in case there are any other kinds of proofs received</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;#28.1 Received &quot;</span><span class="p">,</span> <span class="n">pres_req</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</code></pre></div>
 <p>Right now this just verifies the proof received and prints out the attributes it reveals, but in "real life" your application could do something useful with this information.</p>
 <p>Now you can run the Faber/Alice/Acme script from the "Preview of the Acme Controller" section above, and you should see Acme receive a proof from Alice!</p>
-<h2 id="issuing-alice-a-work-credential">Issuing Alice a Work Credential</h2>
+<h2 id="issuing-alice-a-work-credential">Issuing Alice a Work Credential<a class="headerlink" href="#issuing-alice-a-work-credential" title="Permanent link">&para;</a></h2>
 <p>Now we can issue a work credential to Alice!</p>
 <p>There are two options for this.  We can (a) add code under option <code>1</code> to issue the credential, or (b) we can automatically issue this credential on receipt of the education proof.</p>
 <p>We're going to do option (a), but you can try to implement option (b) as homework.  You have most of the information you need from the proof response!</p>
 <p>First though we need to register a schema and credential definition.  Find this code:</p>
-<pre><code class="language-python">        # acme_schema_name = &quot;employee id schema&quot;
-        # acme_schema_attrs = [&quot;employee_id&quot;, &quot;name&quot;, &quot;date&quot;, &quot;position&quot;]
-        await acme_agent.initialize(
-            the_agent=agent,
-            # schema_name=acme_schema_name,
-            # schema_attrs=acme_schema_attrs,
-        )
-
-        # TODO publish schema and cred def
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>        <span class="c1"># acme_schema_name = &quot;employee id schema&quot;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>        <span class="c1"># acme_schema_attrs = [&quot;employee_id&quot;, &quot;name&quot;, &quot;date&quot;, &quot;position&quot;]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        <span class="k">await</span> <span class="n">acme_agent</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>            <span class="n">the_agent</span><span class="o">=</span><span class="n">agent</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>            <span class="c1"># schema_name=acme_schema_name,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>            <span class="c1"># schema_attrs=acme_schema_attrs,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="c1"># TODO publish schema and cred def</span>
+</code></pre></div>
 <p>... and uncomment the code lines. Replace the <code># TODO</code> comment with the following code:</p>
-<pre><code class="language-python">        with log_timer(&quot;Publish schema and cred def duration:&quot;):
-            # define schema
-            version = format(
-                &quot;%d.%d.%d&quot;
-                % (
-                    random.randint(1, 101),
-                    random.randint(1, 101),
-                    random.randint(1, 101),
-                )
-            )
-            # register schema and cred def
-            (schema_id, cred_def_id) = await agent.register_schema_and_creddef(
-                &quot;employee id schema&quot;,
-                version,
-                [&quot;employee_id&quot;, &quot;name&quot;, &quot;date&quot;, &quot;position&quot;],
-                support_revocation=False,
-                revocation_registry_size=TAILS_FILE_COUNT,
-            )
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>        <span class="k">with</span> <span class="n">log_timer</span><span class="p">(</span><span class="s2">&quot;Publish schema and cred def duration:&quot;</span><span class="p">):</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>            <span class="c1"># define schema</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>            <span class="n">version</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>                <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">&quot;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>                <span class="o">%</span> <span class="p">(</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>                    <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>                    <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>                    <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>                <span class="p">)</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>            <span class="p">)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            <span class="c1"># register schema and cred def</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>            <span class="p">(</span><span class="n">schema_id</span><span class="p">,</span> <span class="n">cred_def_id</span><span class="p">)</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">register_schema_and_creddef</span><span class="p">(</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>                <span class="s2">&quot;employee id schema&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>                <span class="n">version</span><span class="p">,</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>                <span class="p">[</span><span class="s2">&quot;employee_id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;position&quot;</span><span class="p">],</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>                <span class="n">support_revocation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>                <span class="n">revocation_registry_size</span><span class="o">=</span><span class="n">TAILS_FILE_COUNT</span><span class="p">,</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>            <span class="p">)</span>
+</code></pre></div>
 <p>For option (1) we want to replace the <code># TODO</code> comment here:</p>
-<pre><code class="language-python">            elif option == &quot;1&quot;:
-                log_status(&quot;#13 Issue credential offer to X&quot;)
-                # TODO credential offers
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>            <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>                <span class="n">log_status</span><span class="p">(</span><span class="s2">&quot;#13 Issue credential offer to X&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>                <span class="c1"># TODO credential offers</span>
+</code></pre></div>
 <p>with the following code:</p>
-<pre><code class="language-python">                agent.cred_attrs[cred_def_id] = {
-                    &quot;employee_id&quot;: &quot;ACME0009&quot;,
-                    &quot;name&quot;: &quot;Alice Smith&quot;,
-                    &quot;date&quot;: date.isoformat(date.today()),
-                    &quot;position&quot;: &quot;CEO&quot;
-                }
-                cred_preview = {
-                    &quot;@type&quot;: CRED_PREVIEW_TYPE,
-                    &quot;attributes&quot;: [
-                        {&quot;name&quot;: n, &quot;value&quot;: v}
-                        for (n, v) in agent.cred_attrs[cred_def_id].items()
-                    ],
-                }
-                offer_request = {
-                    &quot;connection_id&quot;: agent.connection_id,
-                    &quot;comment&quot;: f&quot;Offer on cred def id {cred_def_id}&quot;,
-                    &quot;credential_preview&quot;: cred_preview,
-                    &quot;filter&quot;: {&quot;indy&quot;: {&quot;cred_def_id&quot;: cred_def_id}},
-                }
-                await agent.admin_POST(
-                    &quot;/issue-credential-2.0/send-offer&quot;, offer_request
-                )
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>                <span class="n">agent</span><span class="o">.</span><span class="n">cred_attrs</span><span class="p">[</span><span class="n">cred_def_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>                    <span class="s2">&quot;employee_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ACME0009&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice Smith&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>                    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()),</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>                    <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;CEO&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>                <span class="p">}</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>                <span class="n">cred_preview</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>                    <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="n">CRED_PREVIEW_TYPE</span><span class="p">,</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>                    <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>                        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">v</span><span class="p">}</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>                        <span class="k">for</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">agent</span><span class="o">.</span><span class="n">cred_attrs</span><span class="p">[</span><span class="n">cred_def_id</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>                    <span class="p">],</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>                <span class="p">}</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>                <span class="n">offer_request</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>                    <span class="s2">&quot;connection_id&quot;</span><span class="p">:</span> <span class="n">agent</span><span class="o">.</span><span class="n">connection_id</span><span class="p">,</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>                    <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Offer on cred def id </span><span class="si">{</span><span class="n">cred_def_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>                    <span class="s2">&quot;credential_preview&quot;</span><span class="p">:</span> <span class="n">cred_preview</span><span class="p">,</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>                    <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;indy&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;cred_def_id&quot;</span><span class="p">:</span> <span class="n">cred_def_id</span><span class="p">}},</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>                <span class="p">}</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>                <span class="k">await</span> <span class="n">agent</span><span class="o">.</span><span class="n">admin_POST</span><span class="p">(</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>                    <span class="s2">&quot;/issue-credential-2.0/send-offer&quot;</span><span class="p">,</span> <span class="n">offer_request</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>                <span class="p">)</span>
+</code></pre></div>
 <p>... and then locate the code that handles the credential request callback:</p>
-<pre><code class="language-python">        if state == &quot;request-received&quot;:
-            # TODO issue credentials based on offer preview in cred ex record
-            pass
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;request-received&quot;</span><span class="p">:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>            <span class="c1"># TODO issue credentials based on offer preview in cred ex record</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>            <span class="k">pass</span>
+</code></pre></div>
 <p>... and replace the <code># TODO</code> comment and <code>pass</code> statement with the following code to issue the credential as Acme offered it:</p>
-<pre><code class="language-python">            # issue credentials based on offer preview in cred ex record
-            if not message.get(&quot;auto_issue&quot;):
-                await self.admin_POST(
-                    f&quot;/issue-credential-2.0/records/{cred_ex_id}/issue&quot;,
-                    {&quot;comment&quot;: f&quot;Issuing credential, exchange {cred_ex_id}&quot;},
-                )
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>            <span class="c1"># issue credentials based on offer preview in cred ex record</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;auto_issue&quot;</span><span class="p">):</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_POST</span><span class="p">(</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>                    <span class="sa">f</span><span class="s2">&quot;/issue-credential-2.0/records/</span><span class="si">{</span><span class="n">cred_ex_id</span><span class="si">}</span><span class="s2">/issue&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>                    <span class="p">{</span><span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Issuing credential, exchange </span><span class="si">{</span><span class="n">cred_ex_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>                <span class="p">)</span>
+</code></pre></div>
 <p>Now you can run the Faber/Alice/Acme steps again.  You should be able to receive a proof and then issue a credential to Alice.</p>
 
 
@@ -1513,9 +1672,52 @@ CRED_PREVIEW_TYPE = &quot;https://didcomm.org/issue-credential/2.0/credential-pr
           
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../AliceWantsAJsonCredential/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using W3C JSON-LD Credentials" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Using W3C JSON-LD Credentials
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../gettingStarted/" class="md-footer__link md-footer__link--next" aria-label="Next: Becoming an Indy/Aries Developer" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Becoming an Indy/Aries Developer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1538,7 +1740,7 @@ CRED_PREVIEW_TYPE = &quot;https://didcomm.org/issue-credential/2.0/credential-pr
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>

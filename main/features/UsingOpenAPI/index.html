@@ -80,12 +80,16 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-header__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -182,13 +186,156 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Welcome!
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../acapy-README/" class="md-tabs__link">
+      ACA-Py README
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../DevReadMe/" class="md-tabs__link md-tabs__link--active">
+        Features
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../demo/" class="md-tabs__link">
+        Demos
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gettingStarted/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../deploying/deploymentModel/" class="md-tabs__link">
+        Deploying
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../testing/Logging/" class="md-tabs__link">
+        Testing/Troubleshooting
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/CONTRIBUTING/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../CHANGELOG/" class="md-tabs__link">
+      Release Notes
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -201,8 +348,10 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-nav__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
       
@@ -308,7 +457,7 @@
   
     <li class="md-nav__item">
       <a href="../SupportedRFCs/" class="md-nav__link">
-        Supported Aries AIPs and RFCs
+        Supported Aries Interop Profiles and RFCs
       </a>
     </li>
   
@@ -584,7 +733,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
       
       
       
@@ -703,7 +854,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
       
       
       
@@ -990,7 +1143,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
       
       
       
@@ -1081,7 +1236,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
       
       
       
@@ -1172,7 +1329,9 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
       
       
       
@@ -1357,35 +1516,35 @@
   
 
 
-<h1 id="aries-cloud-agent-python-aca-py-openapi-code-generation-considerations">Aries Cloud Agent-Python (ACA-Py) - OpenAPI Code Generation Considerations</h1>
+<h1 id="aries-cloud-agent-python-aca-py-openapi-code-generation-considerations">Aries Cloud Agent-Python (ACA-Py) - OpenAPI Code Generation Considerations<a class="headerlink" href="#aries-cloud-agent-python-aca-py-openapi-code-generation-considerations" title="Permanent link">&para;</a></h1>
 <p>ACA-Py provides an OpenAPI-documented REST interface for administering the agent's internal state and initiating communication with connected agents.</p>
 <p>The running agent provides a <code>Swagger User Interface</code> that can be browsed and used to test various scenarios manually (see the <a href="../AdminAPI/">Admin API Readme</a> for details).  However it is often desirable to produce native language interfaces rather than coding <code>Controllers</code> using HTTP primitives. This is possible using several public code generation (codegen) tools.  This page provides some suggestions based on experience with these tools when trying to generate <code>Typescript</code> wrappers.  The information should be useful to those trying to generate other langauages. Updates to this page based on experience are encouraged.</p>
-<h2 id="aca-py-openapi-raw-output-characteristics">ACA-py, OpenAPI Raw output characteristics</h2>
+<h2 id="aca-py-openapi-raw-output-characteristics">ACA-py, OpenAPI Raw output characteristics<a class="headerlink" href="#aca-py-openapi-raw-output-characteristics" title="Permanent link">&para;</a></h2>
 <p>ACA-Py uses <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> tags in code to produce the OpenAPI spec file at runtime dependent on what features have been loaded. How these tags are created is documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/AdminAPI.md#api-standard-behaviour">API Standard Behaviour</a> section of the <a href="../AdminAPI/">Admin API Readme</a>.  The OpenAPI spec is available in raw, unformated form from a running ACA-py instance using a route of <code>http://&lt;acapy host and port&gt;/api/docs/swagger.json</code> or from the browser <code>Swagger User Interface</code> directly.  </p>
 <p>To help identify changes in the ACA-py Admin API over releases there is a tool that can be run located at <code>scripts/generate-open-api-spec</code>.  This tool will start ACA-py, pull the <code>swagger.json</code> file, run a codegen tool and specify a language output of <code>json</code>.  Apart from providing a better format to compare changes (i.e. by comparing this output to the checked in <code>open-api/openapi.json</code> version), the tool can be used to identify any non-conformance to the OpenAPI specification.  At the moment <code>validation</code> is turned off via the <code>open-api/openAPIJSON.config</code> file so that warning messages are printed for non-conformance but the <code>json</code> is still output.  Most of the warnings reported by <code>generate-open-api-spec</code> relate to missing <code>operationId</code> fields which results in manufactured method names being created by codgen tools.  At the moment <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> does not support adding <code>operationId</code> anotations via tags.  </p>
 <p>The <code>generate-open-api-spec</code> tool was initially created to help identify issues with method parameters not being sorted, resulting in somewhat random ordering each time a codegen operation was performed.  This is relevent for languages which do not have support for <a href="https://en.wikipedia.org/wiki/Named_parameter">named parameters</a> such as <code>Javascript</code>. It is recomended that the <code>generate-open-api-spec</code> is run prior to each release and the resulting <code>open-api/openapi.json</code> file checked in to allow tracking of API changes over time. At the moment this process is not automated as part of the release pipeline.</p>
-<h2 id="generating-language-wrappers-for-aca-py">Generating Language Wrappers for ACA-py</h2>
+<h2 id="generating-language-wrappers-for-aca-py">Generating Language Wrappers for ACA-py<a class="headerlink" href="#generating-language-wrappers-for-aca-py" title="Permanent link">&para;</a></h2>
 <p>There are inevitably differences around <code>best practice</code> for method naming based on coding language, and indeed organisation standards.  </p>
 <p>Best practice for generating ACA-Py language wrappers is to obtain the raw OpenAPI file from a configured/running ACA-Py instance and then post-process it with a merge utility to match routes and insert desired <code>operationId</code> fields.  This allows greatest flexibility in conforming to external naming requirements.</p>
 <p>Two major open source code generation tools are <a href="https://github.com/swagger-api/swagger-codegen">Swagger</a> and <a href="https://github.com/OpenAPITools/openapi-generator">OpenAPI Tools</a>.  Which of these to use can be very dependent on language support required and preference for the style of code generated.  </p>
 <p>The <a href="https://github.com/OpenAPITools/openapi-generator">OpenAPI Tools</a> was found to offer some nice features when generating <code>Typescript</code>.  It creates seperate files for each class and allows use of a <code>.openapi-generator-ignore</code> file to override generation if there is a spec file issue that needs to be maintained manually.  </p>
 <p>If generating code for languages that do not support <a href="https://en.wikipedia.org/wiki/Named_parameter">named parameters</a> it is recommended to specify the <code>useSingleRequestParameter</code> or equivalent in your code generator of choice.  The reason is that as mentioned previously, there have been instances where parameters were not sorted when output into the raw ACA-Py API spec file and this approach helps remove that risk. </p>
 <p>Another suggestion for code generation is to keep the <code>modelPropertyNaming</code> set to <code>original</code> when generating code.  Although it is tempting to try and enable marshalling into standard naming formats such as <code>camelCase</code>, the reality is that the models represent what is sent on the wire and documented in the <a href="https://github.com/hyperledger/aries-rfcs/tree/master/features">Aries Protocol RFCS</a>.  It has proven handy to be able to see code references correspond directly with protocol RFCs when debugging. It will also correspond directly with what the <code>model</code> shows when looking at the ACA-py <code>Swagger UI</code> in a browser if you need to try something out manually before coding.  One final point is that on occasions it has been discovered that the code generation tools don't always get the marshalling correct in all circumstances when changing model name format.</p>
-<h2 id="existing-language-wrappers-for-aca-py">Existing Language Wrappers for ACA-py</h2>
-<h3 id="python">Python</h3>
+<h2 id="existing-language-wrappers-for-aca-py">Existing Language Wrappers for ACA-py<a class="headerlink" href="#existing-language-wrappers-for-aca-py" title="Permanent link">&para;</a></h2>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
 <ul>
-<li>https://pypi.org/project/aries-cloudcontroller/</li>
-<li>https://github.com/didx-xyz/aries-cloudcontroller-python</li>
-<li>https://github.com/bcgov/traction/tree/develop/services/traction/acapy_client</li>
-<li>https://github.com/Indicio-tech/acapy-client</li>
+<li><a href="https://pypi.org/project/aries-cloudcontroller/">https://pypi.org/project/aries-cloudcontroller/</a></li>
+<li><a href="https://github.com/didx-xyz/aries-cloudcontroller-python">https://github.com/didx-xyz/aries-cloudcontroller-python</a></li>
+<li><a href="https://github.com/bcgov/traction/tree/develop/services/traction/acapy_client">https://github.com/bcgov/traction/tree/develop/services/traction/acapy_client</a></li>
+<li><a href="https://github.com/Indicio-tech/acapy-client">https://github.com/Indicio-tech/acapy-client</a></li>
 </ul>
-<h3 id="go">Go</h3>
+<h3 id="go">Go<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
 <ul>
-<li>https://github.com/ldej/go-acapy-client</li>
+<li><a href="https://github.com/ldej/go-acapy-client">https://github.com/ldej/go-acapy-client</a></li>
 </ul>
-<h3 id="java">Java</h3>
+<h3 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
 <ul>
-<li>https://github.com/hyperledger-labs/acapy-java-client</li>
+<li><a href="https://github.com/hyperledger-labs/acapy-java-client">https://github.com/hyperledger-labs/acapy-java-client</a></li>
 </ul>
 
 
@@ -1399,9 +1558,52 @@
           
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Multicredentials/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multiple Credential Types" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Multiple Credential Types
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Mediation/" class="md-footer__link md-footer__link--next" aria-label="Next: ACA-Py as a DIDComm Mediator" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                ACA-Py as a DIDComm Mediator
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1424,7 +1626,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
