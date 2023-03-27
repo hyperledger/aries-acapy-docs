@@ -22,7 +22,7 @@ to contribute to the docs themselves should do so in the [Aries Cloud Agent
 Python] repository.
 
 [Material for MkDocs]: https://squidfunk.github.io/mkdocs-material/
-[Mike]: 
+[Mike]: https://github.com/jimporter/mike
 
 ## Prerequisites
 
