@@ -1,0 +1,84 @@
+site_name: Hyperledger Aries ACA-Py Docs
+repo_name: hyperledger/aries-cloudagent-python
+repo_url: https://github.com/hyperledger/aries-cloudagent-python
+theme:
+  name: material
+  logo: https://www.hyperledger.org/wp-content/uploads/2019/06/Hyperledger_Aries_Logo_White.png
+  favicon: https://aries.js.org/img/aries-logo.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+  - content.code.copy
+nav:
+- Welcome!: README.md
+- ACA-Py README: acapy-README.md
+- Features:
+    - Developer Introduction: features/DevReadMe.md
+    - Supported Aries AIPs and RFCs: features/SupportedRFCs.md
+    - The Admin API: features/AdminAPI.md
+    - ACA-Py Plugins: features/PlugIns.md
+    - Multitenant ACA-Py: features/Multitenancy.md
+    - DID Methods: features/DIDMethods.md
+    - DID Resolution: features/DIDResolution.md
+    - Configuring Multiple Indy Ledgers: features/Multiledger.md
+    - Automatically Endorsing Indy Transations: features/Endorser.md
+    - Using W3C JSON-LD Signed Credentials: features/JsonLdCredentials.md
+    - AnonCreds Presentation Validation: features/AnoncredsProofValidation.md
+    - Multiple Credential Types: features/Multicredentials.md
+    - Code Generation with the Open API: features/UsingOpenAPI.md
+    - ACA-Py as a DIDComm Mediator: features/Mediation.md
+- Demos:
+    - The Alice-Faber Demo: demo/README.md
+    - Open API Tutorial: demo/AriesOpenAPIDemo.md
+    - Alice Gets a Phone: demo/AliceGetsAPhone.md
+    - Hyperledger Indy Endorser In Action: demo/Endorser.md
+    - Using W3C JSON-LD Credentials: demo/AliceWantsAJsonCredential.md
+    - DIY -- ACME Controller Workshop: demo/AcmeDemoWorkshop.md
+- Getting Started:
+    - Becoming an Indy/Aries Developer: gettingStarted/README.md
+    - Hyperledger Indy Basics: gettingStarted/IndyBasics.md
+    - Hyperledger Aries Basics: gettingStarted/AriesBasics.md
+    - Decentralized Identity Demos: gettingStarted/DecentralizedIdentityDemos.md
+    - Aries - The Big Picture: gettingStarted/AriesBigPicture.md
+    - Aries Architecture: gettingStarted/AriesAgentArchitecture.md
+    - Aries Messaging: gettingStarted/AriesMessaging.md
+    - Aries Developer Demos: gettingStarted/AriesDeveloperDemos.md
+    - TODO Agent Connections: gettingStarted/AgentConnections.md
+    - TODO Issuing AnonCreds Credentials: gettingStarted/IssuingIndyCredentials.md
+    - TODO Presenting AnonCreds Proofs: gettingStarted/PresentingIndyProofs.md
+    - TODO Making Your Own ACA-Py Agent: gettingStarted/YourOwnAriesAgent.md
+    - Aries Developer Options: gettingStarted/IndyAriesDevOptions.md
+    - DIDComm Messaging: gettingStarted/DIDcommMsgs.md
+    - DIDComm Message Routing: gettingStarted/RoutingEncryption.md
+    - DIDComm Message Routing Example: gettingStarted/AriesRoutingExample.md
+    - TODO Connecting to an Indy Network: gettingStarted/ConnectIndyNetwork.md
+    - AnonCreds Credential Revocation: gettingStarted/CredentialRevocation.md
+- Deploying:
+    - Deployment Model: deploying/deploymentModel.md
+    - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
+    - Databases: deploying/Databases.md
+    - Persistent Queues and Caching: deploying/RedisPlugins.md
+- Testing/Troubleshooting:
+    - Managing Logging: testing/Logging.md
+    - ACA-Py Integration Tests: testing/INTEGRATION-TESTS.md
+    - Protocol Tracing: testing/AgentTracing.md
+    - Troubleshooting: testing/Troubleshooting.md
+- Contributing:
+    - How to Contribute: contributing/CONTRIBUTING.md
+    - Maintainers: contributing/MAINTAINERS.md
+    - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
+    - Security Vulnerability Reporting: contributing/SECURITY.md
+- Release Notes: CHANGELOG.md
