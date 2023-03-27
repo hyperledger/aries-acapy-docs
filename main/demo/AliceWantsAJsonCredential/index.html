@@ -1,0 +1,1929 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Endorser/">
+      
+      
+        <link rel="next" href="../AcmeDemoWorkshop/">
+      
+      <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+    
+    
+      
+        <title>Using W3C JSON-LD Credentials - Hyperledger Aries ACA-Py Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-issue-json-ld-credentials-using-aca-py" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-header__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
+      
+  <img src="https://www.hyperledger.org/wp-content/uploads/2019/06/Hyperledger_Aries_Logo_White.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hyperledger Aries ACA-Py Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using W3C JSON-LD Credentials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hyperledger/aries-cloudagent-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hyperledger/aries-cloudagent-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hyperledger Aries ACA-Py Docs" class="md-nav__button md-logo" aria-label="Hyperledger Aries ACA-Py Docs" data-md-component="logo">
+      
+  <img src="https://www.hyperledger.org/wp-content/uploads/2019/06/Hyperledger_Aries_Logo_White.png" alt="logo">
+
+    </a>
+    Hyperledger Aries ACA-Py Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hyperledger/aries-cloudagent-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hyperledger/aries-cloudagent-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome!
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acapy-README/" class="md-nav__link">
+        ACA-Py README
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/DevReadMe/" class="md-nav__link">
+        Developer Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/SupportedRFCs/" class="md-nav__link">
+        Supported Aries AIPs and RFCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/AdminAPI/" class="md-nav__link">
+        The Admin API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/PlugIns/" class="md-nav__link">
+        ACA-Py Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Multitenancy/" class="md-nav__link">
+        Multitenant ACA-Py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/DIDMethods/" class="md-nav__link">
+        DID Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/DIDResolution/" class="md-nav__link">
+        DID Resolution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Multiledger/" class="md-nav__link">
+        Configuring Multiple Indy Ledgers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Endorser/" class="md-nav__link">
+        Automatically Endorsing Indy Transations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/JsonLdCredentials/" class="md-nav__link">
+        Using W3C JSON-LD Signed Credentials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/AnoncredsProofValidation/" class="md-nav__link">
+        AnonCreds Presentation Validation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Multicredentials/" class="md-nav__link">
+        Multiple Credential Types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/UsingOpenAPI/" class="md-nav__link">
+        Code Generation with the Open API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Mediation/" class="md-nav__link">
+        ACA-Py as a DIDComm Mediator
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Demos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Demos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        The Alice-Faber Demo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AriesOpenAPIDemo/" class="md-nav__link">
+        Open API Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AliceGetsAPhone/" class="md-nav__link">
+        Alice Gets a Phone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Endorser/" class="md-nav__link">
+        Hyperledger Indy Endorser In Action
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Using W3C JSON-LD Credentials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Using W3C JSON-LD Credentials
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-agents-to-issue-jdon-ld-credentials" class="md-nav__link">
+    Setup Agents to Issue JDON-LD Credentials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-more-realistic-json-ld-credentials" class="md-nav__link">
+    Building More Realistic JSON-LD Credentials
+  </a>
+  
+    <nav class="md-nav" aria-label="Building More Realistic JSON-LD Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-schemaorg" class="md-nav__link">
+    Context schema.org
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-specific-contexts" class="md-nav__link">
+    Credential-Specific Contexts
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential-Specific Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-issue-example" class="md-nav__link">
+    Credential Issue Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-presentation-example" class="md-nav__link">
+    Request Presentation Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#another-credential-issue-example" class="md-nav__link">
+    Another Credential Issue Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AcmeDemoWorkshop/" class="md-nav__link">
+        DIY -- ACME Controller Workshop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/" class="md-nav__link">
+        Becoming an Indy/Aries Developer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/IndyBasics/" class="md-nav__link">
+        Hyperledger Indy Basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AriesBasics/" class="md-nav__link">
+        Hyperledger Aries Basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/DecentralizedIdentityDemos/" class="md-nav__link">
+        Decentralized Identity Demos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AriesBigPicture/" class="md-nav__link">
+        Aries - The Big Picture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AriesAgentArchitecture/" class="md-nav__link">
+        Aries Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AriesMessaging/" class="md-nav__link">
+        Aries Messaging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AriesDeveloperDemos/" class="md-nav__link">
+        Aries Developer Demos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AgentConnections/" class="md-nav__link">
+        TODO Agent Connections
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/IssuingIndyCredentials/" class="md-nav__link">
+        TODO Issuing AnonCreds Credentials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/PresentingIndyProofs/" class="md-nav__link">
+        TODO Presenting AnonCreds Proofs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/YourOwnAriesAgent/" class="md-nav__link">
+        TODO Making Your Own ACA-Py Agent
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/IndyAriesDevOptions/" class="md-nav__link">
+        Aries Developer Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/DIDcommMsgs/" class="md-nav__link">
+        DIDComm Messaging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/RoutingEncryption/" class="md-nav__link">
+        DIDComm Message Routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/AriesRoutingExample/" class="md-nav__link">
+        DIDComm Message Routing Example
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/ConnectIndyNetwork/" class="md-nav__link">
+        TODO Connecting to an Indy Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gettingStarted/CredentialRevocation/" class="md-nav__link">
+        AnonCreds Credential Revocation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Deploying
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Deploying
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/deploymentModel/" class="md-nav__link">
+        Deployment Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
+        ACA-Py Container Images
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/Databases/" class="md-nav__link">
+        Databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying/RedisPlugins/" class="md-nav__link">
+        Persistent Queues and Caching
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Testing/Troubleshooting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Testing/Troubleshooting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Logging/" class="md-nav__link">
+        Managing Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/INTEGRATION-TESTS/" class="md-nav__link">
+        ACA-Py Integration Tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/AgentTracing/" class="md-nav__link">
+        Protocol Tracing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Contributing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/CONTRIBUTING/" class="md-nav__link">
+        How to Contribute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/MAINTAINERS/" class="md-nav__link">
+        Maintainers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/CODE_OF_CONDUCT/" class="md-nav__link">
+        Hyperledger Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/SECURITY/" class="md-nav__link">
+        Security Vulnerability Reporting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-agents-to-issue-jdon-ld-credentials" class="md-nav__link">
+    Setup Agents to Issue JDON-LD Credentials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-more-realistic-json-ld-credentials" class="md-nav__link">
+    Building More Realistic JSON-LD Credentials
+  </a>
+  
+    <nav class="md-nav" aria-label="Building More Realistic JSON-LD Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-schemaorg" class="md-nav__link">
+    Context schema.org
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-specific-contexts" class="md-nav__link">
+    Credential-Specific Contexts
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential-Specific Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-issue-example" class="md-nav__link">
+    Credential Issue Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-presentation-example" class="md-nav__link">
+    Request Presentation Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#another-credential-issue-example" class="md-nav__link">
+    Another Credential Issue Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="how-to-issue-json-ld-credentials-using-aca-py">How to Issue JSON-LD Credentials using Aca-py</h1>
+<p>Aca-py has the capability to issue and verify both Indy and JSON-LD (W3C compliant) credentials.</p>
+<p>The JSON-LD support is documented <a href="/demo/JsonLdCredentials.md">here</a> - this document will provide some additional detail in how to use the demo and admin api to issue and prove JSON-LD credentials.</p>
+<h2 id="setup-agents-to-issue-jdon-ld-credentials">Setup Agents to Issue JDON-LD Credentials</h2>
+<p>Clone this repository to a directory on your local:</p>
+<pre><code class="language-bash">git clone https://github.com/hyperledger/aries-cloudagent-python.git
+cd aries-cloudagent-python/demo
+</code></pre>
+<p>Open up a second shell (so you have 2 shells open in the <code>demo</code> directory) and in one shell:</p>
+<pre><code class="language-bash">./run_demo faber --did-exchange --aip 20 --cred-type json-ld
+</code></pre>
+<p>... and in the other:</p>
+<pre><code class="language-bash">./run_demo alice
+</code></pre>
+<p>Note that you start the <code>faber</code> agent with AIP2.0 options.  (When you specify <code>--cred-type json-ld</code> faber will set aip to <code>20</code> automatically, so the <code>--aip</code> option is not strictly required.)</p>
+<p>Also note that the above will only work with the <code>/issue-credential-2.0/create-offer</code> endpoint.  If you want to use the <code>/issue-credential-2.0/send</code> endpoint - which automates each step of the credential exchange - you will need to include the <code>--no-auto</code> option when starting each of the alice and faber agents (since the alice and faber controllers <em>also</em> automatically respond to each step in the credential exchange).</p>
+<p>(Alternately you can run run Alice and Faber agents locally, see the <code>./faber-local.sh</code> and <code>./alice-local.sh</code> scripts in the <code>demo</code> directory.)</p>
+<p>Copy the "invitation" json text from the Faber shell and paste into the Alice shell to establish a connection between the two agents.</p>
+<p>(If you are running with <code>--no-auto</code> you will also need to call the <code>/connections/{conn_id}/accept-invitation</code> endpoint in alice's admin api swagger page.)</p>
+<p>Now open up two browser windows to the <a href="http://localhost:8021/api/doc">Faber</a> and <a href="http://localhost:8031/api/doc">Alice</a> admin api swagger pages.</p>
+<p>Using the Faber admin api, you have to create a DID with the appropriate:</p>
+<ul>
+<li>DID method ("key" or "sov")</li>
+<li>key type "ed25519" or "bls12381g2" (corresponding to signature types "Ed25519Signature2018" or "BbsBlsSignature2020")</li>
+<li>if you use DID method "sov" you must use key type "ed25519"</li>
+</ul>
+<p>Note that "did:sov" must be a public DID (i.e. registered on the ledger) but "did:key" is not.</p>
+<p>For example, in Faber's swagger page call the <code>/wallet/did/create</code> endpoint with the following payload:</p>
+<pre><code>{
+  &quot;method&quot;: &quot;key&quot;,
+  &quot;options&quot;: {
+    &quot;key_type&quot;: &quot;bls12381g2&quot; // or ed25519
+  }
+}
+</code></pre>
+<p>This will return something like:</p>
+<pre><code>{
+  &quot;result&quot;: {
+    &quot;did&quot;: &quot;did:key:zUC71KdwBhq1FioWh53VXmyFiGpewNcg8Ld42WrSChpMzzskRWwHZfG9TJ7hPj8wzmKNrek3rW4ZkXNiHAjVchSmTr9aNUQaArK3KSkTySzjEM73FuDV62bjdAHF7EMnZ27poCE&quot;,
+    &quot;verkey&quot;: &quot;mV6482Amu6wJH8NeMqH3QyTjh6JU6N58A8GcirMZG7Wx1uyerzrzerA2EjnhUTmjiSLAp6CkNdpkLJ1NTS73dtcra8WUDDBZ3o455EMrkPyAtzst16RdTMsGe3ctyTxxJav&quot;,
+    &quot;posture&quot;: &quot;wallet_only&quot;,
+    &quot;key_type&quot;: &quot;bls12381g2&quot;,
+    &quot;method&quot;: &quot;key&quot;
+  }
+}
+</code></pre>
+<p>You do <em>not</em> create a schema or cred def for a JSON-LD credential (these are only required for "indy" credentials).</p>
+<p>You will need to create a DID as above for Alice as well (<code>/wallet/did/create</code> etc ...).</p>
+<p>Congradulations, you are now ready to start issuing JSON-LD credentials!</p>
+<ul>
+<li>You have two agents with a connection established between the agents - you will need to copy Faber's <code>connection_id</code> into the examples below.</li>
+<li>You have created a (non-public) DID for Faber to use to sign/issue the credentials - you will need to copy the DID that you created above into the examples below (as <code>issuer</code>).</li>
+<li>You have created a (non-public) DID for Alice to use as her <code>credentialSubject.id</code> - this is required for Alice to sign the proof (the <code>credentialSubject.id</code> is not required, but then the provided presentation can't be verified).</li>
+</ul>
+<p>To issue a credential, use the <code>/issue-credential-2.0/send-offer</code> endpoint. (You can also use the <code>/issue-credential-2.0/send</code>) endpoint, if, as mentioned above, you have included the <code>--no-auto</code> when starting both of the agents.)</p>
+<p>You can test with this example payload (just replace the "connection_id", "issuer" key, "credentialSubject.id" and "proofType" with appropriate values:</p>
+<pre><code>{
+  &quot;connection_id&quot;: &quot;4fba2ce5-b411-4ecf-aa1b-ec66f3f6c903&quot;,
+  &quot;filter&quot;: {
+    &quot;ld_proof&quot;: {
+      &quot;credential&quot;: {
+        &quot;@context&quot;: [
+          &quot;https://www.w3.org/2018/credentials/v1&quot;,
+          &quot;https://www.w3.org/2018/credentials/examples/v1&quot;
+        ],
+        &quot;type&quot;: [&quot;VerifiableCredential&quot;, &quot;UniversityDegreeCredential&quot;],
+        &quot;issuer&quot;: &quot;did:key:zUC71KdwBhq1FioWh53VXmyFiGpewNcg8Ld42WrSChpMzzskRWwHZfG9TJ7hPj8wzmKNrek3rW4ZkXNiHAjVchSmTr9aNUQaArK3KSkTySzjEM73FuDV62bjdAHF7EMnZ27poCE&quot;,
+        &quot;issuanceDate&quot;: &quot;2020-01-01T12:00:00Z&quot;,
+        &quot;credentialSubject&quot;: {
+          &quot;id&quot;: &quot;did:key:aksdkajshdkajhsdkjahsdkjahsdj&quot;,
+          &quot;givenName&quot;: &quot;Sally&quot;,
+          &quot;familyName&quot;: &quot;Student&quot;,
+          &quot;degree&quot;: {
+            &quot;type&quot;: &quot;BachelorDegree&quot;,
+            &quot;degreeType&quot;: &quot;Undergraduate&quot;,
+            &quot;name&quot;: &quot;Bachelor of Science and Arts&quot;
+          },
+          &quot;college&quot;: &quot;Faber College&quot;
+        }
+      },
+      &quot;options&quot;: {
+        &quot;proofType&quot;: &quot;BbsBlsSignature2020&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>Note that if you have the "auto" settings on, this is all you need to do.  Otherwise you need to call the <code>/send-request</code>, <code>/store</code>, etc endpoints to complete the protocol.</p>
+<p>To see the issued credential, call the <code>/credentials/w3c</code> endpoint on Alice's admin api - this will return something like:</p>
+<pre><code>{
+  &quot;results&quot;: [
+    {
+      &quot;contexts&quot;: [
+        &quot;https://w3id.org/security/bbs/v1&quot;,
+        &quot;https://www.w3.org/2018/credentials/examples/v1&quot;,
+        &quot;https://www.w3.org/2018/credentials/v1&quot;
+      ],
+      &quot;types&quot;: [
+        &quot;UniversityDegreeCredential&quot;,
+        &quot;VerifiableCredential&quot;
+      ],
+      &quot;schema_ids&quot;: [],
+      &quot;issuer_id&quot;: &quot;did:key:zUC71KdwBhq1FioWh53VXmyFiGpewNcg8Ld42WrSChpMzzskRWwHZfG9TJ7hPj8wzmKNrek3rW4ZkXNiHAjVchSmTr9aNUQaArK3KSkTySzjEM73FuDV62bjdAHF7EMnZ27poCE&quot;,
+      &quot;subject_ids&quot;: [],
+      &quot;proof_types&quot;: [
+        &quot;BbsBlsSignature2020&quot;
+      ],
+      &quot;cred_value&quot;: {
+        &quot;@context&quot;: [
+          &quot;https://www.w3.org/2018/credentials/v1&quot;,
+          &quot;https://www.w3.org/2018/credentials/examples/v1&quot;,
+          &quot;https://w3id.org/security/bbs/v1&quot;
+        ],
+        &quot;type&quot;: [
+          &quot;VerifiableCredential&quot;,
+          &quot;UniversityDegreeCredential&quot;
+        ],
+        &quot;issuer&quot;: &quot;did:key:zUC71Kd...poCE&quot;,
+        &quot;issuanceDate&quot;: &quot;2020-01-01T12:00:00Z&quot;,
+        &quot;credentialSubject&quot;: {
+          &quot;id&quot;: &quot;did:key:aksdkajshdkajhsdkjahsdkjahsdj&quot;,
+          &quot;givenName&quot;: &quot;Sally&quot;,
+          &quot;familyName&quot;: &quot;Student&quot;,
+          &quot;degree&quot;: {
+            &quot;type&quot;: &quot;BachelorDegree&quot;,
+            &quot;degreeType&quot;: &quot;Undergraduate&quot;,
+            &quot;name&quot;: &quot;Bachelor of Science and Arts&quot;
+          },
+          &quot;college&quot;: &quot;Faber College&quot;
+        },
+        &quot;proof&quot;: {
+          &quot;type&quot;: &quot;BbsBlsSignature2020&quot;,
+          &quot;proofPurpose&quot;: &quot;assertionMethod&quot;,
+          &quot;verificationMethod&quot;: &quot;did:key:zUC71Kd...poCE#zUC71Kd...poCE&quot;,
+          &quot;created&quot;: &quot;2021-05-19T16:19:44.458170&quot;,
+          &quot;proofValue&quot;: &quot;g0weLyw2Q+niQ4pGfiXB...tL9C9ORhy9Q==&quot;
+        }
+      },
+      &quot;cred_tags&quot;: {},
+      &quot;record_id&quot;: &quot;365ab87b12f74b2db784fdd4db8419f5&quot;
+    }
+  ]
+}
+</code></pre>
+<p>If you <em>don't</em> see the credential in your wallet, look up the credential exchange record (in alice's admin api - <code>/issue-credential-2.0/records</code>) and check the state.  If the state is <code>credential-received</code>, then the credential has been received but not stored, in this case just call the <code>/store</code> endpoint for this credential exchange.</p>
+<h2 id="building-more-realistic-json-ld-credentials">Building More Realistic JSON-LD Credentials</h2>
+<p>The above example uses the "https://www.w3.org/2018/credentials/examples/v1" context, which should never be used in a real application.</p>
+<p>To build credentials in real life, you first determine which attributes you need and then include the appropriate contexts.</p>
+<h3 id="context-schemaorg">Context schema.org</h3>
+<p>You can use attributes defined on <a href="https://schema.org">schema.org</a>.  Although this is <em>NOT RECOMMENDED</em> (included here for illustrative purposes only) - individual attributes can't be validated (see the comment later on).</p>
+<p>You first include <code>https://schema.org</code> in the <code>@context</code> block of the credential as follows:</p>
+<pre><code>&quot;@context&quot;: [
+  &quot;https://www.w3.org/2018/credentials/v1&quot;,
+  &quot;https://schema.org&quot;
+],
+</code></pre>
+<p>Then you review the <a href="https://schema.org/docs/schemas.html">attributes and objects defined by <code>https://schema.org</code></a> and decide what you need to include in your credential.</p>
+<p>For example to issue a credetial with <a href="https://schema.org/givenName">givenName</a>, <a href="https://schema.org/familyName">familyName</a> and <a href="https://schema.org/alumniOf">alumniOf</a> attributes, submit the following:</p>
+<pre><code>{
+  &quot;connection_id&quot;: &quot;ad35a4d8-c84b-4a4f-a83f-1afbf134b8b9&quot;,
+  &quot;filter&quot;: {
+    &quot;ld_proof&quot;: {
+      &quot;credential&quot;: {
+        &quot;@context&quot;: [
+          &quot;https://www.w3.org/2018/credentials/v1&quot;,
+          &quot;https://schema.org&quot;
+        ],
+        &quot;type&quot;: [&quot;VerifiableCredential&quot;, &quot;Person&quot;],
+        &quot;issuer&quot;: &quot;did:key:zUC71pj2gpDLfcZ9DE1bMtjZGWCSLhkQsUCaKjqXtCftGkz27894pEX9VvGNiFsaV67gqv2TEPQ2aDaDDdTDNp42LfDdK1LaWSBCfzsQEyaiR1zjZm1RtoRu1ZM6v6vz4TiqDgU&quot;,
+        &quot;issuanceDate&quot;: &quot;2020-01-01T12:00:00Z&quot;,
+        &quot;credentialSubject&quot;: {
+          &quot;id&quot;: &quot;did:key:aksdkajshdkajhsdkjahsdkjahsdj&quot;,
+          &quot;givenName&quot;: &quot;Sally&quot;,
+          &quot;familyName&quot;: &quot;Student&quot;,
+          &quot;alumniOf&quot;: &quot;Example University&quot;
+        }
+      },
+      &quot;options&quot;: {
+        &quot;proofType&quot;: &quot;BbsBlsSignature2020&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>Note that with <code>https://schema.org</code>, if you include attributes that aren't defined by <em>any</em> context, you will <em>not</em> get an error.  For example you can try replacing the <code>credentialSubject</code> in the above with:</p>
+<pre><code>&quot;credentialSubject&quot;: {
+  &quot;id&quot;: &quot;did:key:aksdkajshdkajhsdkjahsdkjahsdj&quot;,
+  &quot;givenName&quot;: &quot;Sally&quot;,
+  &quot;familyName&quot;: &quot;Student&quot;,
+  &quot;alumniOf&quot;: &quot;Example University&quot;,
+  &quot;someUndefinedAttribute&quot;: &quot;the value of the attribute&quot;
+}
+</code></pre>
+<p>... and the credential issuance <em>should</em> fail, however <code>https://schema.org</code> defines a <code>@vocab</code> that by default all terms derive from (<a href="https://stackoverflow.com/questions/30945898/what-is-the-use-of-vocab-in-json-ld-and-what-is-the-difference-to-context/30948037#30948037">see here</a>).</p>
+<p>You can include more complex schemas, for example to use the schema.org <a href="https://schema.org/Person">Person</a> schema (which includes <code>givenName</code> and <code>familyName</code>):</p>
+<pre><code>{
+  &quot;connection_id&quot;: &quot;ad35a4d8-c84b-4a4f-a83f-1afbf134b8b9&quot;,
+  &quot;filter&quot;: {
+    &quot;ld_proof&quot;: {
+      &quot;credential&quot;: {
+        &quot;@context&quot;: [
+          &quot;https://www.w3.org/2018/credentials/v1&quot;,
+          &quot;https://schema.org&quot;
+        ],
+        &quot;type&quot;: [&quot;VerifiableCredential&quot;, &quot;Person&quot;],
+        &quot;issuer&quot;: &quot;did:key:zUC71pj2gpDLfcZ9DE1bMtjZGWCSLhkQsUCaKjqXtCftGkz27894pEX9VvGNiFsaV67gqv2TEPQ2aDaDDdTDNp42LfDdK1LaWSBCfzsQEyaiR1zjZm1RtoRu1ZM6v6vz4TiqDgU&quot;,
+        &quot;issuanceDate&quot;: &quot;2020-01-01T12:00:00Z&quot;,
+        &quot;credentialSubject&quot;: {
+          &quot;id&quot;: &quot;did:key:aksdkajshdkajhsdkjahsdkjahsdj&quot;,
+          &quot;student&quot;: {
+            &quot;type&quot;: &quot;Person&quot;,
+            &quot;givenName&quot;: &quot;Sally&quot;,
+            &quot;familyName&quot;: &quot;Student&quot;,
+            &quot;alumniOf&quot;: &quot;Example University&quot;
+          }
+        }
+      },
+      &quot;options&quot;: {
+        &quot;proofType&quot;: &quot;BbsBlsSignature2020&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="credential-specific-contexts">Credential-Specific Contexts</h2>
+<p>The recommended approach to defining credentials is to define a credential-specific vocaublary (or make use of existing ones).  (Note that these can include references to <code>https://schema.org</code>, you just shouldn't uste this directly in your credential.)</p>
+<h3 id="credential-issue-example">Credential Issue Example</h3>
+<p>The following example uses the W3C citizenship context to issue a PermanentResident credential (replace the <code>connection_id</code>, <code>issuer</code> and <code>credentialSubject.id</code> with your local values):</p>
+<pre><code>{
+    &quot;connection_id&quot;: &quot;41acd909-9f45-4c69-8641-8146e0444a57&quot;,
+    &quot;filter&quot;: {
+        &quot;ld_proof&quot;: {
+            &quot;credential&quot;: {
+                &quot;@context&quot;: [
+                    &quot;https://www.w3.org/2018/credentials/v1&quot;,
+                    &quot;https://w3id.org/citizenship/v1&quot;
+                ],
+                &quot;type&quot;: [
+                    &quot;VerifiableCredential&quot;,
+                    &quot;PermanentResident&quot;
+                ],
+                &quot;id&quot;: &quot;https://credential.example.com/residents/1234567890&quot;,
+                &quot;issuer&quot;: &quot;did:key:zUC7Dus47jW5Avcne8LLsUvJSdwspmErgehxMWqZZy8eSSNoHZ4x8wgs77sAmQtCADED5RQP1WWhvt7KFNm6GGMxdSGpKu3PX6R9a61G9VoVsiFoRf1yoK6pzhq9jtFP3e2SmU9&quot;,
+                &quot;issuanceDate&quot;: &quot;2020-01-01T12:00:00Z&quot;,
+                &quot;credentialSubject&quot;: {
+                    &quot;type&quot;: [
+                        &quot;PermanentResident&quot;
+                    ],
+                    &quot;id&quot;: &quot;did:key:zUC7CXi82AXbkv4SvhxDxoufrLwQSAo79qbKiw7omCQ3c4TyciDdb9s3GTCbMvsDruSLZX6HNsjGxAr2SMLCNCCBRN5scukiZ4JV9FDPg5gccdqE9nfCU2zUcdyqRiUVnn9ZH83&quot;,
+                    &quot;givenName&quot;: &quot;ALICE&quot;,
+                    &quot;familyName&quot;: &quot;SMITH&quot;,
+                    &quot;gender&quot;: &quot;Female&quot;,
+                    &quot;birthCountry&quot;: &quot;Bahamas&quot;,
+                    &quot;birthDate&quot;: &quot;1958-07-17&quot;
+                }
+            },
+            &quot;options&quot;: {
+                &quot;proofType&quot;: &quot;BbsBlsSignature2020&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<p>Copy and paste this content into Faber's <code>/issue-credential-2.0/send-offer</code> endpoint, and it will kick off the exchange process to issue a W3C credential to Alice.</p>
+<p>In Alice's swagger page, submit the <code>/credentials/records/w3c</code> endpoint to see the issued credential.</p>
+<h3 id="request-presentation-example">Request Presentation Example</h3>
+<p>To request a proof, submit the following (with appropriate <code>connection_id</code>) to Faber's <code>/present-proof-2.0/send-request</code> endpoint:</p>
+<pre><code>{
+    &quot;comment&quot;: &quot;string&quot;,
+    &quot;connection_id&quot;: &quot;41acd909-9f45-4c69-8641-8146e0444a57&quot;,
+    &quot;presentation_request&quot;: {
+        &quot;dif&quot;: {
+            &quot;options&quot;: {
+                &quot;challenge&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa7&quot;,
+                &quot;domain&quot;: &quot;4jt78h47fh47&quot;
+            },
+            &quot;presentation_definition&quot;: {
+                &quot;id&quot;: &quot;32f54163-7166-48f1-93d8-ff217bdb0654&quot;,
+                &quot;format&quot;: {
+                    &quot;ldp_vp&quot;: {
+                        &quot;proof_type&quot;: [
+                            &quot;BbsBlsSignature2020&quot;
+                        ]
+                    }
+                },
+                &quot;input_descriptors&quot;: [
+                    {
+                        &quot;id&quot;: &quot;citizenship_input_1&quot;,
+                        &quot;name&quot;: &quot;EU Driver's License&quot;,
+                        &quot;schema&quot;: [
+                            {
+                                &quot;uri&quot;: &quot;https://www.w3.org/2018/credentials#VerifiableCredential&quot;
+                            },
+                            {
+                                &quot;uri&quot;: &quot;https://w3id.org/citizenship#PermanentResident&quot;
+                            }
+                        ],
+                        &quot;constraints&quot;: {
+                            &quot;limit_disclosure&quot;: &quot;required&quot;,
+                            &quot;is_holder&quot;: [
+                                {
+                                    &quot;directive&quot;: &quot;required&quot;,
+                                    &quot;field_id&quot;: [
+                                        &quot;1f44d55f-f161-4938-a659-f8026467f126&quot;
+                                    ]
+                                }
+                            ],
+                            &quot;fields&quot;: [
+                                {
+                                    &quot;id&quot;: &quot;1f44d55f-f161-4938-a659-f8026467f126&quot;,
+                                    &quot;path&quot;: [
+                                        &quot;$.credentialSubject.familyName&quot;
+                                    ],
+                                    &quot;purpose&quot;: &quot;The claim must be from one of the specified issuers&quot;,
+                                    &quot;filter&quot;: {
+                                        &quot;const&quot;: &quot;SMITH&quot;
+                                    }
+                                },
+                                {
+                                    &quot;path&quot;: [
+                                        &quot;$.credentialSubject.givenName&quot;
+                                    ],
+                                    &quot;purpose&quot;: &quot;The claim must be from one of the specified issuers&quot;
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+</code></pre>
+<p>Note that the <code>is_holder</code> property can be used by Faber to verify that the holder of credential is the same as the subject of the attribute (<code>familyName</code>). Later on, the received presentation will be signed and verifiable only if <code>is_holder</code> with <code>"directive": "required"</code> is included in the presentation request.</p>
+<p>There are several ways that Alice can respond with a presentation.  The simplest will just tell aca-py to put the presentation together and send it to Faber - submit the following to Alice's <code>/present-proof-2.0/records/{pres_ex_id}/send-presentation</code>:</p>
+<pre><code>{
+  &quot;dif&quot;: {
+  }
+}
+</code></pre>
+<p>There are two ways that Alice can provide some constraints to tell aca-py which credential(s) to include in the presentation.</p>
+<p>Firstly, Alice can include the received presentation request in the body to the <code>/send-presentation</code> endpoint, and can include additional constraints on the fields:</p>
+<pre><code>{
+  &quot;dif&quot;: {
+    &quot;issuer_id&quot;: &quot;did:key:zUC7Dus47jW5Avcne8LLsUvJSdwspmErgehxMWqZZy8eSSNoHZ4x8wgs77sAmQtCADED5RQP1WWhvt7KFNm6GGMxdSGpKu3PX6R9a61G9VoVsiFoRf1yoK6pzhq9jtFP3e2SmU9&quot;,
+    &quot;presentation_definition&quot;: {
+      &quot;format&quot;: {
+        &quot;ldp_vp&quot;: {
+          &quot;proof_type&quot;: [
+            &quot;BbsBlsSignature2020&quot;
+          ]
+        }
+      },
+      &quot;id&quot;: &quot;32f54163-7166-48f1-93d8-ff217bdb0654&quot;,
+      &quot;input_descriptors&quot;: [
+        {
+          &quot;id&quot;: &quot;citizenship_input_1&quot;,
+          &quot;name&quot;: &quot;Some kind of citizenship check&quot;,
+          &quot;schema&quot;: [
+            {
+              &quot;uri&quot;: &quot;https://www.w3.org/2018/credentials#VerifiableCredential&quot;
+            },
+            {
+              &quot;uri&quot;: &quot;https://w3id.org/citizenship#PermanentResident&quot;
+            }
+          ],
+          &quot;constraints&quot;: {
+            &quot;limit_disclosure&quot;: &quot;required&quot;,
+            &quot;is_holder&quot;: [
+                {
+                    &quot;directive&quot;: &quot;required&quot;,
+                    &quot;field_id&quot;: [
+                        &quot;1f44d55f-f161-4938-a659-f8026467f126&quot;,
+                        &quot;332be361-823a-4863-b18b-c3b930c5623e&quot;
+                    ],
+                }
+            ],
+            &quot;fields&quot;: [
+              {
+                &quot;id&quot;: &quot;1f44d55f-f161-4938-a659-f8026467f126&quot;,
+                &quot;path&quot;: [
+                  &quot;$.credentialSubject.familyName&quot;
+                ],
+                &quot;purpose&quot;: &quot;The claim must be from one of the specified issuers&quot;,
+                &quot;filter&quot;: {
+                  &quot;const&quot;: &quot;SMITH&quot;
+                }
+              },
+              {
+                  &quot;id&quot;: &quot;332be361-823a-4863-b18b-c3b930c5623e&quot;,
+                  &quot;path&quot;: [
+                      &quot;$.id&quot;
+                  ],
+                  &quot;purpose&quot;: &quot;Specify the id of the credential to present&quot;,
+                  &quot;filter&quot;: {
+                      &quot;const&quot;: &quot;https://credential.example.com/residents/1234567890&quot;
+                  }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<p>Note the additional constraint on <code>"path": [ "$.id" ]</code> - this restricts the presented credential to the one with the matching <code>credential.id</code>.  Any credential attributes can be used, however this presumes that the issued credentials contain a uniquely identifying attribute.</p>
+<p>Another option is for Alice to specify the credential <code>record_id</code> - this is an internal value within aca-py:</p>
+<pre><code>{
+  &quot;dif&quot;: {
+    &quot;issuer_id&quot;: &quot;did:key:zUC7Dus47jW5Avcne8LLsUvJSdwspmErgehxMWqZZy8eSSNoHZ4x8wgs77sAmQtCADED5RQP1WWhvt7KFNm6GGMxdSGpKu3PX6R9a61G9VoVsiFoRf1yoK6pzhq9jtFP3e2SmU9&quot;,
+    &quot;presentation_definition&quot;: {
+      &quot;format&quot;: {
+        &quot;ldp_vp&quot;: {
+          &quot;proof_type&quot;: [
+            &quot;BbsBlsSignature2020&quot;
+          ]
+        }
+      },
+      &quot;id&quot;: &quot;32f54163-7166-48f1-93d8-ff217bdb0654&quot;,
+      &quot;input_descriptors&quot;: [
+        {
+          &quot;id&quot;: &quot;citizenship_input_1&quot;,
+          &quot;name&quot;: &quot;Some kind of citizenship check&quot;,
+          &quot;schema&quot;: [
+            {
+              &quot;uri&quot;: &quot;https://www.w3.org/2018/credentials#VerifiableCredential&quot;
+            },
+            {
+              &quot;uri&quot;: &quot;https://w3id.org/citizenship#PermanentResident&quot;
+            }
+          ],
+          &quot;constraints&quot;: {
+            &quot;limit_disclosure&quot;: &quot;required&quot;,
+            &quot;fields&quot;: [
+              {
+                &quot;path&quot;: [
+                  &quot;$.credentialSubject.familyName&quot;
+                ],
+                &quot;purpose&quot;: &quot;The claim must be from one of the specified issuers&quot;,
+                &quot;filter&quot;: {
+                  &quot;const&quot;: &quot;SMITH&quot;
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    &quot;record_ids&quot;: {
+      &quot;citizenship_input_1&quot;: [ &quot;1496316f972e40cf9b46b35971182337&quot; ]
+    }
+  }
+}
+</code></pre>
+<h3 id="another-credential-issue-example">Another Credential Issue Example</h3>
+<p>TBD the following credential is based on the W3C Vaccination schema:</p>
+<pre><code>{
+  &quot;connection_id&quot;: &quot;ad35a4d8-c84b-4a4f-a83f-1afbf134b8b9&quot;,
+  &quot;filter&quot;: {
+    &quot;ld_proof&quot;: {
+      &quot;credential&quot;: {
+        &quot;@context&quot;: [
+          &quot;https://www.w3.org/2018/credentials/v1&quot;,
+          &quot;https://w3id.org/vaccination/v1&quot;
+        ],
+        &quot;type&quot;: [&quot;VerifiableCredential&quot;, &quot;VaccinationCertificate&quot;],
+        &quot;issuer&quot;: &quot;did:key:zUC71pj2gpDLfcZ9DE1bMtjZGWCSLhkQsUCaKjqXtCftGkz27894pEX9VvGNiFsaV67gqv2TEPQ2aDaDDdTDNp42LfDdK1LaWSBCfzsQEyaiR1zjZm1RtoRu1ZM6v6vz4TiqDgU&quot;,
+        &quot;issuanceDate&quot;: &quot;2020-01-01T12:00:00Z&quot;,
+        &quot;credentialSubject&quot;: {
+            &quot;id&quot;: &quot;did:key:aksdkajshdkajhsdkjahsdkjahsdj&quot;,
+            &quot;type&quot;: &quot;VaccinationEvent&quot;,
+            &quot;batchNumber&quot;: &quot;1183738569&quot;,
+            &quot;administeringCentre&quot;: &quot;MoH&quot;,
+            &quot;healthProfessional&quot;: &quot;MoH&quot;,
+            &quot;countryOfVaccination&quot;: &quot;NZ&quot;,
+            &quot;recipient&quot;: {
+              &quot;type&quot;: &quot;VaccineRecipient&quot;,
+              &quot;givenName&quot;: &quot;JOHN&quot;,
+              &quot;familyName&quot;: &quot;SMITH&quot;,
+              &quot;gender&quot;: &quot;Male&quot;,
+              &quot;birthDate&quot;: &quot;1958-07-17&quot;
+            },
+            &quot;vaccine&quot;: {
+              &quot;type&quot;: &quot;Vaccine&quot;,
+              &quot;disease&quot;: &quot;COVID-19&quot;,
+              &quot;atcCode&quot;: &quot;J07BX03&quot;,
+              &quot;medicinalProductName&quot;: &quot;COVID-19 Vaccine Moderna&quot;,
+              &quot;marketingAuthorizationHolder&quot;: &quot;Moderna Biotech&quot;
+            }
+        }
+      },
+      &quot;options&quot;: {
+        &quot;proofType&quot;: &quot;BbsBlsSignature2020&quot;
+      }
+    }
+  }
+}
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      
+    
+  </body>
+</html>
