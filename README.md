@@ -32,7 +32,7 @@ To test the documents and update the published site, the following tools are nee
 - Python 3 or a Docker environment
 - git
 - The [Material for Mkdocs] theme.
-- The [Mike] plugin for Mkocs.
+- The [Mike] MkDocs plugin for publishing versions to gh-pages.
   - Not used locally, but referenced in the `mkdocs.yml` file and needed for
     deploying the site to gh-pages.
 
