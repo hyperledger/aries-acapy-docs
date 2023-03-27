@@ -8,7 +8,7 @@ echo Building pages for ACA-Py Version ${VERSION}
 rm -rf docs/*
 
 # Replace the nav with the one for main
-sed '/nav/,$d' mkdocs.yml >mkdocs.yml.tmp
+sed '/^nav:/,$d' mkdocs.yml >mkdocs.yml.tmp
 cat << EOF >>mkdocs.yml.tmp
 nav:
 - Welcome!: README.md
