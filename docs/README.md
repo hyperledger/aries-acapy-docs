@@ -1,0 +1,28 @@
+# Welcome!
+
+![Hyperledger Aries](https://www.hyperledger.org/wp-content/uploads/2019/06/Hyperledger_Aries_Logo_Color-300x85.png)
+
+Welcome to the Aries Cloud Agent Python documentation site. On this site
+you will find all of the documentation for the versions of ACA-Py provided
+here. We only have a few of the older versions of ACA-Py (pre-`0.8.0`),
+but keep this site up to date as new releases become available.
+The `latest` version is the `main` branch, and is the most up to date.
+
+All of the documentation here is extracted from the [Aries Cloud Agent Python repository].
+If you want to contribute to the documentation, please start there.
+
+Ready to go? Scan the sidebar to find the documentation you need now!
+
+## Code Internals Documentation
+
+In addition to this documentation site, the ACA-Py community also maintains an
+ACA-Py internals documentation site. The internals documentation consists of the
+`docstrings` extracted from the ACA-Py Python code and covers all of the
+(non-test) modules in the codebase. Check it out on the [Aries Cloud
+Agent-Python ReadTheDocs site](https://aries-cloud-agent-python.readthedocs.io/en/latest/).
+As with this site, the ReadTheDocs documentation is version specific.
+
+Get questions?
+
+- Join us on the [Hyperledger Discord Server](https://chat.hyperledger.org), in the `#aries-cloudagent-python` channel.
+- Add an issue in the [Aries Cloud Agent Python](https://github.com/hyperledger/aries-cloudagent-python) repository.
