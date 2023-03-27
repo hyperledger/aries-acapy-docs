@@ -15,7 +15,7 @@ nav:
 - ACA-Py README: acapy-README.md
 - Features:
     - Developer Introduction: features/DevReadMe.md
-    - Supported Aries AIPs and RFCs: features/SupportedRFCs.md
+    - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md
     - The Admin API: features/AdminAPI.md
     - ACA-Py Plugins: features/PlugIns.md
     - Multitenant ACA-Py: features/Multitenancy.md
