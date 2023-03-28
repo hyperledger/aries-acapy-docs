@@ -11,7 +11,7 @@ The `latest` version is the `main` branch, and is the most up to date.
 All of the documentation here is extracted from the [Aries Cloud Agent Python repository].
 If you want to contribute to the documentation, please start there.
 
-Ready to go? Scan the sidebar to find the documentation you need now!
+Ready to go? Scan the tabs in the page header to find the documentation you need now!
 
 ## Code Internals Documentation
 
@@ -19,7 +19,7 @@ In addition to this documentation site, the ACA-Py community also maintains an
 ACA-Py internals documentation site. The internals documentation consists of the
 `docstrings` extracted from the ACA-Py Python code and covers all of the
 (non-test) modules in the codebase. Check it out on the [Aries Cloud
-Agent-Python ReadTheDocs site](https://aries-cloud-agent-python.readthedocs.io/en/latest/).
+Agent-Python ReadTheDocs site](https://aries-cloud-agent-python.readthedocs.io/en/0.8.0).
 As with this site, the ReadTheDocs documentation is version specific.
 
 Get questions?
