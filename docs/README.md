@@ -11,7 +11,7 @@ The `latest` version is the `main` branch, and is the most up to date.
 All of the documentation here is extracted from the [Aries Cloud Agent Python repository].
 If you want to contribute to the documentation, please start there.
 
-Ready to go? Scan the sidebar to find the documentation you need now!
+Ready to go? Scan the tabs in the page header to find the documentation you need now!
 
 ## Code Internals Documentation
 

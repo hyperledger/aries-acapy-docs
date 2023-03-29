@@ -11,8 +11,10 @@ rm -rf docs/*
 sed '/^nav:/,$d' mkdocs.yml >mkdocs.yml.tmp
 cat << EOF >>mkdocs.yml.tmp
 nav:
-- Welcome!: README.md
-- ACA-Py README: acapy-README.md
+- Welcome!:
+    - Welcome: README.md
+    - ACA-Py README: acapy-README.md
+    - Release Notes: CHANGELOG.md
 - Features:
     - Developer Introduction: features/DevReadMe.md
     - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md
@@ -69,7 +71,6 @@ nav:
     - Maintainers: contributing/MAINTAINERS.md
     - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
     - Security Vulnerability Reporting: contributing/SECURITY.md
-- Release Notes: CHANGELOG.md
 EOF
 mv mkdocs.yml.tmp mkdocs.yml  
 
@@ -82,11 +83,13 @@ else
   # Change the link to the ReadTheDocs site to be ACA-Py version specific
   FILE=Introduction.md; sed "s#en/latest/#en/${VERSION}#g" ${FILE} > ${FOLDER}/README.md
 fi
-FILE=README.md; sed 's#\./\(SupportedRFCs.md\)#/features/\1#' tmp/${FILE} \
-   | sed 's#\./\(Multitenancy.md\)#/features/\1#' \
-   | sed 's#\./\(Mediation.md\)#/features/\1#' \
-   | sed 's#\(Endorser.md\)#/features/\1#' \
-   | sed 's#\(Troubleshooting.md\)#/testing/\1#' > ${FOLDER}/acapy-${FILE}
+FILE=README.md; sed 's#\./\(SupportedRFCs\).md#/features/\1#' tmp/${FILE} \
+   | sed 's#\./\(Multitenancy\).md#/features/\1#' \
+   | sed 's#\./\(Mediation\).md#/features/\1#' \
+   | sed 's#\(Endorser\).md#/features/\1#' \
+   | sed 's#\(Troubleshooting\).md#/testing/\1#' \
+   | sed 's#/demo/\(README\).md#/demo/#' \
+   | sed 's#/docs/GettingStartedAriesDev/\(PlugIns\).md#/features/\1/#' > ${FOLDER}/acapy-${FILE}
 cp tmp/aca-py_architecture.png ${FOLDER}
 # Special handling for ChangeLog -- add a title at the top of the file
 echo "# Release Notes" >${FOLDER}/CHANGELOG.md
@@ -104,7 +107,12 @@ FOLDER=docs/features
 mkdir ${FOLDER}
 FILE=DevReadMe.md; sed 's#(README.md)#(/README.md)#' tmp/${FILE} \
    | sed "s#Databases.md#/deploying/Databases.md#g" \
-   | sed "s#Logging.md#/testing/Logging.md#g" > ${FOLDER}/${FILE}
+   | sed "s#Logging.md#/testing/Logging/#g" \
+   | sed "s#/docs/GettingStartedAriesDev/README.md#/gettingStarted/#" \
+   | sed "s#/\(CONTRIBUTING\).md#/contributing/\1/#" \
+   | sed "s#/\(CODE_OF_CONDUCT\).md#/contributing/\1/#" \
+   | sed "s/#Running/#running/g" \
+   | sed "s#\(aries_cloudagent/transport\)#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1#" > ${FOLDER}/${FILE}
 cp tmp/SupportedRFCs.md ${FOLDER}
 cp tmp/AdminAPI.md ${FOLDER}
 cp tmp/Multitenancy.md ${FOLDER}
