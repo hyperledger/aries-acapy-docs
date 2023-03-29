@@ -29,7 +29,7 @@ See the [README](/README.md) for details about this repository and information a
 
 Aries Cloud Agent Python (ACA-Py) is a configurable, extensible, non-mobile Aries agent that implements an easy way for developers to build decentralized identity services that use verifiable credentials.
 
-The information on this page assumes you are developer with a background in decentralized identity, Indy, Aries and verifiable credentials. If you aren't familiar with those concepts and projects, please use our [Getting Started Guide](/docs/GettingStartedAriesDev/README.md) to learn more.
+The information on this page assumes you are developer with a background in decentralized identity, Indy, Aries and verifiable credentials. If you aren't familiar with those concepts and projects, please use our [Getting Started Guide](../../gettingStarted/) to learn more.
 
 ## Developer Demos
 
@@ -96,7 +96,7 @@ aca-py start    --inbound-transport http 0.0.0.0 8000 \
                 --outbound-transport http
 ```
 
-ACA-Py ships with both inbound and outbound transport drivers for `http` and `ws` (websockets). Additional transport drivers can be added as pluggable implementations. See the existing implementations in the [transports module](aries_cloudagent/transport) for getting starting on adding a new transport.
+ACA-Py ships with both inbound and outbound transport drivers for `http` and `ws` (websockets). Additional transport drivers can be added as pluggable implementations. See the existing implementations in the [transports module](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/transport) for getting starting on adding a new transport.
 
 Most configuration parameters are provided to the the agent at startup. Refer to the `Running` sections above for details on listing the available command line parameters.
 
@@ -110,7 +110,7 @@ aca-py provision --wallet-type indy --seed $SEED
 
 For additional `provision` options, execute `aca-py provision --help`.
 
-Additional information about wallet storages can be found [here](/deploying/Databases.md).
+Additional information about wallet storages can be found [here](../../deploying/Databases).
 
 ### Mediation
 
@@ -152,11 +152,11 @@ Any ports you will be using from the docker container should be published using 
 PORTS="5000:5000 8000:8000 10000:10000" ./scripts/run_docker start --inbound-transport http 0.0.0.0 10000 --outbound-transport http --debug --log-level DEBUG
 ```
 
-Refer to [the previous section](#Running) for instructions on how to run the software.
+Refer to [the previous section](#running) for instructions on how to run the software.
 
 ### Logging
 
-You can find more details about logging and log levels [here](/testing/Logging.md).
+You can find more details about logging and log levels [here](../../testing/Logging/).
 
 ### Running Tests
 
@@ -213,7 +213,7 @@ There are some good examples of various test scenarios for you to work from incl
 
 The test suite also displays the current code coverage after each run so you can see how much of your work is covered by tests. Use your best judgement for how much coverage is sufficient.
 
-Please also refer to the [contributing guidelines](/CONTRIBUTING.md) and [code of conduct](/CODE_OF_CONDUCT.md).
+Please also refer to the [contributing guidelines](../../contributing/CONTRIBUTING/) and [code of conduct](../../contributing/CODE_OF_CONDUCT/).
 
 ## Publishing Releases
 

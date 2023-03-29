@@ -528,7 +528,7 @@ release and later, and "as-is" connections made using earlier releases of ACA-Py
 candidates. A new "Upgrade deployment" capability ([#1557](https://github.com/hyperledger/aries-cloudagent-python/pull/1557),
 described below) must be executed to update your deployment to add tags for all existing connections.
 
-The [Supported RFCs document](/SupportedRFCs.md) has been updated to reflect the addition of the
+The [Supported RFCs document](../../features/SupportedRFCs) has been updated to reflect the addition of the
 AIP 2.0 RFCs for which support was added.
 
 The following is an annotated list of PRs in the release, including a link to each PR.
@@ -606,7 +606,7 @@ With usage in the field increasing, we're cleaning up edge cases and issues rela
 
 The most significant new feature for users of Indy ledgers is a simplified approach for transaction authors getting their transactions
 signed by an endorser. Transaction author controllers now do almost nothing other than configuring their instance to use an Endorser,
-and ACA-Py takes care of the rest. Documentation of that feature is [here](/features/Endorser.md).
+and ACA-Py takes care of the rest. Documentation of that feature is [here](../../features/Endorser).
 
 - Improve cloud native deployments/scaling
   - unprotect liveness and readiness endpoints [#1416](https://github.com/hyperledger/aries-cloudagent-python/pull/1416)
@@ -719,11 +719,11 @@ This is a significant release of ACA-Py with several new features, as well as ch
 
 ### Mediator support
 
-While ACA-Py had previous support for a basic routing protocol, this was never fully developed or used in practice. Starting with this release, inbound and outbound connections can be established through a mediator agent using the Aries (Mediator Coordination Protocol)[https://github.com/hyperledger/aries-rfcs/tree/master/features/0211-route-coordination]. This work was initially contributed by Adam Burdett and Daniel Bluhm of [Indicio](https://indicio.tech/) on behalf of [SICPA](https://sicpa.com/). [Read more about mediation support](.//features/Mediation.md).
+While ACA-Py had previous support for a basic routing protocol, this was never fully developed or used in practice. Starting with this release, inbound and outbound connections can be established through a mediator agent using the Aries (Mediator Coordination Protocol)[https://github.com/hyperledger/aries-rfcs/tree/master/features/0211-route-coordination]. This work was initially contributed by Adam Burdett and Daniel Bluhm of [Indicio](https://indicio.tech/) on behalf of [SICPA](https://sicpa.com/). [Read more about mediation support](./../../features/Mediation).
 
 ### Multi-Tenancy support
 
-Started by [BMW](https://bmw.com/) and completed by [Animo Solutions](https://animo.id/) and [Anon Solutions](https://anon-solutions.ca/) on behalf of [SICPA](https://sicpa.com/), this feature allows for a single ACA-Py instance to host multiple wallet instances. This can greatly reduce the resources required when many identities are being handled. [Read more about multi-tenancy support](/features/Multitenancy.md).
+Started by [BMW](https://bmw.com/) and completed by [Animo Solutions](https://animo.id/) and [Anon Solutions](https://anon-solutions.ca/) on behalf of [SICPA](https://sicpa.com/), this feature allows for a single ACA-Py instance to host multiple wallet instances. This can greatly reduce the resources required when many identities are being handled. [Read more about multi-tenancy support](../../features/Multitenancy).
 
 ### New connection protocol(s)
 

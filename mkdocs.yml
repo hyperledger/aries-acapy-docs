@@ -77,8 +77,10 @@ extra:
   version:
     provider: mike
 nav:
-- Welcome!: README.md
-- ACA-Py README: acapy-README.md
+- Welcome!:
+    - Welcome: README.md
+    - ACA-Py README: release/acapy-README.md
+    - Release Notes: release/CHANGELOG.md
 - Features:
     - Developer Introduction: features/DevReadMe.md
     - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md
@@ -135,4 +137,3 @@ nav:
     - Maintainers: contributing/MAINTAINERS.md
     - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
     - Security Vulnerability Reporting: contributing/SECURITY.md
-- Release Notes: CHANGELOG.md
