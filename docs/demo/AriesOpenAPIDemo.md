@@ -89,7 +89,7 @@ Once the Faber agent has started up (with the invite displayed), click the link 
 
 <details>
     <summary>Show me a screenshot!</summary>
-    <img src="/demo/collateral/Faber-Agent.png" alt="Swagger Page for Faber Agent">
+    <img src="../../demo/collateral/Faber-Agent.png" alt="Swagger Page for Faber Agent">
 </details>
 
 ### Start the Alice Agent
@@ -119,7 +119,7 @@ Once the Alice agent has started up (with the `invite:` prompt displayed), click
 
 <details>
     <summary>Show me a screenshot!</summary>
-    <img src="/demo/collateral/Alice-Agent.png" alt="Swagger Page for Alice Agent">
+    <img src="../../demo/collateral/Alice-Agent.png" alt="Swagger Page for Alice Agent">
 </details>
 
 You are ready to go. Skip down to the [Using the OpenAPI/Swagger User Interface](#using-the-openapiswagger-user-interface) section.
@@ -155,7 +155,7 @@ If all goes well, the agent will show a message indicating it is running. Use th
 
 <details>
     <summary>Show me a screenshot!</summary>
-    <img src="/demo/collateral/Faber-Agent-Local.png" alt="Swagger Page for Faber Agent">
+    <img src="../../demo/collateral/Faber-Agent-Local.png" alt="Swagger Page for Faber Agent">
 </details>
 
 ### Start the Alice Agent
@@ -184,7 +184,7 @@ If all goes well, the agent will show a message indicating it is running. Open a
 
 <details>
     <summary>Show me a screenshot!</summary>
-    <img src="/demo/collateral/Alice-Agent-Local.png" alt="Swagger Page for Alice Agent">
+    <img src="../../demo/collateral/Alice-Agent-Local.png" alt="Swagger Page for Alice Agent">
 </details>
 
 ### Restarting the Docker Containers
@@ -229,12 +229,12 @@ In the Faber browser tab, navigate to the **`POST /connections/create-invitation
 
 <details>
     <summary>Show me a screenshot - Create Invitation Request</summary>
-    <img src="/demo/collateral/1-Faber-Invitation-1.png" alt="Create Invitation Request">
+    <img src="../../demo/collateral/1-Faber-Invitation-1.png" alt="Create Invitation Request">
 </details>
 
 <details>
     <summary>Show me a screenshot - Create Invitation Response</summary>
-    <img src="/demo/collateral/1-Faber-Invitation-2.png" alt="Create Invitation Response">
+    <img src="../../demo/collateral/1-Faber-Invitation-2.png" alt="Create Invitation Response">
 </details>
 
 ### Copy the Invitation created by the Faber Agent
@@ -243,14 +243,14 @@ Copy the entire block of the `invitation` object, from the curly brackets `{}`, 
 
 <details>
     <summary>Show me a screenshot - Create Invitation Response</summary>
-    <img src="/demo/collateral/1-Faber-Invitation-3.png" alt="Create Invitation Response">
+    <img src="../../demo/collateral/1-Faber-Invitation-3.png" alt="Create Invitation Response">
 </details>
 
 Before switching over to the Alice browser tab, scroll to and execute  the **`GET /connections`** endpoint to see the list of Faber's connections. You should see a connection with a `connection_id` that is identical to the invitation you just created, and that its state is `invitation`.
 
 <details>
     <summary>Show me a screenshot - Faber Connection Status</summary>
-    <img src="/demo/collateral/1-Faber-Invitation-4.png" alt="Faber Connection Status">
+    <img src="../../demo/collateral/1-Faber-Invitation-4.png" alt="Faber Connection Status">
 </details>
 
 ### Use the Alice Agent to Receive Faber's Invitation
@@ -261,12 +261,12 @@ Switch to the Alice browser tab and get ready to execute the **`POST /connection
 
 <details>
     <summary>Show me a screenshot - Receive Invitation Request</summary>
-    <img src="/demo/collateral/2-Alice-Invitation-1.png" alt="Receive Invitation Request">
+    <img src="../../demo/collateral/2-Alice-Invitation-1.png" alt="Receive Invitation Request">
 </details>
 
 <details>
     <summary>Show me a screenshot - Receive Invitation Response</summary>
-    <img src="/demo/collateral/2-Alice-Invitation-2.png" alt="Receive Invitation Request">
+    <img src="../../demo/collateral/2-Alice-Invitation-2.png" alt="Receive Invitation Request">
 </details>
 
 > A key observation to make here. The "copy and paste" we are doing here from Faber's agent to Alice's agent is what is called an "out of band" message. Because we don't yet have a DIDComm connection between the two agents, we have to convey the invitation in plaintext (we can't encrypt it - no channel) using some other mechanism than DIDComm. With mobile agents, that's where QR codes often come in. Once we have the invitation in the receivers agent, we can get back to using DIDComm.
@@ -277,19 +277,19 @@ At this point Alice has simply stored the invitation in her wallet. You can see 
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/2-Alice-Invitation-3.png" alt="Invitation Status">
+    <img src="../../demo/collateral/2-Alice-Invitation-3.png" alt="Invitation Status">
 </details>
 
 To complete a connection with Faber, she must accept the invitation and send a corresponding connection request to Faber. Find the `connection_id` in the connection response from the previous **`POST /connections/receive-invitation`** endpoint call. You may note that the same data was sent to the controller as an event from ACA-Py and is visible in the terminal. Scroll to the **`POST /connections/{conn_id}/accept-invitation`** endpoint and paste the `connection_id` in the `id` parameter field (you will have to click the `Try it out` button to see the available URL parameters). The response from clicking `Execute` should show that the connection has a state of `request`.
 
 <details>
     <summary>Show me a screenshot - Accept Invitation Request</summary>
-    <img src="/demo/collateral/2-Alice-Invitation-4.png" alt="Receive Invitation Request">
+    <img src="../../demo/collateral/2-Alice-Invitation-4.png" alt="Receive Invitation Request">
 </details>
 
 <details>
     <summary>Show me a screenshot - Accept Invitation Response</summary>
-    <img src="/demo/collateral/2-Alice-Invitation-5.png" alt="Receive Invitation Response">
+    <img src="../../demo/collateral/2-Alice-Invitation-5.png" alt="Receive Invitation Response">
 </details>
 
 ### The Faber Agent Gets the Request
@@ -298,7 +298,7 @@ In the Faber terminal session, an event (a web service callback from ACA-Py to t
 
 <details>
     <summary>Show me the event</summary>
-    <img src="/demo/collateral/3-Faber-Connection-2.png" alt="Connection Request Event">
+    <img src="../../demo/collateral/3-Faber-Connection-2.png" alt="Connection Request Event">
 </details>
 
 Note that the connection ID held by Alice is different from the one held by Faber. That makes sense, as both independently created connection objects, each with a unique, self-generated GUID.
@@ -309,12 +309,12 @@ To complete the connection process, Faber will respond to the connection request
 
 <details>
     <summary>Show me a screenshot - Accept Connection Request</summary>
-    <img src="/demo/collateral/3-Faber-Connection-3.png" alt="Accept Connection Request">
+    <img src="../../demo/collateral/3-Faber-Connection-3.png" alt="Accept Connection Request">
 </details>
 
 <details>
     <summary>Show me a screenshot - Accept Connection Request</summary>
-    <img src="/demo/collateral/3-Faber-Connection-4.png" alt="Accept Connection Request">
+    <img src="../../demo/collateral/3-Faber-Connection-4.png" alt="Accept Connection Request">
 </details>
 
 ### Review the Connection Status in Alice's Agent
@@ -325,14 +325,14 @@ Scroll to and execute **`GET /connections`** to see a list of Alice's connection
 
 <details>
     <summary>Show me a screenshot - Alice Connection Status</summary>
-    <img src="/demo/collateral/4-Alice-Connection-2.png" alt="Alice Connection Event">
+    <img src="../../demo/collateral/4-Alice-Connection-2.png" alt="Alice Connection Event">
 </details>
 
 As with Faber's side of the connection, Alice received a notification that Faber had accepted her connection request.
 
 <details>
     <summary>Show me the event</summary>
-    <img src="/demo/collateral/4-Alice-Connection-1.png" alt="Alice Connection Status">
+    <img src="../../demo/collateral/4-Alice-Connection-1.png" alt="Alice Connection Status">
 </details>
 
 ### Review the Connection Status in Faber's Agent
@@ -341,7 +341,7 @@ You are connected! Switch to the Faber browser tab and run the same **`GET /conn
 
 <details>
     <summary>Show me a screenshot - Faber Connection Status</summary>
-    <img src="/demo/collateral/5-Faber-Connection-1.png" alt="Faber Connection Status">
+    <img src="../../demo/collateral/5-Faber-Connection-1.png" alt="Faber Connection Status">
 </details>
 
 ## Basic Messaging Between Agents
@@ -354,7 +354,7 @@ On Alice's swagger page, scroll to the **`POST /connections/{conn_id}/send-messa
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/6-Alice-Basic-Msg.png" alt="Alice Send Message">
+    <img src="../../demo/collateral/6-Alice-Basic-Msg.png" alt="Alice Send Message">
 </details>
 
 ### Receiving a Basic Message (Faber)
@@ -363,7 +363,7 @@ How does Faber know that a message was sent? If you take a look at Faber's conso
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/7-Faber-Basic-Msg.png" alt="Faber Receive Message">
+    <img src="../../demo/collateral/7-Faber-Basic-Msg.png" alt="Faber Receive Message">
 </details>
 
 Faber's controller application can take whatever action is necessary to process this message. It could trigger some application code, or it might just be something the Faber application needs to display to its user (for example a reminder about some action the user needs to take).
@@ -374,7 +374,7 @@ How does Alice get feedback that Faber has received the message? The same way - 
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/8-Alice-Basic-Msg.png" alt="Alice Receive Message Confirmation">
+    <img src="../../demo/collateral/8-Alice-Basic-Msg.png" alt="Alice Receive Message Confirmation">
 </details>
 
 Again, Alice's agent can take whatever action is necessary, possibly just flagging the message as having been `received`.
@@ -401,14 +401,14 @@ You can confirm the schema and credential definition were published by going bac
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/C-1-Faber-DID-Public.png" alt="Faber Public DID">
+    <img src="../../demo/collateral/C-1-Faber-DID-Public.png" alt="Faber Public DID">
 </details>
 
 On the ledger browser of the [BCovrin ledger](http://dev.greenlight.bcovrin.vonx.io), click the `Domain` page, refresh, and paste the Faber public DID into the `Filter:` field:
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/C-2-Faber-Ledger-Search-0.png" alt="Search Ledger by DID">
+    <img src="../../demo/collateral/C-2-Faber-Ledger-Search-0.png" alt="Search Ledger by DID">
 </details>
 
 The ledger browser should refresh and display the four (4) transactions on the ledger related to this DID:
@@ -420,26 +420,26 @@ The ledger browser should refresh and display the four (4) transactions on the l
 
 <details>
     <summary>Show me the ledger transactions</summary>
-    <img src="/demo/collateral/C-2-Faber-Ledger-Search-1.png" alt="DID Transaction">
-    <img src="/demo/collateral/C-2-Faber-Ledger-Search-2.png" alt="DID Endpoint Transaction">
-    <img src="/demo/collateral/C-2-Faber-Ledger-Search-3.png" alt="Schema Transaction">
-    <img src="/demo/collateral/C-2-Faber-Ledger-Search-4.png" alt="Credential Definition Transaction">
+    <img src="../../demo/collateral/C-2-Faber-Ledger-Search-1.png" alt="DID Transaction">
+    <img src="../../demo/collateral/C-2-Faber-Ledger-Search-2.png" alt="DID Endpoint Transaction">
+    <img src="../../demo/collateral/C-2-Faber-Ledger-Search-3.png" alt="Schema Transaction">
+    <img src="../../demo/collateral/C-2-Faber-Ledger-Search-4.png" alt="Credential Definition Transaction">
 </details>
 
 You can also look up the Schema and Credential Definition information using Faber's swagger page. Use the **`GET /schemas/created`** endpoint to get a list of schemas, including the one `schema_id` that the Faber agent has defined. Keep this section of the Swagger page expanded as we'll need to copy the Id as part of starting the issue credential protocol coming next.
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/C-3-Faber-Info-2.png" alt="Search Schemas">
-    <img src="/demo/collateral/C-3-Faber-Info-3.png" alt="Search Schemas">
+    <img src="../../demo/collateral/C-3-Faber-Info-2.png" alt="Search Schemas">
+    <img src="../../demo/collateral/C-3-Faber-Info-3.png" alt="Search Schemas">
 </details>
 
 Likewise use the **`GET /credential-definitions/created`** endpoint to get the list of the one (in this case) credential definition id created by Faber. Keep this section of the Swagger page expanded as we'll also need to copy the Id as part of starting the issue credential protocol coming next.
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/C-3-Faber-Info-4.png" alt="Search Credential Definitions">
-    <img src="/demo/collateral/C-3-Faber-Info-5.png" alt="Search Credential Definitions">
+    <img src="../../demo/collateral/C-3-Faber-Info-4.png" alt="Search Credential Definitions">
+    <img src="../../demo/collateral/C-3-Faber-Info-5.png" alt="Search Credential Definitions">
 </details>
 
 **Hint**: Remember how the schema and credential definitions were created for you as Faber started up? To do it yourself, use the **`POST`** versions of these endpoints. Now you know!
@@ -458,7 +458,7 @@ First, get the connection Id for Faber's connection with Alice. You can copy tha
 
 <details>
     <summary>Click here to see a screenshot</summary>
-    <img src="/demo/collateral/C-3-Faber-Info-1.png" alt="Connection Id">
+    <img src="../../demo/collateral/C-3-Faber-Info-1.png" alt="Connection Id">
 </details>
 
 For the following fields, scroll on Faber's Swagger page to the listed endpoint, execute (if necessary), copy the response value and paste as the values of the following JSON items:
@@ -513,8 +513,8 @@ OK, finally, you are ready to click `Execute`. The request should work, but if i
 
 <details>
     <summary>Show me a screenshot - credential offer</summary>
-    <img src="/demo/collateral/C-4-Faber-Credential-Offer-1.png" alt="Faber Submit Credential Offer">
-    <img src="/demo/collateral/C-4-Faber-Credential-Offer-2.png" alt="Faber Submit Credential Offer">
+    <img src="../../demo/collateral/C-4-Faber-Credential-Offer-1.png" alt="Faber Submit Credential Offer">
+    <img src="../../demo/collateral/C-4-Faber-Credential-Offer-2.png" alt="Faber Submit Credential Offer">
 </details>
 
 To confirm the issuance worked, scroll up on the Faber Swagger page to the `issue-credential v2.0` section and execute the **`GET /issue-credential-2.0/records`** endpoint. You should see a lot of information about the exchange just initiated.
@@ -527,7 +527,7 @@ Alice's agent first received a notification of a Credential Offer, to which it r
 
 <details>
     <summary>Show me a screenshot - issue credential</summary>
-    <img src="/demo/collateral/C-5-Alice-Credential-Offer-1.png" alt="Issue Credential">
+    <img src="../../demo/collateral/C-5-Alice-Credential-Offer-1.png" alt="Issue Credential">
 </details>
 
 ### Alice Stores Credential in her Wallet
@@ -536,16 +536,16 @@ We can check (via Alice's Swagger interface) the issue credential status by hitt
 
 <details>
     <summary>Show me a screenshot - check credential exchange status</summary>
-    <img src="/demo/collateral/C-7-Alice-Store-Credential-1.png" alt="">
-    <img src="/demo/collateral/C-7-Alice-Store-Credential-2.png" alt="">
+    <img src="../../demo/collateral/C-7-Alice-Store-Credential-1.png" alt="">
+    <img src="../../demo/collateral/C-7-Alice-Store-Credential-2.png" alt="">
 </details>
 
 First, we need the `cred_ex_id` from the API call response above, or from the event in the terminal; use the endpoint **`POST /issue-credential-2.0/records/{cred_ex_id}/store`** to tell Alice's ACA-Py instance to store the credential in agent storage (aka the Indy Wallet). Note that in the JSON for that endpoint we can provide a credential Id to store in the wallet by setting a value in the `credential_id` string. A real controller might use the `cred_ex_id` for that, or use something else that makes sense in the agent's business scenario (but the agent generates a random credential identifier by default).
 
 <details>
     <summary>Show me a screenshot - store credential</summary>
-    <img src="/demo/collateral/C-7-Alice-Store-Credential-3.png" alt="">
-    <img src="/demo/collateral/C-7-Alice-Store-Credential-4.png" alt="">
+    <img src="../../demo/collateral/C-7-Alice-Store-Credential-3.png" alt="">
+    <img src="../../demo/collateral/C-7-Alice-Store-Credential-4.png" alt="">
 </details>
 
 Now, in Alice’s swagger browser tab, find the `credentials` section and within that, execute the **`GET /credentials`** endpoint. There should be a list of credentials held by Alice, with just a single entry, the credential issued from the Faber agent. Note that the element `referent` is the value of the `credential_id` element used in other calls. `referent` is the name returned in the `indy-sdk` call to get the set of credentials for the wallet and ACA-Py code does not change it in the response.
@@ -556,16 +556,16 @@ On the Faber side, we can see by scanning back in the terminal that it receive e
 
 <details>
     <summary>Show me Faber's event activity</summary>
-    <img src="/demo/collateral/C-6-Faber-Credential-Request.png" alt="">
-    <img src="/demo/collateral/C-8-Faber-Credential-Ack-0.png" alt="">
+    <img src="../../demo/collateral/C-6-Faber-Credential-Request.png" alt="">
+    <img src="../../demo/collateral/C-8-Faber-Credential-Ack-0.png" alt="">
 </details>
 
 Note that once the credential processing completed, Faber's agent deleted the credential exchange record from its wallet. This can be confirmed by executing the endpoint **`GET /issue-credential-2.0/records`**
 
 <details>
     <summary>Show me a screenshot</summary>
-    <img src="/demo/collateral/C-8-Faber-Credential-Ack-1.png" alt="">
-    <img src="/demo/collateral/C-8-Faber-Credential-Ack-2.png" alt="">
+    <img src="../../demo/collateral/C-8-Faber-Credential-Ack-1.png" alt="">
+    <img src="../../demo/collateral/C-8-Faber-Credential-Ack-2.png" alt="">
 </details>
 
 You’ve done it, issued a credential!  w00t!
@@ -581,7 +581,7 @@ Those that know something about the Indy process for issuing a credential and th
 
 If you would like to perform all of the issuance steps manually on the Faber agent side, use a sequence of the other `/issue-credential-2.0/` messages. Use the **`GET /issue-credential-2.0/records`** to both check the credential exchange state as you progress through the protocol and to find some of the data you’ll need in executing the sequence of requests.
 
-The following table lists endpoints that you need to call ("REST service") and callbacks that your agent will receive ("callback") that your need to respond to. See the [detailed API docs](/features/AdminAPI.md).
+The following table lists endpoints that you need to call ("REST service") and callbacks that your agent will receive ("callback") that your need to respond to. See the [detailed API docs](../../features/AdminAPI).
 
 | Protocol Step        | Faber (Issuer)         | Alice (Holder)     | Notes |
 | -------------------- | ---------------------- | ------------------ | ----- |
@@ -663,8 +663,8 @@ Notice that the proof request is using a predicate to check if Alice is older th
 
 <details>
     <summary>Show me a screenshot - send proof request</summary>
-    <img src="/demo/collateral/P-1-Faber-Proof-Request-1.png" alt="Send Proof Request">
-    <img src="/demo/collateral/P-1-Faber-Proof-Request-2.png" alt="Send Proof Request">
+    <img src="../../demo/collateral/P-1-Faber-Proof-Request-1.png" alt="Send Proof Request">
+    <img src="../../demo/collateral/P-1-Faber-Proof-Request-2.png" alt="Send Proof Request">
 </details>
 
 ### Alice - Responding to the Proof Request
@@ -673,8 +673,8 @@ As before, Alice receives a webhook event from her agent telling her she has rec
 
 <details>
     <summary>Show me Alice's event activity</summary>
-    <img src="/demo/collateral/P-2-Alice-Proof-Request-1.png" alt="Proof Request">
-    <img src="/demo/collateral/P-2-Alice-Proof-Request-2.png" alt="Proof Request">
+    <img src="../../demo/collateral/P-2-Alice-Proof-Request-1.png" alt="Proof Request">
+    <img src="../../demo/collateral/P-2-Alice-Proof-Request-2.png" alt="Proof Request">
 </details>
 
 In a real scenario, for example if Alice had a mobile agent on her smartphone, the agent would prompt Alice whether she wanted to respond or not.
@@ -687,9 +687,9 @@ You can see some of Faber's activity below:
 
 <details>
     <summary>Show me Faber's event activity</summary>
-    <img src="/demo/collateral/P-3-Faber-Proof-1.png" alt="Receive and Verify Proof">
-    <img src="/demo/collateral/P-3-Faber-Proof-2.png" alt="Receive and Verify Proof">
-    <img src="/demo/collateral/P-3-Faber-Proof-3.png" alt="Receive and Verify Proof">
+    <img src="../../demo/collateral/P-3-Faber-Proof-1.png" alt="Receive and Verify Proof">
+    <img src="../../demo/collateral/P-3-Faber-Proof-2.png" alt="Receive and Verify Proof">
+    <img src="../../demo/collateral/P-3-Faber-Proof-3.png" alt="Receive and Verify Proof">
 </details>
 
 ### Present Proof Notes
@@ -700,7 +700,7 @@ As with the issue credential process, the agents handled some of the presentatio
 
 If you would like to perform all of the proof request/response steps manually, you can call all of the individual `/present-proof-2.0` messages.
 
-The following table lists endpoints that you need to call ("REST service") and callbacks that your agent will receive ("callback") that your need to respond to. See the [detailed API docs](/features/AdminAPI.md).
+The following table lists endpoints that you need to call ("REST service") and callbacks that your agent will receive ("callback") that your need to respond to. See the [detailed API docs](../../features/AdminAPI).
 
 | Protocol Step        | Faber (Verifier)       | Alice (Holder/Prover)     | Notes |
 | -------------------- | ---------------------- | ------------------------- | ----- |

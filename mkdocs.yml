@@ -79,8 +79,8 @@ extra:
 nav:
 - Welcome!:
     - Welcome: README.md
-    - ACA-Py README: acapy-README.md
-    - Release Notes: CHANGELOG.md
+    - ACA-Py README: release/acapy-README.md
+    - Release Notes: release/CHANGELOG.md
 - Features:
     - Developer Introduction: features/DevReadMe.md
     - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md

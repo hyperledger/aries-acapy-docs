@@ -29,7 +29,7 @@ See the [README](/README.md) for details about this repository and information a
 
 Aries Cloud Agent Python (ACA-Py) is a configurable, extensible, non-mobile Aries agent that implements an easy way for developers to build decentralized identity services that use verifiable credentials.
 
-The information on this page assumes you are developer with a background in decentralized identity, Indy, Aries and verifiable credentials. If you aren't familiar with those concepts and projects, please use our [Getting Started Guide](/gettingStarted/) to learn more.
+The information on this page assumes you are developer with a background in decentralized identity, Indy, Aries and verifiable credentials. If you aren't familiar with those concepts and projects, please use our [Getting Started Guide](../../gettingStarted/) to learn more.
 
 ## Developer Demos
 
@@ -110,7 +110,7 @@ aca-py provision --wallet-type indy --seed $SEED
 
 For additional `provision` options, execute `aca-py provision --help`.
 
-Additional information about wallet storages can be found [here](/deploying/Databases.md).
+Additional information about wallet storages can be found [here](../../deploying/Databases).
 
 ### Mediation
 
@@ -156,7 +156,7 @@ Refer to [the previous section](#running) for instructions on how to run the sof
 
 ### Logging
 
-You can find more details about logging and log levels [here](/testing/Logging/).
+You can find more details about logging and log levels [here](../../testing/Logging/).
 
 ### Running Tests
 
@@ -213,7 +213,7 @@ There are some good examples of various test scenarios for you to work from incl
 
 The test suite also displays the current code coverage after each run so you can see how much of your work is covered by tests. Use your best judgement for how much coverage is sufficient.
 
-Please also refer to the [contributing guidelines](/contributing/CONTRIBUTING/) and [code of conduct](/contributing/CODE_OF_CONDUCT/).
+Please also refer to the [contributing guidelines](../../contributing/CONTRIBUTING/) and [code of conduct](../../contributing/CODE_OF_CONDUCT/).
 
 ## Publishing Releases
 
