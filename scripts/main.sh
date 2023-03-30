@@ -93,6 +93,7 @@ FILE=README.md; sed 's#\./\(SupportedRFCs\).md#../../features/\1#' tmp/${FILE} \
    | sed 's#\(Endorser\).md#../../features/\1#' \
    | sed 's#\(Troubleshooting\).md#../../testing/\1#' \
    | sed 's#/demo/\(README\).md#../../demo/#' \
+   | sed 's#/docs/GettingStartedAriesDev/\(README\).md#../../gettingStarted/\1#' \
    | sed 's#/docs/GettingStartedAriesDev/\(PlugIns\).md#../../features/\1/#' > ${FOLDER}/acapy-${FILE}
 cp tmp/aca-py_architecture.png ${FOLDER}
 # Special handling for ChangeLog -- add a title at the top of the file
