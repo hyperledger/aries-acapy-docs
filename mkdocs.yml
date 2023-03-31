@@ -128,6 +128,7 @@ nav:
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
 - Testing/Troubleshooting:
+    - Running and Creating Unit Tests: testing/UnitTests.md
     - Managing Logging: testing/Logging.md
     - ACA-Py Integration Tests: testing/INTEGRATION-TESTS.md
     - Protocol Tracing: testing/AgentTracing.md

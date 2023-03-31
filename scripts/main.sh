@@ -86,6 +86,7 @@ nav:
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
 - Testing/Troubleshooting:
+    - Running and Creating Unit Tests: testing/UnitTests.md
     - Managing Logging: testing/Logging.md
     - ACA-Py Integration Tests: testing/INTEGRATION-TESTS.md
     - Protocol Tracing: testing/AgentTracing.md
@@ -231,6 +232,7 @@ cp tmp/docs/GettingStartedAriesDev/CredentialRevocation.md ${FOLDER}
 # Testing and Troubleshooting
 FOLDER=docs/testing
 mkdir ${FOLDER}
+cp tmp/UnitTests.md ${FOLDER}
 FILE=Logging.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
   -e "s#aries_cloudagent/config/default_logging_config.ini#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/aries_cloudagent/config/default_logging_config.ini#g" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
