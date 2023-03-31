@@ -1,6 +1,6 @@
 # Developer's Read Me for Hyperledger Aries Cloud Agent - Python <!-- omit in toc -->
 
-See the [README](/README.md) for details about this repository and information about how the Aries Cloud Agent - Python fits into the Aries project and relates to Indy.
+See the [README](../../release/acapy-README) for details about this repository and information about how the Aries Cloud Agent - Python fits into the Aries project and relates to Indy.
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -33,7 +33,7 @@ The information on this page assumes you are developer with a background in dece
 
 ## Developer Demos
 
-To put ACA-Py through its paces at the command line, checkout our [demos](/docs/GettingStartedAriesDev/AriesDeveloperDemos.md) page.
+To put ACA-Py through its paces at the command line, checkout our [demos](../../AriesDeveloperDemos) page.
 
 ## Running
 

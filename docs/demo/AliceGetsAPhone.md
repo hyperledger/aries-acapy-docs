@@ -131,7 +131,7 @@ Note that with _Play with Docker_ it can be challenging to capture the informati
 
 #### Running locally in a bash shell?
 
-If you are running in a _local bash shell_, navigate to [The demo directory](/demo) and run:
+If you are running in a _local bash shell_, navigate to [The demo directory](../../demo) and run:
 
 ```bash
 TAILS_NETWORK=docker_tails-server LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber --aip 10 --revocation --events
@@ -143,7 +143,7 @@ The `TAILS_NETWORK` parameter lets the demo script know how to connect to the ta
 
 #### Running in Play with Docker?
 
-If you are running in _Play with Docker_, navigate to [The demo directory](/demo) and run:
+If you are running in _Play with Docker_, navigate to [The demo directory](../../demo) and run:
 
 ```bash
 PUBLIC_TAILS_URL=https://c4f7fbb85911.ngrok.io LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber --aip 10 --revocation --events
