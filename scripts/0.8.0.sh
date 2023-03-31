@@ -4,8 +4,10 @@
 # This repository has the documentation website generation code, the ACA-Py repository has the documentation (markdown files).
 # This script is defined per release tag (plus main branch) in the ACA-Py repository
 # The process is:
-# - Assumes a release version clone ACA-Py repos is in the /tmp folder of this repo
+# - Assumes a release version clone the ACA-Py repos is in the /tmp folder of this repo
+# - If not on "main", writes an override message.
 # - Passed in is the Release Versions -- "main" or "0.8.0", etc.
+#   *** TODO -- check that the version matches what is in /tmp
 # - Delete the existing content of the /docs folder in this repo
 # - Define the per release Mkdocs navigation for the site and put it in place of the current mkdocs YML
 # - For each folder that will be in the /docs folder of this rep0:
@@ -23,10 +25,27 @@
 # - Scan the /tmp folder for all .md files and see if you have them in the /docs folder
 #   - a script to compare the list of .md files in /tmp and /docs is planned
 
-
 VERSION=$1
+# VIEWING="You're viewing the documentation for an older ACA-Py Release, ${VERSION}."
+VIEWING="You're viewing the documentation for the latest ACA-Py Release, ${VERSION}."
 
 echo Building pages for ACA-Py Version ${VERSION}
+
+# Write out the override text for the version
+if [ "${VERSION}" == "main" ]; then
+  rm -f overrides/main.html
+else
+  cat <<EOF >overrides/main.html
+{% extends "base.html" %}
+
+{% block outdated %}
+  ${VIEWING}
+  <a href="{{ '../' ~ base_url }}"> 
+    Click here
+  </a> for the ACA-Py main branch documentation.
+{% endblock %}
+EOF
+fi
 
 # Clean out the docs folder
 rm -rf docs/*
