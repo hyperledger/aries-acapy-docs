@@ -131,7 +131,7 @@ Note that with _Play with Docker_ it can be challenging to capture the informati
 
 #### Running locally in a bash shell?
 
-If you are running in a _local bash shell_, navigate to [The demo directory](/demo) and run:
+If you are running in a _local bash shell_, navigate to [The demo directory](../../demo) and run:
 
 ```bash
 TAILS_NETWORK=docker_tails-server LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber --aip 10 --revocation --events
@@ -143,7 +143,7 @@ The `TAILS_NETWORK` parameter lets the demo script know how to connect to the ta
 
 #### Running in Play with Docker?
 
-If you are running in _Play with Docker_, navigate to [The demo directory](/demo) and run:
+If you are running in _Play with Docker_, navigate to [The demo directory](../../demo) and run:
 
 ```bash
 PUBLIC_TAILS_URL=https://c4f7fbb85911.ngrok.io LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber --aip 10 --revocation --events
@@ -172,7 +172,7 @@ As part of its startup process, the agent will publish a revocation registry to 
 
 <details>
     <summary>Click here to view screenshot of the revocation registry on the ledger</summary>
-    <img src="/demo/collateral/revocation-2-ledger.png" alt="Ledger">
+    <img src="../../demo/collateral/revocation-2-ledger.png" alt="Ledger">
 </details>
 
 ## Accept the Invitation
@@ -181,18 +181,18 @@ When the Faber agent starts up it automatically creates an invitation and genera
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-1-connect-1.jpg" alt="Accept Invitation">
+    <img src="../../demo/collateral/S-1-connect-1.jpg" alt="Accept Invitation">
 </details>
 
 The mobile agent will give you feedback on the connection process, something like "A connection was added to your wallet".
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-1-connect-2.jpg" alt="Add Connection to Wallet">
+    <img src="../../demo/collateral/S-1-connect-2.jpg" alt="Add Connection to Wallet">
 </details>
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-1-connect-3.jpg" alt="Add Connection to Wallet">
+    <img src="../../demo/collateral/S-1-connect-3.jpg" alt="Add Connection to Wallet">
 </details>
 
 Switch your browser back to Play with Docker. You should see that the connection has been established, and there is a prompt for what actions you want to take, e.g. "Issue Credential", "Send Proof Request" and so on.
@@ -219,7 +219,7 @@ In the Faber console, select option `1` to send a credential to the mobile agent
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-3-credential-0.png" alt="Issue Credential">
+    <img src="../../demo/collateral/S-3-credential-0.png" alt="Issue Credential">
 </details>
 
 The Faber agent outputs details to the console; e.g.,
@@ -239,15 +239,15 @@ The credential offer should automatically show up in the mobile agent. Accept th
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-3-credential-1.jpg" alt="Credential Offer">
+    <img src="../../demo/collateral/S-3-credential-1.jpg" alt="Credential Offer">
 </details>
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-3-credential-2.jpg" alt="Credential Details">
+    <img src="../../demo/collateral/S-3-credential-2.jpg" alt="Credential Details">
 </details>
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-3-credential-3.jpg" alt="Credential Acceptance">
+    <img src="../../demo/collateral/S-3-credential-3.jpg" alt="Credential Acceptance">
 </details>
 
 ## Issue a Presentation Request
@@ -258,7 +258,7 @@ In the Faber console, select option `2` to send a proof request to the mobile ag
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-4-proof-0.png" alt="Request Proof">
+    <img src="../../demo/collateral/S-4-proof-0.png" alt="Request Proof">
 </details>
 
 ## Present the Proof
@@ -267,15 +267,15 @@ The presentation (proof) request should automatically show up in the mobile agen
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-4-proof-1.jpg" alt="Proof Request Notice">
+    <img src="../../demo/collateral/S-4-proof-1.jpg" alt="Proof Request Notice">
 </details>
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-4-proof-2.jpg" alt="Proof Request Details">
+    <img src="../../demo/collateral/S-4-proof-2.jpg" alt="Proof Request Details">
 </details>
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-4-proof-3.jpg" alt="Proof Presentation">
+    <img src="../../demo/collateral/S-4-proof-3.jpg" alt="Proof Presentation">
 </details>
 
 If the mobile agent is able to successfully prepare and send the proof, you can go back to the Play with Docker terminal to see the status of the proof.
@@ -288,7 +288,7 @@ In the Faber console window, the proof should be received as validated.
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/S-4-proof-4.png" alt="Proof Validation">
+    <img src="../../demo/collateral/S-4-proof-4.png" alt="Proof Validation">
 </details>
 
 ## Revoke the Credential and Send Another Proof Request
@@ -299,7 +299,7 @@ Once that is done, try sending another proof request and see what happens! Exper
 
 <details>
     <summary>Click here to view screenshot</summary>
-    <img src="/demo/collateral/revocation-3-console.png" alt="Revocation">
+    <img src="../../demo/collateral/revocation-3-console.png" alt="Revocation">
 </details>
 
 ## Send a Connectionless Proof Request
