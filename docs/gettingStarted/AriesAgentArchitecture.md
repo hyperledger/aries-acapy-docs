@@ -2,7 +2,7 @@
 
 This section talks in particular about the architecture of this Aries cloud agent implementation. An instance of an Aries agent is actually made up of to two parts - the agent itself and a controller. 
 
-![ACA-Py Deployment Overview](/docs/assets/deploymentModel-full.png "ACA-Py Deployment Overview")
+![ACA-Py Deployment Overview](../../assets/deploymentModel-full.png "ACA-Py Deployment Overview")
 
 The agent handles all of the core Aries functionality such as interacting with other agents, managing secure storage, sending event notifications to, and receiving directions from, the controller. The controller provides the business logic that defines how that particular agent instance behaves--how to respond to events in the agent, and when to trigger the agent to initiate events. The controller might be a web or native user interface for a person or it might be coded business rules driven by an enterprise system.
 
@@ -10,6 +10,6 @@ Between the two is a simple interface. The agent sends event notifications to th
 
 As such, the agent is just a configured dependency in an Aries cloud agent deployment. Thus, the vast majority of Aries developers will focus on building controllers (business logic) and perhaps some custom plugins (protocols, as we'll discuss soon) for the agent. Only a relatively small group of Aries cloud agent maintainers will focus on adding and maintaining the agent dependency.
 
-Want more details about the agent and controller internals? Take a look at the [Aries cloud agent deployment model](/deployment/deploymentModel.md) document.
+Want more details about the agent and controller internals? Take a look at the [Aries cloud agent deployment model](../../deploying/deploymentModel) document.
 
 > Back to the [Aries Developer - Getting Started Guide](README.md).
