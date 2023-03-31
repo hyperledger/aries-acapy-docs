@@ -15,7 +15,7 @@
         <link rel="next" href="../Endorser/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../testing/Logging/" class="md-tabs__link">
+      <a href="../../testing/UnitTests/" class="md-tabs__link">
         Testing/Troubleshooting
       </a>
     </li>
@@ -1217,6 +1217,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../testing/UnitTests/" class="md-nav__link">
+        Running and Creating Unit Tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../testing/Logging/" class="md-nav__link">
         Managing Logging
       </a>
@@ -1481,13 +1495,13 @@
 <p>Note that with <em>Play with Docker</em> it can be challenging to capture the information you need from the log file as it scrolls by, you can try leaving off the <code>--events</code> option when you run the Faber agent to reduce the quantity of information logged to the screen.</p>
 <h3 id="run-faber-with-extra-parameters">Run <code>faber</code> With Extra Parameters<a class="headerlink" href="#run-faber-with-extra-parameters" title="Permanent link">&para;</a></h3>
 <h4 id="running-locally-in-a-bash-shell_1">Running locally in a bash shell?<a class="headerlink" href="#running-locally-in-a-bash-shell_1" title="Permanent link">&para;</a></h4>
-<p>If you are running in a <em>local bash shell</em>, navigate to <a href="/demo">The demo directory</a> and run:</p>
+<p>If you are running in a <em>local bash shell</em>, navigate to <a href="../../demo">The demo directory</a> and run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">TAILS_NETWORK</span><span class="o">=</span>docker_tails-server<span class="w"> </span><span class="nv">LEDGER_URL</span><span class="o">=</span>http://test.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--aip<span class="w"> </span><span class="m">10</span><span class="w"> </span>--revocation<span class="w"> </span>--events
 </code></pre></div>
 <p>(Note that we have to start faber with <code>--aip 10</code> for compatibility with mobile clients.)</p>
 <p>The <code>TAILS_NETWORK</code> parameter lets the demo script know how to connect to the tails server (which should be running in a separate shell on the same machine).</p>
 <h4 id="running-in-play-with-docker_2">Running in Play with Docker?<a class="headerlink" href="#running-in-play-with-docker_2" title="Permanent link">&para;</a></h4>
-<p>If you are running in <em>Play with Docker</em>, navigate to <a href="/demo">The demo directory</a> and run:</p>
+<p>If you are running in <em>Play with Docker</em>, navigate to <a href="../../demo">The demo directory</a> and run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">PUBLIC_TAILS_URL</span><span class="o">=</span>https://c4f7fbb85911.ngrok.io<span class="w"> </span><span class="nv">LEDGER_URL</span><span class="o">=</span>http://test.bcovrin.vonx.io<span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--aip<span class="w"> </span><span class="m">10</span><span class="w"> </span>--revocation<span class="w"> </span>--events
 </code></pre></div>
 <p>The <code>PUBLIC_TAILS_URL</code> parameter lets the demo script know how to connect to the tails server. This can be running in another PWD session, or even on your local machine - the ngrok endpoint is public and will map to the correct location.</p>
@@ -1645,10 +1659,10 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Previous
-                </span>
                 Open API Tutorial
               </div>
             </div>
@@ -1658,10 +1672,10 @@
           
           <a href="../Endorser/" class="md-footer__link md-footer__link--next" aria-label="Next: Hyperledger Indy Endorser In Action" rel="next">
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
                 Hyperledger Indy Endorser In Action
               </div>
             </div>
@@ -1697,7 +1711,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>

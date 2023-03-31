@@ -15,7 +15,7 @@
         <link rel="next" href="../AriesMessaging/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -283,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../testing/Logging/" class="md-tabs__link">
+      <a href="../../testing/UnitTests/" class="md-tabs__link">
         Testing/Troubleshooting
       </a>
     </li>
@@ -1217,6 +1217,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../testing/UnitTests/" class="md-nav__link">
+        Running and Creating Unit Tests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../testing/Logging/" class="md-nav__link">
         Managing Logging
       </a>
@@ -1404,11 +1418,11 @@
 
 <h1 id="aries-cloud-agent-internals-agent-and-controller">Aries Cloud Agent Internals: Agent and Controller<a class="headerlink" href="#aries-cloud-agent-internals-agent-and-controller" title="Permanent link">&para;</a></h1>
 <p>This section talks in particular about the architecture of this Aries cloud agent implementation. An instance of an Aries agent is actually made up of to two parts - the agent itself and a controller. </p>
-<p><img alt="ACA-Py Deployment Overview" src="/docs/assets/deploymentModel-full.png" title="ACA-Py Deployment Overview" /></p>
+<p><img alt="ACA-Py Deployment Overview" src="../../assets/deploymentModel-full.png" title="ACA-Py Deployment Overview" /></p>
 <p>The agent handles all of the core Aries functionality such as interacting with other agents, managing secure storage, sending event notifications to, and receiving directions from, the controller. The controller provides the business logic that defines how that particular agent instance behaves--how to respond to events in the agent, and when to trigger the agent to initiate events. The controller might be a web or native user interface for a person or it might be coded business rules driven by an enterprise system.</p>
 <p>Between the two is a simple interface. The agent sends event notifications to the controller and the controller sends administrator messages to the agent. The controller registers a webhook with the agent, and the event notifications are HTTP callbacks, and the agent exposes a REST API to the controller for all of the administrative messages it is configured to handle. Each of the DIDComm protocols supported by the agent adds a set of administrative messages for the controller to use in responding to events. The Aries cloud agent includes an <a href="https://swagger.io/tools/swagger-ui/">OpenAPI</a> (aka Swagger) user interface for a developer to use to explore the API for a specific agent.</p>
 <p>As such, the agent is just a configured dependency in an Aries cloud agent deployment. Thus, the vast majority of Aries developers will focus on building controllers (business logic) and perhaps some custom plugins (protocols, as we'll discuss soon) for the agent. Only a relatively small group of Aries cloud agent maintainers will focus on adding and maintaining the agent dependency.</p>
-<p>Want more details about the agent and controller internals? Take a look at the <a href="../../deployment/deploymentModel">Aries cloud agent deployment model</a> document.</p>
+<p>Want more details about the agent and controller internals? Take a look at the <a href="../../deploying/deploymentModel">Aries cloud agent deployment model</a> document.</p>
 <blockquote>
 <p>Back to the <a href="../">Aries Developer - Getting Started Guide</a>.</p>
 </blockquote>
@@ -1443,10 +1457,10 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Previous
-                </span>
                 Aries - The Big Picture
               </div>
             </div>
@@ -1456,10 +1470,10 @@
           
           <a href="../AriesMessaging/" class="md-footer__link md-footer__link--next" aria-label="Next: Aries Messaging" rel="next">
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
                 Aries Messaging
               </div>
             </div>
@@ -1495,7 +1509,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
