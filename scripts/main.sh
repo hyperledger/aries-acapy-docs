@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# This script is for populating a documentation website from documents in the ACA-Py code repository.
+# This repository has the documentation website generation code, the ACA-Py repository has the documentation (markdown files).
+# This script is defined per release tag (plus main branch) in the ACA-Py repository
+# The process is:
+# - Assumes a release version clone ACA-Py repos is in the /tmp folder of this repo
+# - Passed in is the Release Versions -- "main" or "0.8.0", etc.
+# - Delete the existing content of the /docs folder in this repo
+# - Define the per release Mkdocs navigation for the site and put it in place of the current mkdocs YML
+# - For each folder that will be in the /docs folder of this rep0:
+#   - For each file the is to be in the folder within the /docs folder
+#     - Either directly copy, or copy with edits applied the source file to the /docs folder
+# - Edits are needed to "fix" the links to work when the file is in the new place in the repo
+# See the edits below for the types of changes needed. Usually, they are to change absolute
+# links in the ACA-Py folder to relative links in this folder, as well as to handle changes
+# in where the docs are placed.
+# 
+# To find broken links:
+# - Run mkdocs locally and click on links and images that result in 404s
+# - Once you publish the docs, run a "broken link finder" tool to find others
+# To find missing documentation files
+# - Scan the /tmp folder for all .md files and see if you have them in the /docs folder
+#   - a script to compare the list of .md files in /tmp and /docs is planned
+
+
 VERSION=$1
 
 echo Building pages for ACA-Py Version ${VERSION}
@@ -62,6 +86,7 @@ nav:
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
 - Testing/Troubleshooting:
+    - Running and Creating Unit Tests: testing/UnitTests.md
     - Managing Logging: testing/Logging.md
     - ACA-Py Integration Tests: testing/INTEGRATION-TESTS.md
     - Protocol Tracing: testing/AgentTracing.md
@@ -75,32 +100,40 @@ EOF
 mv mkdocs.yml.tmp mkdocs.yml  
 
 # Root folder -- README.md
+# For debugging the "sed" command, you can uncomment the "diff" at the end of the
+# sed command to see the differences from running the sed.
 FOLDER=docs
 # Introduction file is in this repo, not ACA-Py
 if [ "${VERSION}" == "main" ]; then
   cp Introduction.md ${FOLDER}/README.md
 else
   # Change the link to the ReadTheDocs site to be ACA-Py version specific
-  FILE=Introduction.md; sed "s#en/latest/#en/${VERSION}#g" ${FILE} > ${FOLDER}/README.md
+  FILE=Introduction.md; sed -e "s#en/latest/#en/${VERSION}#g" \
+    ${FILE} > ${FOLDER}/README.md; # diff tmp/${FILE} ${FOLDER}/${FILE}
 fi
 
 # Release documents
 FOLDER=docs/release
 mkdir ${FOLDER}
-FILE=README.md; sed 's#\./\(SupportedRFCs\).md#../../features/\1#' tmp/${FILE} \
-   | sed 's#\./\(Multitenancy\).md#../../features/\1#' \
-   | sed 's#\./\(Mediation\).md#../../features/\1#' \
-   | sed 's#\(Endorser\).md#../../features/\1#' \
-   | sed 's#\(Troubleshooting\).md#../../testing/\1#' \
-   | sed 's#/demo/\(README\).md#../../demo/#' \
-   | sed 's#/docs/GettingStartedAriesDev/\(PlugIns\).md#../../features/\1/#' > ${FOLDER}/acapy-${FILE}
+FILE=README.md; sed -e 's#\./\(SupportedRFCs\).md#../../features/\1#' \
+   -e 's#\./\(Multitenancy\).md#../../features/\1#' \
+   -e 's#\./\(Mediation\).md#../../features/\1#' \
+   -e 's#\(Endorser\).md#../../features/\1#' \
+   -e 's#\(Troubleshooting\).md#../../testing/\1#' \
+   -e 's#/demo/\(README\).md#../../demo/#' \
+   -e 's#/docs/GettingStartedAriesDev/\(README\).md#../../gettingStarted/\1#' \
+   -e 's#/docs/GettingStartedAriesDev/\(PlugIns\).md#../../features/\1/#' \
+  tmp/${FILE} > ${FOLDER}/acapy-${FILE}; # diff tmp/${FILE} ${FOLDER}/acapy-${FILE}
 cp tmp/aca-py_architecture.png ${FOLDER}
 # Special handling for ChangeLog -- add a title at the top of the file
-echo "# Release Notes" >${FOLDER}/CHANGELOG.md
-FILE=CHANGELOG.md; sed 's#\(Endorser\).md#../../features/\1#g' tmp/${FILE} \
-  | sed 's#\(Mediation\).md#../../features/\1#g' \
-  | sed 's#./\(Multitenancy\).md#../../features/\1#g' \
-  | sed 's#\/\(SupportedRFCs\).md#../../features/\1#' >>${FOLDER}/CHANGELOG.md
+# echo "# Release Notes" >${FOLDER}/CHANGELOG.md
+FILE=CHANGELOG.md; sed -e '1s/^/# Release Notes\n\n/' \
+  -e 's#\(Endorser\).md#../../features/\1#g' \
+  -e 's#./\(Mediation\).md#../../features/\1#g' \
+  -e 's#./\(Multitenancy\).md#../../features/\1#g' \
+  -e 's#\/\(SupportedRFCs\).md#../../features/\1#' \
+  -e 's#(victorlee0505)#(https://github.com/victorlee0505)#' \
+  tmp/${FILE} >${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Assets
 FOLDER=docs/assets
@@ -110,35 +143,43 @@ cp tmp/docs/assets/*.png ${FOLDER}
 # ACA-Py Features
 FOLDER=docs/features
 mkdir ${FOLDER}
-FILE=DevReadMe.md; sed 's#(README.md)#(/README.md)#' tmp/${FILE} \
-   | sed "s#\(Databases\).md#../../deploying/\1#g" \
-   | sed "s#\(Logging\).md#../../testing/\1/#g" \
-   | sed "s#/docs/GettingStartedAriesDev/README.md#../../gettingStarted/#" \
-   | sed "s#/\(CONTRIBUTING\).md#../../contributing/\1/#" \
-   | sed "s#/\(CODE_OF_CONDUCT\).md#../../contributing/\1/#" \
-   | sed "s/#Running/#running/g" \
-   | sed "s#\(aries_cloudagent/transport\)#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1#" > ${FOLDER}/${FILE}
+FILE=DevReadMe.md; sed -e 's#(README.md)#(/README.md)#' \
+    -e "s#\(Databases\).md#../../deploying/\1#g" \
+    -e "s#\(Logging\).md#../../testing/\1/#g" \
+    -e "s#/docs/GettingStartedAriesDev/README.md#../../gettingStarted/#" \
+    -e "s#/\(CONTRIBUTING\).md#../../contributing/\1/#" \
+    -e "s#/\(CODE_OF_CONDUCT\).md#../../contributing/\1/#" \
+    -e "s/#Running/#running/g" \
+    -e "s#(/README.md)#(../../release/acapy-README)#" \
+    -e "s#/docs/GettingStartedAriesDev/\(AriesDeveloperDemos\).md#../../\1#" \
+    -e "s#\(aries_cloudagent/transport\)#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1#" \
+    tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/SupportedRFCs.md ${FOLDER}
-cp tmp/AdminAPI.md ${FOLDER}
+FILE=AdminAPI.md; sed -e "s#/docs/assets/#../../assets/#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/Multitenancy.md ${FOLDER}
 cp tmp/DIDMethods.md ${FOLDER}
 cp tmp/DIDResolution.md ${FOLDER}
 cp tmp/Multiledger.md ${FOLDER}
 cp tmp/docs/GettingStartedAriesDev/PlugIns.md ${FOLDER}
 cp tmp/Mediation.md ${FOLDER}
-FILE=Endorser.md; sed 's#\./docs/assets/endorse#../features/endorse#' tmp/${FILE} > ${FOLDER}/${FILE}
+FILE=Endorser.md; sed -e 's#\./docs/assets/endorse#../features/endorse#' \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/docs/assets/*.png ${FOLDER}
 cp tmp/JsonLdCredentials.md ${FOLDER}
 cp tmp/AnoncredsProofValidation.md ${FOLDER}
-FILE=UsingOpenAPI.md; sed 's#AdminApi.md#AdminAPI.md#' tmp/${FILE} > ${FOLDER}/${FILE}
+FILE=UsingOpenAPI.md; sed -e 's#AdminApi.md#AdminAPI.md#' \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/Multicredentials.md ${FOLDER}
 
 # Deploying
 FOLDER=docs/deploying
 mkdir ${FOLDER}
 cp tmp/ContainerImagesAndGithubActions.md ${FOLDER}
-FILE=deploymentModel.md; sed "s#../../assets#/assets#" tmp/${FILE} > ${FOLDER}/${FILE}
-FILE=Databases.md ; sed "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" tmp/${FILE} > ${FOLDER}/${FILE}
+FILE=deploymentModel.md; sed -e "s#/docs/assets/#../../assets/#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
+FILE=Databases.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/RedisPlugins.md ${FOLDER}
 
 # Demos
@@ -146,29 +187,37 @@ FOLDER=docs/demo
 mkdir ${FOLDER}
 cp tmp/demo/AcmeDemoWorkshop.md ${FOLDER}
 cp tmp/demo/AliceWantsAJsonCredential.md ${FOLDER}
-FILE=AliceWantsAJsonCredential.md; sed "s#../\(JsonLdCredentials\).md#../../features/\1#" tmp/demo/${FILE} > ${FOLDER}/${FILE}
-FILE=README.md; sed "s#runners/#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/runners/#g" tmp/demo/${FILE} \
-  | sed "s#:uhttps#https#" > ${FOLDER}/${FILE}
+FILE=AliceWantsAJsonCredential.md; sed -e "s#../\(JsonLdCredentials\).md#../../features/\1#" tmp/demo/${FILE} > ${FOLDER}/${FILE}
+FILE=README.md; sed -e "s#runners/#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/runners/#g" \
+  -e "s#:uhttps#https#" \
+  tmp/demo/${FILE} > ${FOLDER}/${FILE}; # diff tmp/demo/${FILE} ${FOLDER}/${FILE}
 cp tmp/demo/Endorser.md ${FOLDER}
-FILE=AliceGetsAPhone.md; sed 's#\./collateral#../../demo/collateral#g' tmp/demo/${FILE} > ${FOLDER}/${FILE}
-FILE=AriesOpenAPIDemo.md; sed 's#\./collateral#../../demo/collateral#g' tmp/demo/${FILE} \
-   | sed 's#\.\./\(AdminAPI\).md#../../features/\1#' > ${FOLDER}/${FILE}
+FILE=AliceGetsAPhone.md; sed -e 's#\./collateral#../../demo/collateral#g' \
+  -e "s#(/demo)#(../../demo)#" \
+  tmp/demo/${FILE} > ${FOLDER}/${FILE}; # diff tmp/demo/${FILE} ${FOLDER}/${FILE}
+FILE=AriesOpenAPIDemo.md; sed -e 's#\./collateral#../../demo/collateral#g' \
+   -e 's#\.\./\(AdminAPI\).md#../../features/\1#' \
+   tmp/demo/${FILE} > ${FOLDER}/${FILE}; # diff tmp/demo/${FILE} ${FOLDER}/${FILE}
 cp -r tmp/demo/collateral ${FOLDER}
 
 # Getting Started
 FOLDER=docs/gettingStarted
 mkdir ${FOLDER}
-FILE=README.md; sed 's#DIDCommMsgs.md#DIDcommMsgs.md#g' tmp/docs/GettingStartedAriesDev/${FILE} \
-  | sed "s#PlugIns.md#../features/PlugIns/#g" > ${FOLDER}/${FILE}
+FILE=README.md; sed -e 's#DIDCommMsgs.md#DIDcommMsgs.md#g' \
+  -e "s#PlugIns.md#../features/PlugIns/#g" \
+  tmp/docs/GettingStartedAriesDev/${FILE} > ${FOLDER}/${FILE}; # diff tmp/docs/GettingStartedAriesDev/${FILE} ${FOLDER}/${FILE}
 cp tmp/docs/GettingStartedAriesDev/IndyBasics.md ${FOLDER}
 cp tmp/docs/GettingStartedAriesDev/AriesBasics.md ${FOLDER}
 cp tmp/docs/GettingStartedAriesDev/DecentralizedIdentityDemos.md ${FOLDER}
 cp tmp/docs/GettingStartedAriesDev/AriesBigPicture.md ${FOLDER}
-FILE=AriesAgentArchitecture.md; sed 's#../\(deploymentModel\).md#../../deployment/\1#g' tmp/docs/GettingStartedAriesDev/${FILE} > ${FOLDER}/${FILE}
+FILE=AriesAgentArchitecture.md; sed -e 's#../\(deploymentModel\).md#../../deploying/\1#g' \
+  -e "s#/docs/assets/#../../assets/#" \
+  tmp/docs/GettingStartedAriesDev/${FILE} > ${FOLDER}/${FILE}; # diff tmp/docs/GettingStartedAriesDev/${FILE} ${FOLDER}/${FILE}
 cp tmp/docs/GettingStartedAriesDev/AriesMessaging.md ${FOLDER}
-FILE=/AriesDeveloperDemos.md; sed 's#../../demo#../../demo#g' tmp/docs/GettingStartedAriesDev/${FILE} \
-  | sed "s#\(AriesOpenAPIDemo\).md#\1#" \
-  | sed "s#demo/README.md#demo/#" > ${FOLDER}/${FILE}
+FILE=/AriesDeveloperDemos.md; sed -e 's#../../demo#../../demo#g' \
+  -e "s#\(AriesOpenAPIDemo\).md#\1#" \
+  -e "s#demo/README.md#demo/#" \
+  tmp/docs/GettingStartedAriesDev/${FILE} > ${FOLDER}/${FILE}; # diff tmp/docs/GettingStartedAriesDev/${FILE} ${FOLDER}/${FILE}
 cp tmp/docs/GettingStartedAriesDev/AgentConnections.md ${FOLDER}
 cp tmp/docs/GettingStartedAriesDev/IssuingIndyCredentials.md ${FOLDER}
 cp tmp/docs/GettingStartedAriesDev/PresentingIndyProofs.md ${FOLDER}
@@ -183,11 +232,15 @@ cp tmp/docs/GettingStartedAriesDev/CredentialRevocation.md ${FOLDER}
 # Testing and Troubleshooting
 FOLDER=docs/testing
 mkdir ${FOLDER}
-FILE=Logging.md ; sed "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" tmp/${FILE} \
-  | sed "s#aries_cloudagent/config/default_logging_config.ini#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/aries_cloudagent/config/default_logging_config.ini#g" > ${FOLDER}/${FILE}
-cp tmp/demo/AgentTracing.md ${FOLDER}
+cp tmp/UnitTests.md ${FOLDER}
+FILE=Logging.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
+  -e "s#aries_cloudagent/config/default_logging_config.ini#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/aries_cloudagent/config/default_logging_config.ini#g" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
+FILE=AgentTracing.md ; sed -e "s#./\(EFK-stack\)#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/\1#" \
+  tmp/demo/${FILE} > ${FOLDER}/${FILE}; # diff tmp/demo/${FILE} ${FOLDER}/${FILE}
 cp tmp/demo/INTEGRATION-TESTS.md ${FOLDER}
-cp tmp/Troubleshooting.md ${FOLDER}
+FILE=Troubleshooting.md; sed -e "s#(demo)#(../../demo)#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Contributing
 FOLDER=docs/contributing

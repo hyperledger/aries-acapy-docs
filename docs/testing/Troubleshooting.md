@@ -30,7 +30,7 @@ If that is the cause -- have you started your local ledger, and did it startup p
 - Do you even need a local ledger? If not, you can use a public sandbox ledger,
   such as the [Dev Greenlight ledger](), likely by just prefacing your ACA-Py
   command with `LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io`. For example,
-  when running the Alice-Faber demo in the [demo](demo) folder, you can run (for
+  when running the Alice-Faber demo in the [demo](../../demo) folder, you can run (for
   example), the Faber agent using the command:
   `LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber`
 
