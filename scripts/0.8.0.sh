@@ -41,7 +41,7 @@ else
 {% block outdated %}
   ${VIEWING}
   <a href="{{ '../' ~ base_url }}"> 
-    Click here
+    <strong>Click here</strong>
   </a> for the ACA-Py main branch documentation.
 {% endblock %}
 EOF
