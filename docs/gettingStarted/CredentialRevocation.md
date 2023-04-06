@@ -102,7 +102,7 @@ Include the command line parameter `--tails-server-base-url <indy-tails-server u
 
 ## Revocation Notification
 
-ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md).
+ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/aries-rfcs/blob/0.8.1/features/0183-revocation-notification/README.md).
 
 > **Note:** The optional `~please_ack` is not currently supported.
 
