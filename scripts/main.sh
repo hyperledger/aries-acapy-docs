@@ -82,6 +82,7 @@ nav:
     - AnonCreds Credential Revocation: gettingStarted/CredentialRevocation.md
 - Deploying:
     - Deployment Model: deploying/deploymentModel.md
+    - Upgrading ACA-Py: deploying/UpgradingACA-Py.md
     - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
@@ -132,6 +133,7 @@ FILE=CHANGELOG.md; sed -e '1s/^/# Release Notes\n\n/' \
   -e 's#./\(Mediation\).md#../../features/\1#g' \
   -e 's#./\(Multitenancy\).md#../../features/\1#g' \
   -e 's#\/\(SupportedRFCs\).md#../../features/\1#' \
+  -e 's#.\/\(UpgradingACA-Py\).md#../../deploying/\1#' \
   -e 's#(victorlee0505)#(https://github.com/victorlee0505)#' \
   tmp/${FILE} >${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
@@ -176,6 +178,7 @@ cp tmp/Multicredentials.md ${FOLDER}
 FOLDER=docs/deploying
 mkdir ${FOLDER}
 cp tmp/ContainerImagesAndGithubActions.md ${FOLDER}
+cp tmp/UpgradingACA-Py.md ${FOLDER}
 FILE=deploymentModel.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 FILE=Databases.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
@@ -249,3 +252,11 @@ cp tmp/CONTRIBUTING.md ${FOLDER}
 cp tmp/MAINTAINERS.md ${FOLDER}
 cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
+
+# Update all references to "main" to "${VERSION}" in Github pathes
+# Naively for now:
+for i in $(find docs -name "*.md"); do
+  sed "s#/tree/main/#/tree/${VERSION}/#" $i >$i.tmp
+  sed "s#/blob/main/#/blob/${VERSION}/#" $i.tmp >$i
+  rm $i.tmp
+done

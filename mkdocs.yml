@@ -124,6 +124,7 @@ nav:
     - AnonCreds Credential Revocation: gettingStarted/CredentialRevocation.md
 - Deploying:
     - Deployment Model: deploying/deploymentModel.md
+    - Upgrading ACA-Py: deploying/UpgradingACA-Py.md
     - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
