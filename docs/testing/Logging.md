@@ -33,7 +33,7 @@ ACAPY_LOG_LEVEL=info ACAPY_LOG_FILE=./acapy.log ACAPY_LOG_CONFIG=./acapy_log.ini
 
 ## Acapy Config File
 
-Following parameters can be used in a configuration file like [this](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/demo-args.yaml).
+Following parameters can be used in a configuration file like [this](https://github.com/hyperledger/aries-cloudagent-python/tree/0.8.1/demo/demo-args.yaml).
 
 ```yaml
 log-level: WARNING
@@ -47,6 +47,6 @@ Also if log-level is set to WARNING, connections and presentations will be logge
 
 ## Log config file
 
-Find an example in [default_logging_config.ini](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/config/default_logging_config.ini).
+Find an example in [default_logging_config.ini](https://github.com/hyperledger/aries-cloudagent-python/tree/0.8.1/aries_cloudagent/config/default_logging_config.ini).
 
 You can find more detail description in the [logging documentation](https://docs.python.org/3/howto/logging.html#configuring-logging).

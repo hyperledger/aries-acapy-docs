@@ -191,14 +191,14 @@ Regardless of the options above, you will need to startup `deliverer` and `relay
 
 Both relay and mediator [demos](https://github.com/bcgov/aries-acapy-plugin-redis-events/tree/master/demo) are also available.
 
-# [aries-acapy-cache-redis](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/README.md) [`redis_cache`]
+# [aries-acapy-cache-redis](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.8.1/README.md) [`redis_cache`]
 
 <!-- Adopted from aries-acapy-cache-redis/README.md -->
 ACA-Py uses a modular cache layer to story key-value pairs of data. The purpose
 of this plugin is to allow ACA-Py to use Redis as the storage medium for it's
 caching needs.
 
-More details can be found [here](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/README.md).
+More details can be found [here](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.8.1/README.md).
 
 ### <b>Plugin configuration</b> [`yaml`]
 ```
@@ -221,7 +221,7 @@ redis_cache:
 
 #### <b>With Docker</b>
 - Running the plugin with docker is simple and straight-forward. There is an
-example [docker-compose.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/docker-compose.yml) file in the root of the
+example [docker-compose.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.8.1/docker-compose.yml) file in the root of the
 project that launches both ACA-Py and an accompanying Redis instance. Running
 it is as simple as:
 
@@ -229,7 +229,7 @@ it is as simple as:
     $ docker-compose up --build -d
     ```
 
-- To launch ACA-Py with an accompanying redis cluster of 6 nodes [3 primaries and 3 replicas], please refer to example [docker-compose.cluster.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/docker-compose.cluster.yml) and run the following:
+- To launch ACA-Py with an accompanying redis cluster of 6 nodes [3 primaries and 3 replicas], please refer to example [docker-compose.cluster.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.8.1/docker-compose.cluster.yml) and run the following:
 
     Note: Cluster requires external docker network with specified subnet
 
