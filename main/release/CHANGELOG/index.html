@@ -1138,6 +1138,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/UpgradingACA-Py/" class="md-nav__link">
+        Upgrading ACA-Py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
@@ -1417,6 +1431,57 @@
 
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h1 id="081">0.8.1<a class="headerlink" href="#081" title="Permanent link">&para;</a></h1>
+<h2 id="april-5-2023">April 5, 2023<a class="headerlink" href="#april-5-2023" title="Permanent link">&para;</a></h2>
+<p>Version 0.8.1 is an urgent update to Release 0.8.0 to address an inability to
+execute the <code>upgrade</code> command. The <code>upgrade</code> command is needed for 0.8.0 Pull
+Request [#2116] - "UPGRADE: Fix multi-use invitation performance", which is
+useful for (at least) deployments of ACA-Py as a mediator. In the release, the
+upgrade process is revamped, and documented in <a href="../../deploying/UpgradingACA-Py">Upgrading ACA-Py</a>.</p>
+<p>Key points about upgrading for those with production, pre-0.8.1 ACA-Py deployments:</p>
+<ul>
+<li>Upgrades now happen <strong>automatically</strong> on startup, when needed.</li>
+<li>The version of the last executed upgrade, even if it is a "no change" upgrade,
+  is put into secure storage and is used to detect when future upgrades are needed.</li>
+<li>Upgrades are needed when the running version is greater than the version is
+    secure storage.</li>
+<li>If you have an existing, pre-0.8.1 deployment with many connection records,
+there may be a delay in starting as an upgrade will be run that loads and saves
+every connection record, updating the data in the record in the process.</li>
+<li>A mechanism is to be added (see <a href="https://github.com/hyperledger/aries-cloudagent-python/issues/2201">Issue #2201</a>) for preventing an upgrade
+  running if it should not be run automatically, and requires using the
+  <code>upgrade</code> command. To date, there has been no need for this feature.</li>
+<li>See the <a href="../../deploying/UpgradingACA-Py">Upgrading ACA-Py</a> document for more details.</li>
+</ul>
+<h3 id="postgres-support-with-aries-askar">Postgres Support with Aries Askar<a class="headerlink" href="#postgres-support-with-aries-askar" title="Permanent link">&para;</a></h3>
+<p>Recent changes to <a href="https://github.com/hyperledger/aries-askar">Aries Askar</a> have resulted in Askar supporting Postgres
+version 11 and greater. If you are on Postgres 10 or earlier and want to upgrade
+to use Askar, you must migrate your database to Postgres 10.</p>
+<p>We have also noted that in some container orchestration environments such as
+<a href="https://www.openshift.com/products/container-platform/">Red Hat's OpenShift</a> and possibly other <a href="https://kubernetes.io/">Kubernetes</a> distributions, Askar using
+<a href="https://www.postgresql.org/">Postgres</a> versions greater than 14 do not install correctly. Please monitor
+[Issue #2199] for an update to this limitation. We have found that Postgres 15 does
+install correctly in other environments (such as in <code>docker compose</code> setups).</p>
+<h3 id="categorized-list-of-pull-requests">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixes for the <code>upgrade</code> Command</li>
+<li>Change upgrade definition file entry from 0.8.0 to 0.8.1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2203">#2203</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>Add Upgrading ACA-Py document <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2200">#2200</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>Fix: Indy WalletAlreadyOpenedError during upgrade process <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2196">#2196</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Fix: Resolve Upgrade Config file in Container <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2193">#2193</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Update and automate ACA-Py upgrade process <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2185">#2185</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Adds the upgrade command YML file to the PyPi Release <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2179">#2179</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>Test and Documentation</li>
+<li>3.7 and 3.10 unittests fix <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2187">#2187</a> <a href="https://github.com/Jsyro">Jsyro</a></li>
+<li>Doc update and some test scripts <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2189">#2189</a> <a href="https://github.com/ianco">ianco</a></li>
+<li>Create UnitTests.md <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2183">#2183</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>Add link to recorded session about the ACA-Py Integration tests <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2184">#2184</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>Release management pull requests</li>
+<li>0.8.1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2207">#2207</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.8.1-rc2 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2198">#2198</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.8.1-rc1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2194">#2194</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.8.1-rc0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2190">#2190</a> <a href="https://github.com/swcurran">swcurran</a></li>
+</ul>
 <h1 id="080">0.8.0<a class="headerlink" href="#080" title="Permanent link">&para;</a></h1>
 <h2 id="march-14-2023">March 14, 2023<a class="headerlink" href="#march-14-2023" title="Permanent link">&para;</a></h2>
 <p>0.8.0 is a breaking change that contains all updates since release 0.7.5. It
@@ -1504,7 +1569,7 @@ of ACA-Py, you can run an <code>upgrade</code> to apply this change. To run upgr
 previous versions, use the following command using the <code>0.8.0</code> version of
 ACA-Py, adding you wallet settings:</p>
 <p><code>aca-py upgrade &lt;other wallet config settings&gt; --from-version=v0.7.5 --upgrade-config-path ./upgrade.yml</code></p>
-<h3 id="categorized-list-of-pull-requests">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
+<h3 id="categorized-list-of-pull-requests_1">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Verifiable credential, presentation and revocation handling updates</li>
 <li><strong>BREAKING:</strong> Update webhook message to terse form [default, added startup flag --debug-webhooks for full form <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2145">#2145</a> by <a href="https://github.com/victorlee0505">victorlee0505</a></li>
@@ -1804,7 +1869,7 @@ there no changes in the APIs.</p>
 <p>As well there were a number of internal fixes, dependency updates, documentation
 and demo changes, developer tools and release management updates. All the usual
 stuff needed for a healthy, growing codebase.</p>
-<h3 id="categorized-list-of-pull-requests_1">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_1" title="Permanent link">&para;</a></h3>
+<h3 id="categorized-list-of-pull-requests_2">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Hyperledger Indy Endorser related updates:</li>
 <li>Fix order of operations connecting faber to endorser <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1716">#1716</a> (<a href="https://github.com/ianco">ianco</a>)</li>

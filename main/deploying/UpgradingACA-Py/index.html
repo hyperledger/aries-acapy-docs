@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../JsonLdCredentials/">
+        <link rel="prev" href="../deploymentModel/">
       
       
-        <link rel="next" href="../Multicredentials/">
+        <link rel="next" href="../ContainerImagesAndGithubActions/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
-        <title>AnonCreds Presentation Validation - Hyperledger Aries ACA-Py Docs</title>
+        <title>Upgrading ACA-Py - Hyperledger Aries ACA-Py Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#anoncreds-proof-validation-in-aca-py" class="md-skip">
+        <a href="#upgrading-aca-py-data" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AnonCreds Presentation Validation
+              Upgrading ACA-Py
             
           </span>
         </div>
@@ -211,15 +211,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../DevReadMe/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../features/DevReadMe/" class="md-tabs__link">
         Features
       </a>
     </li>
@@ -261,13 +259,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../deploying/deploymentModel/" class="md-tabs__link">
+      <a href="../deploymentModel/" class="md-tabs__link md-tabs__link--active">
         Deploying
       </a>
     </li>
@@ -440,16 +440,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
       
       
       
@@ -458,7 +458,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Features
@@ -471,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DevReadMe/" class="md-nav__link">
+      <a href="../../features/DevReadMe/" class="md-nav__link">
         Developer Introduction
       </a>
     </li>
@@ -485,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SupportedRFCs/" class="md-nav__link">
+      <a href="../../features/SupportedRFCs/" class="md-nav__link">
         Supported Aries Interop Profiles and RFCs
       </a>
     </li>
@@ -499,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../AdminAPI/" class="md-nav__link">
+      <a href="../../features/AdminAPI/" class="md-nav__link">
         The Admin API
       </a>
     </li>
@@ -513,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PlugIns/" class="md-nav__link">
+      <a href="../../features/PlugIns/" class="md-nav__link">
         ACA-Py Plugins
       </a>
     </li>
@@ -527,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Multitenancy/" class="md-nav__link">
+      <a href="../../features/Multitenancy/" class="md-nav__link">
         Multitenant ACA-Py
       </a>
     </li>
@@ -541,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DIDMethods/" class="md-nav__link">
+      <a href="../../features/DIDMethods/" class="md-nav__link">
         DID Methods
       </a>
     </li>
@@ -555,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DIDResolution/" class="md-nav__link">
+      <a href="../../features/DIDResolution/" class="md-nav__link">
         DID Resolution
       </a>
     </li>
@@ -569,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Multiledger/" class="md-nav__link">
+      <a href="../../features/Multiledger/" class="md-nav__link">
         Configuring Multiple Indy Ledgers
       </a>
     </li>
@@ -583,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Endorser/" class="md-nav__link">
+      <a href="../../features/Endorser/" class="md-nav__link">
         Automatically Endorsing Indy Transations
       </a>
     </li>
@@ -597,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../JsonLdCredentials/" class="md-nav__link">
+      <a href="../../features/JsonLdCredentials/" class="md-nav__link">
         Using W3C JSON-LD Signed Credentials
       </a>
     </li>
@@ -609,66 +609,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          AnonCreds Presentation Validation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../features/AnoncredsProofValidation/" class="md-nav__link">
         AnonCreds Presentation Validation
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#presentation-modifications-and-warnings" class="md-nav__link">
-    Presentation Modifications and Warnings
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#presentation-pre-validation-errors" class="md-nav__link">
-    Presentation Pre-validation Errors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#anoncreds-verification-exceptions" class="md-nav__link">
-    Anoncreds Verification Exceptions
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -680,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Multicredentials/" class="md-nav__link">
+      <a href="../../features/Multicredentials/" class="md-nav__link">
         Multiple Credential Types
       </a>
     </li>
@@ -694,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../UsingOpenAPI/" class="md-nav__link">
+      <a href="../../features/UsingOpenAPI/" class="md-nav__link">
         Code Generation with the Open API
       </a>
     </li>
@@ -708,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Mediation/" class="md-nav__link">
+      <a href="../../features/Mediation/" class="md-nav__link">
         ACA-Py as a DIDComm Mediator
       </a>
     </li>
@@ -1138,16 +1083,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1156,7 +1101,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Deploying
@@ -1169,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/deploymentModel/" class="md-nav__link">
+      <a href="../deploymentModel/" class="md-nav__link">
         Deployment Model
       </a>
     </li>
@@ -1181,11 +1126,86 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../deploying/UpgradingACA-Py/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Upgrading ACA-Py
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Upgrading ACA-Py
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-information-and-automatic-upgrades" class="md-nav__link">
+    Version Information and Automatic Upgrades
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forced-offline-upgrades" class="md-nav__link">
+    Forced Offline Upgrades
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
+  </a>
+  
+    <nav class="md-nav" aria-label="Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-version-in-secure-storage" class="md-nav__link">
+    No version in secure storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forcing-an-upgrade" class="md-nav__link">
+    Forcing an upgrade
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1197,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
+      <a href="../ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
     </li>
@@ -1211,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/Databases/" class="md-nav__link">
+      <a href="../Databases/" class="md-nav__link">
         Databases
       </a>
     </li>
@@ -1225,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/RedisPlugins/" class="md-nav__link">
+      <a href="../RedisPlugins/" class="md-nav__link">
         Persistent Queues and Caching
       </a>
     </li>
@@ -1466,23 +1486,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#presentation-modifications-and-warnings" class="md-nav__link">
-    Presentation Modifications and Warnings
+  <a href="#version-information-and-automatic-upgrades" class="md-nav__link">
+    Version Information and Automatic Upgrades
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#presentation-pre-validation-errors" class="md-nav__link">
-    Presentation Pre-validation Errors
+  <a href="#forced-offline-upgrades" class="md-nav__link">
+    Forced Offline Upgrades
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#anoncreds-verification-exceptions" class="md-nav__link">
-    Anoncreds Verification Exceptions
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
   </a>
+  
+    <nav class="md-nav" aria-label="Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-version-in-secure-storage" class="md-nav__link">
+    No version in secure storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forcing-an-upgrade" class="md-nav__link">
+    Forcing an upgrade
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1504,67 +1544,85 @@
   
 
 
-<h1 id="anoncreds-proof-validation-in-aca-py">Anoncreds Proof Validation in Aca-Py<a class="headerlink" href="#anoncreds-proof-validation-in-aca-py" title="Permanent link">&para;</a></h1>
-<p>Aca-Py does some pre-validation when verifying Anoncreds presentations (proofs), some scenarios are rejected (things that are indicative of tampering, for example) and some attributes are removed before running the anoncreds validation (for example removing superfluous non-revocation timestamps).  Any Aca-Py validations or presentation modifications are indicated by the "verify_msgs" attribute in the final presentation exchange object</p>
-<p>The list of possible verification messages is <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/indy/verifier.py#L24">here</a>, and consists of:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>class PresVerifyMsg(str, Enum):
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    &quot;&quot;&quot;Credential verification codes.&quot;&quot;&quot;
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    RMV_REFERENT_NON_REVOC_INTERVAL = &quot;RMV_RFNT_NRI&quot;
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    RMV_GLOBAL_NON_REVOC_INTERVAL = &quot;RMV_GLB_NRI&quot;
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    TSTMP_OUT_NON_REVOC_INTRVAL = &quot;TS_OUT_NRI&quot;
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    CT_UNREVEALED_ATTRIBUTES = &quot;UNRVL_ATTR&quot;
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    PRES_VALUE_ERROR = &quot;VALUE_ERROR&quot;
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    PRES_VERIFY_ERROR = &quot;VERIFY_ERROR&quot;
-</code></pre></div>
-<p>If there is additional information, it will be included like this:  <code>TS_OUT_NRI::19_uuid</code> (which means the attribute identified by <code>19_uuid</code> contained a timestamp outside of the non-revocation interval (which is just a warning)).</p>
-<p>A presentation verification may include multiple messages, for example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    ...
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    &quot;verified&quot;: &quot;true&quot;,
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    &quot;verified_msgs&quot;: [
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        &quot;TS_OUT_NRI::18_uuid&quot;,
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        &quot;TS_OUT_NRI::18_id_GE_uuid&quot;,
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        &quot;TS_OUT_NRI::18_busid_GE_uuid&quot;
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    ],
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ...
-</code></pre></div>
-<p>... or it may include a single message, for example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    ...
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    &quot;verified&quot;: &quot;false&quot;,
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    &quot;verified_msgs&quot;: [
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        &quot;VALUE_ERROR::Encoded representation mismatch for &#39;Preferred Name&#39;&quot;
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    ],
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    ...
-</code></pre></div>
-<p>... or the <code>verified_msgs</code> may be null or an empty array.</p>
-<h2 id="presentation-modifications-and-warnings">Presentation Modifications and Warnings<a class="headerlink" href="#presentation-modifications-and-warnings" title="Permanent link">&para;</a></h2>
-<p>The following modifications/warnings may be done by Aca-Py which shouldn't affect the verification of the received proof):</p>
+<h1 id="upgrading-aca-py-data">Upgrading ACA-Py Data<a class="headerlink" href="#upgrading-aca-py-data" title="Permanent link">&para;</a></h1>
+<p>Some releases of ACA-Py may be improved by, or even require, an upgrade when
+moving to a new version. Such changes are documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md">CHANGELOG.md</a>,
+and those with ACA-Py deployments should take note of those upgrades. This
+document summarizes the upgrade system in ACA-Py.</p>
+<h2 id="version-information-and-automatic-upgrades">Version Information and Automatic Upgrades<a class="headerlink" href="#version-information-and-automatic-upgrades" title="Permanent link">&para;</a></h2>
+<p>The file <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a> contains the current version of a running instance of
+ACA-Py. In addition, a record is made in the ACA-Py secure storage (database)
+about the "most recently upgraded" version. When deploying a new version of
+ACA-Py, the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a> value will be higher than the version in
+secure storage. When that happens, an upgrade is executed, and on successful
+completion, the version is updated in secure storage to match what is
+in <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a>.</p>
+<p>Upgrades are defined in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. For a given
+version listed in the follow, the corresponding entry is what actions are
+required when upgrading from a previous version. If a version is not listed
+in the file, there is no upgrade defined for that version from its immediate
+predecessor version.</p>
+<p>Once an upgrade is identified as needed, the process is:</p>
 <ul>
-<li>"RMV_RFNT_NRI":  Referent contains a non-revocation interval for a non-revocable credential (timestamp is removed)</li>
-<li>"RMV_GLB_NRI":  Presentation contains a global interval for a non-revocable credential (timestamp is removed)</li>
-<li>"TS_OUT_NRI":  Presentation contains a non-revocation timestamp outside of the requested non-revocation interval (warning)</li>
-<li>"UNRVL_ATTR":  Presentation contains attributes with unrevealed values (warning)</li>
+<li>Collect (if any) the actions to be taken to get from the version recorded in
+secure storage to the current <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a></li>
+<li>Execute the actions from oldest to newest.<ul>
+<li>If the same action is collected more than once (e.g., "Resave the
+Connection Records" is defined for two different versions), perform the action
+only once.</li>
 </ul>
-<h2 id="presentation-pre-validation-errors">Presentation Pre-validation Errors<a class="headerlink" href="#presentation-pre-validation-errors" title="Permanent link">&para;</a></h2>
-<p>The following pre-verification checks are done, which will fail the proof (before calling anoncreds) and will result in the following message:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>VALUE_ERROR::&lt;description of the failed validation&gt;
-</code></pre></div>
-<p>These validations are all done within the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/indy/verifier.py">Indy verifier class</a> - to see the detailed validation just look for anywhere a <code>raise ValueError(...)</code> appears in the code.</p>
-<p>A summary of the possible errors is:</p>
-<ul>
-<li>information missing in presentation exchange record</li>
-<li>timestamp provided for irrevocable credential</li>
-<li>referenced revocation registry not found on ledger</li>
-<li>timestamp outside of reasonable range (future date or pre-dates revocation registry)</li>
-<li>mis-match between provided and requested timestamps for non-revocation</li>
-<li>mis-match between requested and provided attributes or predicates</li>
-<li>self-attested attribute is provided for a requested attribute with restrictions</li>
-<li>encoded value doesn't match raw value</li>
+</li>
+<li>Store the current ACA-Py version (from <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a>) in the secure storage
+  database.</li>
 </ul>
-<h2 id="anoncreds-verification-exceptions">Anoncreds Verification Exceptions<a class="headerlink" href="#anoncreds-verification-exceptions" title="Permanent link">&para;</a></h2>
-<p>Typically when you call the anoncreds <code>verifier_verify_proof()</code> method, it will return a <code>True</code> or <code>False</code> based on whether the presentation cryptographically verifies.  However in the case where anoncreds throws an exception, the exception text will be included in a verification message as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>VERIFY_ERROR::&lt;the exception text&gt;
-</code></pre></div>
+<h2 id="forced-offline-upgrades">Forced Offline Upgrades<a class="headerlink" href="#forced-offline-upgrades" title="Permanent link">&para;</a></h2>
+<p>In some cases, it may be necessary to do an offline upgrade, where ACA-Py is
+taken off line temporarily, the database upgraded explicitly, and then
+ACA-Py re-deployed as normal. As yet, we do not have any use cases for this, but
+those deploying ACA-Py should be aware of this possibility. For example,
+we may at some point need an upgrade that <strong>MUST NOT</strong> be executed by more
+than one ACA-Py instance. In that case, a "normal" upgrade could be dangerous
+for deployments on container orchestration platforms like Kubernetes.</p>
+<p>If the Maintainers of ACA-Py recognize a case where ACA-Py must be upgraded
+while offline, a new Upgrade feature will be added that will prevent the "auto
+upgrade" process from executing. See <a href="https://github.com/hyperledger/aries-cloudagent-python/issues/2201">Issue 2201</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2204">Pull Request 2204</a> for
+the status of that feature.</p>
+<p>Those deploying ACA-Py upgrades for production installations (forced offline or
+not) should check in each <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md">CHANGELOG.md</a> release entry about what upgrades (if
+any) will be run when upgrading to that version, and consider how they want
+those upgrades to run in their ACA-Py installation. In most cases, simply
+deploying the new version should be OK. If the number of records to be upgraded
+is high (such as a "resave connections" upgrade to a deployment with many, many
+connections), you may want to do a test upgrade offline first, to see if there
+is likely to be a service disruption during the upgrade. Plan accordingly!</p>
+<h2 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h2>
+<p>There are a couple of upgrade exception conditions to consider, as outlined
+in the following sections.</p>
+<h3 id="no-version-in-secure-storage">No version in secure storage<a class="headerlink" href="#no-version-in-secure-storage" title="Permanent link">&para;</a></h3>
+<p>Versions prior to ACA-Py 0.8.1 did not automatically populate the secure storage
+"version" record. That only occurred if an upgrade was explicitly executed. As
+of ACA-Py 0.8.1, the version record is added immediately after the secure
+storage database is created. If you are upgrading to ACA-Py 0.8.1 or later, and
+there is no version record in the secure storage, ACA-Py will assume you are
+running version 0.7.5, and execute the upgrades from version 0.7.5 to the
+current version. The choice of 0.7.5 as the default is safe because the same
+upgrades will be run on any version of ACA-Py up to and including 0.7.5, as can
+be seen in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. Thus, even if you are really
+upgrading from (for example) 0.6.2, the same upgrades are needed as from 0.7.5
+to a post-0.8.1 version.</p>
+<h3 id="forcing-an-upgrade">Forcing an upgrade<a class="headerlink" href="#forcing-an-upgrade" title="Permanent link">&para;</a></h3>
+<p>If you need to force an upgrade from a given version of ACA-Py, a pair of
+configuration options can be used together. If you specify "<code>--from-version
+&lt;ver&gt;</code>" and "<code>--force-upgrade</code>", the <code>--from-version</code> version will override what
+is found (or not) in secure storage, and the upgrade will be from that version
+to the current one. For example, if you have "0.8.1" in your "secure storage"
+version, and you know that the upgrade for version 0.8.1 has not been executed,
+you can use the parameters <code>--from-version v0.7.5 --force-upgrade</code> to force the
+upgrade on next starting an ACA-Py instance. However, given the few upgrades
+defined prior to version 0.8.1, and the "<a href="#no-version-in-secure-storage">no version in secure
+storage</a>" handling, it is unlikely this
+capability will ever be needed. We expect to deprecate and remove these
+options in future (post-0.8.1) ACA-Py versions.</p>
 
 
 
@@ -1591,7 +1649,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../JsonLdCredentials/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using W3C JSON-LD Signed Credentials" rel="prev">
+          <a href="../deploymentModel/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deployment Model" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1600,20 +1658,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Using W3C JSON-LD Signed Credentials
+                Deployment Model
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Multicredentials/" class="md-footer__link md-footer__link--next" aria-label="Next: Multiple Credential Types" rel="next">
+          <a href="../ContainerImagesAndGithubActions/" class="md-footer__link md-footer__link--next" aria-label="Next: ACA-Py Container Images" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Multiple Credential Types
+                ACA-Py Container Images
               </div>
             </div>
             <div class="md-footer__button md-icon">

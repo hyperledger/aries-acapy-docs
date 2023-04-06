@@ -1237,6 +1237,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/UpgradingACA-Py/" class="md-nav__link">
+        Upgrading ACA-Py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
@@ -1656,45 +1670,54 @@
 <h2 id="loading-aca-py-plug-ins-at-runtime">Loading Aca-Py Plug-Ins at Runtime<a class="headerlink" href="#loading-aca-py-plug-ins-at-runtime" title="Permanent link">&para;</a></h2>
 <p>The load sequence for a plug-in (the "Startup" class depends on how Aca-Py is running - <code>upgrade</code>, <code>provision</code> or <code>start</code>):</p>
 <pre class="mermaid"><code>sequenceDiagram
-    participant Startup
-    Note right of Startup: Configuration is loaded on startup&lt;br/&gt;from aca-py config params
+  participant Startup
+  Note right of Startup: Configuration is loaded on startup&lt;br/&gt;from aca-py config params
     Startup-&gt;&gt;+ArgParse: configure
     ArgParse-&gt;&gt;settings:  ["external_plugins"]
     ArgParse-&gt;&gt;settings:  ["blocked_plugins"]
 
-    Note right of Startup: Each configured plug-in is validated and loaded
-    Startup-&gt;&gt;+DefaultContext:  build_context()
+    Startup-&gt;&gt;+Conductor: setup()
+      Note right of Conductor: Each configured plug-in is validated and loaded
+      Conductor-&gt;&gt;DefaultContext:  build_context()
       DefaultContext-&gt;&gt;DefaultContext:  load_plugins()
       DefaultContext-&gt;&gt;+PluginRegistry:  register_package() (for built-in protocols)
         PluginRegistry-&gt;&gt;PluginRegistry:  register_plugin() (for each sub-package)
       DefaultContext-&gt;&gt;PluginRegistry:  register_plugin() (for non-protocol built-ins)
       loop for each external plug-in
-        DefaultContext-&gt;&gt;PluginRegistry:  register_plugin()
-        alt if a setup method is provided
-          PluginRegistry-&gt;&gt;ExternalPlugIn:  has setup
-        else if routes and/or message_types are provided
-          PluginRegistry-&gt;&gt;ExternalPlugIn:  has routes
-          PluginRegistry-&gt;&gt;ExternalPlugIn:  has message_types
-        end
-        opt if definition is provided
-          PluginRegistry-&gt;&gt;ExternalPlugIn:  definition()
-        end
+      DefaultContext-&gt;&gt;PluginRegistry:  register_plugin()
+      alt if a setup method is provided
+        PluginRegistry-&gt;&gt;ExternalPlugIn:  has setup
+      else if routes and/or message_types are provided
+        PluginRegistry-&gt;&gt;ExternalPlugIn:  has routes
+        PluginRegistry-&gt;&gt;ExternalPlugIn:  has message_types
+      end
+      opt if definition is provided
+        PluginRegistry-&gt;&gt;ExternalPlugIn:  definition()
+      end
       end
       DefaultContext-&gt;&gt;PluginRegistry:  init_context()
         loop for each external plug-in
-          alt if a setup method is provided
-            PluginRegistry-&gt;&gt;ExternalPlugIn:  setup()
-          else if a setup method is NOT provided
-            PluginRegistry-&gt;&gt;PluginRegistry:  load_protocols()
-            PluginRegistry-&gt;&gt;PluginRegistry:  load_protocol_version()
-            PluginRegistry-&gt;&gt;ProtocolRegistry:  register_message_types()
-            PluginRegistry-&gt;&gt;ProtocolRegistry:  register_controllers()
-          end
-          PluginRegistry-&gt;&gt;PluginRegistry:  register_protocol_events()
+        alt if a setup method is provided
+          PluginRegistry-&gt;&gt;ExternalPlugIn:  setup()
+        else if a setup method is NOT provided
+          PluginRegistry-&gt;&gt;PluginRegistry:  load_protocols()
+          PluginRegistry-&gt;&gt;PluginRegistry:  load_protocol_version()
+          PluginRegistry-&gt;&gt;ProtocolRegistry:  register_message_types()
+          PluginRegistry-&gt;&gt;ProtocolRegistry:  register_controllers()
         end
+        PluginRegistry-&gt;&gt;PluginRegistry:  register_protocol_events()
+      end
 
-    Note right of Startup: If the admin server is enabled, plug-in routes are added
-    Startup-&gt;&gt;AdminServer:  create admin server if enabled
+      Conductor-&gt;&gt;Conductor:  load_transports()
+
+      Note right of Conductor: If the admin server is enabled, plug-in routes are added
+      Conductor-&gt;&gt;AdminServer:  create admin server if enabled
+
+    Startup-&gt;&gt;Conductor: start()
+      Conductor-&gt;&gt;Conductor:  start_transports()
+      Conductor-&gt;&gt;AdminServer:  start()
+
+    Note right of Startup: the following represents an&lt;br/&gt;admin server api request
     Startup-&gt;&gt;AdminServer:  setup_context() (called on each request)
       AdminServer-&gt;&gt;PluginRegistry:  register_admin_routes()
       loop for each external plug-in
