@@ -44,5 +44,6 @@ jobs:
           # If building from main, use latest as ALIAS
           [ "$VERSION" == "main" ] && ALIAS=latest
           echo $VERSION $ALIAS
+          mike delete $VERSION
           mike deploy --push --update-aliases $VERSION $ALIAS
           mike set-default latest
