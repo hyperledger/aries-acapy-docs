@@ -96,7 +96,7 @@ aca-py start    --inbound-transport http 0.0.0.0 8000 \
                 --outbound-transport http
 ```
 
-ACA-Py ships with both inbound and outbound transport drivers for `http` and `ws` (websockets). Additional transport drivers can be added as pluggable implementations. See the existing implementations in the [transports module](https://github.com/hyperledger/aries-cloudagent-python/tree/0.8.0/aries_cloudagent/transport) for getting starting on adding a new transport.
+ACA-Py ships with both inbound and outbound transport drivers for `http` and `ws` (websockets). Additional transport drivers can be added as pluggable implementations. See the existing implementations in the [transports module](https://github.com/hyperledger/aries-cloudagent-python/tree/0.7.5/aries_cloudagent/transport) for getting starting on adding a new transport.
 
 Most configuration parameters are provided to the the agent at startup. Refer to the `Running` sections above for details on listing the available command line parameters.
 
@@ -217,7 +217,7 @@ Please also refer to the [contributing guidelines](../../contributing/CONTRIBUTI
 
 ## Publishing Releases
 
-The [publishing](https://github.com/hyperledger/aries-cloudagent-python/blob/main/PUBLISHING.md) document provides information on tagging a release and publishing the release artifacts to PyPi.
+The [publishing](https://github.com/hyperledger/aries-cloudagent-python/blob/0.7.5/PUBLISHING.md) document provides information on tagging a release and publishing the release artifacts to PyPi.
 
 ## Dynamic Injection of Services
 

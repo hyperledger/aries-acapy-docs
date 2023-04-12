@@ -2,7 +2,7 @@
 
 Aca-Py does some pre-validation when verifying Anoncreds presentations (proofs), some scenarios are rejected (things that are indicative of tampering, for example) and some attributes are removed before running the anoncreds validation (for example removing superfluous non-revocation timestamps).  Any Aca-Py validations or presentation modifications are indicated by the "verify_msgs" attribute in the final presentation exchange object
 
-The list of possible verification messages is [here](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/indy/verifier.py#L24), and consists of:
+The list of possible verification messages is [here](https://github.com/hyperledger/aries-cloudagent-python/blob/0.7.5/aries_cloudagent/indy/verifier.py#L24), and consists of:
 
 ```
 class PresVerifyMsg(str, Enum):
@@ -61,7 +61,7 @@ The following pre-verification checks are done, which will fail the proof (befor
 VALUE_ERROR::<description of the failed validation>
 ```
 
-These validations are all done within the [Indy verifier class](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/indy/verifier.py) - to see the detailed validation just look for anywhere a `raise ValueError(...)` appears in the code.
+These validations are all done within the [Indy verifier class](https://github.com/hyperledger/aries-cloudagent-python/blob/0.7.5/aries_cloudagent/indy/verifier.py) - to see the detailed validation just look for anywhere a `raise ValueError(...)` appears in the code.
 
 A summary of the possible errors is:
 
