@@ -4,10 +4,8 @@
 # This repository has the documentation website generation code, the ACA-Py repository has the documentation (markdown files).
 # This script is defined per release tag (plus main branch) in the ACA-Py repository
 # The process is:
-# - Assumes a release version clone the ACA-Py repos is in the /tmp folder of this repo
-# - If not on "main", writes an override message.
+# - Assumes a release version clone ACA-Py repos is in the /tmp folder of this repo
 # - Passed in is the Release Versions -- "main" or "0.8.0", etc.
-#   *** TODO -- check that the version matches what is in /tmp
 # - Delete the existing content of the /docs folder in this repo
 # - Define the per release Mkdocs navigation for the site and put it in place of the current mkdocs YML
 # - For each folder that will be in the /docs folder of this rep0:
@@ -25,27 +23,10 @@
 # - Scan the /tmp folder for all .md files and see if you have them in the /docs folder
 #   - a script to compare the list of .md files in /tmp and /docs is planned
 
+
 VERSION=$1
-# VIEWING="You're viewing the documentation for an older ACA-Py Release, ${VERSION}."
-VIEWING="You're viewing the documentation for the latest ACA-Py Release, ${VERSION}."
 
 echo Building pages for ACA-Py Version ${VERSION}
-
-# Write out the override text for the version
-if [ "${VERSION}" == "main" ]; then
-  rm -f overrides/main.html
-else
-  cat <<EOF >overrides/main.html
-{% extends "base.html" %}
-
-{% block outdated %}
-  ${VIEWING}
-  <a href="{{ '../' ~ base_url }}"> 
-    <strong>Click here</strong>
-  </a> for the ACA-Py main branch documentation.
-{% endblock %}
-EOF
-fi
 
 # Clean out the docs folder
 rm -rf docs/*
@@ -62,15 +43,12 @@ nav:
     - Developer Introduction: features/DevReadMe.md
     - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md
     - The Admin API: features/AdminAPI.md
-    - ACA-Py Plugins: features/PlugIns.md
     - Multitenant ACA-Py: features/Multitenancy.md
-    - DID Methods: features/DIDMethods.md
     - DID Resolution: features/DIDResolution.md
     - Configuring Multiple Indy Ledgers: features/Multiledger.md
     - Automatically Endorsing Indy Transations: features/Endorser.md
     - Using W3C JSON-LD Signed Credentials: features/JsonLdCredentials.md
     - AnonCreds Presentation Validation: features/AnoncredsProofValidation.md
-    - Multiple Credential Types: features/Multicredentials.md
     - Code Generation with the Open API: features/UsingOpenAPI.md
     - ACA-Py as a DIDComm Mediator: features/Mediation.md
 - Demos:
@@ -101,9 +79,7 @@ nav:
     - AnonCreds Credential Revocation: gettingStarted/CredentialRevocation.md
 - Deploying:
     - Deployment Model: deploying/deploymentModel.md
-    - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
-    - Persistent Queues and Caching: deploying/RedisPlugins.md
 - Testing/Troubleshooting:
     - Managing Logging: testing/Logging.md
     - ACA-Py Integration Tests: testing/INTEGRATION-TESTS.md
@@ -150,6 +126,7 @@ FILE=CHANGELOG.md; sed -e '1s/^/# Release Notes\n\n/' \
   -e 's#./\(Mediation\).md#../../features/\1#g' \
   -e 's#./\(Multitenancy\).md#../../features/\1#g' \
   -e 's#\/\(SupportedRFCs\).md#../../features/\1#' \
+  -e 's#.\/\(UpgradingACA-Py\).md#../../deploying/\1#' \
   -e 's#(victorlee0505)#(https://github.com/victorlee0505)#' \
   tmp/${FILE} >${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
@@ -176,10 +153,8 @@ cp tmp/SupportedRFCs.md ${FOLDER}
 FILE=AdminAPI.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/Multitenancy.md ${FOLDER}
-cp tmp/DIDMethods.md ${FOLDER}
 cp tmp/DIDResolution.md ${FOLDER}
 cp tmp/Multiledger.md ${FOLDER}
-cp tmp/docs/GettingStartedAriesDev/PlugIns.md ${FOLDER}
 cp tmp/Mediation.md ${FOLDER}
 FILE=Endorser.md; sed -e 's#\./docs/assets/endorse#../features/endorse#' \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
@@ -188,17 +163,14 @@ cp tmp/JsonLdCredentials.md ${FOLDER}
 cp tmp/AnoncredsProofValidation.md ${FOLDER}
 FILE=UsingOpenAPI.md; sed -e 's#AdminApi.md#AdminAPI.md#' \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
-cp tmp/Multicredentials.md ${FOLDER}
 
 # Deploying
 FOLDER=docs/deploying
 mkdir ${FOLDER}
-cp tmp/ContainerImagesAndGithubActions.md ${FOLDER}
 FILE=deploymentModel.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 FILE=Databases.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
-cp tmp/RedisPlugins.md ${FOLDER}
 
 # Demos
 FOLDER=docs/demo
@@ -266,3 +238,11 @@ cp tmp/CONTRIBUTING.md ${FOLDER}
 cp tmp/MAINTAINERS.md ${FOLDER}
 cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
+
+# Update all references to "main" to "${VERSION}" in Github pathes
+# Naively for now:
+for i in $(find docs -name "*.md"); do
+  sed "s#/tree/main/#/tree/${VERSION}/#" $i >$i.tmp
+  sed "s#/blob/main/#/blob/${VERSION}/#" $i.tmp >$i
+  rm $i.tmp
+done
