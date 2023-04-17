@@ -21,7 +21,7 @@ ACA-Py internals documentation site. The internals documentation consists of the
 Agent-Python ReadTheDocs site](https://aries-cloud-agent-python.readthedocs.io/en/latest/).
 As with this site, the ReadTheDocs documentation is version specific.
 
-Get questions?
+Got questions?
 
 - Join us on the [Hyperledger Discord Server](https://chat.hyperledger.org), in the `#aries-cloudagent-python` channel.
 - Add an issue in the [Aries Cloud Agent Python repository].
