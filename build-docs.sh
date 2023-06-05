@@ -3,7 +3,6 @@
 thisDir=${PWD}
 tmpPath="tmp"
 docsPath="docs"
-scriptsPath="scripts"
 gitRepo="https://github.com/hyperledger/aries-cloudagent-python.git"
 
 help() {
@@ -62,10 +61,5 @@ fi
 
 # In the root folder
 cd ${thisDir}
-if [ -e ${scriptsPath}/${gitTag}.sh ]; then
-    echo "Running copy script"
-    ./${scriptsPath}/${gitTag}.sh ${gitTag}
-else
-    ls -al ${scriptsPath}/${gitTag}.sh
-    echo "No copy script for this version: ${scriptsPath}/${gitTag}.sh does not exist"
-fi
+echo "Running copy script"
+./scripts/copyFixMDs.sh ${gitTag}

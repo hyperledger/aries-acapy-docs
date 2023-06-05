@@ -140,3 +140,4 @@ nav:
     - Maintainers: contributing/MAINTAINERS.md
     - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
     - Security Vulnerability Reporting: contributing/SECURITY.md
+    - Publishing an ACA-Py Release: contributing/PUBLISHING.md

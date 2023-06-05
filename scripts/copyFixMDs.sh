@@ -97,6 +97,7 @@ nav:
     - Maintainers: contributing/MAINTAINERS.md
     - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
     - Security Vulnerability Reporting: contributing/SECURITY.md
+    - Publishing an ACA-Py Release: contributing/PUBLISHING.md
 EOF
 mv mkdocs.yml.tmp mkdocs.yml  
 
@@ -252,6 +253,9 @@ cp tmp/CONTRIBUTING.md ${FOLDER}
 cp tmp/MAINTAINERS.md ${FOLDER}
 cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
+FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/#" \
+  -e "s#(open-api/#(https://github.com/hyperledger/open-api/tree/${VERSION}/#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:
