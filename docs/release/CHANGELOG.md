@@ -1,5 +1,59 @@
 # Release Notes
 
+# 1.0.0-rc2
+
+## April 5, 2023
+
+ACA-Py 1.0.0 will be a breaking update to ACA-Py with the version number
+indicating the maturity of the implementation. The final 1.0.0 release will be
+Aries Interop Profile 2.0-complete, and based on Python 3.9 or higher. The
+decision to start tagging early `1.0.0` releases was probably a bad one given
+the subsequent focus in the community on optimization of what we have vs.
+completing the [to-do list for AIP 2.0](../../features/SupportedRFCs#aip-20). However, some
+organizations are using 1.0.0-rc1, so with this release of 1.0.0-rc2, we are
+providing an update that incorporates the many, many enhancements, improvements,
+and fixes that are in releases [0.8.0](#080) and [0.8.1](#081).
+
+### Breaking Changes
+
+See the breaking changes documented in Releases [0.8.1](#081) and [0.8.0](#080).
+There are no breaking changes in the merged pull requested listed below--those
+merged since Release 0.8.1.
+
+### What's Changed Since 1.0.0-rc1
+
+Release 1.0.0-rc1 was tagged soon after 0.7.5. As such, the full changelog
+from Release 1.0.0-rc2 included all of the changes in 0.8.0, 0.8.1 and the
+pull requests [listed below, made since the tagging of Release 0.8.1](#categorized-list-of-pull-requests-since-081).
+
+### Categorized List of Pull Requests Since 0.8.1
+
+- Connections Fixes/Updates
+  - Add support for JsonWebKey2020 for the connection invitations [\#2173](https://github.com/hyperledger/aries-cloudagent-python/pull/2173) [dkulic](https://github.com/dkulic)
+  - fix: only cache completed connection targets [\#2240](https://github.com/hyperledger/aries-cloudagent-python/pull/2240) [dbluhm](https://github.com/dbluhm)
+  - Connection target should not be limited only to indy dids [\#2229](https://github.com/hyperledger/aries-cloudagent-python/pull/2229) [dkulic](https://github.com/dkulic)
+  - Disable webhook trigger on initial response to multi-use connection invitation [\#2223](https://github.com/hyperledger/aries-cloudagent-python/pull/2223) [esune](https://github.com/esune)
+- Credential Exchange (Issue, Present) Updates
+  - Pass document loader to jsonld.expand [\#2175](https://github.com/hyperledger/aries-cloudagent-python/pull/2175) [andrewwhitehead](https://github.com/andrewwhitehead)
+- Multi-tenancy fixes/updates
+  - stand up multiple agents (single and multi) for local development and testing [\#2230](https://github.com/hyperledger/aries-cloudagent-python/pull/2230) [usingtechnology](https://github.com/usingtechnology)
+  - Multi-tenant self-managed mediation verkey lookup [\#2232](https://github.com/hyperledger/aries-cloudagent-python/pull/2232) [usingtechnology](https://github.com/usingtechnology)
+  - fix: route multitenant connectionless oob invitation [\#2243](https://github.com/hyperledger/aries-cloudagent-python/pull/2243) [TimoGlastra](https://github.com/TimoGlastra)
+  - Fix multitenant/mediation in demo [\#2075](https://github.com/hyperledger/aries-cloudagent-python/pull/2075) [ianco](https://github.com/ianco)
+- Other Bug Fixes
+  - ./run_demo performance -c 1 --mediation --timing --trace-log [#2245](https://github.com/hyperledger/aries-cloudagent-python/pull/2245) [usingtechnology](https://github.com/usingtechnology)
+  - Fix formatting and grammatical errors in different readme's [\#2222](https://github.com/hyperledger/aries-cloudagent-python/pull/2222) [ff137](https://github.com/ff137)
+  - Fix broken link in README [\#2221](https://github.com/hyperledger/aries-cloudagent-python/pull/2221) [ff137](https://github.com/ff137)
+  - fix: run only on main, forks ok [\#2166](https://github.com/hyperledger/aries-cloudagent-python/pull/2166) [anwalker293](https://github.com/anwalker293)
+  - Update Alice Wants a JSON-LD Credential to fix invocation [\#2219](https://github.com/hyperledger/aries-cloudagent-python/pull/2219) [swcurran](https://github.com/swcurran)
+- Dependencies and Internal Updates
+  - Bump requests from 2.30.0 to 2.31.0 in /demo/playground/scripts dependenciesPull requests that update a dependency file [\#2238](https://github.com/hyperledger/aries-cloudagent-python/pull/2238) [dependabot bot](https://github.com/dependabot)
+  - Upgrade codegen tools in scripts/generate-open-api-spec and publish Swagger 2.0 and OpenAPI 3.0 specs [\#2246](https://github.com/hyperledger/aries-cloudagent-python/pull/2246) [ff137](https://github.com/ff137)
+- Message Tracing/Timing Updates
+  - Add updated ELK stack for demos. [\#2236](https://github.com/hyperledger/aries-cloudagent-python/pull/2236) [usingtechnology](https://github.com/usingtechnology)
+- Release management pull requests
+  - 1.0.0-rc2 [\#XXXX](https://github.com/hyperledger/aries-cloudagent-python/pull/2207) [swcurran](https://github.com/swcurran)
+
 # 0.8.1
 
 ## April 5, 2023
@@ -126,9 +180,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/ContainerImagesAndGithubActions.md
 
 ## Breaking Changes and Upgrades
 
@@ -142,7 +196,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/1.0.0-rc2/features/0023-did-exchange/README.md).
 
 ### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -588,7 +642,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/1.0.0-rc2/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
