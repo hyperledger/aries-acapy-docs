@@ -82,8 +82,8 @@ Once you have the list of PRs:
    errors should be fixed in the code.
 
 5. Update the version number listed in
-   [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/version.py) and, prefixed with
-   a "v" in [open-api/openapi.json](https://github.com/hyperledger/open-api/tree/1.0.0-rc2/openapi.json) (e.g. "0.7.2" in the
+   [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/aries_cloudagent/version.py) and, prefixed with
+   a "v" in [open-api/openapi.json](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/open-api/openapi.json) (e.g. "0.7.2" in the
    version.py file and "v0.7.2" in the openapi.json file). The incremented
    version number should adhere to the [Semantic Versioning
    Specification](https://semver.org/#semantic-versioning-specification-semver)
@@ -105,7 +105,7 @@ Once you have the list of PRs:
 
 8. Immediately after it is merged, create a new GitHub tag representing the
    version. The tag name and title of the release should be the same as the
-   version in [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/version.py). Use
+   version in [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/aries_cloudagent/version.py). Use
    the "Generate Release Notes" capability to get a sequential listing of the
    PRs in the release, to complement the manually curated Changelog. Verify on
    PyPi that the version is published.
