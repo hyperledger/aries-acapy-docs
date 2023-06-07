@@ -83,7 +83,7 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 | Invitations using public did     | :white_check_mark:        |         |
 | Implicit pickup of messages in role of mediator | :white_check_mark:        |         |
 | [Revocable Indy Credentials](https://github.com/hyperledger/indy-hipe/tree/main/text/0011-cred-revocation) | :white_check_mark:        |         |
-| Multi-Tenancy      | :white_check_mark:        | [Documentation](https://github.com/hyperledger/aries-cloudagent-python/blob/main/Multitenancy.md) |
+| Multi-Tenancy      | :white_check_mark:        | [Documentation](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0-rc2/Multitenancy.md) |
 | Connection-less (non OOB protocol / AIP 1.0)               | :white_check_mark:        | Only for issue credential and present proof          |
 | Connection-less (OOB protocol / AIP 2.0)               | :white_check_mark:        | Only for present proof          |
 | Signed Attachments               | :white_check_mark:        | Used for OOB         |

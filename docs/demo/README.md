@@ -370,9 +370,9 @@ You can inspect the additional multi-tenancy admin API's (i.e. the "agency API" 
 Note that with multi-tenancy enabled:
 
 - The "base" wallet will have access to this new "agency API" - the agent's admin key, if enabled, must be provided in a header
-- "Base wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L606)
-- The "sub-wallets" will have access to the "normal" ACA-Py admin API - to identify the sub-wallet, a JWT token must be provided, this token is created upon creation of the new wallet (see: [this code here](https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L378))
-- "Sub-wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L632)
+- "Base wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/support/agent.py#L606)
+- The "sub-wallets" will have access to the "normal" ACA-Py admin API - to identify the sub-wallet, a JWT token must be provided, this token is created upon creation of the new wallet (see: [this code here](https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/support/agent.py#L378))
+- "Sub-wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/support/agent.py#L632)
 
 Documentation on ACA-Py's multi-tenancy support can be found [here](https://github.com/hyperledger/aries-cloudagent-python/blob/master/Multitenancy.md).
 
@@ -394,7 +394,7 @@ This works exactly as the *vanilla* multi-tenancy, except that all connections a
 
 These Alice and Faber scripts (in the `demo/runners` folder) implement the controller and run the agent as a sub-process (see the documentation for `aca-py`). The controller publishes a REST service to receive web hook callbacks from their agent. Note that this architecture, running the agent as a sub-process, is a variation on the documented architecture of running the controller and agent as separate processes/containers.
 
-The controllers for this demo can be found in the [alice.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/alice.py) and [faber.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/faber.py) files. Alice and Faber are instances of the agent class found in [agent.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py).
+The controllers for this demo can be found in the [alice.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/alice.py) and [faber.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/faber.py) files. Alice and Faber are instances of the agent class found in [agent.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/support/agent.py).
 
 ## OpenAPI (Swagger) Demo
 
@@ -402,7 +402,7 @@ Developing an ACA-Py controller is much like developing a web app that uses a RE
 
 ## Performance Demo
 
-Another example in the `demo/runners` folder is [performance.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/performance.py), that is used to test out the performance of interacting agents. The script starts up agents for Alice and Faber, initializes them, and then runs through an interaction some number of times. In this case, Faber issues a credential to Alice 300 times.
+Another example in the `demo/runners` folder is [performance.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/performance.py), that is used to test out the performance of interacting agents. The script starts up agents for Alice and Faber, initializes them, and then runs through an interaction some number of times. In this case, Faber issues a credential to Alice 300 times.
 
 To run the demo, make sure that you shut down any running Alice/Faber agents. Then, follow the same steps to start the Alice/Faber demo, but:
 
@@ -443,7 +443,7 @@ Now that you have a solid foundation in using ACA-Py, time for a coding challeng
 * ACME requesting a proof of her College degree
 * ACME issuing Alice a credential after she is hired.
 
-The framework for the code is in the [acme.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/acme.py) file, but the code is incomplete. Using the knowledge you gained from running demo and viewing the alice.py and faber.py code, fill in the blanks for the code.  When you are ready to test your work:
+The framework for the code is in the [acme.py](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0-rc2/demo/runners/acme.py) file, but the code is incomplete. Using the knowledge you gained from running demo and viewing the alice.py and faber.py code, fill in the blanks for the code.  When you are ready to test your work:
 
 * Use the instructions above to start the Alice/Faber demo (above).
 * Start another terminal session and run the same commands as for "Alice", but replace "alice" with "acme".

@@ -253,14 +253,14 @@ cp tmp/CONTRIBUTING.md ${FOLDER}
 cp tmp/MAINTAINERS.md ${FOLDER}
 cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
-FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/#" \
-  -e "s#(open-api/#(https://github.com/hyperledger/open-api/tree/${VERSION}/#" \
-  tmp/${FILE} > ${FOLDER}/${FILE}; diff tmp/${FILE} ${FOLDER}/${FILE}
+FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger/aries-cloudagent-python/blob/${VERSION}/aries_cloudagent/#" \
+  -e "s#(open-api/#(https://github.com/hyperledger/aries-cloudagent-python/blob/${VERSION}/open-api/#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:
 for i in $(find docs -name "*.md"); do
-  sed "s#/tree/main/#/tree/${VERSION}/#" $i >$i.tmp
-  sed "s#/blob/main/#/blob/${VERSION}/#" $i.tmp >$i
+  sed "s#\(aries-cloudagent-python/tree\)main/#\1/${VERSION}/#" $i >$i.tmp
+  sed "s#\(aries-cloudagent-python/blob\)/main/#\1/${VERSION}/#" $i.tmp >$i
   rm $i.tmp
 done
