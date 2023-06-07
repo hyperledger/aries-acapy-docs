@@ -59,12 +59,12 @@ Jump to the [Follow the Script](#follow-the-script) section below for further in
 
 ### Running in Docker
 
-Running the demo in docker requires having a `von-network` (a Hyperledger Indy public ledger sandbox) instance running in docker locally. See the [VON Network Tutorial](https://github.com/bcgov/von-network/blob/1.0.0-rc2/docs/UsingVONNetwork.md) for guidance
+Running the demo in docker requires having a `von-network` (a Hyperledger Indy public ledger sandbox) instance running in docker locally. See the [VON Network Tutorial](https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md) for guidance
 on starting and stopping your own local Hyperledger Indy instance.
 
 Open three `bash` shells. For Windows users, `git-bash` is highly recommended. bash is the default shell in Linux and Mac terminal sessions.
 
-In the first terminal window, start `von-network` by following the [Building and Starting](https://github.com/bcgov/von-network/blob/1.0.0-rc2/docs/UsingVONNetwork.md#building-and-starting) instructions.
+In the first terminal window, start `von-network` by following the [Building and Starting](https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting) instructions.
 
 In the second terminal, change directory into `demo` directory of your clone of the Aries Cloud Agent Python repository. Start the `faber` agent by issuing the following command:
 
@@ -98,7 +98,7 @@ While that process will include the installation of the Indy python prerequisite
 
 #### Start a local Indy ledger
 
-Start a local `von-network` Hyperledger Indy network running in Docker by following the VON Network [Building and Starting](https://github.com/bcgov/von-network/blob/1.0.0-rc2/docs/UsingVONNetwork.md#building-and-starting) instructions.
+Start a local `von-network` Hyperledger Indy network running in Docker by following the VON Network [Building and Starting](https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting) instructions.
 
 We strongly recommend you use Docker for the local Indy network until you really, really need to know the details of running an Indy Node instance on a bare machine.
 

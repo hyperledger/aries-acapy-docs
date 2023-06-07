@@ -260,7 +260,7 @@ FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:
 for i in $(find docs -name "*.md"); do
-  sed "s#/tree/main/#/tree/${VERSION}/#" $i >$i.tmp
-  sed "s#/blob/main/#/blob/${VERSION}/#" $i.tmp >$i
+  sed "s#aries-cloudagent-python/tree/main/#aries-cloudagent-python/tree/${VERSION}/#" $i >$i.tmp
+  sed "s#aries-cloudagent-python/blob/main/#aries-cloudagent-python/blob/${VERSION}/#" $i.tmp >$i
   rm $i.tmp
 done
