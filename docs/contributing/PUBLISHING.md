@@ -82,8 +82,9 @@ Once you have the list of PRs:
    errors should be fixed in the code.
 
 5. Update the version number listed in
-   [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/version.py) and, prefixed with
-   a "v" in [open-api/openapi.json](https://github.com/hyperledger/open-api/tree/main/openapi.json) (e.g. "0.7.2" in the
+   [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/tree/0.8.2/version.py) and, prefixed with
+   a "v" in [open-api/openapi.json](https://github.com/hyperledger/open-api/tree/0.8.2/openapi.json) and
+   [open-api/swagger.json](https://github.com/hyperledger/open-api/tree/0.8.2/swagger.json) (e.g. "0.7.2" in the
    version.py file and "v0.7.2" in the openapi.json file). The incremented
    version number should adhere to the [Semantic Versioning
    Specification](https://semver.org/#semantic-versioning-specification-semver)
@@ -101,11 +102,11 @@ Once you have the list of PRs:
    If there are still further changes to be merged, mark the PR as "Draft",
    repeat **ALL** of the steps again, and then mark this PR as ready and then
    wait until it is merged. It's embarrassing when you have to do a whole new
-   release just becaused you missed something silly...I know!
+   release just because you missed something silly...I know!
 
 8. Immediately after it is merged, create a new GitHub tag representing the
    version. The tag name and title of the release should be the same as the
-   version in [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/version.py). Use
+   version in [aries_cloudagent/version.py](https://github.com/hyperledger/aries-cloudagent-python/tree/0.8.2/version.py). Use
    the "Generate Release Notes" capability to get a sequential listing of the
    PRs in the release, to complement the manually curated Changelog. Verify on
    PyPi that the version is published.
@@ -121,10 +122,17 @@ Once you have the list of PRs:
    Additional information about the container image publication process can be
    found in the document [Container Images and Github Actions]().
 
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.8.2/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.8.2/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.8.2/ContainerImagesAndGithubActions.md
 
 10. Update the ACA-Py Read The Docs site by building the new "latest" (main
     branch) and activating and building the new release. Appropriate permissions
     are required to publish the new documentation version.
+
+11. Update the [https://aca-py.org] website with the latest documentation by
+    creating a PR and tag of the latest documentation from this site. Details
+    are provided in the [aries-acapy-docs] repository.
+
+[https://aca-py.org]: https://aca-py.org
+[aries-acapy-docs]: https://github.com/hyperledger/aries-acapy-docs
