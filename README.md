@@ -68,6 +68,8 @@ the docker container so that you can run `mkdocs` commands such as:
 alias mkdocs='docker run --rm -it -p 4444:8000 --name mkdocs-material -v ${PWD}:/docs squidfunk/mkdocs-material'
 ```
 
+The steps below assume you setup an alias like that.
+
 ### Verify Setup
 
 To verify your setup, check that you can run `mkdocs` by running the command `mkdocs --help` to see the help text.
@@ -83,17 +85,19 @@ The commands you will usually use with `mkdocs` are:
 
 ## Building the Docs for a Documentation Release
 
-To build the docs for a given release, run the bash script `build-docs.sh` in the local folder. Start with getting
-the help text (`./build-docs.sh -h`), and then go from there.
+To build the docs for a given release, create a branch for the release (e.g.
+`git checkout -b 0.8.2`) from main, and then run the bash script `build-docs.sh`
+in the local folder. Start with getting the help text (`./build-docs.sh -h`),
+and then go from there.
 
-The steps of the build-docs.sh script is as follows:
+The steps performed by the build-docs.sh script are:
 
 - Clone ACA-Py into the `/tmp` folder.
   - Use the `-k` option to skip this step.
 - Checkout the ACA-Py version of interest (`-m <tag>` option, defaulting to `main`).
-- Execute the `<version>.sh` script if it exists in the `/scripts` folder of the repository.
+- Execute the `./scripts/copyFixMDs.sh` script.
 
-The `<version>.sh` script does the following:
+The `./scripts/copyFixMDs.sh` script does the following:
 
 - Deletes the current contents of the `/docs` folder in the repository.
 - Removes from the `mkdocs.yml` file the `nav:` section of the file.
@@ -104,9 +108,17 @@ The `<version>.sh` script does the following:
 
 Ideally, that happens without errors, but if there are errors, fix them up.
 
-Finally, it's time to publish the site. To do so, simply run `mkdocs` from
-the root of the repository. If all goes well, the current set of docs will
-be published and you will be able to see the documents in your browser.
+Check to see if any new markdown files were added to ACA-Py in this release. Do that 
+by running the script `./scripts/diffMDs.sh`. There are instructions in the output
+about what to expect to see. If more MD files are listed, they likely have to be
+added to the `./scripts/copyFixMDs.sh` script to be listed in an appropriate 
+section of the generated website.
+
+Finally, it's time to publish the a local instance of the site and test it. To
+do so, simply run `mkdocs` from the root of the repository. If all goes well,
+the current set of docs will be published and you will be able to see the
+documents in your browser. Look for an errors in the site generation process,
+particularly missing links.
 
 ### Fixing Errors
 
@@ -120,21 +132,22 @@ There are live updates on the site as you make changes to the pages, but changes
 to `mkdocs.yml` are not picked up live, and you must restart the server to see those.
 
 Remember as well, that fixing the copy of the docs is **NOT** sufficient--you need
-to make the changes during the copy process from `/tmp` to `/docs` in the `<version>.sh`
+to make the changes during the copy process from `/tmp` to `/docs` in the `./scripts/copyFixMDs.sh`
 file, as we will need to run the process over if we change anything fundamental about the
-site (e.g. the colours, logos, etc.). The content **MUST** remain faithful to the content
+site (e.g. the colors, logos, etc.). The content **MUST** remain faithful to the content
 in the ACA-Py repository at the time the version was tagged, but the documentation site
-may evolve, requiring building the content again from time to time.
+may evolve, requiring building the "per version" content again from time to time.
 
 #### Adding and Fixing Content
 
 The basic process for adding content to the site (e.g. a new Markdown file from ACA-Py) is:
 
-- Update the version-specific `nav:` in the `<version>.sh` file.
-- Copy the file from the `/tmp` folder to the appropriate place in the `/docs` folder.
+- Update the version-specific `nav:` in the `./scripts/copyFixMDs.sh` file.
+- In the `./scripts/copyFixMDs.sh` script, add a command to copy the file from
+  the `/tmp` folder to the appropriate place in the `/docs` folder.
 - If necessary, convert the copy (`cp`) to a `sed` command to update a part of the content
 necessary. Mostly, such changes are required for relative links to the correct other place in the
-folder.  The `main.sh` file has a number of examples of `sed` conversions:
+folder.  The `./scripts/copyFixMDs.sh` file has a number of examples of `sed` conversions:
   - Documents formerly in the same folder now in another one.
   - Documents copied from one location (e.g., `GettingStarted...`) into another (e.g., `features`).
   - Images in other locations.
@@ -149,20 +162,29 @@ with the `main` (aka `latest`) version, and perhaps another version. You want to
 release.
 
 - Fork the repository and install the prerequisites.
-- Create and checkout a new branch to build your version.
-- Copy the `scripts/main.sh` file to `<version>.sh` for the version you are going to create.
+- Create and checkout a new branch from `main` for the new version (e.g. `git checkout 0.8.2`).
 - Run `./build-docs.sh -t <version>` to clone and checkout ACA-Py into the `/tmp` folder
 and to run the version-specific script to create the docs.
-- Fix any errors encountered in the `<versions>.sh` file.
-- Test the published site locally and fix any errors encountered in the `<versions>.sh` file.
+- Fix any errors encountered in the `./scripts/copyFixMDs.sh` file.
+- Test the published site locally and fix any errors encountered in the `./scripts/copyFixMDs.sh` file.
 - When ready, create a pull request that will be merged into a new branch in the target repository.
-  - The new branch **MUST** be called `v<version>` (e.g., `v0.8.0`).
+  - The new branch **MUST** be called `<version>` (e.g., `0.8.0`).
 
-When the new branch is merged, the new version should be automatically published.
+When the new branch is merged, create a release in GitHub for the new branch called `v<release>` (e.g. `v0.8.2`).
 
-To update an existing branch, in your local repo:
+## Updating an Existing Release Branch
 
-- Checkout the existing branch (e.g., `git checkout v0.8.0`).
-- Checkout and create a new local branch (e.g., `git checkout -b fix-v0.8.0`)
+To update an existing release branch, in your local repo:
+
+- Checkout the existing branch (e.g., `git checkout 0.8.0`).
 - Make the necessary changes.
-- Submit a pull request against the version branch.
+- Submit a pull request against the version branch (e.g. against the `0.8.0` branch) in the primary repository.
+- Update your local branch instance after the merge.
+
+## Sequence for a New Release
+
+Suggested sequence of steps for a new release:
+
+- Update the `main` branch
+- Create and publish the new release branch
+- Update the previously most recent release branch to at least change the `overrides/main.html` message.

@@ -15,4 +15,4 @@ The following is the `main.html` content for the latest release.
 
 If the release is older, use the following:
 
-`You're viewing the documentation for an <strong>older</strong> ACA-Py Release, 0.8.0.`
+`You're viewing the documentation for Release 0.8.0, an <strong>older</strong> version of ACA-Py.`
