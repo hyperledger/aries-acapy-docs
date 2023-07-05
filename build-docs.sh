@@ -19,6 +19,10 @@ EOF
     exit 1
 }
 
+if [ $# -eq 0 ]; then
+    help
+    exit
+fi
 gitTag=main
 delTmp=true
 while getopts "hkt:" option; do
