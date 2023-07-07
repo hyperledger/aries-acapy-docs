@@ -41,6 +41,7 @@ nav:
     - Release Notes: release/CHANGELOG.md
 - Features:
     - Developer Introduction: features/DevReadMe.md
+    - DevContainer Support: features/devcontainer.md
     - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md
     - The Admin API: features/AdminAPI.md
     - ACA-Py Plugins: features/PlugIns.md
@@ -157,6 +158,10 @@ FILE=DevReadMe.md; sed -e 's#(README.md)#(/README.md)#' \
     -e "s#/docs/GettingStartedAriesDev/\(AriesDeveloperDemos\).md#../../\1#" \
     -e "s#\(aries_cloudagent/transport\)#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1#" \
     tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
+FILE=devcontainer.md; sed -e "s#(\(.devcontainer/devcontainer.json\))#(https://github.com/hyperledger/aries-cloudagent-python/blob/main/\1)#" \
+  -e "s#(./\(aries_cloudagent\))#(https://github.com/hyperledger/aries-cloudagent-python/tree/main/\1)#" \
+  -e "s#(/\(DevReadMe\).md)#(../\1)#" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/SupportedRFCs.md ${FOLDER}
 FILE=AdminAPI.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
@@ -255,7 +260,7 @@ cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
 FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/#" \
   -e "s#(open-api/#(https://github.com/hyperledger/open-api/tree/${VERSION}/#" \
-  tmp/${FILE} > ${FOLDER}/${FILE}; diff tmp/${FILE} ${FOLDER}/${FILE}
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:

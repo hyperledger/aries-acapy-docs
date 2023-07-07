@@ -84,6 +84,7 @@ nav:
     - Release Notes: release/CHANGELOG.md
 - Features:
     - Developer Introduction: features/DevReadMe.md
+    - DevContainer Support: features/devcontainer.md
     - Supported Aries Interop Profiles and RFCs: features/SupportedRFCs.md
     - The Admin API: features/AdminAPI.md
     - ACA-Py Plugins: features/PlugIns.md
