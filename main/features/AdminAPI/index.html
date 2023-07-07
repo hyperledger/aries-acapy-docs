@@ -491,6 +491,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../devcontainer/" class="md-nav__link">
+        DevContainer Support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SupportedRFCs/" class="md-nav__link">
         Supported Aries Interop Profiles and RFCs
       </a>
@@ -552,6 +566,13 @@
   
     <nav class="md-nav" aria-label="Administration API Webhooks">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webhooks-over-websocket" class="md-nav__link">
+    Webhooks over WebSocket
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#pairwise-connection-record-updated-connections" class="md-nav__link">
@@ -1542,6 +1563,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#webhooks-over-websocket" class="md-nav__link">
+    Webhooks over WebSocket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pairwise-connection-record-updated-connections" class="md-nav__link">
     Pairwise Connection Record Updated (/connections)
   </a>
@@ -1626,6 +1654,15 @@
 <h2 id="administration-api-webhooks">Administration API Webhooks<a class="headerlink" href="#administration-api-webhooks" title="Permanent link">&para;</a></h2>
 <p>When ACA-Py is started with the <code>--webhook-url {URL}</code> command line parameter, state-management records are sent to the provided URL via POST requests whenever a record is created or its <code>state</code> property is updated.</p>
 <p>When a webhook is dispatched, the record <code>topic</code> is appended as a path component to the URL. For example, <code>https://webhook.host.example</code> becomes <code>https://webhook.host.example/topic/connections</code> when a connection record is updated. A POST request is made to the resulting URL with the body of the request comprising a serialized JSON object. The full set of properties of the current set of webhook payloads are listed below. Note that empty (null-value) properties are omitted.</p>
+<h3 id="webhooks-over-websocket">Webhooks over WebSocket<a class="headerlink" href="#webhooks-over-websocket" title="Permanent link">&para;</a></h3>
+<p>ACA-Py's Admin API also supports delivering webhooks over WebSocket. This can be especially useful when working with scripts that interact with the Admin API but don't have a web server listening to recieve webhooks in response to its actions. No additional command line parameters are required to enable WebSocket support.</p>
+<p>Webhooks received over WebSocket will contain the same data as webhooks posted over http but the structure differs in order to communicate details that would have been received as part of the HTTP request path and headers.</p>
+<ul>
+<li><code>topic</code>: The topic of the webhook, such as <code>connections</code> or <code>basicmessages</code></li>
+<li><code>payload</code>: The payload of the webhook; this is the data usually received in the request body when webhooks are delivered over HTTP</li>
+<li><code>wallet_id</code>: If using multitenancy, this is the wallet ID of the subwallet that emitted the webhook. This value will be omitted if not using multitenancy.</li>
+</ul>
+<p>To open a WebSocket, connect to the <code>/ws</code> endpoint of the Admin API.</p>
 <h3 id="pairwise-connection-record-updated-connections">Pairwise Connection Record Updated (<code>/connections</code>)<a class="headerlink" href="#pairwise-connection-record-updated-connections" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>connection_id</code>: the unique connection identifier</li>

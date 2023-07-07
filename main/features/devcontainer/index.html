@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../Multicredentials/">
+        <link rel="prev" href="../DevReadMe/">
       
       
-        <link rel="next" href="../Mediation/">
+        <link rel="next" href="../SupportedRFCs/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Code Generation with the Open API - Hyperledger Aries ACA-Py Docs</title>
+        <title>DevContainer Support - Hyperledger Aries ACA-Py Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aries-cloud-agent-python-aca-py-openapi-code-generation-considerations" class="md-skip">
+        <a href="#aca-py-development-with-dev-container" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code Generation with the Open API
+              DevContainer Support
             
           </span>
         </div>
@@ -489,11 +489,133 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../devcontainer/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          DevContainer Support
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         DevContainer Support
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    Caveats
+  </a>
+  
+    <nav class="md-nav" aria-label="Caveats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-docker-in-docker-demos" class="md-nav__link">
+    Running docker-in-docker demos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading-and-links" class="md-nav__link">
+    Further Reading and Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devcontainer" class="md-nav__link">
+    Devcontainer
+  </a>
+  
+    <nav class="md-nav" aria-label="Devcontainer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-aca-py-in-the-devcontainer" class="md-nav__link">
+    Open ACA-Py in the devcontainer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    Pytest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aca-py" class="md-nav__link">
+    ACA-Py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -657,93 +779,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Code Generation with the Open API
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../UsingOpenAPI/" class="md-nav__link">
         Code Generation with the Open API
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#aca-py-openapi-raw-output-characteristics" class="md-nav__link">
-    ACA-Py, OpenAPI Raw Output Characteristics
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generating-language-wrappers-for-aca-py" class="md-nav__link">
-    Generating Language Wrappers for ACA-Py
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#existing-language-wrappers-for-aca-py" class="md-nav__link">
-    Existing Language Wrappers for ACA-Py
-  </a>
-  
-    <nav class="md-nav" aria-label="Existing Language Wrappers for ACA-Py">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go" class="md-nav__link">
-    Go
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1527,50 +1567,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aca-py-openapi-raw-output-characteristics" class="md-nav__link">
-    ACA-Py, OpenAPI Raw Output Characteristics
+  <a href="#caveats" class="md-nav__link">
+    Caveats
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generating-language-wrappers-for-aca-py" class="md-nav__link">
-    Generating Language Wrappers for ACA-Py
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#existing-language-wrappers-for-aca-py" class="md-nav__link">
-    Existing Language Wrappers for ACA-Py
-  </a>
-  
-    <nav class="md-nav" aria-label="Existing Language Wrappers for ACA-Py">
+    <nav class="md-nav" aria-label="Caveats">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
+  <a href="#files" class="md-nav__link">
+    Files
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#go" class="md-nav__link">
-    Go
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java
+  <a href="#running-docker-in-docker-demos" class="md-nav__link">
+    Running docker-in-docker demos
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading-and-links" class="md-nav__link">
+    Further Reading and Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devcontainer" class="md-nav__link">
+    Devcontainer
+  </a>
+  
+    <nav class="md-nav" aria-label="Devcontainer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-aca-py-in-the-devcontainer" class="md-nav__link">
+    Open ACA-Py in the devcontainer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pytest" class="md-nav__link">
+    Pytest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aca-py" class="md-nav__link">
+    ACA-Py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
   
 </li>
       
@@ -1592,36 +1672,93 @@
   
 
 
-<h1 id="aries-cloud-agent-python-aca-py-openapi-code-generation-considerations">Aries Cloud Agent-Python (ACA-Py) - OpenAPI Code Generation Considerations<a class="headerlink" href="#aries-cloud-agent-python-aca-py-openapi-code-generation-considerations" title="Permanent link">&para;</a></h1>
-<p>ACA-Py provides an OpenAPI-documented REST interface for administering the agent's internal state and initiating communication with connected agents.</p>
-<p>The running agent provides a <code>Swagger User Interface</code> that can be browsed and used to test various scenarios manually (see the <a href="../AdminAPI/">Admin API Readme</a> for details). However, it is often desirable to produce native language interfaces rather than coding <code>Controllers</code> using HTTP primitives. This is possible using several public code generation (codegen) tools. This page provides some suggestions based on experience with these tools when trying to generate <code>Typescript</code> wrappers. The information should be useful to those trying to generate other languages. Updates to this page based on experience are encouraged.</p>
-<h2 id="aca-py-openapi-raw-output-characteristics">ACA-Py, OpenAPI Raw Output Characteristics<a class="headerlink" href="#aca-py-openapi-raw-output-characteristics" title="Permanent link">&para;</a></h2>
-<p>ACA-Py uses <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> tags in code to produce the OpenAPI spec file at runtime dependent on what features have been loaded. How these tags are created is documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/AdminAPI.md#api-standard-behaviour">API Standard Behaviour</a> section of the <a href="../AdminAPI/">Admin API Readme</a>. The OpenAPI spec is available in raw, unformatted form from a running ACA-Py instance using a route of <code>http://&lt;acapy host and port&gt;/api/docs/swagger.json</code> or from the browser <code>Swagger User Interface</code> directly.</p>
-<p>The ACA-Py Admin API evolves across releases. To track these changes and ensure conformance with the OpenAPI specification, we provide a tool located at <a href="scripts/generate-open-api-spec"><code>scripts/generate-open-api-spec</code></a>. This tool starts ACA-Py, retrieves the <code>swagger.json</code> file, and runs codegen tools to generate specifications in both Swagger and OpenAPI formats with <code>json</code> language output. The output of this tool enables comparison with the checked-in <code>open-api/swagger.json</code> and <code>open-api/openapi.json</code>, and also serves as a useful resource for identifying any non-conformance to the OpenAPI specification. At the moment, <code>validation</code> is turned off via the <code>open-api/openAPIJSON.config</code> file, so warning messages are printed for non-conformance, but the <code>json</code> is still output. Most of the warnings reported by <code>generate-open-api-spec</code> relate to missing <code>operationId</code> fields which results in manufactured method names being created by codegen tools. At the moment, <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> does not support adding <code>operationId</code> annotations via tags.</p>
-<p>The <code>generate-open-api-spec</code> tool was initially created to help identify issues with method parameters not being sorted, resulting in somewhat random ordering each time a codegen operation was performed. This is relevant for languages which do not have support for <a href="https://en.wikipedia.org/wiki/Named_parameter">named parameters</a> such as <code>Javascript</code>. It is recommended that the <code>generate-open-api-spec</code> is run prior to each release, and the resulting <code>open-api/openapi.json</code> file checked in to allow tracking of API changes over time. At the moment, this process is not automated as part of the release pipeline.</p>
-<h2 id="generating-language-wrappers-for-aca-py">Generating Language Wrappers for ACA-Py<a class="headerlink" href="#generating-language-wrappers-for-aca-py" title="Permanent link">&para;</a></h2>
-<p>There are inevitably differences around <code>best practice</code> for method naming based on coding language and organization standards.</p>
-<p>Best practice for generating ACA-Py language wrappers is to obtain the raw OpenAPI file from a configured/running ACA-Py instance and then post-process it with a merge utility to match routes and insert desired <code>operationId</code> fields. This allows the greatest flexibility in conforming to external naming requirements.</p>
-<p>Two major open-source code generation tools are <a href="https://github.com/swagger-api/swagger-codegen">Swagger</a> and <a href="https://github.com/OpenAPITools/openapi-generator">OpenAPI Tools</a>. Which of these to use can be very dependent on language support required and preference for the style of code generated.</p>
-<p>The <a href="https://github.com/OpenAPITools/openapi-generator">OpenAPI Tools</a> was found to offer some nice features when generating <code>Typescript</code>. It creates separate files for each class and allows the use of a <code>.openapi-generator-ignore</code> file to override generation if there is a spec file issue that needs to be maintained manually.</p>
-<p>If generating code for languages that do not support <a href="https://en.wikipedia.org/wiki/Named_parameter">named parameters</a>, it is recommended to specify the <code>useSingleRequestParameter</code> or equivalent in your code generator of choice. The reason is that, as mentioned previously, there have been instances where parameters were not sorted when output into the raw ACA-Py API spec file, and this approach helps remove that risk.</p>
-<p>Another suggestion for code generation is to keep the <code>modelPropertyNaming</code> set to <code>original</code> when generating code. Although it is tempting to try and enable marshaling into standard naming formats such as <code>camelCase</code>, the reality is that the models represent what is sent on the wire and documented in the <a href="https://github.com/hyperledger/aries-rfcs/tree/master/features">Aries Protocol RFCS</a>. It has proven handy to be able to see code references correspond directly with protocol RFCs when debugging. It will also correspond directly with what the <code>model</code> shows when looking at the ACA-Py <code>Swagger UI</code> in a browser if you need to try something out manually before coding. One final point is that on occasions, it has been discovered that the code generation tools don't always get the marshaling correct in all circumstances when changing model name format.</p>
-<h2 id="existing-language-wrappers-for-aca-py">Existing Language Wrappers for ACA-Py<a class="headerlink" href="#existing-language-wrappers-for-aca-py" title="Permanent link">&para;</a></h2>
-<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
+<p>For information on running demos and tests using provided shell scripts, see <a href="../DevReadMe">DevReadMe</a> readme.</p>
+<h1 id="aca-py-development-with-dev-container">ACA-Py Development with Dev Container<a class="headerlink" href="#aca-py-development-with-dev-container" title="Permanent link">&para;</a></h1>
+<p>The following guide will get you up and running and developing/debugging ACA-Py as quickly as possible. 
+We provide a <a href="https://containers.dev"><code>devcontainer</code></a> and will use <a href="https://code.visualstudio.com"><code>VS Code</code></a> to illustrate.</p>
+<p>By no means is ACA-Py limited to these tools; they are merely examples.  </p>
+<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
+<p>The primary use case for this <code>devcontainer</code> is for developing, debugging and unit testing (pytest) the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent">aries_cloudagent</a> source code.</p>
+<p>There are limitations running this devcontainer, such as all networking is within this container. This container has <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md">docker-in-docker</a> which allows running demos, building docker images, running <code>docker compose</code> all within this container.</p>
+<h3 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h3>
+<p>The <code>.devcontainer</code> folder contains the <code>devcontainer.json</code> file which defines this container. We are using a <code>Dockerfile</code> and <code>post-install.sh</code> to build and configure the container run image. The <code>Dockerfile</code> is simple but in place for simplifying image enhancements (ex. adding <code>poetry</code> to the image). The <code>post-install.sh</code> will install all the ACA-Py requirements and any additional steps (ex. adding additional development libraries).</p>
+<h3 id="running-docker-in-docker-demos">Running docker-in-docker demos<a class="headerlink" href="#running-docker-in-docker-demos" title="Permanent link">&para;</a></h3>
+<p>The following is an example of running the demos in this container using a local <a href="https://github.com/bcgov/von-network/tree/main">von-network</a>. You will have to connect to the local von-network using <code>host.docker.internal</code> not <code>localhost</code>.</p>
+<p>Assumes von-network is running outside of VS Code and this container at the default port (9000).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># open a terminal in VS Code...</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>demo
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">LEDGER_URL</span><span class="o">=</span>http://host.docker.internal:9000<span class="w"> </span>./run_demo<span class="w"> </span>faber
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># open a second terminal in VS Code...</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">cd</span><span class="w"> </span>demo
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">LEDGER_URL</span><span class="o">=</span>http://host.docker.internal:9000<span class="w"> </span>./run_demo<span class="w"> </span>alice
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># follow the script...</span>
+</code></pre></div>
+<h2 id="further-reading-and-links">Further Reading and Links<a class="headerlink" href="#further-reading-and-links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/didx-xyz/aries-cloudcontroller-python">Aries Cloud Controller Python (GitHub / didx-xyz)</a></li>
-<li><a href="https://pypi.org/project/aries-cloudcontroller/">Aries Cloud Controller (PyPi)</a></li>
-<li><a href="https://github.com/bcgov/traction">Traction (GitHub / bcgov)</a></li>
-<li><a href="https://github.com/Indicio-tech/acapy-client">acapy-client (GitHub / Indicio-tech)</a></li>
+<li>Development Containers (devcontainers): <a href="https://containers.dev">https://containers.dev</a></li>
+<li>Visual Studio Code: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
+<li>Dev Containers Extension: <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">marketplace.visualstudio.com</a></li>
+<li>Docker: <a href="https://www.docker.com">https://www.docker.com</a></li>
+<li>Docker Compose: <a href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a></li>
 </ul>
-<h3 id="go">Go<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
+<h2 id="devcontainer">Devcontainer<a class="headerlink" href="#devcontainer" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>What are Development Containers?</p>
+<p>A Development Container (or Dev Container for short) allows you to use a container as a full-featured development environment. It can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing. Dev containers can be run locally or remotely, in a private or public cloud.</p>
+</blockquote>
+<p>see <a href="https://containers.dev">https://containers.dev</a>.</p>
+<p>In this guide, we will use <a href="https://www.docker.com">Docker</a> and <a href="https://code.visualstudio.com">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers Extension</a> installed, please set your machine up with those. As of writing, we used the following: </p>
 <ul>
-<li><a href="https://github.com/ldej/go-acapy-client">go-acapy-client (GitHub / Idej)</a></li>
+<li>Docker Version: 20.10.24</li>
+<li>VS Code Version: 1.79.0</li>
+<li>Dev Container Extension Version: v0.295.0</li>
 </ul>
-<h3 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/hyperledger-labs/acapy-java-client">ACA-Py Java Client Library (GitHub / hyperledger-labs)</a></li>
-</ul>
+<h3 id="open-aca-py-in-the-devcontainer">Open ACA-Py in the devcontainer<a class="headerlink" href="#open-aca-py-in-the-devcontainer" title="Permanent link">&para;</a></h3>
+<p>To open ACA-Py in a devcontainer, we open the <em>root</em> of this repository. We can open in 2 ways:</p>
+<ol>
+<li>Open Visual Studio Code, and use the Command Palette and use <code>Dev Containers: Open Folder in Container...</code></li>
+<li>Open Visual Studio Code and <code>File|Open Folder...</code>, you should be prompted to <code>Reopen in Container</code>.</li>
+</ol>
+<p><em>NOTE</em> follow any prompts to install <code>Python Extension</code> or reload window for <code>Pylance</code> when first building the container.</p>
+<h4 id="devcontainerjson">devcontainer.json<a class="headerlink" href="#devcontainerjson" title="Permanent link">&para;</a></h4>
+<p>When the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/.devcontainer/devcontainer.json">.devcontainer/devcontainer.json</a> is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports <code>9060</code> and <code>9061</code>, allowing you to run/debug ACA-Py with those ports available to your <code>localhost</code> (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).</p>
+<p>In VS Code, open a Terminal, you should be able to run the following commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python -m aries_cloudagent -v
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cd aries_cloudagent
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>flake8 --max-line-length=90 --exclude=*/tests/** --extend-ignore=D202,W503 --per-file-ignores=*/__init__.py:D104
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>black . --check
+</code></pre></div>
+<p>The first command should show you that <code>aries_cloudagent</code> module is loaded (ACA-Py). The others are examples of code quality checks that ACA-Py does on commits (if you have <a href="https://pre-commit.com"><code>precommit</code></a> installed) and Pull Requests.</p>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<p>To better illustrate debugging pytests and ACA-Py runtime code, let's add some run/debug configurations to VS Code. If you have your own <code>launch.json</code> and <code>settings.json</code>, please cut and paste what you want/need.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cp -R .vscode-sample .vscode
+</code></pre></div>
+<p>This will add a <code>launch.json</code>, <code>settings.json</code> and an ACA-Py configuration file: <code>multitenant.yml</code>. </p>
+<h3 id="pytest">Pytest<a class="headerlink" href="#pytest" title="Permanent link">&para;</a></h3>
+<p>Pytest is installed and almost ready; however, we must build the test list. In the Command Palette, <code>Test: Refresh Tests</code> will scan and find the tests.</p>
+<p>See <a href="https://code.visualstudio.com/docs/python/testing">Python Testing</a> for more details, and <a href="https://code.visualstudio.com/docs/python/testing#_test-commands">Test Commands</a> for usage.</p>
+<p><em>IMPORTANT</em>: our pytests include coverage, which will prevent the <a href="https://code.visualstudio.com/docs/python/testing#_debug-tests">debugger from working</a>. One way around this would be to have a <code>.vscode/settings.json</code> that says not to use coverage (see above). This will allow you to set breakpoints in the pytest and code under test and use commands such as <code>Test: Debug Tests in Current File</code> to start debugging.</p>
+<h3 id="aca-py">ACA-Py<a class="headerlink" href="#aca-py" title="Permanent link">&para;</a></h3>
+<p>Above, we added some run/debug configurations, one of which is to run our ACA-Py source code so we can debug it.</p>
+<p>In <code>launch.json</code> you will see:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>        {
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>            &quot;name&quot;: &quot;Run/Debug ACA-Py&quot;,
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>            &quot;type&quot;: &quot;python&quot;,
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>            &quot;request&quot;: &quot;launch&quot;,
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            &quot;module&quot;: &quot;aries_cloudagent&quot;,
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            &quot;justMyCode&quot;: true,
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            &quot;args&quot;: [
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                &quot;start&quot;,
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                &quot;--arg-file=${workspaceRoot}/.vscode/multitenant.yml&quot;
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>            ]
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        },
+</code></pre></div>
+<p>To run your ACA-Py code in debug mode, go to the <code>Run and Debug</code> view, select "Run/Debug ACA-Py" and click <code>Start Debugging (F5)</code>.</p>
+<p>This will start your source code as a running ACA-Py instance, all configuration is in the <code>multitenant.yml</code> file. This is just a sample of a configuration, and we chose multi-tenancy so we can easily create multiple wallets/agents and have them interact.  Note that we are not using a database and are joining the <code>http://test.bcovrin.vonx.io</code> ledger. Feel free to change to a local VON Network (by default, it would be <code>http://host.docker.internal:9000</code>) or another ledger. This is purposefully a very simple configuration.</p>
+<p>Remember those ports we exposed in <code>devcontainer</code>? You can open a browser to <code>http://localhost:9061/api/doc</code> and see your Admin Console Swagger. Set some breakpoints and hit some endpoints, and start debugging your source code.</p>
+<p>For example, open <code>aries_cloudagent/admin/server.py</code> and set a breakpoint in <code>async def status_handler(self, request: web.BaseRequest):</code>, then call <a href="http://localhost:9061/api/doc#/server/get_status"><code>GET /status</code></a> in the Admin Console and hit your breakpoint.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>At this point, you now have a development environment where you can add pytests, add ACA-Py code and run and debug it all. Be aware there are limitations with <code>devcontainer</code> and other docker networks. You may need to adjust other docker-compose files not to start their own networks, and you may need to reference containers using <code>host.docker.internal</code>. This isn't a panacea but should get you going in the right direction and provide you with some development tools.</p>
 
 
 
@@ -1648,7 +1785,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Multicredentials/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multiple Credential Types" rel="prev">
+          <a href="../DevReadMe/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Developer Introduction" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1657,20 +1794,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Multiple Credential Types
+                Developer Introduction
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Mediation/" class="md-footer__link md-footer__link--next" aria-label="Next: ACA-Py as a DIDComm Mediator" rel="next">
+          <a href="../SupportedRFCs/" class="md-footer__link md-footer__link--next" aria-label="Next: Supported Aries Interop Profiles and RFCs" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                ACA-Py as a DIDComm Mediator
+                Supported Aries Interop Profiles and RFCs
               </div>
             </div>
             <div class="md-footer__button md-icon">

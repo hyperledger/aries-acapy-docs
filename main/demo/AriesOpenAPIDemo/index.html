@@ -491,6 +491,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/devcontainer/" class="md-nav__link">
+        DevContainer Support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/SupportedRFCs/" class="md-nav__link">
         Supported Aries Interop Profiles and RFCs
       </a>
@@ -2056,7 +2070,7 @@
 <p>As with the issue credential process, the agents handled some of the presentation steps without bothering the controller. In this case, Alice's agent processed the presentation request automatically through its handler for the <code>present_proof_v2_0</code> event, and her wallet contained exactly one credential that satisfied the presentation-request from the Faber agent. Similarly, the Faber agent's handler for the event responds automatically and so on receipt of the presentation, it verified the presentation and updated the status accordingly.</p>
 <h3 id="bonus-points_1">Bonus Points<a class="headerlink" href="#bonus-points_1" title="Permanent link">&para;</a></h3>
 <p>If you would like to perform all of the proof request/response steps manually, you can call all of the individual <code>/present-proof-2.0</code> messages.</p>
-<p>The following table lists endpoints that you need to call ("REST service") and callbacks that your agent will receive ("callback") that your need to respond to. See the <a href="../../features/AdminAPI">detailed API docs</a>.</p>
+<p>The following table lists endpoints that you need to call ("REST service") and callbacks that your agent will receive ("callback") that you need to respond to. See the <a href="../../features/AdminAPI">detailed API docs</a>.</p>
 <table>
 <thead>
 <tr>
@@ -2077,7 +2091,7 @@
 <td>Receive Proof Request</td>
 <td></td>
 <td><agent_cb>/present_proof_v2_0</td>
-<td>callback</td>
+<td>callback (webhook)</td>
 </tr>
 <tr>
 <td>Find Credentials</td>
@@ -2101,7 +2115,7 @@
 <td>Receive Proof</td>
 <td><agent_cb>/present_proof_v2_0</td>
 <td></td>
-<td>callback</td>
+<td>callback (webhook)</td>
 </tr>
 <tr>
 <td>Validate Proof</td>
