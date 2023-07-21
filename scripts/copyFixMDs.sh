@@ -84,6 +84,7 @@ nav:
 - Deploying:
     - Deployment Model: deploying/deploymentModel.md
     - Upgrading ACA-Py: deploying/UpgradingACA-Py.md
+    - Indy SDK to Askar Migration: deploying/IndySDKtoAskarMigration.md
     - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
@@ -161,7 +162,7 @@ FILE=DevReadMe.md; sed -e 's#(README.md)#(/README.md)#' \
 FILE=devcontainer.md; sed -e "s#(\(.devcontainer/devcontainer.json\))#(https://github.com/hyperledger/aries-cloudagent-python/blob/main/\1)#" \
   -e "s#(./\(aries_cloudagent\))#(https://github.com/hyperledger/aries-cloudagent-python/tree/main/\1)#" \
   -e "s#(/\(DevReadMe\).md)#(../\1)#" \
-  tmp/${FILE} > ${FOLDER}/${FILE}; diff tmp/${FILE} ${FOLDER}/${FILE}
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/SupportedRFCs.md ${FOLDER}
 FILE=AdminAPI.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
@@ -184,6 +185,7 @@ cp tmp/Multicredentials.md ${FOLDER}
 FOLDER=docs/deploying
 mkdir ${FOLDER}
 cp tmp/ContainerImagesAndGithubActions.md ${FOLDER}
+cp tmp/IndySDKtoAskarMigration.md ${FOLDER}
 cp tmp/UpgradingACA-Py.md ${FOLDER}
 FILE=deploymentModel.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
