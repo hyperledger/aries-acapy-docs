@@ -15,7 +15,7 @@
         <link rel="next" href="../../features/DevReadMe/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -1172,6 +1172,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/IndySDKtoAskarMigration/" class="md-nav__link">
+        Indy SDK to Askar Migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
@@ -1465,6 +1479,95 @@
 
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h1 id="090-rc0">0.9.0-rc0<a class="headerlink" href="#090-rc0" title="Permanent link">&para;</a></h1>
+<h2 id="july-21-2023">July 21, 2023<a class="headerlink" href="#july-21-2023" title="Permanent link">&para;</a></h2>
+<p>Release 0.9.0 is an important upgrade that changes (PR [#2302]) the dependency
+on the now archived Hyperledger Ursa project to its updated, improved
+replacement, <a href="https://github.com/hyperledger/anoncreds-rs">AnonCreds CL-Signatures</a>. This important change is ONLY available
+when using <a href="https://github.com/hyperledger/aries-askar">Aries Askar</a> as the wallet type, which brings in both [Indy VDR] and
+the CL-Signatures via the latest version of <a href="https://github.com/hyperledger/indy-shared-rs">CredX from the indy-shared-rs
+repository</a>. The update is <strong>NOT</strong> available to those that are using the <a href="https://github.com/hyperledger/indy-sdk">Indy
+SDK</a>. All new deployments of ACA-Py SHOULD use <a href="https://github.com/hyperledger/aries-askar">Aries Askar</a>. Further, we
+<strong>strongly</strong> recommend that all deployments using the <a href="https://github.com/hyperledger/indy-sdk">Indy SDK</a> with ACA-Py
+upgrade their installation to use <a href="https://github.com/hyperledger/aries-askar">Aries Askar</a> and the related components using
+the migration scripts available. An <a href="https://aca-py.org/main/deploying/IndySDKtoAskarMigration/">Indy SDK to Askar migration document</a> added
+to the <a href="https://aca-py.org">aca-py.org</a> documentation site, and a deprecation warning added to the
+ACA-Py startup.</p>
+<p>The second big change in this release is that we have upgraded the primary
+Python version from 3.6 to 3.9 (PR [#2247]). In this case, primary means that
+Python 3.9 is used to run the unit and integration tests on all Pull Requests.
+We also do nightly runs of the main branch using Python 3.10. As
+of this release we have <strong>dropped</strong> Python 3.6, 3.7 and 3.8, and introduced new
+dependencies that are not supported in those versions of Python. For those that
+use the published ACA-Py container images, the upgrade should be easily handled.
+If you are pulling ACA-Py into your own image, or a non-containerized
+environment, this is a breaking change that you will need to address.</p>
+<p>Please see the next section for all breaking changes, and the subsequent section
+for a categorized list of all pull requests in this release.</p>
+<h2 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h2>
+<p>In addition to the breaking Python 3.6 to 3.9 upgrade, there are two other
+breaking changes that may impact some deployments.</p>
+<p>[#2034] allows for additional flexibility in using public DIDs in invitations,
+and adds a restriction that "implicit" invitations must be proactively enabled
+using a flag (<code>--requests-through-public-did</code>). Previously, such requests
+would always be accepted if <code>--auto-accept</code> was enabled, which could lead to
+unexpected connections being established.</p>
+<p>[#2170] is a change to improve message handling in the face of delivery errors
+when using a persistent queue implementation such as the <a href="https://github.com/bcgov/aries-acapy-plugin-redis-events">ACA-Py Redis Plugin</a>.
+If you are using the Redis plugin, you <strong>MUST</strong> upgrade to <a href="https://github.com/bcgov/aries-acapy-plugin-redis-events/releases/tag/v0.1.0">Redis Plugin Release
+0.1.0</a> in conjunction with deploying this ACA-Py release. For those using their
+own persistent queue solution, see the PR [#2170] comments for information
+about changes you might need to make to your deployment.</p>
+<h3 id="categorized-list-of-pull-requests">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DIDComm Messaging Improvements/Fixes</li>
+<li>BREAKING: feat: get queued outbound message in transport handle message <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2170">#2170</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>DID Handling and Connection Establishment Updates/Fixes</li>
+<li>Allow any did to be public <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2295">#2295</a> <a href="https://github.com/mkempa">mkempa</a></li>
+<li>Feat: Added support for Ed25519Signature2020 signature type and Ed25519VerificationKey2020 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2241">#2241</a> <a href="https://github.com/dkulic">dkulic</a></li>
+<li>Add Goal and Goal Code to OOB and DIDex Request <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2294">#2294</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Fix routing in set public did <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2288">#2288</a> <a href="https://github.com/mkempa">mkempa</a>  - Fix: Do not replace public verkey on mediator <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2269">#2269</a> <a href="https://github.com/mkempa">mkempa</a>  - BREAKING: Allow multi-use public invites and public invites with metadata <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2034">#2034</a> <a href="https://github.com/mepeltier">mepeltier</a></li>
+<li>fix: public did mediator routing keys as did keys <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1977">#1977</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Credential Exchange (Issue, Present) Updates</li>
+<li>Add revocation registry rotate to faber demo <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2333">#2333</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Update to indy-credx 1.0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2302">#2302</a> <a href="https://github.com/andrewwhitehead">andrewwhitehead</a></li>
+<li>feat(anoncreds): Implement automated setup of revocation <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2292">#2292</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>fix: schema class can set Meta.unknown <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1885">#1885</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Respect auto-verify-presentation flag in present proof v1 and v2 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2097">#2097</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Feature: JWT Sign and Verify Admin Endpoints with DID Support <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2300">#2300</a> <a href="https://github.com/burdettadam">burdettadam</a></li>
+<li>Multitenancy Updates and Fixes</li>
+<li>Fix: Track endorser and author roles in per-tenant settings <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2331">#2331</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Added base wallet provisioning details to Multitenancy.md <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2328">#2328</a> <a href="https://github.com/esune">esune</a></li>
+<li>Other Fixes, Demo, and Documentation Fixes</li>
+<li>chore: add indy deprecation warnings <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2332">#2332</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Fix alice/faber demo execution <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2305">#2305</a> <a href="https://github.com/andrewwhitehead">andrewwhitehead</a></li>
+<li>Add .indy_client folder to Askar only image. <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2308">#2308</a> <a href="https://github.com/WadeBarnes">WadeBarnes</a></li>
+<li>Add build step for indy-base image in run_demo <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2299">#2299</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Webhook over websocket clarification <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2287">#2287</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>ACA-Py Deployment Upgrade Changes</li>
+<li>Add Explicit/Offline marking mechanism for Upgrade <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2204">#2204</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Plugin Handling Updates</li>
+<li>Feature: Add the ability to deny specific plugins from loading  0.7.4 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1737">#1737</a> <a href="https://github.com/frostyfrog">frostyfrog</a></li>
+<li>Dependencies and Internal Updates</li>
+<li>upgrade requests to latest <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2336">#2336</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>upgrade packaging to latest <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2334">#2334</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>chore: update PyYAML <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2329">#2329</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>chore(deps): Bump aiohttp from 3.8.4 to 3.8.5 in /demo/playground/scripts dependencies <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2325">#2325</a> <a href="https://github.com/dependabot bot">dependabot bot</a></li>
+<li>⬆️ upgrade marshmallow to latest <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2322">#2322</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>fix: use python 3.9 in run_docker <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2291">#2291</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>BREAKING!: drop python 3.6 support <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2247">#2247</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Minor revisions to the README.md and DevReadMe.md <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2272">#2272</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>ACA-Py Administrative Updates</li>
+<li>Updating Maintainers list to be accurate and using the TOC format <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2258">#2258</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>CI/CD and Developer Tools/Productivity Updates</li>
+<li>Cancel in-progress workflows when PR is updated <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2303">#2303</a> <a href="https://github.com/andrewwhitehead">andrewwhitehead</a></li>
+<li>ci: add gha for pr-tests <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2058">#2058</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Add devcontainer for ACA-Py <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2267">#2267</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Docker images and GHA for publishing images  help wanted <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2076">#2076</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>ci: test additional versions of python nightly <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2059">#2059</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Release management pull requests</li>
+<li>0.9.0-rc0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2338">#2338</a> <a href="https://github.com/swcurran">swcurran</a></li>
+</ul>
 <h1 id="082">0.8.2<a class="headerlink" href="#082" title="Permanent link">&para;</a></h1>
 <h2 id="june-29-2023">June 29, 2023<a class="headerlink" href="#june-29-2023" title="Permanent link">&para;</a></h2>
 <p>Release 0.8.2 contains a number of minor fixes and updates to ACA-Py, including
@@ -1478,7 +1581,7 @@ other shared components. This issue occurs only when using <a href="https://gith
 configuration settings at the tenant level of a multi-tenant deployment. See PR
 [#2233].</p>
 <p>There are no breaking changes in this release.</p>
-<h3 id="categorized-list-of-pull-requests">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
+<h3 id="categorized-list-of-pull-requests_1">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Connections Fixes/Updates</li>
 <li>Resolve definitions.py fix to fix backwards compatibility break in plugins <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2255">#2255</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
@@ -1551,7 +1654,7 @@ to use Askar, you must migrate your database to Postgres 10.</p>
 <a href="https://www.postgresql.org/">Postgres</a> versions greater than 14 do not install correctly. Please monitor
 [Issue #2199] for an update to this limitation. We have found that Postgres 15 does
 install correctly in other environments (such as in <code>docker compose</code> setups).</p>
-<h3 id="categorized-list-of-pull-requests_1">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_1" title="Permanent link">&para;</a></h3>
+<h3 id="categorized-list-of-pull-requests_2">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixes for the <code>upgrade</code> Command</li>
 <li>Change upgrade definition file entry from 0.8.0 to 0.8.1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2203">#2203</a> <a href="https://github.com/swcurran">swcurran</a></li>
@@ -1658,7 +1761,7 @@ of ACA-Py, you can run an <code>upgrade</code> to apply this change. To run upgr
 previous versions, use the following command using the <code>0.8.0</code> version of
 ACA-Py, adding you wallet settings:</p>
 <p><code>aca-py upgrade &lt;other wallet config settings&gt; --from-version=v0.7.5 --upgrade-config-path ./upgrade.yml</code></p>
-<h3 id="categorized-list-of-pull-requests_2">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_2" title="Permanent link">&para;</a></h3>
+<h3 id="categorized-list-of-pull-requests_3">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Verifiable credential, presentation and revocation handling updates</li>
 <li><strong>BREAKING:</strong> Update webhook message to terse form [default, added startup flag --debug-webhooks for full form <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2145">#2145</a> by <a href="https://github.com/victorlee0505">victorlee0505</a></li>
@@ -1958,7 +2061,7 @@ there no changes in the APIs.</p>
 <p>As well there were a number of internal fixes, dependency updates, documentation
 and demo changes, developer tools and release management updates. All the usual
 stuff needed for a healthy, growing codebase.</p>
-<h3 id="categorized-list-of-pull-requests_3">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_3" title="Permanent link">&para;</a></h3>
+<h3 id="categorized-list-of-pull-requests_4">Categorized List of Pull Requests<a class="headerlink" href="#categorized-list-of-pull-requests_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Hyperledger Indy Endorser related updates:</li>
 <li>Fix order of operations connecting faber to endorser <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1716">#1716</a> (<a href="https://github.com/ianco">ianco</a>)</li>

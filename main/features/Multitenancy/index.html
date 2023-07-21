@@ -15,7 +15,7 @@
         <link rel="next" href="../DIDMethods/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -1393,6 +1393,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/IndySDKtoAskarMigration/" class="md-nav__link">
+        Indy SDK to Askar Migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
@@ -1927,7 +1941,7 @@
 <h3 id="base-and-sub-wallets">Base and Sub Wallets<a class="headerlink" href="#base-and-sub-wallets" title="Permanent link">&para;</a></h3>
 <p>Multi-tenancy in ACA-Py makes a distinction between a base wallet and sub wallets.</p>
 <p>The wallets used by the different tenants are called <strong>sub wallets</strong>. A sub wallet is almost identical to a wallet when multi-tenancy is disabled. This means that you can do everything with it that a single-tenant ACA-Py instance can also do.</p>
-<p>The <strong>base wallet</strong> however, takes on a different role and has limited functionality. Its main function is to manage the sub wallets, which can be done using the <a href="#multi-tenant-admin-api">Multi-tenant Admin API</a>. It stores all settings and information about the different sub wallets and will route incoming messages to the corresponding sub wallets. See <a href="#message-routing">Message Routing</a> for more details. All other features are disabled for the base wallet. This means it cannot issue credentials, present proof, or do any of the other actions sub wallets can do. This is to keep a clear hierarchical difference between base and sub wallets</p>
+<p>The <strong>base wallet</strong> however, takes on a different role and has limited functionality. Its main function is to manage the sub wallets, which can be done using the <a href="#multi-tenant-admin-api">Multi-tenant Admin API</a>. It stores all settings and information about the different sub wallets and will route incoming messages to the corresponding sub wallets. See <a href="#message-routing">Message Routing</a> for more details. All other features are disabled for the base wallet. This means it cannot issue credentials, present proof, or do any of the other actions sub wallets can do. This is to keep a clear hierarchical difference between base and sub wallets. For this reason, the base wallet should generally <em>not</em> be provisioned using the <code>--wallet-seed</code> argument as not only it is not necessary for sub wallet management operations, but it will also require this DID to be correctly registered on the ledger for the service to start-up correctly.</p>
 <p><img alt="Multi-tenancy Architecture" src="/docs/assets/multitenancyDiagram.png" /></p>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
 <p>Multi-tenancy is disabled by default. You can enable support for multiple wallets using the <code>--multitenant</code> startup parameter. To also be able to manage wallets for the tenants, the multi-tenant admin API can be enabled using the <code>--multitenant-admin</code> startup parameter. See <a href="#multi-tenant-admin-api">Multi-tenant Admin API</a> below for more info on the admin API.</p>

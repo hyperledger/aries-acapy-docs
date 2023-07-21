@@ -15,7 +15,7 @@
         <link rel="next" href="AriesOpenAPIDemo/">
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
@@ -1320,6 +1320,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../deploying/IndySDKtoAskarMigration/" class="md-nav__link">
+        Indy SDK to Askar Migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
@@ -1892,40 +1906,46 @@ on starting and stopping your own local Hyperledger Indy instance.</p>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    (4) Create New Invitation
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    (5) Revoke Credential
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    (6) Publish Revocations
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    (T) Toggle tracing on credential/proof exchange
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    (X) Exit?
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>  ```
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>When you issue a credential, make a note of the `Revocation registry ID` and `Credential revocation ID`:
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    (7) Rotate Revocation Registry
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    (8) List Revocation Registries
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    (T) Toggle tracing on credential/proof exchange
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    (X) Exit?
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>  ```
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>When you issue a credential, make a note of the `Revocation registry ID` and `Credential revocation ID`:
 </code></pre></div>
 Faber      | Revocation registry ID: WGmUNAdH2ZfeGvacFoMVVP:4:WGmUNAdH2ZfeGvacFoMVVP:3:CL:38:Faber.Agent.degree_schema:CL_ACCUM:15ca49ed-1250-4608-9e8f-c0d52d7260c3
 Faber      | Credential revocation ID: 1
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>When you revoke a credential you will need to provide those values:
 </code></pre></div>
-[&frac12;/&frac34;/&#8538;/T/X] 5</p>
+[&frac12;/&frac34;/&#8538;/&#8542;/T/X] 5</p>
 <p>Enter revocation registry ID: WGmUNAdH2ZfeGvacFoMVVP:4:WGmUNAdH2ZfeGvacFoMVVP:3:CL:38:Faber.Agent.degree_schema:CL_ACCUM:15ca49ed-1250-4608-9e8f-c0d52d7260c3
 Enter credential revocation ID: 1
 Publish now? [Y/N]: y
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Note that you need to Publish the revocation information to the ledger.  Once you&#39;ve revoked a credential any proof which uses this credential will fail to verify.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Note that you need to Publish the revocation information to the ledger.  Once you&#39;ve revoked a credential any proof which uses this credential will fail to verify.  
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>### DID Exchange
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Rotating the revocation registry will decommission any &quot;ready&quot; registry records and create 2 new registry records. You can view in the logs as the records are created and transition to &#39;active&#39;. There should always be 2 &#39;active&#39; revocation registries - one working and one for hot-swap. Note that revocation information can still be published from decommissioned registries.
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>You can enable DID Exchange using the `--did-exchange` parameter for the `alice` and `faber` demos.
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>You can also list the created registries, filtering by current state: &#39;init&#39;, &#39;generated&#39;, &#39;posted&#39;, &#39;active&#39;, &#39;full&#39;, &#39;decommissioned&#39;.
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>This will use the new DID Exchange protocol when establishing connections between the agents, rather than the older Connection protocol.  There is no other affect on the operation of the agents.
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>### DID Exchange
 <a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>Note that you can&#39;t (currently) use the DID Exchange protocol to connect with any of the available mobile agents.
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>You can enable DID Exchange using the `--did-exchange` parameter for the `alice` and `faber` demos.
 <a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>### Endorser
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>This will use the new DID Exchange protocol when establishing connections between the agents, rather than the older Connection protocol.  There is no other affect on the operation of the agents.
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>This is described in [Endorser.md](Endorser.md)
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>Note that you can&#39;t (currently) use the DID Exchange protocol to connect with any of the available mobile agents.
 <a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>### Run Indy-SDK Backend
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>### Endorser
 <a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>This runs using the older (and not recommended) indy-sdk libraries instead of [Aries Askar](https://github.com/hyperledger/aries-ask):
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>This is described in [Endorser.md](Endorser.md)
 <a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>```bash
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>./run_demo faber --wallet-type indy
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>### Run Indy-SDK Backend
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>This runs using the older (and not recommended) indy-sdk libraries instead of [Aries Askar](https://github.com/hyperledger/aries-ask):
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>```bash
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>./run_demo faber --wallet-type indy
 </code></pre></div></p>
 <h3 id="mediation">Mediation<a class="headerlink" href="#mediation" title="Permanent link">&para;</a></h3>
 <p>To enable mediation, run the <code>alice</code> or <code>faber</code> demo with the <code>--mediation</code> option:</p>

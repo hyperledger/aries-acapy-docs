@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -1160,6 +1160,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/IndySDKtoAskarMigration/" class="md-nav__link">
+        Indy SDK to Askar Migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         ACA-Py Container Images
       </a>
@@ -1495,8 +1509,18 @@ a major, minor or patch release, per <a href="https://semver.org/">semver</a> ru
     closed issues in the Change Log.</li>
 </ol>
 <p>In some cases, the approach above fails because of too many API calls. An
-alternate approach to getting the list of PRs in the right format is to use this
-scary <code>sed</code> pipeline process to get the same output.¥</p>
+alternate approach to getting the list of PRs in the right format is to use <a href="https://chat.openai.com">OpenAI ChatGPT</a>.</p>
+<p>Prepare the following ChatGPT request. Don't hit enter yet--you have to add the data.</p>
+<p><code>Generate from this the github pull request number, the github id of the author and the title of the pull request in a tab-delimited list</code></p>
+<p>Get a list of the merged PRs since the last release by displaying the PR list in
+the GitHub UI, highlighting/copying the PRs and pasting them below the ChatGPT
+request, one page after another. Hit <code>&lt;Enter&gt;</code>, let the AI magic work, and you
+should have a list of the PRs in a nice table with a <code>Copy</code> link that you should click.</p>
+<p>Once you have that, open this <a href="https://docs.google.com/spreadsheets/d/1gIjPirZ42g5eM-JBtVt8xN5Jm0PQuEv91a8woRAuDEg/edit?usp=sharing">Google Sheet</a> and highlight the <code>A1</code> cell and
+paste in the ChatGPT data. A formula in column <code>E</code> will have the properly
+formatted changelog entries. Double check the list with the GitHub UI to make
+sure that ChatGPT isn't messing with you and you have the needed data.</p>
+<p>If using ChatGPT doesn't appeal to you, try this scary <code>sed</code>/command line approach:</p>
 <ul>
 <li>Put the following commands into a file called <code>changelog.sed</code></li>
 </ul>
@@ -1536,7 +1560,7 @@ scary <code>sed</code> pipeline process to get the same output.¥</p>
 </ul>
 <p>Once you have the list of PRs:</p>
 <ul>
-<li>Organize the list into suitable categories, update (if necessary) the PR description and add notes to clarify the changes. See previous release entries to understand the style -- a format should help developers.</li>
+<li>Organize the list into suitable categories, update (if necessary) the PR description and add notes to clarify the changes. See previous release entries to understand the style -- a format that should help developers.</li>
 <li>
 <p>Add a narrative about the release above the PR that highlights what has gone into the release.</p>
 </li>
@@ -1566,6 +1590,9 @@ scary <code>sed</code> pipeline process to get the same output.¥</p>
    required (other than in CHANGELOG.md and the examples in this file, of
    course), finding a way to not need them is best, but if they are needed,
    please update this document to note where the tag can be found.</p>
+</li>
+<li>
+<p>Check to see if there are any other PRs that should be included in the release.</p>
 </li>
 <li>
 <p>Double check all of these steps above, and then submit a PR from the branch.
