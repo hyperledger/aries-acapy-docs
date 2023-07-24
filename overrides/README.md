@@ -6,13 +6,10 @@ The following is the `main.html` content for the latest release.
 {% extends "base.html" %}
 
 {% block outdated %}
-  You're viewing the documentation for the latest ACA-Py Release, 0.8.0.
-  <a href="{{ '../' ~ base_url }}"> 
-    <strong>Click here</strong>
-  </a> for the ACA-Py main branch documentation.
+  You are viewing the documentation for the latest ACA-Py Release, 0.8.0.
 {% endblock %}
 ```
 
 If the release is older, use the following:
 
-`You're viewing the documentation for Release 0.8.0, an <strong>older</strong> version of ACA-Py.`
+`You are viewing the documentation for Release 0.8.0, which is <strong>not</strong> the current version of ACA-Py.`
