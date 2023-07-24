@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#credential-revocation" class="md-skip">
+        <a href="#credential-revocation-in-aca-py" class="md-skip">
           Skip to content
         </a>
       
@@ -1117,6 +1117,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-aca-py-revocation" class="md-nav__link">
+    Using ACA-Py Revocation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#revocation-notification" class="md-nav__link">
     Revocation Notification
   </a>
@@ -1534,6 +1548,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-aca-py-revocation" class="md-nav__link">
+    Using ACA-Py Revocation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#revocation-notification" class="md-nav__link">
     Revocation Notification
   </a>
@@ -1592,9 +1620,93 @@
   
 
 
-<h1 id="credential-revocation">Credential Revocation<a class="headerlink" href="#credential-revocation" title="Permanent link">&para;</a></h1>
-<p>These are the ACA-py steps and APIs involved to support credential revocation.</p>
-<p>Run ACA-Py with tails server support enabled. You will need to have the URL of an running instance of <a href="https://github.com/bcgov/indy-tails-server">https://github.com/bcgov/indy-tails-server</a>.</p>
+<h1 id="credential-revocation-in-aca-py">Credential Revocation in ACA-Py<a class="headerlink" href="#credential-revocation-in-aca-py" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Revocation is perhaps the most difficult aspect of verifiable credentials to
+manage. This is true in AnonCreds, particularly in the management of AnonCreds
+revocation registries (RevRegs). Through experience in deploying use cases with
+ACA-Py we have found that it is very difficult for the controller (the
+application code) to manage revocation registries, and as such, we have changed
+the implementation in ACA-Py to ensure that it is handling almost all the work
+in revoking credentials. The only thing the controller writer has to do is track
+the minimum things necessary to the business rules around revocation, such as
+whose credentials should be revoked, and how close to real-time should
+revocations be published?</p>
+<p>Here is a  summary of all of the AnonCreds revocation activities performed
+by issuers. After this, we'll provide a (much shorter) list of what an ACA-Py
+issuer controller has to do. For those interested, there is a more <a href="https://github.com/hyperledger/indy-hipe/blob/main/text/0011-cred-revocation/README.md">complete
+overview of AnonCreds revocation</a>, including all of the roles, and some details
+of the cryptography behind the approach:</p>
+<ul>
+<li>Issuers indicate that a credential will support revocation when creating the
+  credential definition (CredDef).</li>
+<li>Issuers create a Revocation Registry definition object of a given size
+  (MaxSize -- the number of credentials that can use the RevReg) and publish it
+  to the ledger (or more precisely, the verifiable data registry). In doing
+  that, a Tails file is also created and published somewhere on the Internet,
+  accessible to all Holders.</li>
+<li>Issuers create and publish an initial Revocation Registry Entry that defines
+  the state of all credentials within the RevReg, either all active or all
+  revoked. It's a really bad idea to create a RevReg starting with "all
+  revoked", so don't do that.</li>
+<li>Issuers issue credentials and note the "revocation ID" of each credential. The
+  "revocation Id" is a compound key consisting of the RevRegId from which the
+  credential was issued, and the index within that registry of that credential.
+  An index (from 1 to Max Size of the registry -- or perhaps 0 to Max Size - 1)
+  can only be associated with one issued credential.</li>
+<li>At some point, a RevReg is all used up (full), and the Issuer must create another
+  one. Ideally, this does not cause an extra delay in the process of issuing credentials.</li>
+<li>At some point, the Issuer revokes the credential of a holder, using the
+  revocation Id of the relevant credential.</li>
+<li>At some point, either in conjunction with each revocation, or for a batch of
+  revocations, the Issuer publishes the RevReg(s) associated with a CredDef to
+  the ledger. If there are multiple revocations spread across multiple RevRegs,
+  there may be multiple writes to the ledger.</li>
+</ul>
+<p>Since managing RevRegs is really hard for an ACA-Py controller, we have tried to
+minimize what an ACA-Py Issuer controller has to do, leaving everything else to be
+handled by ACA-Py. Of the items in the previous list, here is what an ACA-Py
+issuer controller does:</p>
+<ul>
+<li>Issuers flag that revocation will be used when creating the CredDef and the
+  desired size of the RevReg. ACA-Py takes case of creating the initial
+  RevReg(s) without further action by the controller.</li>
+<li>Two RevRegs are initially created, so there is no delay when one fills up,
+    and another is needed. In ongoing operations, when one RevReg fills up, the
+    other active RevReg is used, and a new RevReg is created.</li>
+<li>On creation of each RevReg, its corresponding tails file is published by
+    ACA-Py.</li>
+<li>On Issuance, the controller receives the logical “revocation ID" (combination
+  of RevRegId+Index) of the issued credential to track.</li>
+<li>On Revocation, the controller passes in the logical “revocation ID" of the
+  credential to be revoked, including a “notify holder” flag. ACA-Py records the
+  revocation as pending and, if asked, sends a notification to the holder using
+  a DIDComm message (<a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md">Aries RFC 0183: Revocation Notification</a>).</li>
+<li>The Issuer requests that the revocations for a CredDefId be published. ACA-Py
+  figures out what RevRegs contain pending revocation and so need to be
+  published, and publishes each.</li>
+</ul>
+<p>That is the minimum amount of tracking the controller must do while still being
+able to execute the business rules around revoking credentials.</p>
+<p>From experience, we’ve added to two extra features to deal with unexpected
+conditions:</p>
+<ul>
+<li>When using an Indy (or similar) ledger, if the local copy of a RevReg gets out
+  of sync with the ledger copy (perhaps due to a failed ledger write), the
+  Framework can create an update transaction to “fix” the issue. This is needed
+  for a revocation state using deltas-type solution (like Indy), but not for a
+  ledger that publishes revocation states containing the entire state of each
+  credential.</li>
+<li>From time to time there may be a need to <a href="#revocation-registry-rotation">“rotate” a
+  RevReg</a> — to mark existing, active RevRegs as
+  “decommissioned”, and create new ones in their place. We’ve added an endpoint
+  (api call) for that.</li>
+</ul>
+<h2 id="using-aca-py-revocation">Using ACA-Py Revocation<a class="headerlink" href="#using-aca-py-revocation" title="Permanent link">&para;</a></h2>
+<p>The following are the ACA-Py steps and APIs involved in handling credential revocation.</p>
+<p>To try these out, use the ACA-Py Alice/Faber demo with tails server support
+enabled. You will need to have the URL of an running instance of
+<a href="https://github.com/bcgov/indy-tails-server">https://github.com/bcgov/indy-tails-server</a>.</p>
 <p>Include the command line parameter <code>--tails-server-base-url &lt;indy-tails-server url&gt;</code></p>
 <ol>
 <li>
@@ -1646,7 +1758,7 @@ it is automatically managed in the background.</p>
 pending revocations in batches. Revocation are not written to ledger until this is called.</p>
 </li>
 <li>
-<p>When asking for proof, specify the timespan when the credential is NOT revoked
+<p>When asking for proof, specify the time span when the credential is NOT revoked
     <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a> POST /present-proof/send-request
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> {
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   &quot;connection_id&quot;: ...,
@@ -1730,8 +1842,11 @@ further customize notification handling.</p>
 webhook with the topic <code>revocation-notification</code> and a payload containing the
 thread ID and comment is emitted to registered webhook urls.</p>
 <h2 id="manually-creating-revocation-registries">Manually Creating Revocation Registries<a class="headerlink" href="#manually-creating-revocation-registries" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>NOTE: This capability is deprecated and will likely be removed entirely in an upcoming release of ACA-Py. </p>
+</blockquote>
 <p>The process for creating revocation registries is completely automated - when you create a Credential Definition with revocation enabled, a revocation registry is automatically created (in fact 2 registries are created), and when a registry fills up, a new one is automatically created.</p>
-<p>However the Aca-Py admin api supports endpoints to explicitely create a new revocation registry, if you desire.</p>
+<p>However the ACA-Py admin api supports endpoints to explicitly create a new revocation registry, if you desire.</p>
 <p>There are several endpoints that must be called, and they must be called in this order:</p>
 <ol>
 <li>
