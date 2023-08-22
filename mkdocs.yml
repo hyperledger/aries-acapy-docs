@@ -4,7 +4,7 @@ repo_url: https://github.com/hyperledger/aries-cloudagent-python
 theme:
   name: material
   custom_dir: overrides
-  logo: https://www.hyperledger.org/wp-content/uploads/2019/06/Hyperledger_Aries_Logo_White.png
+  logo: https://wiki.hyperledger.org/download/attachments/20021500/Hyperledger_Aries_Logo_White.png?version=1&modificationDate=1569206370000&api=v2
   favicon: https://aries.js.org/img/aries-logo.png
   icon:
     repo: fontawesome/brands/github
