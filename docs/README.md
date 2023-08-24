@@ -1,6 +1,6 @@
 # Welcome!
 
-![Hyperledger Aries](https://raw.githubusercontent.com/hyperledger/aries-acapy-docs/blob/main/assets/Hyperledger_Aries_Logo_Color.png)
+![Hyperledger Aries](https://raw.githubusercontent.com/hyperledger/aries-acapy-docs/main/assets/Hyperledger_Aries_Logo_Color.png)
 
 qWelcome to the Aries Cloud Agent Python documentation site. On this site you
 will find documentation for recent releases of ACA-Py. You'll find a few of the
