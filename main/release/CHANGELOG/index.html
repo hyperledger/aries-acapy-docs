@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -1893,6 +1893,105 @@
 
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h1 id="0101">0.10.1<a class="headerlink" href="#0101" title="Permanent link">&para;</a></h1>
+<h2 id="august-29-2023">August 29, 2023<a class="headerlink" href="#august-29-2023" title="Permanent link">&para;</a></h2>
+<p>Release 0.10.1 contains a breaking change, an important fix for a regression
+introduced in 0.8.2 that impacts certain deployments, and a number of fixes and
+updates. Included in the updates is a significant internal reorganization of the
+DID and connection management code that was done to enable more flexible uses of
+different DID Methods, such as being able to use <code>did:web</code> DIDs for DIDComm
+messaging connections. The work also paves the way for coming updates related to
+support for <code>did:peer</code> DIDs for DIDComm. For details on the change see
+[PR #2409], which includes some of the best pull request documentation ever
+created.</p>
+<p>Release 0.10.1 has the same contents as 0.10.0. An error on PyPi prevented the
+0.10.0 release from being properly uploaded because of an existing file of the same
+name. We immediately released 0.10.1 as a replacement.</p>
+<p>The regression fix is for ACA-Py deployments that use multi-use invitations but
+do <strong>NOT</strong> use the <code>--auto-accept-connection-requests</code> flag/processing. A change
+in <a href="#082">0.8.2</a> (PR [#2223]) suppressed an extra webhook event firing during
+the processing after receiving a connection request. An unexpected side effect
+of that change was that the subsequent webhook event also did not fire, and as a
+result, the controller did not get any event signalling a new connection request
+had been received via the multi-use invitation. The update in this release
+ensures the proper event fires and the controller receives the webhook.</p>
+<p>See below for the breaking changes and a categorized list of the pull requests
+included in this release.</p>
+<p>Updates in the CI/CD area include adding the publishing of a <code>nightly</code> container
+image that includes any changes in the main branch since the last <code>nightly</code> was
+published. This allows getting the "latest and greatest" code via a container image
+vs. having to install ACA-Py from the repository. In addition, Snyk scanning
+was added to the CI pipeline, and Indy SDK tests were removed from the pipeline.</p>
+<h2 id="0101-breaking-changes">0.10.1 Breaking Changes<a class="headerlink" href="#0101-breaking-changes" title="Permanent link">&para;</a></h2>
+<p>[#2352] is a breaking change related to the storage of presentation exchange
+records in ACA-Py. In previous releases, presentation exchange protocol state
+data records were retained in ACA-Py secure storage after the completion of
+protocol instances. With this release the default behavior changes to <strong>deleting
+those records by default</strong>, unless the <code>----preserve-exchange-records</code> flag is
+set in the configuration. This extends the use of that flag that previously
+applied only to issue credential records. The extension matches the initial
+intention of the flag--that it cover both issue credential and present proof
+exchanges. The "best practices" for ACA-Py is that the controller (business
+logic) store any long-lasting business information needed for the service that
+is using the Aries Agent, and ACA-Py storage should be used only for data
+necessary for the operation of the agent. In particular, protocol state data
+should be held in ACA-Py only as long as the protocol is running (as it is
+needed by ACA-Py), and once a protocol instance completes, the controller should
+extract and store the business information from the protocol state before it is
+deleted from ACA-Py storage.</p>
+<h3 id="0100-categorized-list-of-pull-requests">0.10.0 Categorized List of Pull Requests<a class="headerlink" href="#0100-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DIDComm Messaging Improvements/Fixes</li>
+<li>fix: outbound send status missing on path <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2393">#2393</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>fix: keylist update response race condition <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2391">#2391</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>DID Handling and Connection Establishment Updates/Fixes</li>
+<li>fix: handle stored afgo and findy docs in corrections <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2450">#2450</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>chore: relax connections filter DID format <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2451">#2451</a> <a href="https://github.com/chumbert">chumbert</a></li>
+<li>fix: ignore duplicate record errors on add key <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2447">#2447</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>fix: ignore duplicate record errors on add key <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2447">#2447</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>fix: more diddoc corrections <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2446">#2446</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>feat: resolve connection targets and permit connecting via public DID <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2409">#2409</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>feat: add legacy peer did resolver <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2404">#2404</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Fix: Ensure event/webhook is emitted for multi-use invitations <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2413">#2413</a> <a href="https://github.com/esune">esune</a></li>
+<li>feat: add DID Exchange specific problem reports and reject endpoint <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2394">#2394</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>fix: additional tweaks for did:web and other methods as public DIDs <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2392">#2392</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Fix empty ServiceDecorator in OobRecord causing 422 Unprocessable Entity Error <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2362">#2362</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>Feat: Added support for Ed25519Signature2020 signature type and Ed25519VerificationKey2020 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2241">#2241</a> <a href="https://github.com/dkulic">dkulic</a></li>
+<li>Upgrading to Aries Askar Updates</li>
+<li>Add symlink to /home/indy/.indy_client for backwards compatibility <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2443">#2443</a> <a href="https://github.com/esune">esune</a></li>
+<li>Credential Exchange (Issue, Present) Updates</li>
+<li>fix: ensure request matches offer in JSON-LD exchanges, if sent <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2341">#2341</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>BREAKING Extend --preserve-exchange-records to include Presentation Exchange. <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2352">#2352</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Correct the response type in send_rev_reg_def <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2355">#2355</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>Multitenancy Updates and Fixes</li>
+<li>Multitenant check endorser_info before saving <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2395">#2395</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Feat: Support Selectable Write Ledger <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2339">#2339</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Other Fixes, Demo, and Documentation Fixes</li>
+<li>Redis Plugins [redis_cache &amp; redis_queue] documentation and docker related updates <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1937">#1937</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
+<li>Chore: fix marshmallow warnings <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2398">#2398</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>Upgrade pre-commit and flake8 dependencies; fix flake8 warnings <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2399">#2399</a> <a href="https://github.com/ff137">ff137</a></li>
+<li>Corrected typo on mediator invitation configuration argument <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2365">#2365</a> <a href="https://github.com/jorgefl0">jorgefl0</a></li>
+<li>Add workaround for ARM based macs <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2313">#2313</a> <a href="https://github.com/finnformica">finnformica</a></li>
+<li>Dependencies and Internal Updates</li>
+<li>chore(deps): Bump certifi from 2023.5.7 to 2023.7.22 in /demo/playground/scripts dependencies <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2354">#2354</a> <a href="https://github.com/dependabot bot">dependabot bot</a></li>
+<li>CI/CD and Developer Tools/Productivity Updates</li>
+<li>Fix for nightly tests failing on Python 3.10 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2435">#2435</a> <a href="https://github.com/Gavinok">Gavinok</a></li>
+<li>Don't run Snyk on forks <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2429">#2429</a> <a href="https://github.com/ryjones">ryjones</a></li>
+<li>Issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2250" title="GitHub Issue: squidfunk/mkdocs-material #2250">#2250</a> Nightly publish workflow <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2421">#2421</a> <a href="https://github.com/Gavinok">Gavinok</a></li>
+<li>Enable Snyk scanning <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2418">#2418</a> <a href="https://github.com/ryjones">ryjones</a></li>
+<li>Remove Indy tests from workflows <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2415">#2415</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Release management pull requests</li>
+<li>0.10.1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2454">#2454</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.10.0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2452">#2452</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.10.0-rc2 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2448">#2448</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.10.0-rc1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2442">#2442</a> <a href="https://github.com/swcurran">swcurran</a></li>
+<li>0.10.0-rc0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2414">#2414</a> <a href="https://github.com/swcurran">swcurran</a></li>
+</ul>
+<h1 id="0100">0.10.0<a class="headerlink" href="#0100" title="Permanent link">&para;</a></h1>
+<h2 id="august-29-2023_1">August 29, 2023<a class="headerlink" href="#august-29-2023_1" title="Permanent link">&para;</a></h2>
+<p>Release 0.10.1 has the same contents as 0.10.0. An error on PyPi prevented the
+0.10.0 release from being properly uploaded because of an existing file of the
+same name. We immediately released 0.10.1 as a replacement.</p>
 <h1 id="090">0.9.0<a class="headerlink" href="#090" title="Permanent link">&para;</a></h1>
 <h2 id="july-24-2023">July 24, 2023<a class="headerlink" href="#july-24-2023" title="Permanent link">&para;</a></h2>
 <p>Release 0.9.0 is an important upgrade that changes (PR [#2302]) the dependency
@@ -3283,7 +3382,7 @@ async with profile.session() as session:
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

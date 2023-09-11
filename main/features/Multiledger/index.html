@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -2095,7 +2095,7 @@
 
 
 <h1 id="multi-ledger-in-aca-py">Multi-ledger in ACA-Py <!-- omit in toc --><a class="headerlink" href="#multi-ledger-in-aca-py" title="Permanent link">&para;</a></h1>
-<p>Ability to use multiple Indy ledgers (both IndySdk and IndyVdr) for resolving a <code>DID</code> by the ACA-Py agent. For read requests, checking of multiple ledgers in parallel is done dynamically according to logic detailed in <a href="#read-requests">Read Requests Ledger Selection</a>. For write requests, dynamic allocation of <code>write_ledger</code> is not supported. Write ledger can be assigned using <code>is_write</code> in the <a href="#config-properties">configuration</a> or using any of the <code>--genesis-url</code>, <code>--genesis-file</code>, and <code>--genesis-transactions</code> startup (ACA-Py) arguments. If no write ledger is assigned then a <code>ConfigError</code> is raised.</p>
+<p>Ability to use multiple Indy ledgers (both IndySdk and IndyVdr) for resolving a <code>DID</code> by the ACA-Py agent. For read requests, checking of multiple ledgers in parallel is done dynamically according to logic detailed in <a href="#read-requests">Read Requests Ledger Selection</a>. For write requests, dynamic allocation of <code>write_ledger</code> is supported. Configurable write ledgers can be assigned using <code>is_write</code> in the <a href="#config-properties">configuration</a> or using any of the <code>--genesis-url</code>, <code>--genesis-file</code>, and <code>--genesis-transactions</code> startup (ACA-Py) arguments. If no write ledger is assigned then a <code>ConfigError</code> is raised.</p>
 <p>More background information including problem statement, design (algorithm) and more can be found <a href="https://docs.google.com/document/d/109C_eMsuZnTnYe2OAd02jAts1vC4axwEKIq7_4dnNVA">here</a>.</p>
 <h2 id="table-of-contents">Table of Contents <!-- omit in toc --><a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2120,11 +2120,38 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>- id: localVON
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  is_production: false
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  genesis_url: &#39;http://host.docker.internal:9000/genesis&#39;
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- id: bcorvinTest
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- id: bcovrinTest
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  is_production: true
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  is_write: true
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  genesis_url: &#39;http://test.bcovrin.vonx.io/genesis&#39;
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>- id: localVON
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  is_production: false
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  genesis_url: &#39;http://host.docker.internal:9000/genesis&#39;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- id: bcovrinTest
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  is_production: true
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  is_write: true
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  genesis_url: &#39;http://test.bcovrin.vonx.io/genesis&#39;
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  endorser_did: &#39;9QPa6tHvBHttLg6U4xvviv&#39;
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  endorser_alias: &#39;endorser_test&#39;
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>- id: greenlightDev
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  is_production: true
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  is_write: true
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  genesis_url: &#39;http://dev.greenlight.bcovrin.vonx.io/genesis&#39;
+</code></pre></div>
+<p>Note: <code>is_write</code> property means that the ledger is write configurable. With reference to the above config example, both <code>bcovrinTest</code> and <code>greenlightDev</code> ledgers are write configurable. By default, on startup <code>bcovrinTest</code> will be the write ledger as it is the topmost write configurable production ledger, <a href="#write-requests">more details</a> regarding the selection rule. Using <code>PUT /ledger/{ledger_id}/set-write-ledger</code> endpoint, either <code>greenlightDev</code> and <code>bcovrinTest</code> can be set as the write ledger.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>- id: localVON
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  is_production: false
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  is_write: true
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  genesis_url: &#39;http://host.docker.internal:9000/genesis&#39;
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- id: bcovrinTest
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  is_production: true
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  genesis_url: &#39;http://test.bcovrin.vonx.io/genesis&#39;
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- id: greenlightDev
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  is_production: true
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  genesis_url: &#39;http://dev.greenlight.bcovrin.vonx.io/genesis&#39;
+</code></pre></div>
+<p>Note: For instance with regards to example config above, <code>localVON</code> will be the write ledger, as there are no production ledgers which are configurable it will choose the topmost write configurable non production ledger.</p>
 <h3 id="config-properties">Config properties<a class="headerlink" href="#config-properties" title="Permanent link">&para;</a></h3>
 <p>For each ledger, the required properties are as following:</p>
 <ul>
@@ -2141,14 +2168,21 @@
 - <code>pool_name</code>: name of the indy pool to be opened
 - <code>keepalive</code>: how many seconds to keep the ledger open
 - <code>socks_proxy</code>
-- <code>is_write</code>: Whether the ledger is the write ledger. Only one ledger can be assigned, otherwise a <code>ConfigError</code> is raised.</p>
+- <code>is_write</code>: Whether this ledger is writable. It requires atleast one write ledger specified. Multiple write ledgers can be specified in config.
+- <code>endorser_did</code>: Endorser public DID registered on the ledger, needed for supporting Endorser protocol at multi-ledger level.
+- <code>endorser_alias</code>: Endorser alias for this ledger, needed for supporting Endorser protocol at multi-ledger level.</p>
+<p>Note: Both <code>endorser_did</code> and <code>endorser_alias</code> are part of the endorser info. Whenever a write ledger is selected using <code>PUT /ledger/{ledger_id}/set-write-ledger</code>, the endorser info associated with that ledger in the config updates the <code>endorser.endorser_public_did</code> and <code>endorser.endorser_alias</code> profile setting respectively.</p>
 <h2 id="multi-ledger-admin-api">Multi-ledger Admin API<a class="headerlink" href="#multi-ledger-admin-api" title="Permanent link">&para;</a></h2>
-<p>Multi-ledger related actions are grouped under the <code>ledger</code> topic in the SwaggerUI or under <code>/ledger/multiple</code> path.</p>
+<p>Multi-ledger related actions are grouped under the <code>ledger</code> topic in the SwaggerUI.</p>
 <ul>
-<li><code>/ledger/multiple/config</code>:
+<li>GET <code>/ledger/config</code>:
 Returns the multiple ledger configuration currently in use</li>
-<li><code>/ledger/multiple/get-write-ledger</code>:
+<li>GET <code>/ledger/get-write-ledger</code>:
 Returns the current active/set <code>write_ledger's</code> <code>ledger_id</code></li>
+<li>GET <code>/ledger/get-write-ledgers</code>:
+Returns list of available <code>write_ledger's</code> <code>ledger_id</code></li>
+<li>PUT <code>/ledger/{ledger_id}/set-write-ledger</code>:
+Set active <code>write_ledger's</code> <code>ledger_id</code></li>
 </ul>
 <h2 id="ledger-selection">Ledger Selection<a class="headerlink" href="#ledger-selection" title="Permanent link">&para;</a></h2>
 <h3 id="read-requests">Read Requests<a class="headerlink" href="#read-requests" title="Permanent link">&para;</a></h3>
@@ -2186,7 +2220,7 @@ Returns the current active/set <code>write_ledger's</code> <code>ledger_id</code
 <li>Returns ledger info to <code>lookup_did_in_configured_ledgers</code></li>
 </ul>
 <h3 id="write-requests">Write Requests<a class="headerlink" href="#write-requests" title="Permanent link">&para;</a></h3>
-<p>On startup, the first configured applicable ledger is assigned as the <code>write_ledger</code> [<code>BaseLedger</code>], the selection is dependant on the order (top-down) and whether it is <code>production</code> or <code>non_production</code>. For instance, considering this <a href="#example-config-file">example configuration</a>, ledger <code>bcorvinTest</code> will be set as <code>write_ledger</code> as it is the topmost <code>production</code> ledger. If no <code>production</code> ledgers are included in configuration then the topmost <code>non_production</code> ledger is selected.</p>
+<p>On startup, the first configured applicable ledger is assigned as the <code>write_ledger</code> [<code>BaseLedger</code>], the selection is dependant on the order (top-down) and whether it is <code>production</code> or <code>non_production</code>. For instance, considering this <a href="#example-config-file">example configuration</a>, ledger <code>bcovrinTest</code> will be set as <code>write_ledger</code> as it is the topmost <code>production</code> ledger. If no <code>production</code> ledgers are included in configuration then the topmost <code>non_production</code> ledger is selected.</p>
 <h2 id="a-special-warning-for-taa-acceptance">A Special Warning for TAA Acceptance<a class="headerlink" href="#a-special-warning-for-taa-acceptance" title="Permanent link">&para;</a></h2>
 <p>When you run in multi-ledger mode, ACA-Py will use the <code>pool-name</code> (or <code>id</code>) specified in the ledger configuration file for each ledger.</p>
 <p>(When running in single-ledger mode, ACA-Py uses <code>default</code> as the ledger name.)</p>
@@ -2317,7 +2351,7 @@ status in the wallet in a non-secrets record, using the ledger's <code>pool_name
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>
