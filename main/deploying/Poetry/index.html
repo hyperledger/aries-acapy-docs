@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Poetry/">
+        <link rel="prev" href="../IndySDKtoAskarMigration/">
       
       
-        <link rel="next" href="../Databases/">
+        <link rel="next" href="../ContainerImagesAndGithubActions/">
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>ACA-Py Container Images - Hyperledger Aries ACA-Py Docs</title>
+        <title>The Use of Poetry in ACA-Py - Hyperledger Aries ACA-Py Docs</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#container-images-and-github-actions" class="md-skip">
+        <a href="#poetry-cheat-sheet-for-developers" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ACA-Py Container Images
+              The Use of Poetry in ACA-Py
             
           </span>
         </div>
@@ -1517,26 +1517,6 @@
                 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../Poetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Use of Poetry in ACA-Py
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1552,7 +1532,7 @@
           
   
   <span class="md-ellipsis">
-    ACA-Py Container Images
+    The Use of Poetry in ACA-Py
   </span>
   
 
@@ -1563,7 +1543,7 @@
         
   
   <span class="md-ellipsis">
-    ACA-Py Container Images
+    The Use of Poetry in ACA-Py
   </span>
   
 
@@ -1585,23 +1565,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#image" class="md-nav__link">
-    Image
+  <a href="#introduction-to-poetry" class="md-nav__link">
+    Introduction to Poetry
   </a>
   
-    <nav class="md-nav" aria-label="Image">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environments-with-poetry" class="md-nav__link">
+    Virtual Environments with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Environments with Poetry">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tags" class="md-nav__link">
-    Tags
+  <a href="#creating-a-virtual-environment" class="md-nav__link">
+    Creating a Virtual Environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#image-comparison" class="md-nav__link">
-    Image Comparison
+  <a href="#activating-the-virtual-environment" class="md-nav__link">
+    Activating the Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivating-the-virtual-environment" class="md-nav__link">
+    Deactivating the Virtual Environment
   </a>
   
 </li>
@@ -1612,8 +1606,143 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
-    Github Actions
+  <a href="#dependency-management" class="md-nav__link">
+    Dependency Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependency Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-dependency" class="md-nav__link">
+    Adding a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-development-dependency" class="md-nav__link">
+    Adding a Development Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-dependency" class="md-nav__link">
+    Removing a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-dependencies" class="md-nav__link">
+    Updating Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tasks-with-poetry" class="md-nav__link">
+    Running Tasks with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Tasks with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-a-command" class="md-nav__link">
+    Running a Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-script" class="md-nav__link">
+    Running a Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-publishing-with-poetry" class="md-nav__link">
+    Building and Publishing with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and Publishing with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-package" class="md-nav__link">
+    Building the Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-package" class="md-nav__link">
+    Publishing the Package
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-extras" class="md-nav__link">
+    Using Extras
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Extras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-with-extras" class="md-nav__link">
+    Installing with Extras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-development-dependencies" class="md-nav__link">
+    Managing Development Dependencies
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Development Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-development-dependencies" class="md-nav__link">
+    Installing Development Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
   </a>
   
 </li>
@@ -1622,6 +1751,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ContainerImagesAndGithubActions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACA-Py Container Images
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1987,23 +2136,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#image" class="md-nav__link">
-    Image
+  <a href="#introduction-to-poetry" class="md-nav__link">
+    Introduction to Poetry
   </a>
   
-    <nav class="md-nav" aria-label="Image">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environments-with-poetry" class="md-nav__link">
+    Virtual Environments with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Environments with Poetry">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tags" class="md-nav__link">
-    Tags
+  <a href="#creating-a-virtual-environment" class="md-nav__link">
+    Creating a Virtual Environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#image-comparison" class="md-nav__link">
-    Image Comparison
+  <a href="#activating-the-virtual-environment" class="md-nav__link">
+    Activating the Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivating-the-virtual-environment" class="md-nav__link">
+    Deactivating the Virtual Environment
   </a>
   
 </li>
@@ -2014,8 +2177,143 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
-    Github Actions
+  <a href="#dependency-management" class="md-nav__link">
+    Dependency Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependency Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-dependency" class="md-nav__link">
+    Adding a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-development-dependency" class="md-nav__link">
+    Adding a Development Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-dependency" class="md-nav__link">
+    Removing a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-dependencies" class="md-nav__link">
+    Updating Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tasks-with-poetry" class="md-nav__link">
+    Running Tasks with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Tasks with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-a-command" class="md-nav__link">
+    Running a Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-script" class="md-nav__link">
+    Running a Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-publishing-with-poetry" class="md-nav__link">
+    Building and Publishing with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and Publishing with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-package" class="md-nav__link">
+    Building the Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-package" class="md-nav__link">
+    Publishing the Package
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-extras" class="md-nav__link">
+    Using Extras
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Extras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-with-extras" class="md-nav__link">
+    Installing with Extras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-development-dependencies" class="md-nav__link">
+    Managing Development Dependencies
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Development Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-development-dependencies" class="md-nav__link">
+    Installing Development Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
   </a>
   
 </li>
@@ -2038,148 +2336,85 @@
   
 
 
-<h1 id="container-images-and-github-actions">Container Images and Github Actions<a class="headerlink" href="#container-images-and-github-actions" title="Permanent link">&para;</a></h1>
-<p>Aries Cloud Agent - Python is most frequently deployed using containers. From
-the first release of ACA-Py up through 0.7.4, much of the community has built
-their Aries stack using the container images graciously provided by BC Gov and
-hosted through their <code>bcgovimages</code> docker hub account. These images have been
-critical to the adoption of not only ACA-Py but also Hyperledger Aries and SSI
-more generally.</p>
-<p>Recognizing how critical these images are to the success of ACA-Py and
-consistent with Hyperledger's commitment to open collaboration, container images
-are now built and published directly from the Aries Cloud Agent - Python project
-repository and made available through the <a href="https://ghcr.io">Github Packages Container
-Registry</a>.</p>
-<h2 id="image">Image<a class="headerlink" href="#image" title="Permanent link">&para;</a></h2>
-<p>This project builds and publishes the <code>ghcr.io/hyperledger/aries-cloudagent-python</code> image.
-Multiple variants are available; see <a href="#tags">Tags</a>.</p>
-<h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
-<p>ACA-Py is a foundation for building decentralized identity applications; to this
-end, there are multiple variants of ACA-Py built to suit the needs of a variety
-of environments and workflows. There are currently two main variants:</p>
+<h1 id="poetry-cheat-sheet-for-developers">Poetry Cheat Sheet for Developers<a class="headerlink" href="#poetry-cheat-sheet-for-developers" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-poetry">Introduction to Poetry<a class="headerlink" href="#introduction-to-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry is a dependency management and packaging tool for Python that
+aims to simplify and enhance the development process. It offers
+features for managing dependencies, virtual environments, and building
+and publishing Python packages.</p>
+<h2 id="virtual-environments-with-poetry">Virtual Environments with Poetry<a class="headerlink" href="#virtual-environments-with-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry manages virtual environments for your projects to ensure clean
+and isolated development environments.</p>
+<h3 id="creating-a-virtual-environment">Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>poetry<span class="w"> </span>install
+</code></pre></div>
+<h3 id="activating-the-virtual-environment">Activating the Virtual Environment<a class="headerlink" href="#activating-the-virtual-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>shell
+</code></pre></div>
+<p>Alternatively you can source the environment settings in the current shell
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>source $(poetry env info --path)/bin/activate
+</code></pre></div></p>
+<p>for powershell users this would be
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(&amp; ((poetry env info --path) + &quot;\Scripts\activate.ps1&quot;)
+</code></pre></div></p>
+<h3 id="deactivating-the-virtual-environment">Deactivating the Virtual Environment<a class="headerlink" href="#deactivating-the-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>When using <code>poetry shell</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">exit</span>
+</code></pre></div></p>
+<p>When using the <code>activate</code> script
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>deactivate
+</code></pre></div></p>
+<h2 id="dependency-management">Dependency Management<a class="headerlink" href="#dependency-management" title="Permanent link">&para;</a></h2>
+<p>Poetry uses the <code>pyproject.toml</code> file to manage dependencies. Add new
+dependencies to this file and update existing ones as needed.</p>
+<h3 id="adding-a-dependency">Adding a Dependency<a class="headerlink" href="#adding-a-dependency" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="adding-a-development-dependency">Adding a Development Dependency<a class="headerlink" href="#adding-a-development-dependency" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="removing-a-dependency">Removing a Dependency<a class="headerlink" href="#removing-a-dependency" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry<span class="w"> </span>remove<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="updating-dependencies">Updating Dependencies<a class="headerlink" href="#updating-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry<span class="w"> </span>update
+</code></pre></div>
+<h2 id="running-tasks-with-poetry">Running Tasks with Poetry<a class="headerlink" href="#running-tasks-with-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry provides a way to run scripts and commands without activating
+the virtual environment explicitly.</p>
+<h3 id="running-a-command">Running a Command<a class="headerlink" href="#running-a-command" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>command-name
+</code></pre></div>
+<h3 id="running-a-script">Running a Script<a class="headerlink" href="#running-a-script" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>script.py
+</code></pre></div>
+<h2 id="building-and-publishing-with-poetry">Building and Publishing with Poetry<a class="headerlink" href="#building-and-publishing-with-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry streamlines the process of building and publishing Python packages.</p>
+<h3 id="building-the-package">Building the Package<a class="headerlink" href="#building-the-package" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry<span class="w"> </span>build
+</code></pre></div>
+<h3 id="publishing-the-package">Publishing the Package<a class="headerlink" href="#publishing-the-package" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>poetry<span class="w"> </span>publish
+</code></pre></div>
+<h2 id="using-extras">Using Extras<a class="headerlink" href="#using-extras" title="Permanent link">&para;</a></h2>
+<p>Extras allow you to specify additional dependencies based on project
+requirements.</p>
+<h3 id="installing-with-extras">Installing with Extras<a class="headerlink" href="#installing-with-extras" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>-E<span class="w"> </span>extras-name
+</code></pre></div>
+<p>for example
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;askar bbs indy&quot;</span>
+</code></pre></div></p>
+<h2 id="managing-development-dependencies">Managing Development Dependencies<a class="headerlink" href="#managing-development-dependencies" title="Permanent link">&para;</a></h2>
+<p>Development dependencies are useful for tasks like testing, linting,
+and documentation generation.</p>
+<h3 id="installing-development-dependencies">Installing Development Dependencies<a class="headerlink" href="#installing-development-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>--dev
+</code></pre></div>
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ul>
-<li>"Standard" - The default configuration of ACA-Py, including:<ul>
-<li>Aries Askar for secure storage</li>
-<li>Indy VDR for Indy ledger communication</li>
-<li>Indy Shared Libraries for AnonCreds</li>
-</ul>
-</li>
-<li>"Indy" - The legacy configuration of ACA-Py, including:<ul>
-<li>Indy SDK Wallet for secure storage</li>
-<li>Indy SDK Ledger for Indy ledger communication</li>
-<li>Indy SDK for AnonCreds</li>
-</ul>
-</li>
-</ul>
-<p>These two image variants are largely distinguished by providers for Indy Network
-and AnonCreds support. The Standard variant is recommended for new projects.
-Migration from an Indy based image (whether the new Indy image variant or the
-original BC Gov images) to the Standard image is outside of the scope of this
-document.</p>
-<p>The ACA-Py images built by this project are tagged to indicate which of the
-above variants it is. Other tags may also be generated for use by developers.</p>
-<p>Below is a table of all generated images and their tags:</p>
-<table>
-<thead>
-<tr>
-<th>Tag</th>
-<th>Variant</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>py3.9-X.Y.Z</td>
-<td>Standard</td>
-<td>py3.9-0.7.4</td>
-<td>Standard image variant built on Python 3.9 for ACA-Py version X.Y.Z</td>
-</tr>
-<tr>
-<td>py3.10-X.Y.Z</td>
-<td>Standard</td>
-<td>py3.10-0.7.4</td>
-<td>Standard image variant built on Python 3.10 for ACA-Py version X.Y.Z</td>
-</tr>
-<tr>
-<td>py3.9-indy-A.B.C-X.Y.Z</td>
-<td>Indy</td>
-<td>py3.9-indy-1.16.0-0.7.4</td>
-<td>Standard image variant built on Python 3.9 for ACA-Py version X.Y.Z and Indy SDK Version A.B.C</td>
-</tr>
-<tr>
-<td>py3.10-indy-A.B.C-X.Y.Z</td>
-<td>Indy</td>
-<td>py3.10-indy-1.16.0-0.7.4</td>
-<td>Standard image variant built on Python 3.10 for ACA-Py version X.Y.Z and Indy SDK Version A.B.C</td>
-</tr>
-</tbody>
-</table>
-<h3 id="image-comparison">Image Comparison<a class="headerlink" href="#image-comparison" title="Permanent link">&para;</a></h3>
-<p>There are several key differences that should be noted between the two image
-variants and between the BC Gov ACA-Py images.</p>
-<ul>
-<li>Standard Image<ul>
-<li>Based on slim variant of Debian</li>
-<li>Does <strong>NOT</strong> include <code>libindy</code></li>
-<li>Default user is <code>aries</code></li>
-<li>Uses container's system python environment rather than <code>pyenv</code></li>
-<li>Askar and Indy Shared libraries are installed as dependencies of ACA-Py through pip from pre-compiled binaries included in the python wrappers</li>
-<li>Built from repo contents</li>
-</ul>
-</li>
-<li>Indy Image<ul>
-<li>Based on slim variant of Debian</li>
-<li>Built from multi-stage build step (<code>indy-base</code> in the Dockerfile) which includes Indy dependencies; this could be replaced with an explicit <code>indy-python</code> image from the Indy SDK repo</li>
-<li>Includes <code>libindy</code> but does <strong>NOT</strong> include the Indy CLI</li>
-<li>Default user is <code>indy</code></li>
-<li>Uses container's system python environment rather than <code>pyenv</code></li>
-<li>Askar and Indy Shared libraries are installed as dependencies of ACA-Py through pip from pre-compiled binaries included in the python wrappers</li>
-<li>Built from repo contents</li>
-<li>Includes Indy postgres storage plugin</li>
-</ul>
-</li>
-<li><code>bcgovimages/aries-cloudagent</code><ul>
-<li>(Usually) based on Ubuntu</li>
-<li>Based on <code>von-image</code></li>
-<li>Default user is <code>indy</code></li>
-<li>Includes <code>libindy</code> and Indy CLI</li>
-<li>Uses <code>pyenv</code></li>
-<li>Askar and Indy Shared libraries built from source</li>
-<li>Built from ACA-Py python package uploaded to PyPI</li>
-<li>Includes Indy postgres storage plugin</li>
-</ul>
-</li>
-</ul>
-<h2 id="github-actions">Github Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Tests (<code>.github/workflows/tests.yml</code>) - A reusable workflow that runs tests
-  for the Standard ACA-Py variant for a given python version.</li>
-<li>Tests (Indy) (<code>.github/workflows/tests-indy.yml</code>) - A reusable workflow that
-  runs tests for the Indy ACA-Py variant for a given python and indy version.</li>
-<li>PR Tests (<code>.github/workflows/pr-tests.yml</code>) - Run on pull requests; runs tests
-  for the Standard and Indy ACA-Py variants for a "default" python version.
-  Check this workflow for the current default python and Indy versions in use.</li>
-<li>Nightly Tests (<code>.github/workflows/nightly-tests.yml</code>) - Run nightly; runs
-  tests for the Standard and Indy ACA-Py variants for all currently supported
-  python versions. Check this workflow for the set of currently supported
-  versions and Indy version(s) in use.</li>
-<li>Publish (<code>.github/workflows/publish.yml</code>) - Run on new release published or
-  when manually triggered; builds and pushes the Standard ACA-Py variant to the
-  Github Container Registry.</li>
-<li>Publish (Indy) (<code>.github/workflows/publish-indy.yml</code>) - Run on new release
-  published or when manually triggered; builds and pushes the Indy ACA-Py
-  variant to the Github Container Registry.</li>
-<li>Integration Tests (<code>.github/workflows/integrationtests.yml</code>) - Run on pull
-  requests (to the hyperledger fork only); runs BDD integration tests.</li>
-<li>Black Format (<code>.github/workflows/blackformat.yml</code>) - Run on pull requests;
-  checks formatting of files modified by the PR.</li>
-<li>CodeQL (<code>.github/workflows/codeql.yml</code>) - Run on pull requests; performs
-  CodeQL analysis.</li>
-<li>Python Publish (<code>.github/workflows/pythonpublish.yml</code>) - Run on release
-  created; publishes ACA-Py python package to PyPI.</li>
-<li>PIP Audit (<code>.github/workflows/pipaudit.yml</code>) - Run when manually triggered;
-  performs pip audit.</li>
+<li><a href="https://python-poetry.org/docs/">Poetry Documentation</a></li>
+<li><a href="https://pypi.org/">PyPI: The Python Package Index</a></li>
 </ul>
 
 
@@ -2208,7 +2443,7 @@ variants and between the BC Gov ACA-Py images.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Poetry/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Use of Poetry in ACA-Py" rel="prev">
+          <a href="../IndySDKtoAskarMigration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Indy SDK to Askar Migration" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2218,20 +2453,20 @@ variants and between the BC Gov ACA-Py images.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                The Use of Poetry in ACA-Py
+                Indy SDK to Askar Migration
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Databases/" class="md-footer__link md-footer__link--next" aria-label="Next: Databases" rel="next">
+          <a href="../ContainerImagesAndGithubActions/" class="md-footer__link md-footer__link--next" aria-label="Next: ACA-Py Container Images" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Databases
+                ACA-Py Container Images
               </div>
             </div>
             <div class="md-footer__button md-icon">
