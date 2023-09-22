@@ -51,6 +51,7 @@ nav:
     - Configuring Multiple Indy Ledgers: features/Multiledger.md
     - Automatically Endorsing Indy Transations: features/Endorser.md
     - Using W3C JSON-LD Signed Credentials: features/JsonLdCredentials.md
+    - Using SD-JWTs: features/SelectiveDisclosureJWTs.md
     - AnonCreds Presentation Validation: features/AnoncredsProofValidation.md
     - Multiple Credential Types: features/Multicredentials.md
     - Code Generation with the Open API: features/UsingOpenAPI.md
@@ -85,6 +86,7 @@ nav:
     - Deployment Model: deploying/deploymentModel.md
     - Upgrading ACA-Py: deploying/UpgradingACA-Py.md
     - Indy SDK to Askar Migration: deploying/IndySDKtoAskarMigration.md
+    - The Use of Poetry in ACA-Py: deploying/Poetry.md
     - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
@@ -167,6 +169,7 @@ cp tmp/SupportedRFCs.md ${FOLDER}
 FILE=AdminAPI.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/Multitenancy.md ${FOLDER}
+cp tmp/docs/GettingStartedAriesDev/SelectiveDisclosureJWTs.md ${FOLDER}
 cp tmp/DIDMethods.md ${FOLDER}
 cp tmp/DIDResolution.md ${FOLDER}
 cp tmp/Multiledger.md ${FOLDER}
@@ -187,6 +190,7 @@ mkdir ${FOLDER}
 cp tmp/ContainerImagesAndGithubActions.md ${FOLDER}
 cp tmp/IndySDKtoAskarMigration.md ${FOLDER}
 cp tmp/UpgradingACA-Py.md ${FOLDER}
+cp tmp/docs/Poetry.md ${FOLDER}
 FILE=deploymentModel.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 FILE=Databases.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
