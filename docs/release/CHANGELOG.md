@@ -1,5 +1,67 @@
 # Release Notes
 
+# 0.10.3
+
+## September 29, 2023
+
+Release 0.10.3 is a patch release to add an upgrade process for very old
+versions of Aries Cloud Agent Python (circa [0.5.2](#052)). If you have a long
+time deployment of an issuer that uses revocation, this release could correct
+internal data (tags in secure storage) related to revocation registries.
+Details of the about the triggering problem can be found in [Issue \#2485].
+
+[Issue \#2485]: https://github.com/hyperledger/aries-cloudagent-python/issue/2485
+
+The upgrade is applied by running the following command for the ACA-Py
+instance to be upgraded:
+
+`./scripts/run_docker upgrade --force-upgrade --named-tag fix_issue_rev_reg`
+
+### 0.10.3 Categorized List of Pull Requests
+
+- Credential Exchange (Issue, Present) Updates
+  - Feat: Upgrade from tags and fix issue with legacy IssuerRevRegRecords [<=v0.5.2] [\#2486](https://github.com/hyperledger/aries-cloudagent-python/pull/2486) [shaangill025](https://github.com/shaangill025)
+- Release management pull requests
+  - 0.10.3 [\#2522](https://github.com/hyperledger/aries-cloudagent-python/pull/2522) [swcurran](https://github.com/swcurran)
+
+# 0.10.2
+
+## September 22, 2023
+
+Release 0.10.2 is a patch release for 0.10.1 that addresses three specific regressions found
+in deploying Release 0.10.1. The regressions are to fix:
+
+- An ACA-Py instance upgraded to 0.10.1 that had an existing connection to another Aries agent
+where the connection has both an `http` and `ws` (websocket) service endpoint with the same ID cannot
+message that agent. A scenario is an ACA-Py issuer connecting to an Endorser with both `http` and
+`ws` service endpoints. The updates made in 0.10.1 to improve ACA-Py DID resolution did not account
+for this scenario and needed a tweak to work ([Issue \#2474], [PR \#2475]).
+- The "fix revocation registry" endpoint used to fix scenarios an Issuer's local revocation registry
+state is out of sync with the ledger was broken by some code being added to support a single
+ACA-Py instance writing to different ledgers ([Issue \#2477], [PR \#2480]).
+- The version of the [PyDID] library we were using did not handle some
+unexpected DID resolution use cases encountered with mediators. The PyDID
+library version dependency was updated in [PR \#2500].
+
+[Issue \#2474]: https://github.com/hyperledger/aries-cloudagent-python/issue/2474
+[PR \#2475]: https://github.com/hyperledger/aries-cloudagent-python/pull/2476
+[Issue \#2477]: https://github.com/hyperledger/aries-cloudagent-python/issue/2477
+[PR \#2480]: https://github.com/hyperledger/aries-cloudagent-python/pull/2480
+[PyDID]: https://github.com/sicpa-dlab/pydid
+[PR \#2500]: https://github.com/hyperledger/aries-cloudagent-python/pull/2500
+
+### 0.10.2 Categorized List of Pull Requests
+
+- DID Handling and Connection Establishment Updates/Fixes
+  - LegacyPeerDIDResolver: erroneously assigning same ID to multiple services [\#2475](https://github.com/hyperledger/aries-cloudagent-python/pull/2475) [dbluhm](https://github.com/dbluhm)
+  - fix: update pydid [\#2500](https://github.com/hyperledger/aries-cloudagent-python/pull/2500) [dbluhm](https://github.com/dbluhm)
+- Credential Exchange (Issue, Present) Updates
+  - Bugfix: Issue with write ledger pool when performing Accumulator sync [\#2480](https://github.com/hyperledger/aries-cloudagent-python/pull/2480) [shaangill025](https://github.com/shaangill025)
+- Release management pull requests
+  - 0.10.2 [\#2509](https://github.com/hyperledger/aries-cloudagent-python/pull/2509) [swcurran](https://github.com/swcurran)
+  - 0.10.2-rc0 [\#2484](https://github.com/hyperledger/aries-cloudagent-python/pull/2484) [swcurran](https://github.com/swcurran)
+  - 0.10.2 Patch Release - fix issue #2475, #2477 [\#2482](https://github.com/hyperledger/aries-cloudagent-python/pull/2480) [shaangill025](https://github.com/shaangill025)
+
 # 0.10.1
 
 ## August 29, 2023
@@ -62,7 +124,7 @@ deleted from ACA-Py storage.
 
 [\#2352]: https://github.com/hyperledger/aries-cloudagent-python/pull/2352
 
-### 0.10.0 Categorized List of Pull Requests
+### 0.10.1 Categorized List of Pull Requests
 
 - DIDComm Messaging Improvements/Fixes
   - fix: outbound send status missing on path [\#2393](https://github.com/hyperledger/aries-cloudagent-python/pull/2393) [dbluhm](https://github.com/dbluhm)
@@ -114,7 +176,7 @@ deleted from ACA-Py storage.
 
 ## August 29, 2023
 
-Release 0.10.1 has the same contents as 0.10.0. An error on PyPi prevented the
+Release 0.10.0 has the same contents as 0.10.1. An error on PyPi prevented the
 0.10.0 release from being properly uploaded because of an existing file of the
 same name. We immediately released 0.10.1 as a replacement.
 
@@ -430,9 +492,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.3/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.3/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.3/ContainerImagesAndGithubActions.md
 
 ## Breaking Changes and Upgrades
 
@@ -446,7 +508,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.10.3/features/0023-did-exchange/README.md).
 
 ### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -892,7 +954,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.10.3/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse

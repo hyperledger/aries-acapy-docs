@@ -8,15 +8,12 @@ By no means is ACA-Py limited to these tools; they are merely examples.
 
 ## Caveats
 
-The primary use case for this `devcontainer` is for developing, debugging and unit testing (pytest) the [aries_cloudagent](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent) source code.
+The primary use case for this `devcontainer` is for developing, debugging and unit testing (pytest) the [aries_cloudagent](https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.3/aries_cloudagent) source code.
 
-There are limitations running this devcontainer, such as all networking is within this container. This container has [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md) which allows running demos, building docker images, running `docker compose` all within this container.
+There are limitations running this devcontainer, such as all networking is within this container. This container has [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/0.10.3/script-library/docs/docker-in-docker.md) which allows running demos, building docker images, running `docker compose` all within this container.
 
 ### Files
-The `.devcontainer` folder contains the `devcontainer.json` file which defines this container. We are using a `Dockerfile` and `post-install.sh` to build and configure the container run image. The `Dockerfile` is simple but in place for simplifying image enhancements (ex. adding `poetry` to the image). The `post-install.sh` will install some additional development libraries (including for BDD support).
-
-### Poetry
-The Python libraries / dependencies are installed using [`poetry`](https://python-poetry.org). For the devcontainer, we *DO NOT* use virtual environments. This means you will not see or need venv prompts in the terminals and you will not need to run tasks through poetry (ie. `poetry run black .`). If you need to add new dependencies, you will need to add the dependency via poetry *AND* you should rebuild your devcontainer.
+The `.devcontainer` folder contains the `devcontainer.json` file which defines this container. We are using a `Dockerfile` and `post-install.sh` to build and configure the container run image. The `Dockerfile` is simple but in place for simplifying image enhancements (ex. adding `poetry` to the image). The `post-install.sh` will install all the ACA-Py requirements and any additional steps (ex. adding additional development libraries).
 
 ### Running docker-in-docker demos
 The following is an example of running the demos in this container using a local [von-network](https://github.com/bcgov/von-network/tree/main). You will have to connect to the local von-network using `host.docker.internal` not `localhost`.
@@ -68,14 +65,14 @@ To open ACA-Py in a devcontainer, we open the *root* of this repository. We can 
 
 #### devcontainer.json
 
-When the [.devcontainer/devcontainer.json](https://github.com/hyperledger/aries-cloudagent-python/blob/main/.devcontainer/devcontainer.json) is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports `9060` and `9061`, allowing you to run/debug ACA-Py with those ports available to your `localhost` (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).
+When the [.devcontainer/devcontainer.json](https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.3/.devcontainer/devcontainer.json) is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports `9060` and `9061`, allowing you to run/debug ACA-Py with those ports available to your `localhost` (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).
 
 In VS Code, open a Terminal, you should be able to run the following commands:
 
 ```
 python -m aries_cloudagent -v
 cd aries_cloudagent
-ruff check .
+flake8 --max-line-length=90 --exclude=*/tests/** --extend-ignore=D202,W503 --per-file-ignores=*/__init__.py:D104
 black . --check
 ```
 
