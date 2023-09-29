@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../deploymentModel/">
+        <link rel="prev" href="../IndySDKtoAskarMigration/">
       
       
-        <link rel="next" href="../IndySDKtoAskarMigration/">
+        <link rel="next" href="../ContainerImagesAndGithubActions/">
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Upgrading ACA-Py - Hyperledger Aries ACA-Py Docs</title>
+        <title>The Use of Poetry in ACA-Py - Hyperledger Aries ACA-Py Docs</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-aca-py-data" class="md-skip">
+        <a href="#poetry-cheat-sheet-for-developers" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading ACA-Py
+              The Use of Poetry in ACA-Py
             
           </span>
         </div>
@@ -1502,29 +1502,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Upgrading ACA-Py
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../UpgradingACA-Py/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1533,67 +1513,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#version-information-and-automatic-upgrades" class="md-nav__link">
-    Version Information and Automatic Upgrades
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forced-offline-upgrades" class="md-nav__link">
-    Forced Offline Upgrades
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exceptions" class="md-nav__link">
-    Exceptions
-  </a>
-  
-    <nav class="md-nav" aria-label="Exceptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#no-version-in-secure-storage" class="md-nav__link">
-    No version in secure storage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#forcing-an-upgrade" class="md-nav__link">
-    Forcing an upgrade
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1623,9 +1542,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Poetry/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1634,6 +1573,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-poetry" class="md-nav__link">
+    Introduction to Poetry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environments-with-poetry" class="md-nav__link">
+    Virtual Environments with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Environments with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-virtual-environment" class="md-nav__link">
+    Creating a Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activating-the-virtual-environment" class="md-nav__link">
+    Activating the Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivating-the-virtual-environment" class="md-nav__link">
+    Deactivating the Virtual Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-management" class="md-nav__link">
+    Dependency Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependency Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-dependency" class="md-nav__link">
+    Adding a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-development-dependency" class="md-nav__link">
+    Adding a Development Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-dependency" class="md-nav__link">
+    Removing a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-dependencies" class="md-nav__link">
+    Updating Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tasks-with-poetry" class="md-nav__link">
+    Running Tasks with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Tasks with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-a-command" class="md-nav__link">
+    Running a Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-script" class="md-nav__link">
+    Running a Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-publishing-with-poetry" class="md-nav__link">
+    Building and Publishing with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and Publishing with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-package" class="md-nav__link">
+    Building the Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-package" class="md-nav__link">
+    Publishing the Package
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-extras" class="md-nav__link">
+    Using Extras
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Extras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-with-extras" class="md-nav__link">
+    Installing with Extras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-development-dependencies" class="md-nav__link">
+    Managing Development Dependencies
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Development Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-development-dependencies" class="md-nav__link">
+    Installing Development Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2029,43 +2171,185 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#version-information-and-automatic-upgrades" class="md-nav__link">
-    Version Information and Automatic Upgrades
+  <a href="#introduction-to-poetry" class="md-nav__link">
+    Introduction to Poetry
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#forced-offline-upgrades" class="md-nav__link">
-    Forced Offline Upgrades
+  <a href="#virtual-environments-with-poetry" class="md-nav__link">
+    Virtual Environments with Poetry
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exceptions" class="md-nav__link">
-    Exceptions
-  </a>
-  
-    <nav class="md-nav" aria-label="Exceptions">
+    <nav class="md-nav" aria-label="Virtual Environments with Poetry">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#no-version-in-secure-storage" class="md-nav__link">
-    No version in secure storage
+  <a href="#creating-a-virtual-environment" class="md-nav__link">
+    Creating a Virtual Environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#forcing-an-upgrade" class="md-nav__link">
-    Forcing an upgrade
+  <a href="#activating-the-virtual-environment" class="md-nav__link">
+    Activating the Virtual Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivating-the-virtual-environment" class="md-nav__link">
+    Deactivating the Virtual Environment
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-management" class="md-nav__link">
+    Dependency Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependency Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-dependency" class="md-nav__link">
+    Adding a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-development-dependency" class="md-nav__link">
+    Adding a Development Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-dependency" class="md-nav__link">
+    Removing a Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-dependencies" class="md-nav__link">
+    Updating Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tasks-with-poetry" class="md-nav__link">
+    Running Tasks with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Tasks with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-a-command" class="md-nav__link">
+    Running a Command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-script" class="md-nav__link">
+    Running a Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-publishing-with-poetry" class="md-nav__link">
+    Building and Publishing with Poetry
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and Publishing with Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-package" class="md-nav__link">
+    Building the Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-package" class="md-nav__link">
+    Publishing the Package
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-extras" class="md-nav__link">
+    Using Extras
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Extras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-with-extras" class="md-nav__link">
+    Installing with Extras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-development-dependencies" class="md-nav__link">
+    Managing Development Dependencies
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Development Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-development-dependencies" class="md-nav__link">
+    Installing Development Dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
   
 </li>
       
@@ -2087,85 +2371,86 @@
   
 
 
-<h1 id="upgrading-aca-py-data">Upgrading ACA-Py Data<a class="headerlink" href="#upgrading-aca-py-data" title="Permanent link">&para;</a></h1>
-<p>Some releases of ACA-Py may be improved by, or even require, an upgrade when
-moving to a new version. Such changes are documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md">CHANGELOG.md</a>,
-and those with ACA-Py deployments should take note of those upgrades. This
-document summarizes the upgrade system in ACA-Py.</p>
-<h2 id="version-information-and-automatic-upgrades">Version Information and Automatic Upgrades<a class="headerlink" href="#version-information-and-automatic-upgrades" title="Permanent link">&para;</a></h2>
-<p>The file <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a> contains the current version of a running instance of
-ACA-Py. In addition, a record is made in the ACA-Py secure storage (database)
-about the "most recently upgraded" version. When deploying a new version of
-ACA-Py, the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a> value will be higher than the version in
-secure storage. When that happens, an upgrade is executed, and on successful
-completion, the version is updated in secure storage to match what is
-in <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a>.</p>
-<p>Upgrades are defined in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. For a given
-version listed in the follow, the corresponding entry is what actions are
-required when upgrading from a previous version. If a version is not listed
-in the file, there is no upgrade defined for that version from its immediate
-predecessor version.</p>
-<p>Once an upgrade is identified as needed, the process is:</p>
+<h1 id="poetry-cheat-sheet-for-developers">Poetry Cheat Sheet for Developers<a class="headerlink" href="#poetry-cheat-sheet-for-developers" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-poetry">Introduction to Poetry<a class="headerlink" href="#introduction-to-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry is a dependency management and packaging tool for Python that
+aims to simplify and enhance the development process. It offers
+features for managing dependencies, virtual environments, and building
+and publishing Python packages.</p>
+<h2 id="virtual-environments-with-poetry">Virtual Environments with Poetry<a class="headerlink" href="#virtual-environments-with-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry manages virtual environments for your projects to ensure clean
+and isolated development environments.</p>
+<h3 id="creating-a-virtual-environment">Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>poetry<span class="w"> </span>install
+</code></pre></div>
+<h3 id="activating-the-virtual-environment">Activating the Virtual Environment<a class="headerlink" href="#activating-the-virtual-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>poetry<span class="w"> </span>shell
+</code></pre></div>
+<p>Alternatively you can source the environment settings in the current shell
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>source $(poetry env info --path)/bin/activate
+</code></pre></div></p>
+<p>for powershell users this would be
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(&amp; ((poetry env info --path) + &quot;\Scripts\activate.ps1&quot;)
+</code></pre></div></p>
+<h3 id="deactivating-the-virtual-environment">Deactivating the Virtual Environment<a class="headerlink" href="#deactivating-the-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>When using <code>poetry shell</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">exit</span>
+</code></pre></div></p>
+<p>When using the <code>activate</code> script
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>deactivate
+</code></pre></div></p>
+<h2 id="dependency-management">Dependency Management<a class="headerlink" href="#dependency-management" title="Permanent link">&para;</a></h2>
+<p>Poetry uses the <code>pyproject.toml</code> file to manage dependencies. Add new
+dependencies to this file and update existing ones as needed.</p>
+<h3 id="adding-a-dependency">Adding a Dependency<a class="headerlink" href="#adding-a-dependency" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="adding-a-development-dependency">Adding a Development Dependency<a class="headerlink" href="#adding-a-development-dependency" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="removing-a-dependency">Removing a Dependency<a class="headerlink" href="#removing-a-dependency" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry<span class="w"> </span>remove<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="updating-dependencies">Updating Dependencies<a class="headerlink" href="#updating-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry<span class="w"> </span>update
+</code></pre></div>
+<h2 id="running-tasks-with-poetry">Running Tasks with Poetry<a class="headerlink" href="#running-tasks-with-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry provides a way to run scripts and commands without activating
+the virtual environment explicitly.</p>
+<h3 id="running-a-command">Running a Command<a class="headerlink" href="#running-a-command" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>command-name
+</code></pre></div>
+<h3 id="running-a-script">Running a Script<a class="headerlink" href="#running-a-script" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>script.py
+</code></pre></div>
+<h2 id="building-and-publishing-with-poetry">Building and Publishing with Poetry<a class="headerlink" href="#building-and-publishing-with-poetry" title="Permanent link">&para;</a></h2>
+<p>Poetry streamlines the process of building and publishing Python packages.</p>
+<h3 id="building-the-package">Building the Package<a class="headerlink" href="#building-the-package" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry<span class="w"> </span>build
+</code></pre></div>
+<h3 id="publishing-the-package">Publishing the Package<a class="headerlink" href="#publishing-the-package" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>poetry<span class="w"> </span>publish
+</code></pre></div>
+<h2 id="using-extras">Using Extras<a class="headerlink" href="#using-extras" title="Permanent link">&para;</a></h2>
+<p>Extras allow you to specify additional dependencies based on project
+requirements.</p>
+<h3 id="installing-with-extras">Installing with Extras<a class="headerlink" href="#installing-with-extras" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>-E<span class="w"> </span>extras-name
+</code></pre></div>
+<p>for example
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;askar bbs indy&quot;</span>
+</code></pre></div></p>
+<h2 id="managing-development-dependencies">Managing Development Dependencies<a class="headerlink" href="#managing-development-dependencies" title="Permanent link">&para;</a></h2>
+<p>Development dependencies are useful for tasks like testing, linting,
+and documentation generation.</p>
+<h3 id="installing-development-dependencies">Installing Development Dependencies<a class="headerlink" href="#installing-development-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>--dev
+</code></pre></div>
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Collect (if any) the actions to be taken to get from the version recorded in
-secure storage to the current <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a></li>
-<li>Execute the actions from oldest to newest.<ul>
-<li>If the same action is collected more than once (e.g., "Resave the
-Connection Records" is defined for two different versions), perform the action
-only once.</li>
+<li><a href="https://python-poetry.org/docs/">Poetry Documentation</a></li>
+<li><a href="https://pypi.org/">PyPI: The Python Package Index</a></li>
 </ul>
-</li>
-<li>Store the current ACA-Py version (from <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a>) in the secure storage
-  database.</li>
-</ul>
-<h2 id="forced-offline-upgrades">Forced Offline Upgrades<a class="headerlink" href="#forced-offline-upgrades" title="Permanent link">&para;</a></h2>
-<p>In some cases, it may be necessary to do an offline upgrade, where ACA-Py is
-taken off line temporarily, the database upgraded explicitly, and then
-ACA-Py re-deployed as normal. As yet, we do not have any use cases for this, but
-those deploying ACA-Py should be aware of this possibility. For example,
-we may at some point need an upgrade that <strong>MUST NOT</strong> be executed by more
-than one ACA-Py instance. In that case, a "normal" upgrade could be dangerous
-for deployments on container orchestration platforms like Kubernetes.</p>
-<p>If the Maintainers of ACA-Py recognize a case where ACA-Py must be upgraded
-while offline, a new Upgrade feature will be added that will prevent the "auto
-upgrade" process from executing. See <a href="https://github.com/hyperledger/aries-cloudagent-python/issues/2201">Issue 2201</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2204">Pull Request 2204</a> for
-the status of that feature.</p>
-<p>Those deploying ACA-Py upgrades for production installations (forced offline or
-not) should check in each <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md">CHANGELOG.md</a> release entry about what upgrades (if
-any) will be run when upgrading to that version, and consider how they want
-those upgrades to run in their ACA-Py installation. In most cases, simply
-deploying the new version should be OK. If the number of records to be upgraded
-is high (such as a "resave connections" upgrade to a deployment with many, many
-connections), you may want to do a test upgrade offline first, to see if there
-is likely to be a service disruption during the upgrade. Plan accordingly!</p>
-<h2 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h2>
-<p>There are a couple of upgrade exception conditions to consider, as outlined
-in the following sections.</p>
-<h3 id="no-version-in-secure-storage">No version in secure storage<a class="headerlink" href="#no-version-in-secure-storage" title="Permanent link">&para;</a></h3>
-<p>Versions prior to ACA-Py 0.8.1 did not automatically populate the secure storage
-"version" record. That only occurred if an upgrade was explicitly executed. As
-of ACA-Py 0.8.1, the version record is added immediately after the secure
-storage database is created. If you are upgrading to ACA-Py 0.8.1 or later, and
-there is no version record in the secure storage, ACA-Py will assume you are
-running version 0.7.5, and execute the upgrades from version 0.7.5 to the
-current version. The choice of 0.7.5 as the default is safe because the same
-upgrades will be run on any version of ACA-Py up to and including 0.7.5, as can
-be seen in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. Thus, even if you are really
-upgrading from (for example) 0.6.2, the same upgrades are needed as from 0.7.5
-to a post-0.8.1 version.</p>
-<h3 id="forcing-an-upgrade">Forcing an upgrade<a class="headerlink" href="#forcing-an-upgrade" title="Permanent link">&para;</a></h3>
-<p>If you need to force an upgrade from a given version of ACA-Py, a pair of
-configuration options can be used together. If you specify "<code>--from-version
-&lt;ver&gt;</code>" and "<code>--force-upgrade</code>", the <code>--from-version</code> version will override what
-is found (or not) in secure storage, and the upgrade will be from that version
-to the current one. For example, if you have "0.8.1" in your "secure storage"
-version, and you know that the upgrade for version 0.8.1 has not been executed,
-you can use the parameters <code>--from-version v0.7.5 --force-upgrade</code> to force the
-upgrade on next starting an ACA-Py instance. However, given the few upgrades
-defined prior to version 0.8.1, and the "<a href="#no-version-in-secure-storage">no version in secure
-storage</a>" handling, it is unlikely this
-capability will ever be needed. We expect to deprecate and remove these
-options in future (post-0.8.1) ACA-Py versions.</p>
 
 
 
@@ -2193,7 +2478,7 @@ options in future (post-0.8.1) ACA-Py versions.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../deploymentModel/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deployment Model">
+          <a href="../IndySDKtoAskarMigration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Indy SDK to Askar Migration">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2203,20 +2488,20 @@ options in future (post-0.8.1) ACA-Py versions.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Deployment Model
+                Indy SDK to Askar Migration
               </div>
             </div>
           </a>
         
         
           
-          <a href="../IndySDKtoAskarMigration/" class="md-footer__link md-footer__link--next" aria-label="Next: Indy SDK to Askar Migration">
+          <a href="../ContainerImagesAndGithubActions/" class="md-footer__link md-footer__link--next" aria-label="Next: ACA-Py Container Images">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Indy SDK to Askar Migration
+                ACA-Py Container Images
               </div>
             </div>
             <div class="md-footer__button md-icon">
