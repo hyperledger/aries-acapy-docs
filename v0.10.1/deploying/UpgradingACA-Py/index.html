@@ -86,6 +86,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+You are viewing the documentation for Release 0.10.1, which is <strong>not</strong> the current version of ACA-Py.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -745,26 +754,6 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using SD-JWTs
   </span>
   
 
@@ -1625,26 +1614,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../Poetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Use of Poetry in ACA-Py
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2089,18 +2058,18 @@
 
 <h1 id="upgrading-aca-py-data">Upgrading ACA-Py Data<a class="headerlink" href="#upgrading-aca-py-data" title="Permanent link">&para;</a></h1>
 <p>Some releases of ACA-Py may be improved by, or even require, an upgrade when
-moving to a new version. Such changes are documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md">CHANGELOG.md</a>,
+moving to a new version. Such changes are documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/CHANGELOG.md">CHANGELOG.md</a>,
 and those with ACA-Py deployments should take note of those upgrades. This
 document summarizes the upgrade system in ACA-Py.</p>
 <h2 id="version-information-and-automatic-upgrades">Version Information and Automatic Upgrades<a class="headerlink" href="#version-information-and-automatic-upgrades" title="Permanent link">&para;</a></h2>
-<p>The file <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a> contains the current version of a running instance of
+<p>The file <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/version.py">version.py</a> contains the current version of a running instance of
 ACA-Py. In addition, a record is made in the ACA-Py secure storage (database)
 about the "most recently upgraded" version. When deploying a new version of
-ACA-Py, the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a> value will be higher than the version in
+ACA-Py, the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/version.py">version.py</a> value will be higher than the version in
 secure storage. When that happens, an upgrade is executed, and on successful
 completion, the version is updated in secure storage to match what is
-in <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a>.</p>
-<p>Upgrades are defined in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. For a given
+in <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/version.py">version.py</a>.</p>
+<p>Upgrades are defined in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. For a given
 version listed in the follow, the corresponding entry is what actions are
 required when upgrading from a previous version. If a version is not listed
 in the file, there is no upgrade defined for that version from its immediate
@@ -2108,14 +2077,14 @@ predecessor version.</p>
 <p>Once an upgrade is identified as needed, the process is:</p>
 <ul>
 <li>Collect (if any) the actions to be taken to get from the version recorded in
-secure storage to the current <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a></li>
+secure storage to the current <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/version.py">version.py</a></li>
 <li>Execute the actions from oldest to newest.<ul>
 <li>If the same action is collected more than once (e.g., "Resave the
 Connection Records" is defined for two different versions), perform the action
 only once.</li>
 </ul>
 </li>
-<li>Store the current ACA-Py version (from <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py">version.py</a>) in the secure storage
+<li>Store the current ACA-Py version (from <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/version.py">version.py</a>) in the secure storage
   database.</li>
 </ul>
 <h2 id="forced-offline-upgrades">Forced Offline Upgrades<a class="headerlink" href="#forced-offline-upgrades" title="Permanent link">&para;</a></h2>
@@ -2131,7 +2100,7 @@ while offline, a new Upgrade feature will be added that will prevent the "auto
 upgrade" process from executing. See <a href="https://github.com/hyperledger/aries-cloudagent-python/issues/2201">Issue 2201</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2204">Pull Request 2204</a> for
 the status of that feature.</p>
 <p>Those deploying ACA-Py upgrades for production installations (forced offline or
-not) should check in each <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md">CHANGELOG.md</a> release entry about what upgrades (if
+not) should check in each <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/CHANGELOG.md">CHANGELOG.md</a> release entry about what upgrades (if
 any) will be run when upgrading to that version, and consider how they want
 those upgrades to run in their ACA-Py installation. In most cases, simply
 deploying the new version should be OK. If the number of records to be upgraded
@@ -2150,7 +2119,7 @@ there is no version record in the secure storage, ACA-Py will assume you are
 running version 0.7.5, and execute the upgrades from version 0.7.5 to the
 current version. The choice of 0.7.5 as the default is safe because the same
 upgrades will be run on any version of ACA-Py up to and including 0.7.5, as can
-be seen in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. Thus, even if you are really
+be seen in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/aries_cloudagent/commands/default_version_upgrade_config.yml">Upgrade Definition YML file</a>. Thus, even if you are really
 upgrading from (for example) 0.6.2, the same upgrades are needed as from 0.7.5
 to a post-0.8.1 version.</p>
 <h3 id="forcing-an-upgrade">Forcing an upgrade<a class="headerlink" href="#forcing-an-upgrade" title="Permanent link">&para;</a></h3>

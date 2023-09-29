@@ -86,6 +86,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+You are viewing the documentation for Release 0.10.1, which is <strong>not</strong> the current version of ACA-Py.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -745,26 +754,6 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using SD-JWTs
   </span>
   
 
@@ -1639,26 +1628,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/Poetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Use of Poetry in ACA-Py
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2129,7 +2098,7 @@ whose credentials should be revoked, and how close to real-time should
 revocations be published?</p>
 <p>Here is a  summary of all of the AnonCreds revocation activities performed
 by issuers. After this, we'll provide a (much shorter) list of what an ACA-Py
-issuer controller has to do. For those interested, there is a more <a href="https://github.com/hyperledger/indy-hipe/blob/main/text/0011-cred-revocation/README.md">complete
+issuer controller has to do. For those interested, there is a more <a href="https://github.com/hyperledger/indy-hipe/blob/0.10.1/text/0011-cred-revocation/README.md">complete
 overview of AnonCreds revocation</a>, including all of the roles, and some details
 of the cryptography behind the approach:</p>
 <ul>
@@ -2176,7 +2145,7 @@ issuer controller does:</p>
 <li>On Revocation, the controller passes in the logical “revocation ID" of the
   credential to be revoked, including a “notify holder” flag. ACA-Py records the
   revocation as pending and, if asked, sends a notification to the holder using
-  a DIDComm message (<a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md">Aries RFC 0183: Revocation Notification</a>).</li>
+  a DIDComm message (<a href="https://github.com/hyperledger/aries-rfcs/blob/0.10.1/features/0183-revocation-notification/README.md">Aries RFC 0183: Revocation Notification</a>).</li>
 <li>The Issuer requests that the revocations for a CredDefId be published. ACA-Py
   figures out what RevRegs contain pending revocation and so need to be
   published, and publishes each.</li>
@@ -2294,7 +2263,7 @@ pending revocations in batches. Revocation are not written to ledger until this 
 </li>
 </ol>
 <h2 id="revocation-notification">Revocation Notification<a class="headerlink" href="#revocation-notification" title="Permanent link">&para;</a></h2>
-<p>ACA-Py supports <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md">Revocation Notification v1.0</a>.</p>
+<p>ACA-Py supports <a href="https://github.com/hyperledger/aries-rfcs/blob/0.10.1/features/0183-revocation-notification/README.md">Revocation Notification v1.0</a>.</p>
 <blockquote>
 <p><strong>Note:</strong> The optional <code>~please_ack</code> is not currently supported.</p>
 </blockquote>
@@ -2338,7 +2307,7 @@ webhook with the topic <code>revocation-notification</code> and a payload contai
 thread ID and comment is emitted to registered webhook urls.</p>
 <h2 id="manually-creating-revocation-registries">Manually Creating Revocation Registries<a class="headerlink" href="#manually-creating-revocation-registries" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>NOTE: This capability is deprecated and will likely be removed entirely in an upcoming release of ACA-Py.</p>
+<p>NOTE: This capability is deprecated and will likely be removed entirely in an upcoming release of ACA-Py. </p>
 </blockquote>
 <p>The process for creating revocation registries is completely automated - when you create a Credential Definition with revocation enabled, a revocation registry is automatically created (in fact 2 registries are created), and when a registry fills up, a new one is automatically created.</p>
 <p>However the ACA-Py admin api supports endpoints to explicitly create a new revocation registry, if you desire.</p>
@@ -2374,17 +2343,10 @@ thread ID and comment is emitted to registered webhook urls.</p>
 <li>
 <p>the tails server will check that the registry definition is already written to the ledger</p>
 </li>
-<li>
-<p>Post the initial accumulator value to the ledger <code>POST /revocation/registry/{rev_reg_id}/entry</code></p>
-</li>
-<li>
-<p>if you are an author (i.e. have a DID with restricted ledger write access) then this transaction may need to go through an endorser</p>
-</li>
-<li>this operation <strong>MUST</strong> be performed on the the new revoc registry def <strong>BEFORE</strong> any revocation operations are performed</li>
 </ol>
 <h2 id="revocation-registry-rotation">Revocation Registry Rotation<a class="headerlink" href="#revocation-registry-rotation" title="Permanent link">&para;</a></h2>
-<p>From time to time an Issuer may want to issue credentials from a new Revocation Registry. That can be done by changing the Credential Definition, but that could impact verifiers.
-Revocation Registries go through a series of state changes: <code>init</code>, <code>generated</code>, <code>posted</code>, <code>active</code>, <code>full</code>, <code>decommissioned</code>. When issuing revocable credentials, the work is done with the <code>active</code> registry record. There are always 2 <code>active</code> registry records: one for tracking revocation until it is full, and the second to act as a "hot swap" in case issuance is done when the primary is full and being replaced. This ensures that there is always an <code>active</code> registry. When rotating, all registry records (except records in <code>init</code> state) are <code>decommissioned</code> and a new pair of <code>active</code> registry records are created.</p>
+<p>From time to time an Issuer may want to issue credentials from a new Revocation Registry. That can be done by changing the Credential Definition, but that could impact verifiers. 
+Revocation Registries go through a series of state changes: <code>init</code>, <code>generated</code>, <code>posted</code>, <code>active</code>, <code>full</code>, <code>decommissioned</code>. When issuing revocable credentials, the work is done with the <code>active</code> registry record. There are always 2 <code>active</code> registry records: one for tracking revocation until it is full, and the second to act as a "hot swap" in case issuance is done when the primary is full and being replaced. This ensures that there is always an <code>active</code> registry. When rotating, all registry records (except records in <code>init</code> state) are <code>decommissioned</code> and a new pair of <code>active</code> registry records are created.  </p>
 <p>Issuers can rotate their Credential Definition Revocation Registry records with a simple call: <code>POST /revocation/active-registry/{cred_def_id}/rotate</code></p>
 <p>It is advised that Issuers ensure the active registry is ready by calling <code>GET /revocation/active-registry/{cred_def_id}</code> after rotation and before issuance (if possible).</p>
 

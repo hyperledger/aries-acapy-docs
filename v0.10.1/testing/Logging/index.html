@@ -86,6 +86,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+You are viewing the documentation for Release 0.10.1, which is <strong>not</strong> the current version of ACA-Py.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -745,26 +754,6 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using SD-JWTs
   </span>
   
 
@@ -1544,26 +1533,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/Poetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Use of Poetry in ACA-Py
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2103,7 +2072,7 @@ The log json formatter flag can be set by <code>ACAPY_LOG_JSON_FMT</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">ACAPY_LOG_LEVEL</span><span class="o">=</span>info<span class="w"> </span><span class="nv">ACAPY_LOG_FILE</span><span class="o">=</span>./acapy.log<span class="w"> </span><span class="nv">ACAPY_LOG_CONFIG</span><span class="o">=</span>./acapy_log.ini<span class="w"> </span><span class="nv">ACAPY_LOG_HANDLER_CONFIG</span><span class="o">=</span><span class="s2">&quot;d;7;1&quot;</span><span class="w"> </span>./bin/aca-py<span class="w"> </span>start
 </code></pre></div>
 <h2 id="acapy-config-file">Acapy Config File<a class="headerlink" href="#acapy-config-file" title="Permanent link">&para;</a></h2>
-<p>Following parameters can be used in a configuration file like <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/demo-args.yaml">this</a>.</p>
+<p>Following parameters can be used in a configuration file like <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.1/demo/demo-args.yaml">this</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">log-level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WARNING</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">debug-connections</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">debug-presentations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -2112,7 +2081,7 @@ The log json formatter flag can be set by <code>ACAPY_LOG_JSON_FMT</code>.</p>
 Both parameters are independent of the log level, which means:
 Also if log-level is set to WARNING, connections and presentations will be logged like in debug log level.</p>
 <h2 id="log-config-file">Log config file<a class="headerlink" href="#log-config-file" title="Permanent link">&para;</a></h2>
-<p>Find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/config/default_logging_config.ini">default_logging_config.ini</a>.</p>
+<p>Find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.1/aries_cloudagent/config/default_logging_config.ini">default_logging_config.ini</a>.</p>
 <p>You can find more detail description in the <a href="https://docs.python.org/3/howto/logging.html#configuring-logging">logging documentation</a>.</p>
 
 

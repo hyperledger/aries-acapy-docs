@@ -84,6 +84,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+You are viewing the documentation for Release 0.10.1, which is <strong>not</strong> the current version of ACA-Py.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -743,26 +752,6 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using SD-JWTs
   </span>
   
 
@@ -1542,26 +1531,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/Poetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Use of Poetry in ACA-Py
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2064,9 +2033,9 @@ sure that ChatGPT isn't messing with you and you have the needed data.</p>
 </li>
 <li>
 <p>Update the version number listed in
-   <a href="pyproject.toml">pyproject.toml</a> and, prefixed with
-   a "v" in <a href="https://github.com/hyperledger/open-api/tree/main/openapi.json">open-api/openapi.json</a> and
-   <a href="https://github.com/hyperledger/open-api/tree/main/swagger.json">open-api/swagger.json</a> (e.g. "0.7.2" in the
+   <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.1/version.py">aries_cloudagent/version.py</a> and, prefixed with
+   a "v" in <a href="https://github.com/hyperledger/open-api/tree/0.10.1/openapi.json">open-api/openapi.json</a> and
+   <a href="https://github.com/hyperledger/open-api/tree/0.10.1/swagger.json">open-api/swagger.json</a> (e.g. "0.7.2" in the
    version.py file and "v0.7.2" in the openapi.json file). The incremented
    version number should adhere to the <a href="https://semver.org/#semantic-versioning-specification-semver">Semantic Versioning
    Specification</a>
@@ -2094,14 +2063,14 @@ sure that ChatGPT isn't messing with you and you have the needed data.</p>
 <li>
 <p>Immediately after it is merged, create a new GitHub tag representing the
    version. The tag name and title of the release should be the same as the
-   version in <a href="pyproject.toml">pyproject.toml</a>. Use
+   version in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.1/version.py">aries_cloudagent/version.py</a>. Use
    the "Generate Release Notes" capability to get a sequential listing of the
    PRs in the release, to complement the manually curated Changelog. Verify on
    PyPi that the version is published.</p>
 </li>
 <li>
 <p>New images for the release are automatically published by the GitHubAction
-   Workflows: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml">publish.yml</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml">publish-indy.yml</a>. The actions are triggered
+   Workflows: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/.github/workflows/publish.yml">publish.yml</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.1/.github/workflows/publish-indy.yml">publish-indy.yml</a>. The actions are triggered
    when a release is tagged, so no manual action is needed. The images are
    published in the <a href="https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python">Hyperledger Package Repository under
    aries-cloudagent-python</a>
