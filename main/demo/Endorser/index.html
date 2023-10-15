@@ -86,15 +86,6 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You are viewing the documentation for the latest ACA-Py Release, 0.10.4.
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
       </div>
     
     
@@ -754,6 +745,26 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SD-JWTs
   </span>
   
 
@@ -1587,6 +1598,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/Poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2008,7 +2039,7 @@
 <p>This approach runs Faber as an un-privileged agent, and starts a dedicated Endorser Agent in a sub-process (an instance of ACA-Py) to endorse Faber's transactions.</p>
 <p>Start a VON Network instance and a Tails server:</p>
 <ul>
-<li>Following the <a href="https://github.com/bcgov/von-network/blob/0.10.4/docs/UsingVONNetwork.md#building-and-starting">Building and Starting</a> section of the VON Network Tutorial to get ledger started. You can leave off the <code>--logs</code> option if you want to use the same terminal for running both VON Network and the Tails server. When you are finished with VON Network, follow the <a href="https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#stopping-and-removing-a-von-network">Stopping And Removing a VON Network</a> instructions.</li>
+<li>Following the <a href="https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting">Building and Starting</a> section of the VON Network Tutorial to get ledger started. You can leave off the <code>--logs</code> option if you want to use the same terminal for running both VON Network and the Tails server. When you are finished with VON Network, follow the <a href="https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#stopping-and-removing-a-von-network">Stopping And Removing a VON Network</a> instructions.</li>
 <li>Run an AnonCreds revocation registry tails server in order to support revocation by following the instructions in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/AliceGetsAPhone.md#run-an-instance-of-indy-tails-server">Alice gets a Phone</a> demo.</li>
 </ul>
 <p>Start up Faber as Author (note the tails file size override, to allow testing of the revocation registry roll-over):</p>

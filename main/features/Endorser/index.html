@@ -86,15 +86,6 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You are viewing the documentation for the latest ACA-Py Release, 0.10.4.
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
       </div>
     
     
@@ -842,6 +833,26 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SelectiveDisclosureJWTs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SD-JWTs
   </span>
   
 
@@ -1621,6 +1632,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/Poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2072,12 +2103,12 @@
 
 <h1 id="transaction-endorser-support">Transaction Endorser Support<a class="headerlink" href="#transaction-endorser-support" title="Permanent link">&para;</a></h1>
 <p>ACA-Py supports an <a href="https://github.com/hyperledger/aries-rfcs/pull/586">Endorser Protocol</a>, that allows an un-privileged agent (an "Author") to request another agent (the "Endorser") to sign their transactions so they can write these transactions to the ledger.  This is required on Indy ledgers, where new agents will typically be granted only "Author" privileges.</p>
-<p>Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation, and endorsements can be explicitely requested, or ACA-Py can be configured to automate the endorsement workflow.</p>
+<p>Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation, and endorsements can be explicitly requested, or ACA-Py can be configured to automate the endorsement workflow.</p>
 <h2 id="setting-up-connections-between-authors-and-endorsers">Setting up Connections between Authors and Endorsers<a class="headerlink" href="#setting-up-connections-between-authors-and-endorsers" title="Permanent link">&para;</a></h2>
 <p>Since endorsement involves message exchange between two agents, these agents must establish and configure a connection before any endorsements can be provided or requested.</p>
 <p>Once the connection is established and <code>active</code>, the "role" (either Author or Endorser) is attached to the connection using the <code>/transactions/{conn_id}/set-endorser-role</code> endpoint.  For Authors, they must additionally configure the DID of the Endorser as this is required when the Author signs the transaction (prior to sending to the Endorser for endorsement) - this is done using the <code>/transactions/{conn_id}/set-endorser-info</code> endpoint.</p>
 <h2 id="requesting-transaction-endorsement">Requesting Transaction Endorsement<a class="headerlink" href="#requesting-transaction-endorsement" title="Permanent link">&para;</a></h2>
-<p>Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation.  When executing one of the endpoints that will trigger a ledger write, an endorsement protocol can be explicitely requested by specifying the <code>connection_id</code> (of the Endorser connection) and <code>create_transaction_for_endorser</code>.</p>
+<p>Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation.  When executing one of the endpoints that will trigger a ledger write, an endorsement protocol can be explicitly requested by specifying the <code>connection_id</code> (of the Endorser connection) and <code>create_transaction_for_endorser</code>.</p>
 <p>(Note that endorsement requests can be automated, see the secion on "Configuring ACA-Py" below.)</p>
 <p>If transaction endorsement is requested, then ACA-Py will create a transaction record (this will be returned by the endpoint, rather than the Schema, Cred Def, etc) and the following endpoints must be invoked:</p>
 <table>
@@ -2138,11 +2169,11 @@
 <h2 id="how-aca-py-handles-endorsements">How Aca-py Handles Endorsements<a class="headerlink" href="#how-aca-py-handles-endorsements" title="Permanent link">&para;</a></h2>
 <p>Internally, the Endorsement functionality is implemented as a protocol, and is implemented consistently with other protocols:</p>
 <ul>
-<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py">routes.py</a> file exposes the admin endpoints</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers">handler files</a> implement responses to any received Endorse protocol messages</li>
-<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py">manager.py</a> file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)</li>
+<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py">routes.py</a> file exposes the admin endpoints</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers">handler files</a> implement responses to any received Endorse protocol messages</li>
+<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py">manager.py</a> file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)</li>
 </ul>
-<p>The Endorser makes use of the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/CHANGELOG.md#july-14-2021">Event Bus</a> (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Defintition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).</p>
+<p>The Endorser makes use of the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md#july-14-2021">Event Bus</a> (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Defintition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).</p>
 <p>The overall architecture can be illustrated as:</p>
 <p><img alt="Class Diagram" src="../endorser-design.png" /></p>
 <h3 id="create-credential-definition-and-revocation-registry">Create Credential Definition and Revocation Registry<a class="headerlink" href="#create-credential-definition-and-revocation-registry" title="Permanent link">&para;</a></h3>

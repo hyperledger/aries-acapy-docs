@@ -86,15 +86,6 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You are viewing the documentation for the latest ACA-Py Release, 0.10.4.
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
       </div>
     
     
@@ -754,6 +745,26 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SD-JWTs
   </span>
   
 
@@ -1533,6 +1544,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../Poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2113,12 +2144,12 @@ Startup ACA-Py with <code>redis_queue</code> plugin loaded
 <a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>        - acapy_default
 </code></pre></div></p>
 <p>Both relay and mediator <a href="https://github.com/bcgov/aries-acapy-plugin-redis-events/tree/master/demo">demos</a> are also available.</p>
-<h1 id="aries-acapy-cache-redis-redis_cache"><a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.10.4/README.md">aries-acapy-cache-redis</a> [<code>redis_cache</code>]<a class="headerlink" href="#aries-acapy-cache-redis-redis_cache" title="Permanent link">&para;</a></h1>
+<h1 id="aries-acapy-cache-redis-redis_cache"><a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/README.md">aries-acapy-cache-redis</a> [<code>redis_cache</code>]<a class="headerlink" href="#aries-acapy-cache-redis-redis_cache" title="Permanent link">&para;</a></h1>
 <!-- Adopted from aries-acapy-cache-redis/README.md -->
 <p>ACA-Py uses a modular cache layer to story key-value pairs of data. The purpose
 of this plugin is to allow ACA-Py to use Redis as the storage medium for it's
 caching needs.</p>
-<p>More details can be found <a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.10.4/README.md">here</a>.</p>
+<p>More details can be found <a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/README.md">here</a>.</p>
 <h3 id="plugin-configuration-yaml_1"><b>Plugin configuration</b> [<code>yaml</code>]<a class="headerlink" href="#plugin-configuration-yaml_1" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redis_cache:
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  connection: &quot;redis://default:test1234@172.28.0.103:6379&quot;
@@ -2139,14 +2170,14 @@ caching needs.</p>
 <ul>
 <li>
 <p>Running the plugin with docker is simple and straight-forward. There is an
-example <a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.10.4/docker-compose.yml">docker-compose.yml</a> file in the root of the
+example <a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/docker-compose.yml">docker-compose.yml</a> file in the root of the
 project that launches both ACA-Py and an accompanying Redis instance. Running
 it is as simple as:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
 </code></pre></div>
 </li>
 <li>
-<p>To launch ACA-Py with an accompanying redis cluster of 6 nodes [3 primaries and 3 replicas], please refer to example <a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.10.4/docker-compose.cluster.yml">docker-compose.cluster.yml</a> and run the following:</p>
+<p>To launch ACA-Py with an accompanying redis cluster of 6 nodes [3 primaries and 3 replicas], please refer to example <a href="https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/main/docker-compose.cluster.yml">docker-compose.cluster.yml</a> and run the following:</p>
 <p>Note: Cluster requires external docker network with specified subnet</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--subnet<span class="o">=</span><span class="m">172</span>.28.0.0/24<span class="w"> </span><span class="sb">`</span>network_name<span class="sb">`</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_PASSWORD</span><span class="o">=</span><span class="s2">&quot; ... As specified in redis_cluster.conf ... &quot;</span>

@@ -86,15 +86,6 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You are viewing the documentation for the latest ACA-Py Release, 0.10.4.
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
       </div>
     
     
@@ -754,6 +745,26 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SelectiveDisclosureJWTs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SD-JWTs
   </span>
   
 
@@ -1621,6 +1632,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/Poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2074,7 +2105,7 @@
 <p>ACA-Py provides an OpenAPI-documented REST interface for administering the agent's internal state and initiating communication with connected agents.</p>
 <p>The running agent provides a <code>Swagger User Interface</code> that can be browsed and used to test various scenarios manually (see the <a href="../AdminAPI/">Admin API Readme</a> for details). However, it is often desirable to produce native language interfaces rather than coding <code>Controllers</code> using HTTP primitives. This is possible using several public code generation (codegen) tools. This page provides some suggestions based on experience with these tools when trying to generate <code>Typescript</code> wrappers. The information should be useful to those trying to generate other languages. Updates to this page based on experience are encouraged.</p>
 <h2 id="aca-py-openapi-raw-output-characteristics">ACA-Py, OpenAPI Raw Output Characteristics<a class="headerlink" href="#aca-py-openapi-raw-output-characteristics" title="Permanent link">&para;</a></h2>
-<p>ACA-Py uses <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> tags in code to produce the OpenAPI spec file at runtime dependent on what features have been loaded. How these tags are created is documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/AdminAPI.md#api-standard-behaviour">API Standard Behaviour</a> section of the <a href="../AdminAPI/">Admin API Readme</a>. The OpenAPI spec is available in raw, unformatted form from a running ACA-Py instance using a route of <code>http://&lt;acapy host and port&gt;/api/docs/swagger.json</code> or from the browser <code>Swagger User Interface</code> directly.</p>
+<p>ACA-Py uses <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> tags in code to produce the OpenAPI spec file at runtime dependent on what features have been loaded. How these tags are created is documented in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/AdminAPI.md#api-standard-behaviour">API Standard Behaviour</a> section of the <a href="../AdminAPI/">Admin API Readme</a>. The OpenAPI spec is available in raw, unformatted form from a running ACA-Py instance using a route of <code>http://&lt;acapy host and port&gt;/api/docs/swagger.json</code> or from the browser <code>Swagger User Interface</code> directly.</p>
 <p>The ACA-Py Admin API evolves across releases. To track these changes and ensure conformance with the OpenAPI specification, we provide a tool located at <a href="scripts/generate-open-api-spec"><code>scripts/generate-open-api-spec</code></a>. This tool starts ACA-Py, retrieves the <code>swagger.json</code> file, and runs codegen tools to generate specifications in both Swagger and OpenAPI formats with <code>json</code> language output. The output of this tool enables comparison with the checked-in <code>open-api/swagger.json</code> and <code>open-api/openapi.json</code>, and also serves as a useful resource for identifying any non-conformance to the OpenAPI specification. At the moment, <code>validation</code> is turned off via the <code>open-api/openAPIJSON.config</code> file, so warning messages are printed for non-conformance, but the <code>json</code> is still output. Most of the warnings reported by <code>generate-open-api-spec</code> relate to missing <code>operationId</code> fields which results in manufactured method names being created by codegen tools. At the moment, <a href="https://github.com/maximdanilchenko/aiohttp-apispec">aiohttp_apispec</a> does not support adding <code>operationId</code> annotations via tags.</p>
 <p>The <code>generate-open-api-spec</code> tool was initially created to help identify issues with method parameters not being sorted, resulting in somewhat random ordering each time a codegen operation was performed. This is relevant for languages which do not have support for <a href="https://en.wikipedia.org/wiki/Named_parameter">named parameters</a> such as <code>Javascript</code>. It is recommended that the <code>generate-open-api-spec</code> is run prior to each release, and the resulting <code>open-api/openapi.json</code> file checked in to allow tracking of API changes over time. At the moment, this process is not automated as part of the release pipeline.</p>
 <h2 id="generating-language-wrappers-for-aca-py">Generating Language Wrappers for ACA-Py<a class="headerlink" href="#generating-language-wrappers-for-aca-py" title="Permanent link">&para;</a></h2>

@@ -86,15 +86,6 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You are viewing the documentation for the latest ACA-Py Release, 0.10.4.
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
       </div>
     
     
@@ -764,6 +755,26 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/SelectiveDisclosureJWTs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SD-JWTs
   </span>
   
 
@@ -1543,6 +1554,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deploying/Poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -1937,66 +1968,6 @@
 
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
-<h1 id="0104">0.10.4<a class="headerlink" href="#0104" title="Permanent link">&para;</a></h1>
-<h2 id="october-9-2023">October 9, 2023<a class="headerlink" href="#october-9-2023" title="Permanent link">&para;</a></h2>
-<p>Release 0.10.4 is a patch release to correct an issue with the handling of <code>did:key</code> routing
-keys in some mediator scenarios, notably with the use of [Aries Framework Kotlin]. See the
-details in the PR and [Issue #2531 Routing for agents behind a aca-py based mediator is broken].</p>
-<p>Thanks to <a href="https://github.com/codespree">codespree</a> for raising the issue and providing the fix.</p>
-<p><a href="https://github.com/hyperledger/aries-framework-kotlin">Aries Framework Kotlin</a></p>
-<h3 id="0104-categorized-list-of-pull-requests">0.10.4 Categorized List of Pull Requests<a class="headerlink" href="#0104-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
-<ul>
-<li>DID Handling and Connection Establishment Updates/Fixes</li>
-<li>fix: routing behind mediator <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2536">#2536</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
-<li>Release management pull requests</li>
-<li>0.10.4 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2539">#2539</a> <a href="https://github.com/swcurran">swcurran</a></li>
-</ul>
-<h1 id="0103">0.10.3<a class="headerlink" href="#0103" title="Permanent link">&para;</a></h1>
-<h2 id="september-29-2023">September 29, 2023<a class="headerlink" href="#september-29-2023" title="Permanent link">&para;</a></h2>
-<p>Release 0.10.3 is a patch release to add an upgrade process for very old
-versions of Aries Cloud Agent Python (circa <a href="#052">0.5.2</a>). If you have a long
-time deployment of an issuer that uses revocation, this release could correct
-internal data (tags in secure storage) related to revocation registries.
-Details of the about the triggering problem can be found in [Issue #2485].</p>
-<p>The upgrade is applied by running the following command for the ACA-Py
-instance to be upgraded:</p>
-<p><code>./scripts/run_docker upgrade --force-upgrade --named-tag fix_issue_rev_reg</code></p>
-<h3 id="0103-categorized-list-of-pull-requests">0.10.3 Categorized List of Pull Requests<a class="headerlink" href="#0103-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Credential Exchange (Issue, Present) Updates</li>
-<li>Feat: Upgrade from tags and fix issue with legacy IssuerRevRegRecords [&lt;=v0.5.2] <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2486">#2486</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
-<li>Release management pull requests</li>
-<li>0.10.3 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2522">#2522</a> <a href="https://github.com/swcurran">swcurran</a></li>
-</ul>
-<h1 id="0102">0.10.2<a class="headerlink" href="#0102" title="Permanent link">&para;</a></h1>
-<h2 id="september-22-2023">September 22, 2023<a class="headerlink" href="#september-22-2023" title="Permanent link">&para;</a></h2>
-<p>Release 0.10.2 is a patch release for 0.10.1 that addresses three specific regressions found
-in deploying Release 0.10.1. The regressions are to fix:</p>
-<ul>
-<li>An ACA-Py instance upgraded to 0.10.1 that had an existing connection to another Aries agent
-where the connection has both an <code>http</code> and <code>ws</code> (websocket) service endpoint with the same ID cannot
-message that agent. A scenario is an ACA-Py issuer connecting to an Endorser with both <code>http</code> and
-<code>ws</code> service endpoints. The updates made in 0.10.1 to improve ACA-Py DID resolution did not account
-for this scenario and needed a tweak to work ([Issue #2474], [PR #2475]).</li>
-<li>The "fix revocation registry" endpoint used to fix scenarios an Issuer's local revocation registry
-state is out of sync with the ledger was broken by some code being added to support a single
-ACA-Py instance writing to different ledgers ([Issue #2477], [PR #2480]).</li>
-<li>The version of the <a href="https://github.com/sicpa-dlab/pydid">PyDID</a> library we were using did not handle some
-unexpected DID resolution use cases encountered with mediators. The PyDID
-library version dependency was updated in [PR #2500].</li>
-</ul>
-<h3 id="0102-categorized-list-of-pull-requests">0.10.2 Categorized List of Pull Requests<a class="headerlink" href="#0102-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
-<ul>
-<li>DID Handling and Connection Establishment Updates/Fixes</li>
-<li>LegacyPeerDIDResolver: erroneously assigning same ID to multiple services <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2475">#2475</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
-<li>fix: update pydid <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2500">#2500</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
-<li>Credential Exchange (Issue, Present) Updates</li>
-<li>Bugfix: Issue with write ledger pool when performing Accumulator sync <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2480">#2480</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
-<li>Release management pull requests</li>
-<li>0.10.2 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2509">#2509</a> <a href="https://github.com/swcurran">swcurran</a></li>
-<li>0.10.2-rc0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2484">#2484</a> <a href="https://github.com/swcurran">swcurran</a></li>
-<li>0.10.2 Patch Release - fix issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2475" title="GitHub Issue: squidfunk/mkdocs-material #2475">#2475</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2477" title="GitHub Issue: squidfunk/mkdocs-material #2477">#2477</a> <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2480">#2482</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
-</ul>
 <h1 id="0101">0.10.1<a class="headerlink" href="#0101" title="Permanent link">&para;</a></h1>
 <h2 id="august-29-2023">August 29, 2023<a class="headerlink" href="#august-29-2023" title="Permanent link">&para;</a></h2>
 <p>Release 0.10.1 contains a breaking change, an important fix for a regression
@@ -2043,7 +2014,7 @@ should be held in ACA-Py only as long as the protocol is running (as it is
 needed by ACA-Py), and once a protocol instance completes, the controller should
 extract and store the business information from the protocol state before it is
 deleted from ACA-Py storage.</p>
-<h3 id="0101-categorized-list-of-pull-requests">0.10.1 Categorized List of Pull Requests<a class="headerlink" href="#0101-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
+<h3 id="0100-categorized-list-of-pull-requests">0.10.0 Categorized List of Pull Requests<a class="headerlink" href="#0100-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h3>
 <ul>
 <li>DIDComm Messaging Improvements/Fixes</li>
 <li>fix: outbound send status missing on path <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2393">#2393</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
@@ -2093,7 +2064,7 @@ deleted from ACA-Py storage.</p>
 </ul>
 <h1 id="0100">0.10.0<a class="headerlink" href="#0100" title="Permanent link">&para;</a></h1>
 <h2 id="august-29-2023_1">August 29, 2023<a class="headerlink" href="#august-29-2023_1" title="Permanent link">&para;</a></h2>
-<p>Release 0.10.0 has the same contents as 0.10.1. An error on PyPi prevented the
+<p>Release 0.10.1 has the same contents as 0.10.0. An error on PyPi prevented the
 0.10.0 release from being properly uploaded because of an existing file of the
 same name. We immediately released 0.10.1 as a replacement.</p>
 <h1 id="090">0.9.0<a class="headerlink" href="#090" title="Permanent link">&para;</a></h1>
@@ -2321,12 +2292,12 @@ components. For details see the converter in the
 <h3 id="container-publishing-updated">Container Publishing Updated<a class="headerlink" href="#container-publishing-updated" title="Permanent link">&para;</a></h3>
 <p>With this release, a new automated process publishes container images in the
 Hyperledger container image repository. New images for the release are
-automatically published by the GitHubAction Workflows: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/.github/workflows/publish.yml">publish.yml</a> and
-<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/.github/workflows/publish-indy.yml">publish-indy.yml</a>. The actions are triggered when a release is tagged, so no
+automatically published by the GitHubAction Workflows: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml">publish.yml</a> and
+<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml">publish-indy.yml</a>. The actions are triggered when a release is tagged, so no
 manual action is needed. The images are published in the <a href="https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python">Hyperledger Package
 Repository under aries-cloudagent-python</a> and a link to the packages added to
 the repositories main page (under "Packages"). Additional information about the
-container image publication process can be found in the document <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/ContainerImagesAndGithubActions.md">Container
+container image publication process can be found in the document <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md">Container
 Images and Github Actions</a>.</p>
 <p>The ACA-Py container images are based on <a href="https://hub.docker.com/_/python">Python 3.6 and 3.9 <code>slim-bullseye</code>
 images</a>, and are designed to support <code>linux/386
@@ -2355,7 +2326,7 @@ explicit invitation. Such deployments need to add the configuration parameter
 case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm <code>service</code> in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the <code>service</code> endpoint.
-This is called an "implicit" connection in <a href="https://github.com/hyperledger/aries-rfcs/blob/0.10.4/features/0023-did-exchange/README.md">RFC 0023 DID
+This is called an "implicit" connection in <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md">RFC 0023 DID
 Exchange</a>.</p>
 <h3 id="pr-1913-unrevealed-attributes-in-presentations">PR <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1913">#1913</a> -- Unrevealed attributes in presentations<a class="headerlink" href="#pr-1913-unrevealed-attributes-in-presentations" title="Permanent link">&para;</a></h3>
 <p>Updates the handling of "unrevealed attributes" during verification of AnonCreds
@@ -2861,7 +2832,7 @@ were involved in the creation of this PR, so we are not making this release a mi
 However, anyone else using an external queue should be aware of the impact of this PR that is
 included in the release.</p>
 <p>For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-<a href="https://github.com/hyperledger/aries-rfcs/tree/0.10.4/features/0434-outofband">RFC 434 Out of Band</a> and the "reuse connection" as the invitee. In PR <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1453" title="GitHub Issue: squidfunk/mkdocs-material #1453">#1453</a>
+<a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband">RFC 434 Out of Band</a> and the "reuse connection" as the invitee. In PR <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1453" title="GitHub Issue: squidfunk/mkdocs-material #1453">#1453</a>
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
@@ -3258,7 +3229,7 @@ async with profile.session() as session:
 <li>Various documentation and bug fixes</li>
 <li>Add admin routes for fetching and accepting the ledger transaction author agreement <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/144">#144</a></li>
 <li>Add support for receiving connection-less proof presentations <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/296">#296</a></li>
-<li>Set attachment id explicitely in unbound proof request <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/289">#289</a></li>
+<li>Set attachment id explicitly in unbound proof request <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/289">#289</a></li>
 <li>Add create-proposal admin endpoint to the present-proof protocol <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/288">#288</a></li>
 <li>Remove old anon/authcrypt support <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/282">#282</a></li>
 <li>Allow additional endpoints to be specified <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/276">#276</a></li>

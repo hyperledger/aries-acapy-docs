@@ -86,15 +86,6 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You are viewing the documentation for the latest ACA-Py Release, 0.10.4.
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
       </div>
     
     
@@ -754,6 +745,26 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/SelectiveDisclosureJWTs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using SD-JWTs
   </span>
   
 
@@ -1697,6 +1708,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../deploying/Poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Use of Poetry in ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2273,10 +2304,10 @@
 <p>Alice's agent is now running.</p>
 <p>Jump to the <a href="#follow-the-script">Follow the Script</a> section below for further instructions.</p>
 <h3 id="running-in-docker">Running in Docker<a class="headerlink" href="#running-in-docker" title="Permanent link">&para;</a></h3>
-<p>Running the demo in docker requires having a <code>von-network</code> (a Hyperledger Indy public ledger sandbox) instance running in docker locally. See the <a href="https://github.com/bcgov/von-network/blob/0.10.4/docs/UsingVONNetwork.md">VON Network Tutorial</a> for guidance
+<p>Running the demo in docker requires having a <code>von-network</code> (a Hyperledger Indy public ledger sandbox) instance running in docker locally. See the <a href="https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md">VON Network Tutorial</a> for guidance
 on starting and stopping your own local Hyperledger Indy instance.</p>
 <p>Open three <code>bash</code> shells. For Windows users, <code>git-bash</code> is highly recommended. bash is the default shell in Linux and Mac terminal sessions.</p>
-<p>In the first terminal window, start <code>von-network</code> by following the <a href="https://github.com/bcgov/von-network/blob/0.10.4/docs/UsingVONNetwork.md#building-and-starting">Building and Starting</a> instructions.</p>
+<p>In the first terminal window, start <code>von-network</code> by following the <a href="https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting">Building and Starting</a> instructions.</p>
 <p>In the second terminal, change directory into <code>demo</code> directory of your clone of the Aries Cloud Agent Python repository. Start the <code>faber</code> agent by issuing the following command:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span>./run_demo<span class="w"> </span>faber
 </code></pre></div>
@@ -2293,7 +2324,7 @@ on starting and stopping your own local Hyperledger Indy instance.</p>
 </code></pre></div>
 <p>While that process will include the installation of the Indy python prerequisite, you still have to build and install the <code>libindy</code> code for your platform. Follow the <a href="https://github.com/hyperledger/indy-sdk#installing-the-sdk">installation instructions</a> in the indy-sdk repo for your platform.</p>
 <h4 id="start-a-local-indy-ledger">Start a local Indy ledger<a class="headerlink" href="#start-a-local-indy-ledger" title="Permanent link">&para;</a></h4>
-<p>Start a local <code>von-network</code> Hyperledger Indy network running in Docker by following the VON Network <a href="https://github.com/bcgov/von-network/blob/0.10.4/docs/UsingVONNetwork.md#building-and-starting">Building and Starting</a> instructions.</p>
+<p>Start a local <code>von-network</code> Hyperledger Indy network running in Docker by following the VON Network <a href="https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting">Building and Starting</a> instructions.</p>
 <p>We strongly recommend you use Docker for the local Indy network until you really, really need to know the details of running an Indy Node instance on a bare machine.</p>
 <h4 id="genesis-file-handling">Genesis File handling<a class="headerlink" href="#genesis-file-handling" title="Permanent link">&para;</a></h4>
 <blockquote>
@@ -2361,7 +2392,7 @@ on starting and stopping your own local Hyperledger Indy instance.</p>
 <p>To enable support for revoking credentials, run the <code>faber</code> demo with the <code>--revocation</code> option:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>./run_demo<span class="w"> </span>faber<span class="w"> </span>--revocation
 </code></pre></div>
-<p>Note that you don't specify this option with <code>alice</code> because it's only applicable for the credential <code>issuer</code> (who has to enable revocation when creating a credential definition, and explicitely revoke credentials as appropriate; alice doesn't have to do anything special when revocation is enabled).</p>
+<p>Note that you don't specify this option with <code>alice</code> because it's only applicable for the credential <code>issuer</code> (who has to enable revocation when creating a credential definition, and explicitly revoke credentials as appropriate; alice doesn't have to do anything special when revocation is enabled).</p>
 <p>You need to run an AnonCreds revocation registry tails server in order to support revocation - the details are described in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/AliceGetsAPhone.md#run-an-instance-of-indy-tails-server">Alice gets a Phone</a> demo instructions.</p>
 <p>Faber will setup support for revocation automatically, and you will see an extra option in faber's menu to revoke a credential:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    (1) Issue Credential
@@ -2475,9 +2506,9 @@ Publish now? [Y/N]: y
 <p>Note that with multi-tenancy enabled:</p>
 <ul>
 <li>The "base" wallet will have access to this new "agency API" - the agent's admin key, if enabled, must be provided in a header</li>
-<li>"Base wallet" API calls are handled <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/support/agent.py#L606">here</a></li>
-<li>The "sub-wallets" will have access to the "normal" ACA-Py admin API - to identify the sub-wallet, a JWT token must be provided, this token is created upon creation of the new wallet (see: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/support/agent.py#L378">this code here</a>)</li>
-<li>"Sub-wallet" API calls are handled <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/support/agent.py#L632">here</a></li>
+<li>"Base wallet" API calls are handled <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L606">here</a></li>
+<li>The "sub-wallets" will have access to the "normal" ACA-Py admin API - to identify the sub-wallet, a JWT token must be provided, this token is created upon creation of the new wallet (see: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L378">this code here</a>)</li>
+<li>"Sub-wallet" API calls are handled <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L632">here</a></li>
 </ul>
 <p>Documentation on ACA-Py's multi-tenancy support can be found <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/master/Multitenancy.md">here</a>.</p>
 <h3 id="multi-tenancy-with-mediation">Multi-tenancy <em>with Mediation</em>!!!<a class="headerlink" href="#multi-tenancy-with-mediation" title="Permanent link">&para;</a></h3>
@@ -2489,11 +2520,11 @@ Publish now? [Y/N]: y
 <p>This works exactly as the <em>vanilla</em> multi-tenancy, except that all connections are mediated.</p>
 <h2 id="learning-about-the-alicefaber-code">Learning about the Alice/Faber code<a class="headerlink" href="#learning-about-the-alicefaber-code" title="Permanent link">&para;</a></h2>
 <p>These Alice and Faber scripts (in the <code>demo/runners</code> folder) implement the controller and run the agent as a sub-process (see the documentation for <code>aca-py</code>). The controller publishes a REST service to receive web hook callbacks from their agent. Note that this architecture, running the agent as a sub-process, is a variation on the documented architecture of running the controller and agent as separate processes/containers.</p>
-<p>The controllers for this demo can be found in the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/alice.py">alice.py</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/faber.py">faber.py</a> files. Alice and Faber are instances of the agent class found in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/support/agent.py">agent.py</a>.</p>
+<p>The controllers for this demo can be found in the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/alice.py">alice.py</a> and <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/faber.py">faber.py</a> files. Alice and Faber are instances of the agent class found in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py">agent.py</a>.</p>
 <h2 id="openapi-swagger-demo">OpenAPI (Swagger) Demo<a class="headerlink" href="#openapi-swagger-demo" title="Permanent link">&para;</a></h2>
 <p>Developing an ACA-Py controller is much like developing a web app that uses a REST API. As you develop, you will want an easy way to test out the behaviour of the API. That's where the industry-standard OpenAPI (aka Swagger) UI comes in. ACA-Py (optionally) exposes an OpenAPI UI in ACA-Py that you can use to learn the ins and outs of the API. This <a href="AriesOpenAPIDemo/">Aries OpenAPI demo</a> shows how you can use the OpenAPI UI with an ACA-Py agent by walking through the connectiing, issuing a credential, and presenting a proof sequence.</p>
 <h2 id="performance-demo">Performance Demo<a class="headerlink" href="#performance-demo" title="Permanent link">&para;</a></h2>
-<p>Another example in the <code>demo/runners</code> folder is <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/performance.py">performance.py</a>, that is used to test out the performance of interacting agents. The script starts up agents for Alice and Faber, initializes them, and then runs through an interaction some number of times. In this case, Faber issues a credential to Alice 300 times.</p>
+<p>Another example in the <code>demo/runners</code> folder is <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/performance.py">performance.py</a>, that is used to test out the performance of interacting agents. The script starts up agents for Alice and Faber, initializes them, and then runs through an interaction some number of times. In this case, Faber issues a credential to Alice 300 times.</p>
 <p>To run the demo, make sure that you shut down any running Alice/Faber agents. Then, follow the same steps to start the Alice/Faber demo, but:</p>
 <ul>
 <li>When starting the first agent, replace the agent name (e.g. <code>faber</code>) with <code>performance</code>.</li>
@@ -2519,7 +2550,7 @@ Publish now? [Y/N]: y
 <li>ACME requesting a proof of her College degree</li>
 <li>ACME issuing Alice a credential after she is hired.</li>
 </ul>
-<p>The framework for the code is in the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/demo/runners/acme.py">acme.py</a> file, but the code is incomplete. Using the knowledge you gained from running demo and viewing the alice.py and faber.py code, fill in the blanks for the code.  When you are ready to test your work:</p>
+<p>The framework for the code is in the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/acme.py">acme.py</a> file, but the code is incomplete. Using the knowledge you gained from running demo and viewing the alice.py and faber.py code, fill in the blanks for the code.  When you are ready to test your work:</p>
 <ul>
 <li>Use the instructions above to start the Alice/Faber demo (above).</li>
 <li>Start another terminal session and run the same commands as for "Alice", but replace "alice" with "acme".</li>
