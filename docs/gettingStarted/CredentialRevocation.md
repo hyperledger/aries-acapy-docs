@@ -44,7 +44,7 @@ of the cryptography behind the approach:
   the ledger. If there are multiple revocations spread across multiple RevRegs,
   there may be multiple writes to the ledger.
 
-[complete overview of AnonCreds revocation]: https://github.com/hyperledger/indy-hipe/blob/0.10.4/text/0011-cred-revocation/README.md
+[complete overview of AnonCreds revocation]: https://github.com/hyperledger/indy-hipe/blob/main/text/0011-cred-revocation/README.md
 
 Since managing RevRegs is really hard for an ACA-Py controller, we have tried to
 minimize what an ACA-Py Issuer controller has to do, leaving everything else to be
@@ -72,7 +72,7 @@ issuer controller does:
 That is the minimum amount of tracking the controller must do while still being
 able to execute the business rules around revoking credentials.
 
-[Aries RFC 0183: Revocation Notification]: https://github.com/hyperledger/aries-rfcs/blob/0.10.4/features/0183-revocation-notification/README.md
+[Aries RFC 0183: Revocation Notification]: https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md
 
 From experience, we’ve added to two extra features to deal with unexpected
 conditions:
@@ -194,7 +194,7 @@ Include the command line parameter `--tails-server-base-url <indy-tails-server u
 
 ## Revocation Notification
 
-ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/aries-rfcs/blob/0.10.4/features/0183-revocation-notification/README.md).
+ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md).
 
 > **Note:** The optional `~please_ack` is not currently supported.
 
@@ -246,7 +246,7 @@ thread ID and comment is emitted to registered webhook urls.
 
 ## Manually Creating Revocation Registries
 
-> NOTE: This capability is deprecated and will likely be removed entirely in an upcoming release of ACA-Py. 
+> NOTE: This capability is deprecated and will likely be removed entirely in an upcoming release of ACA-Py.
 
 The process for creating revocation registries is completely automated - when you create a Credential Definition with revocation enabled, a revocation registry is automatically created (in fact 2 registries are created), and when a registry fills up, a new one is automatically created.
 
@@ -276,14 +276,16 @@ There are several endpoints that must be called, and they must be called in this
 
    - the tails server will check that the registry definition is already written to the ledger
 
+5. Post the initial accumulator value to the ledger `POST /revocation/registry/{rev_reg_id}/entry`
+
+   - if you are an author (i.e. have a DID with restricted ledger write access) then this transaction may need to go through an endorser
+   - this operation **MUST** be performed on the the new revoc registry def **BEFORE** any revocation operations are performed
+
 ## Revocation Registry Rotation
 
-From time to time an Issuer may want to issue credentials from a new Revocation Registry. That can be done by changing the Credential Definition, but that could impact verifiers. 
-Revocation Registries go through a series of state changes: `init`, `generated`, `posted`, `active`, `full`, `decommissioned`. When issuing revocable credentials, the work is done with the `active` registry record. There are always 2 `active` registry records: one for tracking revocation until it is full, and the second to act as a "hot swap" in case issuance is done when the primary is full and being replaced. This ensures that there is always an `active` registry. When rotating, all registry records (except records in `init` state) are `decommissioned` and a new pair of `active` registry records are created.  
-  
+From time to time an Issuer may want to issue credentials from a new Revocation Registry. That can be done by changing the Credential Definition, but that could impact verifiers.
+Revocation Registries go through a series of state changes: `init`, `generated`, `posted`, `active`, `full`, `decommissioned`. When issuing revocable credentials, the work is done with the `active` registry record. There are always 2 `active` registry records: one for tracking revocation until it is full, and the second to act as a "hot swap" in case issuance is done when the primary is full and being replaced. This ensures that there is always an `active` registry. When rotating, all registry records (except records in `init` state) are `decommissioned` and a new pair of `active` registry records are created.
+
 Issuers can rotate their Credential Definition Revocation Registry records with a simple call: `POST /revocation/active-registry/{cred_def_id}/rotate`
 
 It is advised that Issuers ensure the active registry is ready by calling `GET /revocation/active-registry/{cred_def_id}` after rotation and before issuance (if possible).
-
-
-

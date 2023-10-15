@@ -2,7 +2,7 @@
 
 ACA-Py supports an [Endorser Protocol](https://github.com/hyperledger/aries-rfcs/pull/586), that allows an un-privileged agent (an "Author") to request another agent (the "Endorser") to sign their transactions so they can write these transactions to the ledger.  This is required on Indy ledgers, where new agents will typically be granted only "Author" privileges.
 
-Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation, and endorsements can be explicitely requested, or ACA-Py can be configured to automate the endorsement workflow.
+Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation, and endorsements can be explicitly requested, or ACA-Py can be configured to automate the endorsement workflow.
 
 ## Setting up Connections between Authors and Endorsers
 
@@ -12,7 +12,7 @@ Once the connection is established and `active`, the "role" (either Author or En
 
 ## Requesting Transaction Endorsement
 
-Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation.  When executing one of the endpoints that will trigger a ledger write, an endorsement protocol can be explicitely requested by specifying the `connection_id` (of the Endorser connection) and `create_transaction_for_endorser`.
+Transaction Endorsement is built into the protocols for Schema, Credential Definition and Revocation.  When executing one of the endpoints that will trigger a ledger write, an endorsement protocol can be explicitly requested by specifying the `connection_id` (of the Endorser connection) and `create_transaction_for_endorser`.
 
 (Note that endorsement requests can be automated, see the secion on "Configuring ACA-Py" below.)
 
@@ -63,11 +63,11 @@ Endorsement:
 
 Internally, the Endorsement functionality is implemented as a protocol, and is implemented consistently with other protocols:
 
-- a [routes.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py) file exposes the admin endpoints
-- [handler files](https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers) implement responses to any received Endorse protocol messages
-- a [manager.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py) file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)
+- a [routes.py](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py) file exposes the admin endpoints
+- [handler files](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers) implement responses to any received Endorse protocol messages
+- a [manager.py](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py) file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)
 
-The Endorser makes use of the [Event Bus](https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/CHANGELOG.md#july-14-2021) (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Defintition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).
+The Endorser makes use of the [Event Bus](https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md#july-14-2021) (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Defintition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).
 
 The overall architecture can be illustrated as:
 
