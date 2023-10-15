@@ -86,6 +86,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You are viewing the documentation for the latest ACA-Py Release 0.10.4.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -621,13 +630,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#poetry" class="md-nav__link">
-    Poetry
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#running-docker-in-docker-demos" class="md-nav__link">
     Running docker-in-docker demos
   </a>
@@ -880,26 +882,6 @@
   
   <span class="md-ellipsis">
     Using W3C JSON-LD Signed Credentials
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SelectiveDisclosureJWTs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Using SD-JWTs
   </span>
   
 
@@ -1679,26 +1661,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/Poetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Use of Poetry in ACA-Py
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../deploying/ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
@@ -2098,13 +2060,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#poetry" class="md-nav__link">
-    Poetry
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#running-docker-in-docker-demos" class="md-nav__link">
     Running docker-in-docker demos
   </a>
@@ -2201,12 +2156,10 @@
 We provide a <a href="https://containers.dev"><code>devcontainer</code></a> and will use <a href="https://code.visualstudio.com"><code>VS Code</code></a> to illustrate.</p>
 <p>By no means is ACA-Py limited to these tools; they are merely examples.  </p>
 <h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
-<p>The primary use case for this <code>devcontainer</code> is for developing, debugging and unit testing (pytest) the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent">aries_cloudagent</a> source code.</p>
-<p>There are limitations running this devcontainer, such as all networking is within this container. This container has <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md">docker-in-docker</a> which allows running demos, building docker images, running <code>docker compose</code> all within this container.</p>
+<p>The primary use case for this <code>devcontainer</code> is for developing, debugging and unit testing (pytest) the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.10.4/aries_cloudagent">aries_cloudagent</a> source code.</p>
+<p>There are limitations running this devcontainer, such as all networking is within this container. This container has <a href="https://github.com/microsoft/vscode-dev-containers/blob/0.10.4/script-library/docs/docker-in-docker.md">docker-in-docker</a> which allows running demos, building docker images, running <code>docker compose</code> all within this container.</p>
 <h3 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h3>
-<p>The <code>.devcontainer</code> folder contains the <code>devcontainer.json</code> file which defines this container. We are using a <code>Dockerfile</code> and <code>post-install.sh</code> to build and configure the container run image. The <code>Dockerfile</code> is simple but in place for simplifying image enhancements (ex. adding <code>poetry</code> to the image). The <code>post-install.sh</code> will install some additional development libraries (including for BDD support).</p>
-<h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
-<p>The Python libraries / dependencies are installed using <a href="https://python-poetry.org"><code>poetry</code></a>. For the devcontainer, we <em>DO NOT</em> use virtual environments. This means you will not see or need venv prompts in the terminals and you will not need to run tasks through poetry (ie. <code>poetry run black .</code>). If you need to add new dependencies, you will need to add the dependency via poetry <em>AND</em> you should rebuild your devcontainer.</p>
+<p>The <code>.devcontainer</code> folder contains the <code>devcontainer.json</code> file which defines this container. We are using a <code>Dockerfile</code> and <code>post-install.sh</code> to build and configure the container run image. The <code>Dockerfile</code> is simple but in place for simplifying image enhancements (ex. adding <code>poetry</code> to the image). The <code>post-install.sh</code> will install all the ACA-Py requirements and any additional steps (ex. adding additional development libraries).</p>
 <h3 id="running-docker-in-docker-demos">Running docker-in-docker demos<a class="headerlink" href="#running-docker-in-docker-demos" title="Permanent link">&para;</a></h3>
 <p>The following is an example of running the demos in this container using a local <a href="https://github.com/bcgov/von-network/tree/main">von-network</a>. You will have to connect to the local von-network using <code>host.docker.internal</code> not <code>localhost</code>.</p>
 <p>Assumes von-network is running outside of VS Code and this container at the default port (9000).</p>
@@ -2246,11 +2199,11 @@ We provide a <a href="https://containers.dev"><code>devcontainer</code></a> and 
 </ol>
 <p><em>NOTE</em> follow any prompts to install <code>Python Extension</code> or reload window for <code>Pylance</code> when first building the container.</p>
 <h4 id="devcontainerjson">devcontainer.json<a class="headerlink" href="#devcontainerjson" title="Permanent link">&para;</a></h4>
-<p>When the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/.devcontainer/devcontainer.json">.devcontainer/devcontainer.json</a> is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports <code>9060</code> and <code>9061</code>, allowing you to run/debug ACA-Py with those ports available to your <code>localhost</code> (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).</p>
+<p>When the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/.devcontainer/devcontainer.json">.devcontainer/devcontainer.json</a> is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports <code>9060</code> and <code>9061</code>, allowing you to run/debug ACA-Py with those ports available to your <code>localhost</code> (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).</p>
 <p>In VS Code, open a Terminal, you should be able to run the following commands:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python -m aries_cloudagent -v
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cd aries_cloudagent
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ruff check .
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>flake8 --max-line-length=90 --exclude=*/tests/** --extend-ignore=D202,W503 --per-file-ignores=*/__init__.py:D104
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>black . --check
 </code></pre></div>
 <p>The first command should show you that <code>aries_cloudagent</code> module is loaded (ACA-Py). The others are examples of code quality checks that ACA-Py does on commits (if you have <a href="https://pre-commit.com"><code>precommit</code></a> installed) and Pull Requests.</p>
