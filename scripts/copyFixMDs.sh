@@ -255,7 +255,7 @@ cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
 FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/#" \
   -e "s#(open-api/#(https://github.com/hyperledger/open-api/tree/${VERSION}/#" \
-  tmp/${FILE} > ${FOLDER}/${FILE}; diff tmp/${FILE} ${FOLDER}/${FILE}
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:
