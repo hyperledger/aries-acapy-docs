@@ -83,21 +83,30 @@ The commands you will usually use with `mkdocs` are:
   localhost, on the port you specified (e.g.,
   [http://localhost:4444](http://localhost:4444)).
 
-## Building the Docs for a Documentation Release
+## Overview: Release Documentation Generator
 
-To build the docs for a given release, create a branch for the release (e.g.
-`git checkout -b 0.8.2`) from main, and then run the bash script `build-docs.sh`
-in the local folder. Start with getting the help text (`./build-docs.sh -h`),
-and then go from there.
+The steps to generate the documents for a given release are quite complex
+(overly complex -- help to make them easier are welcome), so the following steps
+through the process the basic process of preparing any individual releaese.
+Additional checklists are then given for the least complicated, process of
+updating the "main" version the docs, through to adding a new release, and
+updating an existing release.
+
+The actual generation of any particular release involves running in the local
+clone of your fork the bash script `./build-docs.sh` in the root folder. The
+script takes on an argument pair (`-t <tag>`) to specify the ACA-Py tag to be
+used in generating docs for a particular tag. As you will see, each tag is
+generated into a different branch in this repository that corresponds to the
+ACA-Py release tag so you need to first be on the right branch in your local
+clone, and specify the corresponding ACA-Py tag.
 
 The steps performed by the build-docs.sh script are:
 
-- Clone ACA-Py into the `/tmp` folder.
-  - Use the `-k` option to skip this step.
-- Checkout the ACA-Py version of interest (`-m <tag>` option, defaulting to `main`).
+- Clone ACA-Py at the given `<tag>` (arg `-t <tag>`) into the `/tmp` folder of this repository.
 - Execute the `./scripts/copyFixMDs.sh` script.
 
-The `./scripts/copyFixMDs.sh` script does the following:
+The `./scripts/copyFixMDs.sh` script, which will be unique for each version of
+ACA-Py (hence the branches in this repo per ACA-Py tag) does the following:
 
 - Deletes the current contents of the `/docs` folder in the repository.
 - Removes from the `mkdocs.yml` file the `nav:` section of the file.
@@ -106,19 +115,28 @@ The `./scripts/copyFixMDs.sh` script does the following:
   documentation file from the `/tmp` clone of ACA-Py into the `/docs` folder of
   this repo.
 
-Ideally, that happens without errors, but if there are errors, fix them up.
+Ideally, that happens without errors, but if there are errors, fix them up,
+usually by patching the document from `/tmp` via a sed pipeline as it is
+duplicated in `/docs`. See the [guidance below on fixing
+errors](#fixing-errors).
 
-Check to see if any new markdown files were added to ACA-Py in this release. Do that 
-by running the script `./scripts/diffMDs.sh`. There are instructions in the output
-about what to expect to see. If more MD files are listed, they likely have to be
-added to the `./scripts/copyFixMDs.sh` script to be listed in an appropriate 
-section of the generated website.
+Once the errors are cleaned up, a check should be run to see if any new Markdown
+files have been added to ACA-Py in the release. Do that by running the script
+`./scripts/diffMDs.sh`. There are instructions in the output about what to
+expect to see. If more MD files are listed, add them to both the "Navigation"
+section of the `./scripts/copyFixMDs.sh` script to be listed in an appropriate
+section of the generated website, and add a `cp` or `sed` command to generate
+the new document into the documentation.
 
-Finally, it's time to publish the a local instance of the site and test it. To
-do so, simply run `mkdocs` from the root of the repository. If all goes well,
-the current set of docs will be published and you will be able to see the
-documents in your browser. Look for an errors in the site generation process,
-particularly missing links.
+Next, publish the a local instance of the site and test it. To do so, simply run
+`mkdocs` from the root of the repository. If all goes well, the current set of
+docs will be published and you will be able to see the documents in your
+browser. Look for an errors in the site generation process, particularly missing
+links.
+
+When all is done, create a PR that merges any updated files into the appropriate
+branch of this repo. If it is main, merge into the main branch, if not, make sure
+you change the default target for the pull request merge to be the appropriate branch.
 
 ### Fixing Errors
 
@@ -154,37 +172,67 @@ folder.  The `./scripts/copyFixMDs.sh` file has a number of examples of `sed` co
   - Relative links to code files to absolute links in the ACA-Py repository.
   - Fixing multiple things via a pipeline of `sed` commands.
 
-## Preparing Releases for Publication
+## Checklists for Generating Release Documentation
 
-Here is the expectation for adding new releases to the site. This section is subject to change.
-We'll assume that the repository is setup, has the `main` branch, and is published on gh-pages
-with the `main` (aka `latest`) version, and perhaps another version. You want to create a new
-release.
+The following are checklists for different generation scenarios:
 
-- Fork the repository and install the prerequisites.
-- Create and checkout a new branch from `main` for the new version (e.g. `git checkout 0.8.2`).
-- Run `./build-docs.sh -t <version>` to clone and checkout ACA-Py into the `/tmp` folder
-and to run the version-specific script to create the docs.
-- Fix any errors encountered in the `./scripts/copyFixMDs.sh` file.
-- Test the published site locally and fix any errors encountered in the `./scripts/copyFixMDs.sh` file.
-- When ready, create a pull request that will be merged into a new branch in the target repository.
-  - The new branch **MUST** be called `<version>` (e.g., `0.8.0`).
+### Updating Main
 
-When the new branch is merged, create a release in GitHub for the new branch called `v<release>` (e.g. `v0.8.2`).
+To update the documentation for ACA-Py `main` branch:
 
-## Updating an Existing Release Branch
+- Checkout the `main` branch of this repo in your local clone.
+- Update your local clone.
+- Run `./build-docs.sh -t main`
+- Complete a test/fix cycle until you are ready to publish.
+- Create a pull request to the `main` branch of this repo.
+- When the PR is merged, the published site will be automatically updated.
 
-To update an existing release branch, in your local repo:
+### Adding a New Release
 
-- Checkout the existing branch (e.g., `git checkout 0.8.0`).
-- Make the necessary changes.
-- Submit a pull request against the version branch (e.g. against the `0.8.0` branch) in the primary repository.
-- Update your local branch instance after the merge.
+To add a new release of ACA-Py:
 
-## Sequence for a New Release
+- If the release was produced by tagging the ACA-Py `main` branch, follow the steps above to update the `main` branch of this repo.
+- In GitHub in this repository, create the branch for the new release named for the ACA-Py tag, such as `0.11.0` at the current `main`.
+  - If this is an ACA-Py patch, create the branch in this repo based on the ACA-Py `<tag>` branch (e.g., `0.10.4` from `0.10.3`).
+- Update your local clone to get the new branch.
+- Execute in your local clone `git switch <tag>` to checkout the new branch.
+- Run `./build-docs.sh -t <tag>`
+- Add a file `overrides/main.html` to indicate this is the latest ACA-Py release as described in `overrides/README.doc`
+- Complete a test/fix cycle until you are ready to publish.
+- Create a pull request to the `<tag>` branch of this repo that will be merged into the `<tag>` branch, **NOT** into `main`.
+- Create a new release with the following parameters:
+  - Tag `v<tag>` to be created when published
+  - From `<tag>` branch (**NOT** `main`)
+  - Description: `Documentation for Release <tag> of Aries Cloud Agent Python.`
+  - Check `Latest Release`
+- When the new release is published, the new documentation for the ACA-Py release will be published.
+- Follow the steps to [update a release](#updating-an-existing-release) (below)
+for the previously current ACA-Py release, to update it's `overrides/main.html`
+file, as per the guidance in the `overrides/README.doc` -- change the
+text in the file from indicating its the current release to an older release.
+  - `overrides/main.html` contains the banner text for the publication.
+  - Yes, this step is a pain and kind of stupid. If I had time to do it better I
+    would.
 
-Suggested sequence of steps for a new release:
+### Updating an Existing Release
 
-- Update the `main` branch
-- Create and publish the new release branch
-- Update the previously most recent release branch to at least change the `overrides/main.html` message.
+To update the documentation in this repo for an existing release of ACA-Py:
+
+- Update your local clone to get the latest from this repo.
+- If the branch already exists in your local repo, use `git switch <tag>` to checkout the existing branch.
+  - If not, the following will get you a local branch: `git checkout remotes/upstream/<tag> ; git switch -c <tag>`
+- Run `./build-docs.sh -t <tag>`
+- If needed, update the file `overrides/main.html` to indicate this is not the latest ACA-Py release, per the instructions in `overrides/README.doc`
+- Complete a test/fix cycle until you are ready to publish.
+- Create a pull request to the `<tag>` branch of this repo that will be merged into the `<tag>` branch, **NOT** into `main`.
+- Delete the existing release (`v<tag>`), and tag (`v<tag>`) so that the documentation will be republished in the repo.
+  - Creating a new release is the only way (AFAIK) to trigger re-publishing a version other than main.
+- Create a new release with the following parameters:
+  - Tag `v<tag>` to be created when published
+  - From `<tag>` branch (**NOT** `main`)
+  - Description: `Documentation for Release <tag> of Aries Cloud Agent Python.`
+  - Check `Latest Release`
+- When the new release is published, the new documentation for the ACA-Py release will be published.
+
+As you see mistakes in this documentation, please make updates or create suggestion issues. We really 
+need some GitHub Actions to automate this stuff!
