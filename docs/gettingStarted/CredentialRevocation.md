@@ -44,7 +44,7 @@ of the cryptography behind the approach:
   the ledger. If there are multiple revocations spread across multiple RevRegs,
   there may be multiple writes to the ledger.
 
-[complete overview of AnonCreds revocation]: https://github.com/hyperledger/indy-hipe/blob/main/text/0011-cred-revocation/README.md
+[complete overview of AnonCreds revocation]: https://github.com/hyperledger/indy-hipe/blob/0.11.0-rc1/text/0011-cred-revocation/README.md
 
 Since managing RevRegs is really hard for an ACA-Py controller, we have tried to
 minimize what an ACA-Py Issuer controller has to do, leaving everything else to be
@@ -72,7 +72,7 @@ issuer controller does:
 That is the minimum amount of tracking the controller must do while still being
 able to execute the business rules around revoking credentials.
 
-[Aries RFC 0183: Revocation Notification]: https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md
+[Aries RFC 0183: Revocation Notification]: https://github.com/hyperledger/aries-rfcs/blob/0.11.0-rc1/features/0183-revocation-notification/README.md
 
 From experience, we’ve added to two extra features to deal with unexpected
 conditions:
@@ -194,7 +194,7 @@ Include the command line parameter `--tails-server-base-url <indy-tails-server u
 
 ## Revocation Notification
 
-ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/aries-rfcs/blob/main/features/0183-revocation-notification/README.md).
+ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/aries-rfcs/blob/0.11.0-rc1/features/0183-revocation-notification/README.md).
 
 > **Note:** The optional `~please_ack` is not currently supported.
 
