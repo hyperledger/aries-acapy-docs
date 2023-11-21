@@ -63,11 +63,11 @@ Endorsement:
 
 Internally, the Endorsement functionality is implemented as a protocol, and is implemented consistently with other protocols:
 
-- a [routes.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0-rc1/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py) file exposes the admin endpoints
-- [handler files](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0-rc1/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers) implement responses to any received Endorse protocol messages
-- a [manager.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0-rc1/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py) file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)
+- a [routes.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0rc2/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py) file exposes the admin endpoints
+- [handler files](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0rc2/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers) implement responses to any received Endorse protocol messages
+- a [manager.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0rc2/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py) file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)
 
-The Endorser makes use of the [Event Bus](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0-rc1/CHANGELOG.md#july-14-2021) (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Defintition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).
+The Endorser makes use of the [Event Bus](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0rc2/CHANGELOG.md#july-14-2021) (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Defintition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).
 
 The overall architecture can be illustrated as:
 
