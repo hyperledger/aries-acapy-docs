@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -887,42 +887,54 @@
       
         <li class="md-nav__item">
   <a href="#concepts" class="md-nav__link">
-    Concepts
+    <span class="md-ellipsis">
+      Concepts
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#command-line-arguments" class="md-nav__link">
-    Command Line Arguments
+    <span class="md-ellipsis">
+      Command Line Arguments
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#didcomm-messages" class="md-nav__link">
-    DIDComm Messages
+    <span class="md-ellipsis">
+      DIDComm Messages
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#admin-api" class="md-nav__link">
-    Admin API
+    <span class="md-ellipsis">
+      Admin API
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#mediator-message-flow-overview" class="md-nav__link">
-    Mediator Message Flow Overview
+    <span class="md-ellipsis">
+      Mediator Message Flow Overview
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#using-a-mediator" class="md-nav__link">
-    Using a Mediator
+    <span class="md-ellipsis">
+      Using a Mediator
+    </span>
   </a>
   
 </li>
@@ -2031,42 +2043,54 @@
       
         <li class="md-nav__item">
   <a href="#concepts" class="md-nav__link">
-    Concepts
+    <span class="md-ellipsis">
+      Concepts
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#command-line-arguments" class="md-nav__link">
-    Command Line Arguments
+    <span class="md-ellipsis">
+      Command Line Arguments
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#didcomm-messages" class="md-nav__link">
-    DIDComm Messages
+    <span class="md-ellipsis">
+      DIDComm Messages
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#admin-api" class="md-nav__link">
-    Admin API
+    <span class="md-ellipsis">
+      Admin API
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#mediator-message-flow-overview" class="md-nav__link">
-    Mediator Message Flow Overview
+    <span class="md-ellipsis">
+      Mediator Message Flow Overview
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#using-a-mediator" class="md-nav__link">
-    Using a Mediator
+    <span class="md-ellipsis">
+      Using a Mediator
+    </span>
   </a>
   
 </li>
@@ -2098,7 +2122,7 @@
 <li><strong>Mediation Request</strong> - A message from a client to a mediator requesting mediation or forwarding.</li>
 <li><strong>Keylist</strong> - The list of public keys used by the mediator to lookup to which connection a forward message should be sent. Each mediated agent is responsible for maintaining the keylist with the mediator.</li>
 <li><strong>Keylist Update</strong> - A message from a client to a mediator informing the mediator of changes to the keylist.</li>
-<li><strong>Default Mediator</strong> - A mediator to be used with with every newly created DIDComm connection. </li>
+<li><strong>Default Mediator</strong> - A mediator to be used with every newly created DIDComm connection. </li>
 <li><strong>Mediation Connection</strong> - Connection between the mediator and the mediated agent or client. Agents can use as many mediators as the identity owner sees fit. Requests for mediation are handled on a per connection basis.</li>
 <li>See <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0211-route-coordination/README.md">Aries RFC 0211: Coordinate Mediation Protocol</a> for additional details on message attributes and more.</li>
 </ul>
@@ -2178,7 +2202,7 @@ aca-py start ... \
 <p><img alt="Mediator Message Flow" src="/docs/assets/mediation-message-flow.png" /></p>
 <h2 id="using-a-mediator">Using a Mediator<a class="headerlink" href="#using-a-mediator" title="Permanent link">&para;</a></h2>
 <p>After establishing a connection with a mediator also having mediation granted, you can use that mediator id for future did_comm connections.
- When creating, receiving or accepting a invitation intended to be Mediated, you provide <code>mediation_id</code> with the desired mediator id. if using a single mediator for all future connections, You can set a default mediation id. If no mediation_id is provided the default mediation id will be used instead.</p>
+ When creating, receiving or accepting an invitation intended to be Mediated, you provide <code>mediation_id</code> with the desired mediator id. if using a single mediator for all future connections, You can set a default mediation id. If no mediation_id is provided the default mediation id will be used instead.</p>
 
 
 
@@ -2266,7 +2290,7 @@ aca-py start ... \
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>

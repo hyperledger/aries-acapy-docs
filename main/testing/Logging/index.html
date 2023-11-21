@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -1739,35 +1739,45 @@
       
         <li class="md-nav__item">
   <a href="#log-level" class="md-nav__link">
-    Log level
+    <span class="md-ellipsis">
+      Log level
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#command-line-arguments" class="md-nav__link">
-    Command Line Arguments
+    <span class="md-ellipsis">
+      Command Line Arguments
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
-    Environment Variables
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#acapy-config-file" class="md-nav__link">
-    Acapy Config File
+    <span class="md-ellipsis">
+      Acapy Config File
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#log-config-file" class="md-nav__link">
-    Log config file
+    <span class="md-ellipsis">
+      Log config file
+    </span>
   </a>
   
 </li>
@@ -2024,35 +2034,45 @@
       
         <li class="md-nav__item">
   <a href="#log-level" class="md-nav__link">
-    Log level
+    <span class="md-ellipsis">
+      Log level
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#command-line-arguments" class="md-nav__link">
-    Command Line Arguments
+    <span class="md-ellipsis">
+      Command Line Arguments
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
-    Environment Variables
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#acapy-config-file" class="md-nav__link">
-    Acapy Config File
+    <span class="md-ellipsis">
+      Acapy Config File
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#log-config-file" class="md-nav__link">
-    Log config file
+    <span class="md-ellipsis">
+      Log config file
+    </span>
   </a>
   
 </li>
@@ -2085,22 +2105,19 @@ Other log levels fall back to <code>WARNING</code>.</p>
 <ul>
 <li><code>--log-level</code> - The log level to log on std out.</li>
 <li><code>--log-file</code> - Path to a file to log to.</li>
-<li><code>--log-handler-config</code> - Specifies <code>when</code>, <code>interval</code>, <code>backupCount</code> for the   <code>TimedRotatingFileMultiProcessHandler</code>. These 3 attributes are passed as a <code>;</code> seperated string. For example, <code>when</code> of d (days), <code>interval</code> of 7 and <code>backupCount</code> of 1 will be passed as <code>D;7;1</code>. Note: <code>backupCount</code> of 0 will mean all backup log files will be retained and not deleted at all. More details about these attributes can be found <a href="https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler">here</a>. <code>TimedRotatingFileMultiProcessHandler</code> supports the ability to cleanup logs by time and mantain backup logs and a custom JSON formatter for logs.</li>
-<li><code>--log-fmt-pattern</code> - Specifies logging.Formatter pattern to override default patterns.</li>
-<li><code>--log-json-fmt</code> - Specifies whether to use JSON logging formatter or text logging formatter. Defaults to <code>False</code>.</li>
+<li><code>--log-config</code> - Specifies a custom logging configuration file</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./bin/aca-py<span class="w"> </span>start<span class="w"> </span>--log-level<span class="w"> </span>debug<span class="w"> </span>--log-file<span class="w"> </span>acapy.log<span class="w"> </span>--log-handler-config<span class="w"> </span><span class="s2">&quot;d;7;1&quot;</span><span class="w"> </span>--log-fmt-pattern<span class="w"> </span><span class="s2">&quot;%(asctime)s [%(did)s] %(filename)s %(lineno)d %(message)s&quot;</span><span class="w"> </span>--log-json-fmt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./bin/aca-py<span class="w"> </span>start<span class="w"> </span>--log-level<span class="w"> </span>debug<span class="w"> </span>--log-file<span class="w"> </span>acapy.log<span class="w"> </span>--log-config<span class="w"> </span>aries_cloudagent.config:default_per_tenant_logging_config.ini
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>./bin/aca-py<span class="w"> </span>start<span class="w"> </span>--log-level<span class="w"> </span>debug<span class="w"> </span>--log-file<span class="w"> </span>acapy.log<span class="w"> </span>--log-config<span class="w"> </span>./aries_cloudagent/config/default_per_tenant_logging_config.yml
 </code></pre></div>
 <h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <p>The log level can be configured using the environment variable <code>ACAPY_LOG_LEVEL</code>.
 The log file can be set by <code>ACAPY_LOG_FILE</code>.
-The log config can be set by <code>ACAPY_LOG_CONFIG</code>.
-The log rotating file handler config can be set by <code>ACAPY_LOG_HANDLER_CONFIG</code>.
-The log formatter pattern can be set by <code>ACAPY_LOG_FMT_PATTERN</code>.
-The log json formatter flag can be set by <code>ACAPY_LOG_JSON_FMT</code>.</p>
+The log config can be set by <code>ACAPY_LOG_CONFIG</code>.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">ACAPY_LOG_LEVEL</span><span class="o">=</span>info<span class="w"> </span><span class="nv">ACAPY_LOG_FILE</span><span class="o">=</span>./acapy.log<span class="w"> </span><span class="nv">ACAPY_LOG_CONFIG</span><span class="o">=</span>./acapy_log.ini<span class="w"> </span><span class="nv">ACAPY_LOG_HANDLER_CONFIG</span><span class="o">=</span><span class="s2">&quot;d;7;1&quot;</span><span class="w"> </span>./bin/aca-py<span class="w"> </span>start
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">ACAPY_LOG_LEVEL</span><span class="o">=</span>info<span class="w"> </span><span class="nv">ACAPY_LOG_FILE</span><span class="o">=</span>./acapy.log<span class="w"> </span><span class="nv">ACAPY_LOG_CONFIG</span><span class="o">=</span>./acapy_log.ini<span class="w"> </span>./bin/aca-py<span class="w"> </span>start
 </code></pre></div>
 <h2 id="acapy-config-file">Acapy Config File<a class="headerlink" href="#acapy-config-file" title="Permanent link">&para;</a></h2>
 <p>Following parameters can be used in a configuration file like <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/demo-args.yaml">this</a>.</p>
@@ -2112,8 +2129,63 @@ The log json formatter flag can be set by <code>ACAPY_LOG_JSON_FMT</code>.</p>
 Both parameters are independent of the log level, which means:
 Also if log-level is set to WARNING, connections and presentations will be logged like in debug log level.</p>
 <h2 id="log-config-file">Log config file<a class="headerlink" href="#log-config-file" title="Permanent link">&para;</a></h2>
+<p>The path to config file is provided via <code>--log-config</code>.</p>
 <p>Find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/config/default_logging_config.ini">default_logging_config.ini</a>.</p>
 <p>You can find more detail description in the <a href="https://docs.python.org/3/howto/logging.html#configuring-logging">logging documentation</a>.</p>
+<p>For per tenant logging, find an example in <a href="aries_cloudagent/config/default_per_tenant_logging_config.ini">default_per_tenant_logging_config.ini</a>, which sets up  <code>TimedRotatingFileMultiProcessHandler</code> and <code>StreamHandler</code> handlers. Custom <code>TimedRotatingFileMultiProcessHandler</code> handler supports the ability to cleanup logs by time and maintain backup logs and a custom JSON formatter for logs. The arguments for it such as <code>file name</code>, <code>when</code>, <code>interval</code> and <code>backupCount</code> can be passed as <code>args=('acapy.log', 'd', 7, 1,)</code> [also shown below]. Note: <code>backupCount</code> of 0 will mean all backup log files will be retained and not deleted at all. More details about these attributes can be found <a href="https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler">here</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[loggers]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>keys=root
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>[handlers]
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>keys=stream_handler, timed_file_handler
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>[formatters]
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>keys=formatter
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>[logger_root]
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>level=ERROR
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>handlers=stream_handler, timed_file_handler
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>[handler_stream_handler]
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>class=StreamHandler
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>level=DEBUG
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>formatter=formatter
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>args=(sys.stderr,)
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>[handler_timed_file_handler]
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>class=logging.handlers.TimedRotatingFileMultiProcessHandler
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>level=DEBUG
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>formatter=formatter
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>args=(&#39;acapy.log&#39;, &#39;d&#39;, 7, 1,)
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>[formatter_formatter]
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>format=%(asctime)s %(wallet_id)s %(levelname)s %(pathname)s:%(lineno)d %(message)s
+</code></pre></div>
+<p>For <code>DictConfig</code> [<code>dict</code> logging config file], find an example in <a href="aries_cloudagent/config/default_per_tenant_logging_config.yml">default_per_tenant_logging_config.yml</a> with same attributes as <code>default_per_tenant_logging_config.ini</code> file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>version: 1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>formatters:
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  default:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    format: &#39;%(asctime)s %(wallet_id)s %(levelname)s %(pathname)s:%(lineno)d %(message)s&#39;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>handlers:
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  console:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    class: logging.StreamHandler
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    level: DEBUG
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    formatter: default
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    stream: ext://sys.stderr
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  rotating_file:
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    class: logging.handlers.TimedRotatingFileMultiProcessHandler
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    level: DEBUG
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    filename: &#39;acapy.log&#39;
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    when: &#39;d&#39;
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    interval: 7
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    backupCount: 1
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    formatter: default
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>root:
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>  level: INFO
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>  handlers:
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    - console
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    - rotating_file
+</code></pre></div>
 
 
 
@@ -2201,7 +2273,7 @@ Also if log-level is set to WARNING, connections and presentations will be logge
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>

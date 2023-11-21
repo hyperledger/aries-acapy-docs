@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -1969,14 +1969,15 @@
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
 <h1 id="aries-cloud-agent-python-changelog">Aries Cloud Agent Python Changelog<a class="headerlink" href="#aries-cloud-agent-python-changelog" title="Permanent link">&para;</a></h1>
-<h2 id="0110-rc1">0.11.0-rc1<a class="headerlink" href="#0110-rc1" title="Permanent link">&para;</a></h2>
-<h3 id="october-30-2023">October 30, 2023<a class="headerlink" href="#october-30-2023" title="Permanent link">&para;</a></h3>
-<p>Release 0.11.0 is a relatively large release of new features, fixes, and internal
-updates. 0.11.0 is planned to be the last major update before we transition
-to using the <a href="https://github.com/hyperledger/anoncreds-rs">AnonCreds Rust</a>
-in a release that is expected to bring some Admin/Controller API changes. We plan
-to do patches to 0.11.0 while the transition is made to the next breaking release.</p>
-<p><em>Release 0.11.0-rc0 failed to publish because of a reference to a dependency via its GitHub repository rather than to its published artifact.</em></p>
+<h2 id="0110rc2">0.11.0rc2<a class="headerlink" href="#0110rc2" title="Permanent link">&para;</a></h2>
+<h3 id="november-17-2023">November 17, 2023<a class="headerlink" href="#november-17-2023" title="Permanent link">&para;</a></h3>
+<p>Release 0.11.0 is a relatively large release of new features, fixes, and
+internal updates. 0.11.0 is planned to be the last major update before we
+transition to using the ledger agnostic <a href="https://github.com/hyperledger/anoncreds-rs">AnonCreds
+Rust</a> in a release that is expected
+to bring some Admin/Controller API changes. We plan to do patches to the 0.11.x
+branch while the transition is made to the upcoming release to transition to
+using [Anoncreds Rust].</p>
 <p>A significant addition to ACA-Py is support for signing and verifying
 <a href="https://sdjwt.info/">SD-JWT</a> verifiable credentials. We expect this to be the first of the changes
 to extend ACA-Py to support <a href="https://openid.net/wg/digital-credentials-protocols/">OpenID4VC protocols</a>.</p>
@@ -2005,12 +2006,26 @@ the newer value in sending messages. In updating this, we retained the old
 configuration parameters most deployments were using
 (<code>--emit-new-didcomm-prefix</code> and <code>--emit-new-didcomm-mime-type</code>) but updated the
 code to set the configuration parameters to <code>true</code> even if the parameters were
-not set. See [PR #2517]</p>
+not set. See [PR #2517].</p>
+<p>The JSON-LD verifiable credential handling of JSON-LD contexts has been updated
+to pre-load the base contexts into the repository code so they are not fetched
+at run time. This is a security best practice for JSON-LD, and prevents errors
+in production when, from time to time, the JSON-LD contexts are unavailable
+because of outages of the web servers where they are hosted. See [PR #2587].</p>
+<p>A Problem Report message is now sent when a request for a credential is received
+and there is no associated Credential Exchange Record. This may happen, for
+example, if an issuer decides to delete a Credential Exchange Record that has
+not be answered for a long time, and the holder responds after the delete. See
+[PR #2577].</p>
+<p>The versioning scheme for Release Candidates has been changed to drop the <code>-</code> in
+the version string. This means the older style of <code>0.11.0-rc0</code> has been changed
+to the newer style of <code>0.11.0rc2</code>.</p>
 <h4 id="0110-categorized-list-of-pull-requests">0.11.0 Categorized List of Pull Requests<a class="headerlink" href="#0110-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h4>
 <ul>
 <li>DIDComm Messaging Improvements/Fixes</li>
 <li>Change arg_parse to always set --emit-new-didcomm-prefix and --emit-new-didcomm-mime-type to true <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2517">#2517</a> <a href="https://github.com/swcurran">swcurran</a></li>
 <li>DID Handling and Connection Establishment Updates/Fixes</li>
+<li>Goal and Goal Code in invitation URL. <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2591">#2591</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
 <li>refactor: use did-peer-2 instead of peerdid <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2561">#2561</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>Fix: Problem Report Before Exchange Established <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2519">#2519</a> <a href="https://github.com/Ennovate-com">Ennovate-com</a></li>
 <li>fix: issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2434" title="GitHub Issue: squidfunk/mkdocs-material #2434">#2434</a>: Change DIDExchange States to Match rfc160 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2461">#2461</a> <a href="https://github.com/anwalker293">anwalker293</a></li>
@@ -2022,6 +2037,8 @@ not set. See [PR #2517]</p>
 <li>fix: routing behind mediator <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2536">#2536</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>fix: mediation routing keys as did key <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2516">#2516</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>refactor: drop mediator_terms and recipient_terms <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2515">#2515</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Fixes to Upgrades</li>
+<li>🐛 fix wallet_update when only extra_settings requested <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2612">#2612</a> <a href="https://github.com/ff137">ff137</a></li>
 <li>Hyperledger Indy ledger related updates and fixes</li>
 <li>fix: taa rough timestamp timezone from datetime <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2554">#2554</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>🎨 clarify LedgerError message when TAA is required and not accepted <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2545">#2545</a> <a href="https://github.com/ff137">ff137</a></li>
@@ -2031,13 +2048,21 @@ not set. See [PR #2517]</p>
 <li>OpenID4VC / SD-JWT Updates</li>
 <li>chore: point to official sd-jwt lib release <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2573">#2573</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>Feat/sd jwt implementation <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2487">#2487</a> <a href="https://github.com/cjhowland">cjhowland</a></li>
-<li>JSON-LD Verifiable Credential format updates</li>
+<li>JSON-LD Verifiable Credential/Presentation updates</li>
+<li>Fix Issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2589" title="GitHub Issue: squidfunk/mkdocs-material #2589">#2589</a> TypeError When There Are No Nested Requirements <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2590">#2590</a> <a href="https://github.com/Ennovate-com">Ennovate-com</a></li>
+<li>feat: use a local static cache for commonly used contexts <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2587">#2587</a> <a href="https://github.com/chumbert">chumbert</a></li>
 <li>Issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2488" title="GitHub Issue: squidfunk/mkdocs-material #2488">#2488</a> KeyError raised when Subject ID is not a URI <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2490">#2490</a> <a href="https://github.com/Ennovate-com">Ennovate-com</a></li>
 <li>Credential Exchange (Issue, Present) Updates</li>
+<li>Default connection_id to None to account for Connectionless Proofs <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2605">#2605</a> <a href="https://github.com/popkinj">popkinj</a></li>
+<li>Send Problem report when CredEx not found <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2577">#2577</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
 <li>fix: clean up requests and invites <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2560">#2560</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>Multitenancy Updates and Fixes</li>
 <li>Feat: Support subwallet upgradation using the Upgrade command <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2529">#2529</a> <a href="https://github.com/shaangill025">shaangill025</a></li>
-<li>Other Fixes, Demo, and Documentation Fixes</li>
+<li>Other Fixes, Demo, DevContainer and Documentation Fixes</li>
+<li>black formatter extension configuration update <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2603">#2603</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Update Devcontainer pytest ruff black <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2602">#2602</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>Issue 2570 devcontainer ruff, black and pytest <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2595">#2595</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
+<li>chore: correct type hints on base record <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2604">#2604</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>Playground needs optionally external network <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2564">#2564</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
 <li>Issue 2555 playground scripts readme <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2563">#2563</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
 <li>Update demo/playground scripts <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2562">#2562</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
@@ -2061,6 +2086,7 @@ not set. See [PR #2517]</p>
 <li>Remove old routing protocol code <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2466">#2466</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>CI/CD, Testing, and Developer Tools/Productivity Updates</li>
 <li>fix: drop asynctest  0.11.0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2566">#2566</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
+<li>Dockerfile.indy - Include aries_cloudagent code into build <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2584">#2584</a> <a href="https://github.com/usingtechnology">usingtechnology</a></li>
 <li>fix: version should be set by pyproject.toml <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2471">#2471</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>chore: add black back in as a dev dep <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2465">#2465</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
 <li>Swap out flake8 in favor of Ruff <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2438">#2438</a> <a href="https://github.com/dbluhm">dbluhm</a></li>
@@ -2068,6 +2094,7 @@ not set. See [PR #2517]</p>
 <h1 id="2289-migrate-to-poetry-2436-gavinok">2289 Migrate to Poetry <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2436">#2436</a> <a href="https://github.com/Gavinok">Gavinok</a><a class="headerlink" href="#2289-migrate-to-poetry-2436-gavinok" title="Permanent link">&para;</a></h1>
 </li>
 <li>Release management pull requests</li>
+<li>0.11.0rc2 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2613">#2613</a> <a href="https://github.com/swcurran">swcurran</a></li>
 <li>0.11.0-rc1 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2576">#2576</a> <a href="https://github.com/swcurran">swcurran</a></li>
 <li>0.11.0-rc0 <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2575">#2575</a> <a href="https://github.com/swcurran">swcurran</a></li>
 </ul>
@@ -3561,7 +3588,7 @@ async with profile.session() as session:
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>
