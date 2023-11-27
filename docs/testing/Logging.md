@@ -37,7 +37,7 @@ ACAPY_LOG_LEVEL=info ACAPY_LOG_FILE=./acapy.log ACAPY_LOG_CONFIG=./acapy_log.ini
 
 ## Acapy Config File
 
-Following parameters can be used in a configuration file like [this](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0rc2/demo/demo-args.yaml).
+Following parameters can be used in a configuration file like [this](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0/demo/demo-args.yaml).
 
 ```yaml
 log-level: WARNING
@@ -53,11 +53,11 @@ Also if log-level is set to WARNING, connections and presentations will be logge
 
 The path to config file is provided via `--log-config`.
 
-Find an example in [default_logging_config.ini](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0rc2/aries_cloudagent/config/default_logging_config.ini).
+Find an example in [default_logging_config.ini](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0/aries_cloudagent/config/default_logging_config.ini).
 
 You can find more detail description in the [logging documentation](https://docs.python.org/3/howto/logging.html#configuring-logging).
 
-For per tenant logging, find an example in [default_per_tenant_logging_config.ini](aries_cloudagent/config/default_per_tenant_logging_config.ini), which sets up  `TimedRotatingFileMultiProcessHandler` and `StreamHandler` handlers. Custom `TimedRotatingFileMultiProcessHandler` handler supports the ability to cleanup logs by time and mantain backup logs and a custom JSON formatter for logs. The arguments for it such as `file name`, `when`, `interval` and `backupCount` can be passed as `args=('acapy.log', 'd', 7, 1,)` [also shown below]. Note: `backupCount` of 0 will mean all backup log files will be retained and not deleted at all. More details about these attributes can be found [here](https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler)
+For per tenant logging, find an example in [default_per_tenant_logging_config.ini](aries_cloudagent/config/default_per_tenant_logging_config.ini), which sets up  `TimedRotatingFileMultiProcessHandler` and `StreamHandler` handlers. Custom `TimedRotatingFileMultiProcessHandler` handler supports the ability to cleanup logs by time and maintain backup logs and a custom JSON formatter for logs. The arguments for it such as `file name`, `when`, `interval` and `backupCount` can be passed as `args=('acapy.log', 'd', 7, 1,)` [also shown below]. Note: `backupCount` of 0 will mean all backup log files will be retained and not deleted at all. More details about these attributes can be found [here](https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler)
 
 ```
 [loggers]
