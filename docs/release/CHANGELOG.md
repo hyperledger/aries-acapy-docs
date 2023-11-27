@@ -1,5 +1,25 @@
 # Release Notes
 
+# 0.10.5
+
+## November 21, 2023
+
+Release 0.10.5 is a high priority patch release to correct an issue with the
+handling of the JSON-LD presentation verifications, where the status of the
+verification of the `presentation.proof` in the Verifiable Presentation was not
+included when determining the verification value (`true` or `false`) of the
+overall presentation. A forthcoming security advisory will cover the details.
+
+Anyone using JSON-LD presentations is recommended to upgrade to this version
+of ACA-Py as soon as possible.
+
+### 0.10.5 Categorized List of Pull Requests
+
+- JSON-LD Credential Exchange (Issue, Present) Updates
+  - fix(backport): report presentation result [\#2622](https://github.com/hyperledger/aries-cloudagent-python/pull/2622) [dbluhm](https://github.com/dbluhm)
+- Release management pull requests
+  - 0.10.5 [\#2623](https://github.com/hyperledger/aries-cloudagent-python/pull/2623) [swcurran](https://github.com/swcurran)
+
 # 0.10.4
 
 ## October 9, 2023
@@ -512,9 +532,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.4/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.5/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.5/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.10.5/ContainerImagesAndGithubActions.md
 
 ## Breaking Changes and Upgrades
 
@@ -528,7 +548,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.10.4/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.10.5/features/0023-did-exchange/README.md).
 
 ### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -974,7 +994,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.10.4/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.10.5/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
