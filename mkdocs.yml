@@ -133,6 +133,7 @@ nav:
     - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
+    - The askar-anoncreds Wallet Type: deploying/AnonCredsWalletType.md
 - Testing/Troubleshooting:
     - Running and Creating Unit Tests: testing/UnitTests.md
     - Managing Logging: testing/Logging.md

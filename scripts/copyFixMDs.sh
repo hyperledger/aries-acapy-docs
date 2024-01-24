@@ -90,6 +90,7 @@ nav:
     - ACA-Py Container Images: deploying/ContainerImagesAndGithubActions.md
     - Databases: deploying/Databases.md
     - Persistent Queues and Caching: deploying/RedisPlugins.md
+    - The askar-anoncreds Wallet Type: deploying/AnonCredsWalletType.md
 - Testing/Troubleshooting:
     - Running and Creating Unit Tests: testing/UnitTests.md
     - Managing Logging: testing/Logging.md
@@ -140,6 +141,7 @@ FILE=CHANGELOG.md; sed -e '1s/^/# Release Notes\n\n/' \
   -e 's#\/\(SupportedRFCs\).md#../../features/\1#' \
   -e 's#.\/\(UpgradingACA-Py\).md#../../deploying/\1#' \
   -e 's#(victorlee0505)#(https://github.com/victorlee0505)#' \
+  -e 's#^  - #    - #' \
   tmp/${FILE} >${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Assets
@@ -165,7 +167,8 @@ FILE=devcontainer.md; sed -e "s#(\(.devcontainer/devcontainer.json\))#(https://g
   -e "s#(./\(aries_cloudagent\))#(https://github.com/hyperledger/aries-cloudagent-python/tree/main/\1)#" \
   -e "s#(/\(DevReadMe\).md)#(../\1)#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
-cp tmp/SupportedRFCs.md ${FOLDER}
+FILE=SupportedRFCs.md; sed -e "s#./\(IndySDKtoAskarMigration\).md#../../deploying/\1/#g" \
+  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 FILE=AdminAPI.md; sed -e "s#/docs/assets/#../../assets/#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/Multitenancy.md ${FOLDER}
@@ -196,6 +199,7 @@ FILE=deploymentModel.md; sed -e "s#/docs/assets/#../../assets/#" \
 FILE=Databases.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 cp tmp/RedisPlugins.md ${FOLDER}
+cp tmp/AnonCredsWalletType.md ${FOLDER}
 
 # Demos
 FOLDER=docs/demo
@@ -249,7 +253,9 @@ FOLDER=docs/testing
 mkdir ${FOLDER}
 cp tmp/UnitTests.md ${FOLDER}
 FILE=Logging.md ; sed -e "s#demo/demo-args.yaml#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/demo-args.yaml#" \
-  -e "s#aries_cloudagent/config/default_logging_config.ini#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/aries_cloudagent/config/default_logging_config.ini#g" \
+  -e "s#(\(aries_cloudagent/config/default_logging_config.ini\))#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1)#g" \
+  -e "s#(\(aries_cloudagent/config/default_per_tenant_logging_config.ini\))#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1)#g" \
+  -e "s#(\(aries_cloudagent/config/default_per_tenant_logging_config.yml\))#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/\1)#g" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 FILE=AgentTracing.md ; sed -e "s#./\(EFK-stack\)#https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/demo/\1#" \
   tmp/demo/${FILE} > ${FOLDER}/${FILE}; # diff tmp/demo/${FILE} ${FOLDER}/${FILE}
@@ -266,6 +272,7 @@ cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
 cp tmp/SECURITY.md ${FOLDER}
 FILE=PUBLISHING.md; sed -e "s#(aries_cloudagent/#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/#" \
   -e "s#(open-api/#(https://github.com/hyperledger/open-api/tree/${VERSION}/#" \
+  -e "s#(pyproject.toml)#(https://github.com/hyperledger/aries-cloudagent-python/tree/${VERSION}/pyproject.toml)#" \
   tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
 
 # Update all references to "main" to "${VERSION}" in Github pathes
