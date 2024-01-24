@@ -91,11 +91,11 @@ will be retained for use if needed.
 
 We originally ran into this due to the TAA acceptance getting lost when
 switching to multi-ledger (as described
-[here](https://github.com/hyperledger/aries-cloudagent-python/blob/main/Multiledger.md#a-special-warning-for-taa-acceptance).
+[here](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc0/Multiledger.md#a-special-warning-for-taa-acceptance).
 Note that this is one reason how this "out of sync" scenario can occur, but
 there may be others.
 
-We add an integration test that demonstrates/tests this issue [here](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/features/taa-txn-author-acceptance.feature#L67).
+We add an integration test that demonstrates/tests this issue [here](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc0/demo/features/taa-txn-author-acceptance.feature#L67).
 
 To run the scenario either manually or using the integration tests, you can do the following:
 
