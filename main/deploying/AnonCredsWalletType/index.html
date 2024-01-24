@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Poetry/">
+        <link rel="prev" href="../RedisPlugins/">
       
       
-        <link rel="next" href="../Databases/">
+        <link rel="next" href="../../testing/UnitTests/">
       
       
       <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>ACA-Py Container Images - Hyperledger Aries ACA-Py Docs</title>
+        <title>The askar-anoncreds Wallet Type - Hyperledger Aries ACA-Py Docs</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#container-images-and-github-actions" class="md-skip">
+        <a href="#anoncreds-rs-support" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ACA-Py Container Images
+              The askar-anoncreds Wallet Type
             
           </span>
         </div>
@@ -1614,30 +1614,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ACA-Py Container Images
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ContainerImagesAndGithubActions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1646,68 +1626,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Comparison
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Github Actions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1759,10 +1677,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../AnonCredsWalletType/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    The askar-anoncreds Wallet Type
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1771,6 +1709,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revocation-new-in-anoncreds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revocation (new in anoncreds)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outstanding-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outstanding work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retiring-old-indy-and-askar-credx-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retiring old Indy and Askar (credx) Code
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2118,42 +2103,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#image" class="md-nav__link">
+  <a href="#revocation-new-in-anoncreds" class="md-nav__link">
     <span class="md-ellipsis">
-      Image
+      Revocation (new in anoncreds)
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Comparison
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-actions" class="md-nav__link">
+  <a href="#outstanding-work" class="md-nav__link">
     <span class="md-ellipsis">
-      Github Actions
+      Outstanding work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retiring-old-indy-and-askar-credx-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retiring old Indy and Askar (credx) Code
     </span>
   </a>
   
@@ -2177,149 +2147,90 @@
   
 
 
-<h1 id="container-images-and-github-actions">Container Images and Github Actions<a class="headerlink" href="#container-images-and-github-actions" title="Permanent link">&para;</a></h1>
-<p>Aries Cloud Agent - Python is most frequently deployed using containers. From
-the first release of ACA-Py up through 0.7.4, much of the community has built
-their Aries stack using the container images graciously provided by BC Gov and
-hosted through their <code>bcgovimages</code> docker hub account. These images have been
-critical to the adoption of not only ACA-Py but also Hyperledger Aries and SSI
-more generally.</p>
-<p>Recognizing how critical these images are to the success of ACA-Py and
-consistent with Hyperledger's commitment to open collaboration, container images
-are now built and published directly from the Aries Cloud Agent - Python project
-repository and made available through the <a href="https://ghcr.io">Github Packages Container
-Registry</a>.</p>
-<h2 id="image">Image<a class="headerlink" href="#image" title="Permanent link">&para;</a></h2>
-<p>This project builds and publishes the <code>ghcr.io/hyperledger/aries-cloudagent-python</code> image.
-Multiple variants are available; see <a href="#tags">Tags</a>.</p>
-<h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
-<p>ACA-Py is a foundation for building decentralized identity applications; to this
-end, there are multiple variants of ACA-Py built to suit the needs of a variety
-of environments and workflows. There are currently two main variants:</p>
+<h1 id="anoncreds-rs-support">AnonCreds-Rs Support<a class="headerlink" href="#anoncreds-rs-support" title="Permanent link">&para;</a></h1>
+<p>A new wallet type has been added to Aca-Py to support the new anoncreds-rs library:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>--wallet-type askar-anoncreds
+</code></pre></div>
+<p>When Aca-Py is run with this wallet type it will run with an Askar format wallet (and askar libraries) but will use <code>anoncreds-rs</code> instead of <code>credx</code>.</p>
+<p>There is a new package under <code>aries_cloudagent/anoncreds</code> with code that supports the new library.</p>
+<p>There are new endpoints (under <code>/anoncreds</code>) for creating a Schema and Credential Definition.  However the new anoncreds code is integrated into the existing Credential and Presentation endpoints (V2.0 endpoints only).</p>
+<p>Within the protocols, there are new <code>handler</code> libraries to support the new <code>anoncreds</code> format (these are in parallel to the existing <code>indy</code> libraries).</p>
+<p>The existing <code>indy</code> code are in:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>aries_cloudagent/protocols/issue_credential/v2_0/formats/indy/handler.py
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>aries_cloudagent/protocols/indy/anoncreds/pres_exch_handler.py
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>aries_cloudagent/protocols/present_proof/v2_0/formats/indy/handler.py
+</code></pre></div>
+<p>The new <code>anoncreds</code> code is in:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>aries_cloudagent/protocols/issue_credential/v2_0/formats/anoncreds/handler.py
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>aries_cloudagent/protocols/present_proof/anoncreds/pres_exch_handler.py
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>aries_cloudagent/protocols/present_proof/v2_0/formats/anoncreds/handler.py
+</code></pre></div>
+<p>The Indy handler checks to see if the wallet type is <code>askar-anoncreds</code> and if so delegates the calls to the anoncreds handler, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>        # Temporary shim while the new anoncreds library integration is in progress
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>        wallet_type = profile.settings.get_value(&quot;wallet.type&quot;)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        if wallet_type == &quot;askar-anoncreds&quot;:
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>            self.anoncreds_handler = AnonCredsPresExchangeHandler(profile)
+</code></pre></div>
+<p>... and then:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>        # Temporary shim while the new anoncreds library integration is in progress
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        if self.anoncreds_handler:
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>            return self.anoncreds_handler.get_format_identifier(message_type)
+</code></pre></div>
+<p>To run the alice/faber demo using the new anoncreds library, start the demo with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>--wallet-type askar-anoncreds
+</code></pre></div>
+<p>There are no anoncreds-specific integration tests, for the new anoncreds functionality the agents within the integration tests are started with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>--wallet-type askar-anoncreds
+</code></pre></div>
+<p>Everything should just work!!!</p>
+<p>Theoretically ATH should work with anoncreds as well, by setting the wallet type (see <a href="https://github.com/hyperledger/aries-agent-test-harness#extra-backchannel-specific-parameters">https://github.com/hyperledger/aries-agent-test-harness#extra-backchannel-specific-parameters</a>).</p>
+<h2 id="revocation-new-in-anoncreds">Revocation (new in anoncreds)<a class="headerlink" href="#revocation-new-in-anoncreds" title="Permanent link">&para;</a></h2>
+<p>The changes are significant.  Notably:</p>
 <ul>
-<li>"Standard" - The default configuration of ACA-Py, including:<ul>
-<li>Aries Askar for secure storage</li>
-<li>Indy VDR for Indy ledger communication</li>
-<li>Indy Shared Libraries for AnonCreds</li>
+<li>the old way was that from Indy you got the timestamp of the RevRegEntry used, accumulator and the "deltas" -- list of revoked and list of unrevoked credentials for a given range.  I'm not exactly sure what was passed to the AnonCreds library code for building the presentation.</li>
+<li>In the new way, the AnonCreds library expects the identifier for the revregentry used (aka the timestamp), the accumulator, and the full state (0s and 1s) of the revocation status of all credentials in the registry.</li>
+<li>The conversion from delta to full state must be handled in the Indy resolver -- not in the "generic" ACA-Py code, since the other ledgers automagically provide the full state. In fact, we're likely to update Indy VDR to always provide the full state.  The "common" (post resolver) code should get back from the resolver the full state.</li>
 </ul>
-</li>
-<li>"Indy" - The legacy configuration of ACA-Py, including:<ul>
-<li>Indy SDK Wallet for secure storage</li>
-<li>Indy SDK Ledger for Indy ledger communication</li>
-<li>Indy SDK for AnonCreds</li>
-</ul>
-</li>
-</ul>
-<p>These two image variants are largely distinguished by providers for Indy Network
-and AnonCreds support. The Standard variant is recommended for new projects.
-Migration from an Indy based image (whether the new Indy image variant or the
-original BC Gov images) to the Standard image is outside of the scope of this
-document.</p>
-<p>The ACA-Py images built by this project are tagged to indicate which of the
-above variants it is. Other tags may also be generated for use by developers.</p>
-<p>Below is a table of all generated images and their tags:</p>
-<table>
-<thead>
-<tr>
-<th>Tag</th>
-<th>Variant</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>py3.9-X.Y.Z</td>
-<td>Standard</td>
-<td>py3.9-0.7.4</td>
-<td>Standard image variant built on Python 3.9 for ACA-Py version X.Y.Z</td>
-</tr>
-<tr>
-<td>py3.10-X.Y.Z</td>
-<td>Standard</td>
-<td>py3.10-0.7.4</td>
-<td>Standard image variant built on Python 3.10 for ACA-Py version X.Y.Z</td>
-</tr>
-<tr>
-<td>py3.9-indy-A.B.C-X.Y.Z</td>
-<td>Indy</td>
-<td>py3.9-indy-1.16.0-0.7.4</td>
-<td>Standard image variant built on Python 3.9 for ACA-Py version X.Y.Z and Indy SDK Version A.B.C</td>
-</tr>
-<tr>
-<td>py3.10-indy-A.B.C-X.Y.Z</td>
-<td>Indy</td>
-<td>py3.10-indy-1.16.0-0.7.4</td>
-<td>Standard image variant built on Python 3.10 for ACA-Py version X.Y.Z and Indy SDK Version A.B.C</td>
-</tr>
-</tbody>
-</table>
-<h3 id="image-comparison">Image Comparison<a class="headerlink" href="#image-comparison" title="Permanent link">&para;</a></h3>
-<p>There are several key differences that should be noted between the two image
-variants and between the BC Gov ACA-Py images.</p>
+<p>The Tails file changes are minimal -- nothing about the file itself changed.  What changed:</p>
 <ul>
-<li>Standard Image<ul>
-<li>Based on slim variant of Debian</li>
-<li>Does <strong>NOT</strong> include <code>libindy</code></li>
-<li>Default user is <code>aries</code></li>
-<li>Uses container's system python environment rather than <code>pyenv</code></li>
-<li>Askar and Indy Shared libraries are installed as dependencies of ACA-Py through pip from pre-compiled binaries included in the python wrappers</li>
-<li>Built from repo contents</li>
+<li>the tails-file-server can be published to WITHOUT knowing the ID of the RevRegEntry, since that is not known when the tails file is generated/published.  See: <a href="https://github.com/bcgov/indy-tails-server/pull/53">https://github.com/bcgov/indy-tails-server/pull/53</a> -- basically, by publishing based on the hash.</li>
+<li>The tails-file is not needed by the issuer after generation. It used to be needed for (I think) issuing and revoking credentials. Those are now done without the tails file. See: <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2302/files">https://github.com/hyperledger/aries-cloudagent-python/pull/2302/files</a>. That code is already in Main, so you should have it.</li>
 </ul>
-</li>
-<li>Indy Image<ul>
-<li>Based on slim variant of Debian</li>
-<li>Built from multi-stage build step (<code>indy-base</code> in the Dockerfile) which includes Indy dependencies; this could be replaced with an explicit <code>indy-python</code> image from the Indy SDK repo</li>
-<li>Includes <code>libindy</code> but does <strong>NOT</strong> include the Indy CLI</li>
-<li>Default user is <code>indy</code></li>
-<li>Uses container's system python environment rather than <code>pyenv</code></li>
-<li>Askar and Indy Shared libraries are installed as dependencies of ACA-Py through pip from pre-compiled binaries included in the python wrappers</li>
-<li>Built from repo contents</li>
-<li>Includes Indy postgres storage plugin</li>
-</ul>
-</li>
-<li><code>bcgovimages/aries-cloudagent</code><ul>
-<li>(Usually) based on Ubuntu</li>
-<li>Based on <code>von-image</code></li>
-<li>Default user is <code>indy</code></li>
-<li>Includes <code>libindy</code> and Indy CLI</li>
-<li>Uses <code>pyenv</code></li>
-<li>Askar and Indy Shared libraries built from source</li>
-<li>Built from ACA-Py python package uploaded to PyPI</li>
-<li>Includes Indy postgres storage plugin</li>
-</ul>
-</li>
-</ul>
-<h2 id="github-actions">Github Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h2>
+<h2 id="outstanding-work">Outstanding work<a class="headerlink" href="#outstanding-work" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Tests (<code>.github/workflows/tests.yml</code>) - A reusable workflow that runs tests
-  for the Standard ACA-Py variant for a given python version.</li>
-<li>Tests (Indy) (<code>.github/workflows/tests-indy.yml</code>) - A reusable workflow that
-  runs tests for the Indy ACA-Py variant for a given python and indy version.</li>
-<li>PR Tests (<code>.github/workflows/pr-tests.yml</code>) - Run on pull requests; runs tests
-  for the Standard and Indy ACA-Py variants for a "default" python version.
-  Check this workflow for the current default python and Indy versions in use.</li>
-<li>Nightly Tests (<code>.github/workflows/nightly-tests.yml</code>) - Run nightly; runs
-  tests for the Standard and Indy ACA-Py variants for all currently supported
-  python versions. Check this workflow for the set of currently supported
-  versions and Indy version(s) in use.</li>
-<li>Publish (<code>.github/workflows/publish.yml</code>) - Run on new release published or
-  when manually triggered; builds and pushes the Standard ACA-Py variant to the
-  Github Container Registry.</li>
-<li>Publish (Indy) (<code>.github/workflows/publish-indy.yml</code>) - Run on new release
-  published or when manually triggered; builds and pushes the Indy ACA-Py
-  variant to the Github Container Registry.</li>
-<li>Integration Tests (<code>.github/workflows/integrationtests.yml</code>) - Run on pull
-  requests (to the hyperledger fork only); runs BDD integration tests.</li>
-<li>Black Format (<code>.github/workflows/blackformat.yml</code>) - Run on pull requests;
-  checks formatting of files modified by the PR.</li>
-<li>CodeQL (<code>.github/workflows/codeql.yml</code>) - Run on pull requests; performs
-  CodeQL analysis.</li>
-<li>Python Publish (<code>.github/workflows/pythonpublish.yml</code>) - Run on release
-  created; publishes ACA-Py python package to PyPI.</li>
-<li>PIP Audit (<code>.github/workflows/pipaudit.yml</code>) - Run when manually triggered;
-  performs pip audit.</li>
+<li>revocation notifications (not sure if they're included in <code>anoncreds-rs</code> updates, haven't tested them ...)</li>
+<li>revocation support - complete the revocation implementation (support for unhappy path scenarios)</li>
+<li>
+<p>testing - various scenarios like mediation, multitenancy etc.</p>
+</li>
+<li>
+<p>unit tests (in the new anoncreds package) (see <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2596/commits/229ffbba209aff0ea7def5bad6556d93057f3c2a">https://github.com/hyperledger/aries-cloudagent-python/pull/2596/commits/229ffbba209aff0ea7def5bad6556d93057f3c2a</a>)</p>
+</li>
+<li>unit tests (review and possibly update unit tests for the credential and presentation integration)</li>
+<li>endorsement (not implemented with new anoncreds code)</li>
+<li>wallet upgrade (askar to askar-anoncreds)</li>
+<li>update V1.0 versions of the Credential and Presentation endpoints to use anoncreds</li>
+<li>any other anoncreds issues - <a href="https://github.com/hyperledger/aries-cloudagent-python/issues?q=is%3Aopen+is%3Aissue+label%3AAnonCreds">https://github.com/hyperledger/aries-cloudagent-python/issues?q=is%3Aopen+is%3Aissue+label%3AAnonCreds</a></li>
 </ul>
+<h2 id="retiring-old-indy-and-askar-credx-code">Retiring old Indy and Askar (credx) Code<a class="headerlink" href="#retiring-old-indy-and-askar-credx-code" title="Permanent link">&para;</a></h2>
+<p>The main changes for the Credential and Presentation support are in the following two files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>aries_cloudagent/protocols/issue_credential/v2_0/messages/cred_format.py
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>aries_cloudagent/protocols/present_proof/v2_0/messages/pres_format.py
+</code></pre></div>
+<p>The <code>INDY</code> handler just need to be re-pointed to the new anoncreds handler, and then all the old Indy code can be retired.</p>
+<p>The new code is already in place (in comments).  For example for the Credential handler:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>        To make the switch from indy to anoncreds replace the above with the following
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>        INDY = FormatSpec(
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>            &quot;hlindy/&quot;,
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>            DeferLoad(
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                &quot;aries_cloudagent.protocols.present_proof.v2_0&quot;
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                &quot;.formats.anoncreds.handler.AnonCredsPresExchangeHandler&quot;
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            ),
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        )
+</code></pre></div>
+<p>There is a bunch of duplicated code, i.e. the new anoncreds code was added either as new classes (as above) or as new methods within an existing class.</p>
+<p>Some new methods were added within the Ledger class.</p>
+<p>New unit tests were added - in some cases as methods within existing test classes, and in some cases as new classes (whichever was easiest at the time).</p>
 
 
 
@@ -2355,7 +2266,7 @@ variants and between the BC Gov ACA-Py images.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Poetry/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Use of Poetry in ACA-Py">
+          <a href="../RedisPlugins/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Persistent Queues and Caching">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2365,20 +2276,20 @@ variants and between the BC Gov ACA-Py images.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                The Use of Poetry in ACA-Py
+                Persistent Queues and Caching
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Databases/" class="md-footer__link md-footer__link--next" aria-label="Next: Databases">
+          <a href="../../testing/UnitTests/" class="md-footer__link md-footer__link--next" aria-label="Next: Running and Creating Unit Tests">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Databases
+                Running and Creating Unit Tests
               </div>
             </div>
             <div class="md-footer__button md-icon">
