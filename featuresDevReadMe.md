@@ -189,7 +189,7 @@ To run the ACA-Py test suite with ptvsd debugger enabled:
 ./scripts/run_tests --debug
 ```
 
-To run specific tests pass parameters as defined by [pytest](https://docs.pytest.org/en/stable/usage.html#specifying-tests-selecting-tests):
+To run specific tests pass parameters as defined by [pytest](https://docs.pytest.o../contributing/stable/usage.html#specifying-tests-selecting-tests):
 
 ```bash
 ./scripts/run_tests aries_cloudagent/protocols/connections
@@ -220,7 +220,7 @@ The `manage` script is described in detail [here](https://github.com/hyperledger
 
 We use [Ruff](https://github.com/astral-sh/ruff) to enforce a coding style guide.
 
-We use [Black](https://black.readthedocs.io/en/stable/) to automatically format code.
+We use [Black](https://black.readthedocs.../contributing/stable/) to automatically format code.
 
 Please write tests for the work that you submit.
 

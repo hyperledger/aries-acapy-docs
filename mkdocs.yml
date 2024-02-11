@@ -106,6 +106,7 @@ nav:
     - Hyperledger Indy Endorser In Action: demo/Endorser.md
     - Using W3C JSON-LD Credentials: demo/AliceWantsAJsonCredential.md
     - DIY -- ACME Controller Workshop: demo/AcmeDemoWorkshop.md
+    - Aries Using Postman Demo: demo/AriesPostmanDemo.md
 - Getting Started:
     - Becoming an Indy/Aries Developer: gettingStarted/README.md
     - Hyperledger Indy Basics: gettingStarted/IndyBasics.md
@@ -146,3 +147,4 @@ nav:
     - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
     - Security Vulnerability Reporting: contributing/SECURITY.md
     - Publishing an ACA-Py Release: contributing/PUBLISHING.md
+    - Updating the ACA-Py ReadTheDocs Site: UpdateRTD.md
