@@ -13,4 +13,5 @@ The concepts and features that make up the Aries project are documented in the [
 
 The Aries Cloud Agent Python currently only supports Hyperledger Indy-based verifiable credentials and public ledger. Longer term (as we'll see later in this guide) protocols will be extended or added to support other verifiable credential implementations and public ledgers.
 
-> Back to the [Aries Developer - Getting Started Guide](README.md).
+> Back to the [Aries Developer - Getting Started Guide](./README.md).
+>

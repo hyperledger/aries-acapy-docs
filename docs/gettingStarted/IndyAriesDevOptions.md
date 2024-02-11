@@ -8,7 +8,7 @@ In the following, we go through the layers from the top of the stack to the bott
 
 ## Building Decentralized Identity Applications
 
-If you just want to build enterprise applications on top of the decentralized identity-related Hyperledger projects, you can start with building cloud-based controller apps using any language you want, and deploying your code with an instance of the code in this repository ([aries-cloudagent-python](https://github.com/hyperledger/aries-cloudagent-python)). 
+If you just want to build enterprise applications on top of the decentralized identity-related Hyperledger projects, you can start with building cloud-based controller apps using any language you want, and deploying your code with an instance of the code in this repository ([aries-cloudagent-python](https://github.com/hyperledger/aries-cloudagent-python)).
 
 If you want to build a mobile agent, there are open source options available, including [Aries-MobileAgent-Xamarin](https://github.com/hyperledger/aries-mobileagent-xamarin) (aka "Aries MAX"), which is built on [Aries Framework .NET](https://github.com/hyperledger/aries-framework-dotnet), and [Aries Mobile Agent React Native](https://github.com/hyperledger/aries-mobile-agent-react-native), which is built on [Aries Framework JavaScript](https://github.com/hyperledger/aries-framework-javascript).
 
@@ -43,7 +43,3 @@ If you are interested in getting into the public ledger part of Indy, particular
 ## Working in Cryptography
 
 Finally, at the deepest level, and core to all of the projects is the cryptography in [Hyperledger Ursa](https://github.com/hyperledger/ursa). If you are a cryptographer, that's where you want to be - and we want you there.
-
-
-
-

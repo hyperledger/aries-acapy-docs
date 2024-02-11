@@ -28,11 +28,13 @@ If that is the cause -- have you started your local ledger, and did it startup p
 - Any errors in the startup of von-network?
 - Is the von-network webserver (usually at `https:/localhost:9000`) accessible? If so, can you click on and see the Genesis File?
 - Do you even need a local ledger? If not, you can use a public sandbox ledger,
-  such as the [Dev Greenlight ledger](), likely by just prefacing your ACA-Py
-  command with `LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io`. For example,
-  when running the Alice-Faber demo in the [demo](../../demo) folder, you can run (for
+  such as the [BCovrin Test ledger], likely by just prefacing your ACA-Py
+  command with `LEDGER_URL=http://test.bcovrin.vonx.io`. For example,
+  when running the Alice-Faber demo in the [demo](../demo/README.md) folder, you can run (for
   example), the Faber agent using the command:
-  `LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber`
+  `LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber`
+
+[BCovrin Test ledger]: http://test.bcovrin.vonx.io
 
 ### Any Firewalls
 

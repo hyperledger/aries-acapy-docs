@@ -115,10 +115,10 @@ nav:
     - Aries Architecture: gettingStarted/AriesAgentArchitecture.md
     - Aries Messaging: gettingStarted/AriesMessaging.md
     - Aries Developer Demos: gettingStarted/AriesDeveloperDemos.md
-    - TODO Agent Connections: gettingStarted/AgentConnections.md
-    - TODO Issuing AnonCreds Credentials: gettingStarted/IssuingIndyCredentials.md
-    - TODO Presenting AnonCreds Proofs: gettingStarted/PresentingIndyProofs.md
-    - TODO Making Your Own ACA-Py Agent: gettingStarted/YourOwnAriesAgent.md
+    - Agent Connections: gettingStarted/AgentConnections.md
+    - Issuing AnonCreds Credentials: gettingStarted/IssuingAnonCredsCredentials.md
+    - Presenting AnonCreds Proofs: gettingStarted/PresentingAnonCredsProofs.md
+    - Making Your Own ACA-Py Agent: gettingStarted/YourOwnAriesAgent.md
     - Aries Developer Options: gettingStarted/IndyAriesDevOptions.md
     - DIDComm Messaging: gettingStarted/DIDcommMsgs.md
     - DIDComm Message Routing: gettingStarted/RoutingEncryption.md

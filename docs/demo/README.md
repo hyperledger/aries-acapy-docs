@@ -26,7 +26,7 @@ There are several demos available for ACA-Py mostly (but not only) aimed at deve
   - [Multi-ledger](#multi-ledger)
   - [Multi-tenancy](#multi-tenancy)
   - [Multi-tenancy *with Mediation*!!!](#multi-tenancy-with-mediation)
-  - [Other Environment Settings](#other-environment-settings)
+- [Other Environment Settings](#other-environment-settings)
 - [Learning about the Alice/Faber code](#learning-about-the-alicefaber-code)
 - [OpenAPI (Swagger) Demo](#openapi-swagger-demo)
 - [Performance Demo](#performance-demo)
@@ -43,7 +43,7 @@ In your browser, go to the docker playground service [Play with Docker](https://
 ```bash
 git clone https://github.com/hyperledger/aries-cloudagent-python
 cd aries-cloudagent-python/demo
-LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber
+LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo faber
 ```
 
 Now to start Alice's agent. Click the "+Add a new instance" button again to open another terminal session. Run the following commands to start Alice's agent:
@@ -51,7 +51,7 @@ Now to start Alice's agent. Click the "+Add a new instance" button again to open
 ```bash
 git clone https://github.com/hyperledger/aries-cloudagent-python
 cd aries-cloudagent-python/demo
-LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo alice
+LEDGER_URL=http://test.bcovrin.vonx.io ./run_demo alice
 ```
 
 Alice's agent is now running.

@@ -28,15 +28,15 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 
 ## Platform Support
 
-| Platform | Supported | Notes             |
-| -------- | :-------: |  ------- |
-| Server   | :white_check_mark: |    |
-| Kubernetes | :white_check_mark: | BC Gov has extensive experience running ACA-Py on Red Hat's OpenShift Kubernetes Distribution. |
-| Docker   | :white_check_mark: | Official docker images are published to the GitHub [hyperledger/aries-cloudagent-python] container repository. |
-| Desktop  | :warning:         | Could be run as a local service on the computer |
-| iOS      | :x:        |    |
-| Android  | :x:        |    |
-| Browser  | :x:        |    |
+| Platform   |     Supported      | Notes                                                                                                                      |
+| ---------- | :----------------: | -------------------------------------------------------------------------------------------------------------------------- |
+| Server     | :white_check_mark: |                                                                                                                            |
+| Kubernetes | :white_check_mark: | BC Gov has extensive experience running ACA-Py on Red Hat's OpenShift Kubernetes Distribution.                             |
+| Docker     | :white_check_mark: | Official docker images are published to the GitHub  container repository at `ghcr.io/hyperledger/aries-cloudagent-python`. |
+| Desktop    |     :warning:      | Could be run as a local service on the computer                                                                            |
+| iOS        |        :x:         |                                                                                                                            |
+| Android    |        :x:         |                                                                                                                            |
+| Browser    |        :x:         |                                                                                                                            |
 
 ## Agent Types
 
@@ -46,7 +46,7 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 | Holder   | :white_check_mark:        |            |
 | Verifier | :white_check_mark:        |            |
 | Mediator Service | :white_check_mark:        | See the [aries-mediator-service](https://github.com/hyperledger/aries-mediator-service), a pre-configured, production ready Aries Mediator Service based on a released version of ACA-Py. |
-| Mediator Client | :white_check_mark: |
+| Mediator Client | :white_check_mark: | |
 | Indy Transaction Author | :white_check_mark:        |    |
 | Indy Transaction Endorser | :white_check_mark:  | |
 | Indy Endorser Service | :white_check_mark:        | See the [aries-endorser-service](https://github.com/hyperledger/aries-endorser-service), a pre-configured, production ready Aries Endorser Service based on a released version of ACA-Py. |
@@ -74,7 +74,7 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 ## Secure Storage Types
 
 | Secure Storage Types | Supported | Notes |
- --- | :--: | -- |
+| --- | :--: | -- |
 | [Aries Askar] | :white_check_mark: | Recommended - Aries Askar provides equivalent/evolved secure storage and cryptography support to the "indy-wallet" part of the Indy SDK. When using Askar (via the `--wallet-type askar` startup parameter), other functionality is handled by [CredX](https://github.com/hyperledger/indy-shared-rs) (AnonCreds) and [Indy VDR](https://github.com/hyperledger/indy-vdr) (Indy ledger interactions). |
 | [Aries Askar]-AnonCreds | :white_check_mark: | Recommended - When using Askar/AnonCreds (via the `--wallet-type askar-anoncreds` startup parameter), other functionality is handled by [AnonCreds RS](https://github.com/hyperledger/anoncreds-rs) (AnonCreds) and [Indy VDR](https://github.com/hyperledger/indy-vdr) (Indy ledger interactions).<br><br>This `wallet-type` will eventually be the same as `askar` when we have fully integrated the AnonCreds RS library into ACA-Py. |
 | [Indy SDK](https://github.com/hyperledger/indy-sdk/tree/master/docs/design/003-wallet-storage) | :warning: Deprecated | Full support for the features of the "indy-wallet" secure storage capabilities found in the Indy SDK. |
@@ -87,7 +87,7 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 ## Miscellaneous Features
 
 | Feature | Supported | Notes |
- --- | :--: | -- |
+| --- | :--: | -- |
 | ACA-Py Plugins | :white_check_mark:  | The [ACA-Py Plugins] repository contains a growing set of plugins that are maintained and (mostly) tested against new releases of ACA-Py. |
 | Multi use invitations            | :white_check_mark:  |         |
 | Invitations using public did     | :white_check_mark:        |         |
@@ -104,7 +104,7 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 | SD-JWTs | :white_check_mark: | Signing and verifying SD-JWTs is supported |
 
 [ACA-Py Plugins]: https://github.com/hyperledger/aries-acapy-plugins
-[Indy SDK to Askar Migration Guide]: ../../deploying/IndySDKtoAskarMigration/
+[Indy SDK to Askar Migration Guide]: ../deploying/IndySDKtoAskarMigration.md
 [Traction]: https://github.com/bcgov/traction
 
 ## Supported RFCs
@@ -115,7 +115,7 @@ All RFCs listed in [AIP 1.0](https://github.com/hyperledger/aries-rfcs/tree/main
 provides notes about the implementation of specific RFCs.
 
 | RFC | Supported | Notes |
- --- | :--: | -- |
+| --- | :--: | -- |
 | [0025-didcomm-transports](https://github.com/hyperledger/aries-rfcs/tree/b490ebe492985e1be9804fc0763119238b2e51ab/features/0025-didcomm-transports)      | :white_check_mark:        | ACA-Py currently supports HTTP and WebSockets for both inbound and outbound messaging. Transports are pluggable and an agent instance can use multiple inbound and outbound transports.|
 | [0160-connection-protocol](https://github.com/hyperledger/aries-rfcs/tree/9b0aaa39df7e8bd434126c4b33c097aae78d65bf/features/0160-connection-protocol)    | :white_check_mark:        | The agent supports Connection/DID exchange initiated from both plaintext invitations and public DIDs that enable bypassing the invitation message. |
 
@@ -125,8 +125,8 @@ All RFCs listed in [AIP 2.0](https://github.com/hyperledger/aries-rfcs/tree/main
 are fully supported in ACA-Py **EXCEPT** as noted in the table below.
 
 | RFC | Supported | Notes |
- --- | :--: | -- |
-| [0587-encryption-envelope-v2](https://github.com/hyperledger/aries-rfcs/tree/b3a3942ef052039e73cd23d847f42947f8287da2/features/0587-encryption-envelope-v2) | :construction: | Support for the DIDComm V2 envelope format is a work in progress |
+| --- | :--: | -- |
+| [0587-encryption-envelope-v2](https://github.com/hyperledger/aries-rfcs/tree/b3a3942ef052039e73cd23d847f42947f8287da2/features/0587-encryption-envelope-v2) | :construction: | Supporting the DIDComm v2 encryption envelope does not make sense until DIDComm v2 is to be supported. |
 | [0317-please-ack](https://github.com/hyperledger/aries-rfcs/tree/main/features/0317-please-ack) |  :x: | An investigation was done into supporting `please-ack` and a number of complications were found. As a result, we expect that `please-ack` will be dropped from AIP 2.0. It has not been implemented by any Aries frameworks or deployments. |
 
 ### Other Supported RFCs

@@ -72,7 +72,7 @@ s/^/- /
   merged:>2022-04-07`) and for each page, highlight, and copy the text
   of only the list of PRs on the page to use in the following step.
 - For each page, run the command
-  `sed -e :a -e '$!N;s/\n#/ #/;ta' -e 'P;D' <<EOF | sed -f changelog.sed`, 
+  `sed -e :a -e '$!N;s/\n#/ #/;ta' -e 'P;D' <<EOF | sed -f changelog.sed`,
   paste in the copied text and then type `EOF`.
   Redirect the output to a file, appending each page of output to the file.
   - The first `sed` command in the pipeline merges the PR title and PR number
@@ -145,11 +145,10 @@ Once you have the list of PRs:
    "Packages").
 
    Additional information about the container image publication process can be
-   found in the document [Container Images and Github Actions]().
+   found in the document [Container Images and Github Actions](docs/deploying/ContainerImagesAndGithubActions.md).
 
 [publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
 [publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md
 
 12. Update the ACA-Py Read The Docs site by building the new "latest" (main
     branch) and activating and building the new release. Appropriate permissions

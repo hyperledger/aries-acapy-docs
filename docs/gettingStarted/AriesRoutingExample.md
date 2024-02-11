@@ -4,13 +4,13 @@ In this example, we'll walk through an example of complex routing in Aries, outl
 
 We'll start with the Alice and Bob example from the [Cross Domain Messaging](https://github.com/hyperledger/aries-rfcs/blob/master/concepts/0094-cross-domain-messaging) Aries RFC.
 
-![Cross Domain Messaging Example](https://github.com/hyperledger/aries-rfcs/blob/master/concepts/0094-cross-domain-messaging/domains.jpg "Cross Domain Messaging Example")
+![Cross Domain Messaging Example](https://raw.githubusercontent.com/hyperledger/aries-rfcs/main/concepts/0094-cross-domain-messaging/domains.jpg "Cross Domain Messaging Example")
 
 What are the DIDs involved, what's in their DIDDocs, and what communications are happening between the agents as the connections are made?
 
 ## The Scenario
 
-Bob and Alice want to establish a connection so that they can communicate. Bob uses an Agency endpoint ("https://agents-r-us.com), labelled as 9 and will have an agent used for routing, labelled as 3. We'll also focus on Bob's messages from his main iPhone, labelled as 4.  We'll ignore Bob's other agents (5 and 6) and we won't worry about Alice's configuration (agents 1, 2 and 8). While the process below is all about Bob, Alice and her agents are doing the same interactions within her domain.
+Bob and Alice want to establish a connection so that they can communicate. Bob uses an Agency endpoint (`https://agents-r-us.ca`), labelled as 9 and will have an agent used for routing, labelled as 3. We'll also focus on Bob's messages from his main iPhone, labelled as 4.  We'll ignore Bob's other agents (5 and 6) and we won't worry about Alice's configuration (agents 1, 2 and 8). While the process below is all about Bob, Alice and her agents are doing the same interactions within her domain.
 
 ## All the DIDs
 
@@ -73,7 +73,7 @@ We'll start the process with Alice sending an out of band connection invitation 
 - The Routing Agent sends the data to Bob's iPhone agent.
 - Bob's iPhone agent fills in the rest of the DIDDoc:
   - the public key for the Routing Agent for the Alice relationship
-  - the `did-communication` service endpoint is set to the Agency public DID and 
+  - the `did-communication` service endpoint is set to the Agency public DID and
   - the routing keys array with the values of the Agency public DID key reference and the Routing Agent key reference
 
 **Note**: Instead of using the DID Bob created, the Agency and Routing Agent might use the public key used to encrypt the messages for their internal routing table look up for where to send a message. In that case, the Bob and the Routing Agent share the public key instead of the DID to their respective upstream routers.
@@ -84,6 +84,6 @@ At this time, there are **not** specific DIDComm protocols for the "set up the r
 
 Based on the DIDDoc that Bob has sent Alice, for her to send a DIDComm message to Bob, Alice must:
 
-* Prepare the message for Bob's Agent.
-* Encrypt and place that message into a "Forward" message for Bob's Routing Agent.
-* Encrypt and send the "Forward" message to Bob's Agency endpoint.
+- Prepare the message for Bob's Agent.
+- Encrypt and place that message into a "Forward" message for Bob's Routing Agent.
+- Encrypt and send the "Forward" message to Bob's Agency endpoint.

@@ -15,8 +15,8 @@ revocations be published?
 
 Here is a  summary of all of the AnonCreds revocation activities performed
 by issuers. After this, we'll provide a (much shorter) list of what an ACA-Py
-issuer controller has to do. For those interested, there is a more [complete
-overview of AnonCreds revocation], including all of the roles, and some details
+issuer controller has to do. For those interested, there is a more
+[complete overview of AnonCreds revocation], including all of the roles, and some details
 of the cryptography behind the approach:
 
 - Issuers indicate that a credential will support revocation when creating the
@@ -98,12 +98,12 @@ enabled. You will need to have the URL of an running instance of
 
 Include the command line parameter `--tails-server-base-url <indy-tails-server url>`
 
-0.  Publish credential definition
+0. Publish credential definition
 
     Credential definition is created. All required revocation collateral is also created
     and managed including revocation registry definition, entry, and tails file.
 
-    ```
+    ```json
     POST /credential-definitions
     {
       "schema_id": schema_id,
@@ -119,12 +119,12 @@ Include the command line parameter `--tails-server-base-url <indy-tails-server u
     }
     ```
 
-1.  Issue credential
+1. Issue credential
 
     This endpoint manages revocation data. If new revocation registry data is required,
     it is automatically managed in the background.
 
-    ```
+    ```json
     POST /issue-credential/send-offer
     {
         "cred_def_id": credential_definition_id,
@@ -138,9 +138,9 @@ Include the command line parameter `--tails-server-base-url <indy-tails-server u
     }
     ```
 
-2.  Revoking credential
+2. Revoking credential
 
-    ```
+    ```json
     POST /revocation/revoke
     {
         "rev_reg_id": <revocation_registry_id>
@@ -152,8 +152,9 @@ Include the command line parameter `--tails-server-base-url <indy-tails-server u
     If publish=false, you must use `​/issue-credential​/publish-revocations` to publish
     pending revocations in batches. Revocation are not written to ledger until this is called.
 
-3.  When asking for proof, specify the time span when the credential is NOT revoked
-    ```
+3. When asking for proof, specify the time span when the credential is NOT revoked
+
+    ```json
      POST /present-proof/send-request
      {
        "connection_id": ...,
@@ -198,7 +199,6 @@ ACA-Py supports [Revocation Notification v1.0](https://github.com/hyperledger/ar
 
 > **Note:** The optional `~please_ack` is not currently supported.
 
-
 ### Issuer Role
 
 To notify connections to which credentials have been issued, during step 2
@@ -220,7 +220,7 @@ above, include the following attributes in the request body:
 
 Your request might look something like:
 
-```
+```json
 POST /revocation/revoke
 {
     "rev_reg_id": <revocation_registry_id>
@@ -262,7 +262,7 @@ There are several endpoints that must be called, and they must be called in this
 
    - here you need to provide the full URI that will be written to the ledger, for example:
 
-```
+```json
 {
   "tails_public_uri": "http://host.docker.internal:6543/VDKEEMMSRTEqK4m7iiq5ZL:4:VDKEEMMSRTEqK4m7iiq5ZL:3:CL:8:faber.agent.degree_schema:CL_ACCUM:3cb5c439-928c-483c-a9a8-629c307e6b2d"
 }

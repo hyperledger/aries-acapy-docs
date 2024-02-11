@@ -1,6 +1,6 @@
 # Developer's Read Me for Hyperledger Aries Cloud Agent - Python <!-- omit in toc -->
 
-See the [README](../../release/acapy-README) for details about this repository and information about how the Aries Cloud Agent - Python fits into the Aries project and relates to Indy.
+See the [README](../../README.md) for details about this repository and information about how the Aries Cloud Agent - Python fits into the Aries project and relates to Indy.
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -11,12 +11,13 @@ See the [README](../../release/acapy-README) for details about this repository a
   - [Docker](#docker)
   - [Locally Installed](#locally-installed)
   - [About ACA-Py Command Line Parameters](#about-aca-py-command-line-parameters)
-  - [Provisioning a Wallet](#provisioning-a-wallet)
+  - [Provisioning Secure Storage](#provisioning-secure-storage)
   - [Mediation](#mediation)
   - [Multi-tenancy](#multi-tenancy)
   - [JSON-LD Credentials](#json-ld-credentials)
 - [Developing](#developing)
   - [Prerequisites](#prerequisites)
+  - [Running In A Dev Container](#running-in-a-dev-container)
   - [Running Locally](#running-locally)
   - [Logging](#logging)
   - [Running Tests](#running-tests)
@@ -32,12 +33,12 @@ Aries Cloud Agent Python (ACA-Py) is a configurable, extensible, non-mobile Arie
 The information on this page assumes you are developer with a background in
 decentralized identity, Aries, DID Methods, and verifiable credentials,
 especially AnonCreds. If you aren't familiar with those concepts and projects,
-please use our [Getting Started Guide](../../gettingStarted/)
+please use our [Getting Started Guide](../gettingStarted/README.md)
 to learn more.
 
 ## Developer Demos
 
-To put ACA-Py through its paces at the command line, checkout our [demos](../../AriesDeveloperDemos) page.
+To put ACA-Py through its paces at the command line, checkout our [demos](../demo/README.md) page.
 
 ## Running
 
@@ -120,19 +121,19 @@ aca-py provision --wallet-type askar --seed $SEED
 
 For additional `provision` options, execute `aca-py provision --help`.
 
-Additional information about secure storage options and configuration settings can be found [here](../../deploying/Databases).
+Additional information about secure storage options and configuration settings can be found [here](../deploying/Databases.md).
 
 ### Mediation
 
-ACA-Py can also run in mediator mode - ACA-Py can be run *as* a mediator (it can mediate connections for other agents), or it can connect to an external mediator to mediate its own connections.  See the [docs on mediation](Mediation.md) for more info.
+ACA-Py can also run in mediator mode - ACA-Py can be run _as_ a mediator (it can mediate connections for other agents), or it can connect to an external mediator to mediate its own connections.  See the [docs on mediation](./Mediation.md) for more info.
 
 ### Multi-tenancy
 
-ACA-Py can also be started in multi-tenant mode. This allows the agent to serve multiple tenants, that each have their own wallet. See the [docs on multi-tenancy](Multitenancy.md) for more info.
+ACA-Py can also be started in multi-tenant mode. This allows the agent to serve multiple tenants, that each have their own wallet. See the [docs on multi-tenancy](./Multitenancy.md) for more info.
 
 ### JSON-LD Credentials
 
-ACA-Py can issue W3C Verifiable Credentials using Linked Data Proofs. See the [docs on JSON-LD Credentials](JsonLdCredentials.md) for more info.
+ACA-Py can issue W3C Verifiable Credentials using Linked Data Proofs. See the [docs on JSON-LD Credentials](./JsonLdCredentials.md) for more info.
 
 ## Developing
 
@@ -142,7 +143,7 @@ ACA-Py can issue W3C Verifiable Credentials using Linked Data Proofs. See the [d
 
 ### Running In A Dev Container
 
-The dev container environment is a great way to deploy agents quickly with code changes and an interactive debug session. Detailed information can be found in the [Docs On Devcontainers](devcontainer.md). It is specific for vscode, so if you prefer another code editor or IDE you will need to figure it out on your own, but it is highly recommended to give this a try.
+The dev container environment is a great way to deploy agents quickly with code changes and an interactive debug session. Detailed information can be found in the [Docs On Devcontainers](./devcontainer.md). It is specific for vscode, so if you prefer another code editor or IDE you will need to figure it out on your own, but it is highly recommended to give this a try.
 
 One thing to be aware of is, unlike the demo, none of the steps are automated. You will need to create public dids, connections and all the other steps yourself. Using the demo and studying the flow and then copying them with your dev container debug session is a great way to learn how everything works.
 
@@ -172,7 +173,7 @@ Refer to [the previous section](#running) for instructions on how to run ACA-Py.
 
 ### Logging
 
-You can find more details about logging and log levels [here](../../testing/Logging/).
+You can find more details about logging and log levels [here](../testing/Logging.md).
 
 ### Running Tests
 
@@ -229,7 +230,7 @@ There are some good examples of various test scenarios for you to work from incl
 
 The test suite also displays the current code coverage after each run so you can see how much of your work is covered by tests. Use your best judgement for how much coverage is sufficient.
 
-Please also refer to the [contributing guidelines](../../contributing/CONTRIBUTING/) and [code of conduct](../../contributing/CODE_OF_CONDUCT/).
+Please also refer to the [contributing guidelines](../../CONTRIBUTING.md) and [code of conduct](../../CODE_OF_CONDUCT.md).
 
 ## Publishing Releases
 
