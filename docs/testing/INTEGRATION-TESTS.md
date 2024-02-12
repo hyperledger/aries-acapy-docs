@@ -85,7 +85,6 @@ AGENT_PORT_OVERRIDE=8030 ./run_bdd -t <some tags>
 
 (Note that since the test run multiple agents you require up to 60 available ports.)
 
-
 ## Aca-py Integration Tests vs Aries Agent Test Harness (AATH)
 
 Aca-py Behave tests are based on the interoperability tests that are implemented in the [Aries Agent Test Harness (AATH)](https://github.com/hyperledger/aries-agent-test-harness).  Both use [Behave (Gherkin)](https://behave.readthedocs.io/en/stable/) to execute tests against a running aca-py agent (or in the case of AATH, against any compatible Aries agent), however the aca-py integration tests focus on aca-py specific features.
@@ -111,7 +110,7 @@ Aca-py integration tests use the same configuration approach as AATH, documented
 
 In addition to support for external schemas, credential data etc, the aca-py integration tests support configuration of the aca-py agents that are used to run the test.  For example:
 
-```
+```behave
 Scenario Outline: Present Proof where the prover does not propose a presentation of the proof and is acknowledged
   Given "3" agents
      | name  | role     | capabilities        |
@@ -176,4 +175,3 @@ To run a specific set of Aca-py integration tests (or exclude specific tests):
 ## Aries Agent Test Harness ACA-Py Tests
 
 This [video](https://youtu.be/1dwyEBxQqWI) is a presentation by Aries Cloud Agent Python (ACA-Py) developer @ianco about using the Aries Agent Test Harness for local pre-release testing of ACA-Py. Have a big change that you want to test with other Aries Frameworks? Following this guidance to run AATH tests with your under-development branch of ACA-Py.
-

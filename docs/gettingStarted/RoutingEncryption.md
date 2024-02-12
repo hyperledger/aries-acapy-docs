@@ -1,9 +1,9 @@
 # Deeper Dive: DIDComm Message Routing and Encryption
 
-Many Aries edge agents do not directly receive messages from a peer edge agent - they have agents in between that route messages to them. This is done for many reasons, such as: 
+Many Aries edge agents do not directly receive messages from a peer edge agent - they have agents in between that route messages to them. This is done for many reasons, such as:
 
 - The agent is on a mobile device that does not have a persistent connection and so uses a cloud agent.
-- The person does not want to allow correlation of their agent across relationships and so they use a shared, common endpoint (e.g. https://agents-R-Us.com) that they are "hidden in a crowd".
+- The person does not want to allow correlation of their agent across relationships and so they use a shared, common endpoint (e.g. `https://agents-R-Us.ca`) that they are "hidden in a crowd".
 - An enterprise wants a single gateway to the many enterprise agents they have in their organization.
 
 Thus, when a DIDComm message is sent from one edge agent to another, it is routed per the instructions of the receiver and for the needs of the sender. For example, in the following picture, Alice might be told by Bob to send messages to his phone (agent 4) via agents 9 and 3, and Alice might always send out messages via agent 2.

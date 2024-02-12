@@ -14,4 +14,5 @@ Code for protocols are implemented as externalized modules from the core agent c
 
 Developers building Aries agents for a particular use case will generally focus on building controllers. They must understand the protocols that they are going to need, including the events the controller will receive, and the protocol's administrative messages exposed via the REST API. From time to time, such Aries agent developers might need to implement their own protocols.
 
-> Back to the [Aries Developer - Getting Started Guide](README.md).
+> Back to the [Aries Developer - Getting Started Guide](./README.md).
+>

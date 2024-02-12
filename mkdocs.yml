@@ -106,6 +106,7 @@ nav:
     - Hyperledger Indy Endorser In Action: demo/Endorser.md
     - Using W3C JSON-LD Credentials: demo/AliceWantsAJsonCredential.md
     - DIY -- ACME Controller Workshop: demo/AcmeDemoWorkshop.md
+    - Aries Using Postman Demo: demo/AriesPostmanDemo.md
 - Getting Started:
     - Becoming an Indy/Aries Developer: gettingStarted/README.md
     - Hyperledger Indy Basics: gettingStarted/IndyBasics.md
@@ -115,10 +116,10 @@ nav:
     - Aries Architecture: gettingStarted/AriesAgentArchitecture.md
     - Aries Messaging: gettingStarted/AriesMessaging.md
     - Aries Developer Demos: gettingStarted/AriesDeveloperDemos.md
-    - TODO Agent Connections: gettingStarted/AgentConnections.md
-    - TODO Issuing AnonCreds Credentials: gettingStarted/IssuingIndyCredentials.md
-    - TODO Presenting AnonCreds Proofs: gettingStarted/PresentingIndyProofs.md
-    - TODO Making Your Own ACA-Py Agent: gettingStarted/YourOwnAriesAgent.md
+    - Agent Connections: gettingStarted/AgentConnections.md
+    - Issuing AnonCreds Credentials: gettingStarted/IssuingAnonCredsCredentials.md
+    - Presenting AnonCreds Proofs: gettingStarted/PresentingAnonCredsProofs.md
+    - Making Your Own ACA-Py Agent: gettingStarted/YourOwnAriesAgent.md
     - Aries Developer Options: gettingStarted/IndyAriesDevOptions.md
     - DIDComm Messaging: gettingStarted/DIDcommMsgs.md
     - DIDComm Message Routing: gettingStarted/RoutingEncryption.md
@@ -146,3 +147,4 @@ nav:
     - Hyperledger Code of Conduct: contributing/CODE_OF_CONDUCT.md
     - Security Vulnerability Reporting: contributing/SECURITY.md
     - Publishing an ACA-Py Release: contributing/PUBLISHING.md
+    - Updating the ACA-Py ReadTheDocs Site: UpdateRTD.md

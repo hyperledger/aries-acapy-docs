@@ -10,7 +10,7 @@ Tracing is configured globally for the agent.
 
 The following options can be specified when starting the aca-py agent:
 
-```
+```bash
   --trace               Generate tracing events.
   --trace-target <trace-target>
                         Target for trace events ("log", "message", or http
@@ -31,7 +31,7 @@ The `run_demo` script supports the following parameters and environment variable
 
 Environment variables:
 
-```
+```bash
 TRACE_ENABLED          Flag to enable tracing
 
 TRACE_TARGET_URL       Host:port of endpoint to log trace events (e.g. logstash:9700)
@@ -43,7 +43,7 @@ TRACE_TAG              Tag to be included in all logged trace events
 
 Parameters:
 
-```
+```bash
 --trace-log            Enables tracing to the standard log output
                        (sets TRACE_ENABLED, TRACE_TARGET, TRACE_TAG)
 
@@ -53,7 +53,7 @@ Parameters:
 
 When running the Faber controller, tracing can be enabled using the `T` menu option:
 
-```
+```bash
 Faber      | Connected
     (1) Issue Credential
     (2) Send Proof Request
@@ -85,7 +85,7 @@ When `Exchange Tracing` is `ON`, all exchanges will include tracing.
 
 ## Logging Trace Events to an ELK Stack
 
-You can use the `ELK` stack in the [ELK Stack sub-directory](./elk-stack) as a target for trace events, just start the ELK stack using the docker-compose file and then in two separate bash shells, startup the demo as follows:
+You can use the `ELK` stack in the [ELK Stack sub-directory](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/elk-stack) as a target for trace events, just start the ELK stack using the docker-compose file and then in two separate bash shells, startup the demo as follows:
 
 ```bash
 DOCKER_NET=elknet TRACE_TARGET_URL=logstash:9700 ./run_demo faber --trace-http
