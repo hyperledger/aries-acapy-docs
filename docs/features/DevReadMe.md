@@ -1,6 +1,6 @@
 # Developer's Read Me for Hyperledger Aries Cloud Agent - Python <!-- omit in toc -->
 
-See the [README](../release/acapy-README.md) for details about this repository and information about how the Aries Cloud Agent - Python fits into the Aries project and relates to Indy.
+See the [README](../README.md) for details about this repository and information about how the Aries Cloud Agent - Python fits into the Aries project and relates to Indy.
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -230,7 +230,7 @@ There are some good examples of various test scenarios for you to work from incl
 
 The test suite also displays the current code coverage after each run so you can see how much of your work is covered by tests. Use your best judgement for how much coverage is sufficient.
 
-Please also refer to the [contributing guidelines](../contributing/CONTRIBUTING.md) and [code of conduct](../contributing/CODE_OF_CONDUCT.md).
+Please also refer to the [contributing guidelines](../CONTRIBUTING.md) and [code of conduct](../CODE_OF_CONDUCT.md).
 
 ## Publishing Releases
 
