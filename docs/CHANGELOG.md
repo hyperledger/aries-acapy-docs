@@ -837,9 +837,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc2/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc2/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc2/ContainerImagesAndGithubActions.md
 
 ### Breaking Changes and Upgrades
 
@@ -853,7 +853,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.12.0rc2/features/0023-did-exchange/README.md).
 
 #### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -1299,14 +1299,14 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.12.0rc2/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
 candidates. A new "Upgrade deployment" capability ([#1557](https://github.com/hyperledger/aries-cloudagent-python/pull/1557),
 described below) must be executed to update your deployment to add tags for all existing connections.
 
-The [Supported RFCs document](./features/SupportedRFCs.md) has been updated to reflect the addition of the
+The [Supported RFCs document](/SupportedRFCs.md) has been updated to reflect the addition of the
 AIP 2.0 RFCs for which support was added.
 
 The following is an annotated list of PRs in the release, including a link to each PR.

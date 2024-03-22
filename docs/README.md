@@ -12,9 +12,9 @@ Check it out! It's much easier to navigate than this GitHub repo for reading the
 
 ## Overview
 
-Hyperledger Aries Cloud Agent Python (ACA-Py) is a foundation for building Verifiable Credential (VC) ecosystems. It operates in the second and third layers of the [Trust Over IP framework (PDF)](https://trustoverip.org/wp-content/uploads/2020/05/toip_050520_primer.pdf) using [DIDComm messaging](https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0005-didcomm) and [Hyperledger Aries](https://www.hyperledger.org/use/aries) protocols. The "cloud" in the name means that ACA-Py runs on servers (cloud, enterprise, IoT devices, and so forth), and is not designed to run on mobile devices.
+Hyperledger Aries Cloud Agent Python (ACA-Py) is a foundation for building Verifiable Credential (VC) ecosystems. It operates in the second and third layers of the [Trust Over IP framework (PDF)](https://trustoverip.org/wp-content/uploads/2020/05/toip_050520_primer.pdf) using [DIDComm messaging](https://github.com/hyperledger/aries-rfcs/tree/0.12.0rc2/concepts/0005-didcomm) and [Hyperledger Aries](https://www.hyperledger.org/use/aries) protocols. The "cloud" in the name means that ACA-Py runs on servers (cloud, enterprise, IoT devices, and so forth), and is not designed to run on mobile devices.
 
-ACA-Py is built on the Aries concepts and features that make up [Aries Interop Profile (AIP) 2.0](https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0302-aries-interop-profile#aries-interop-profile-version-20). [ACA-Py’s supported Aries protocols](./features/SupportedRFCs.md) include, most importantly, protocols for issuing, verifying, and holding verifiable credentials using both [Hyperledger AnonCreds] verifiable credential format, and the [W3C Standard Verifiable Credential Data Model] format using JSON-LD with LD-Signatures and BBS+ Signatures. Coming soon -- issuing and presenting [Hyperledger AnonCreds] verifiable credentials using the [W3C Standard Verifiable Credential Data Model] format.
+ACA-Py is built on the Aries concepts and features that make up [Aries Interop Profile (AIP) 2.0](https://github.com/hyperledger/aries-rfcs/tree/0.12.0rc2/concepts/0302-aries-interop-profile#aries-interop-profile-version-20). [ACA-Py’s supported Aries protocols](./features/SupportedRFCs.md) include, most importantly, protocols for issuing, verifying, and holding verifiable credentials using both [Hyperledger AnonCreds] verifiable credential format, and the [W3C Standard Verifiable Credential Data Model] format using JSON-LD with LD-Signatures and BBS+ Signatures. Coming soon -- issuing and presenting [Hyperledger AnonCreds] verifiable credentials using the [W3C Standard Verifiable Credential Data Model] format.
 
 [Hyperledger AnonCreds]: https://www.hyperledger.org/use/anoncreds
 [W3C Standard Verifiable Credential Data Model]: https://www.w3.org/TR/vc-data-model/
@@ -30,7 +30,7 @@ ACA-Py supports "multi-tenant" scenarios. In these scenarios, one (scalable) ins
 
 ### Mediator Service
 
-Startup options allow the use of an ACA-Py as an Aries [mediator](https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0046-mediators-and-relays#summary) using core Aries protocols to coordinate its mediation role. Such an ACA-Py instance receives, stores and forwards messages to Aries  agents that (for example) lack an addressable endpoint on the Internet such as a mobile wallet. A live instance of a public mediator based on ACA-Py is available [here](https://indicio-tech.github.io/mediator/) from Indicio Technologies. Learn more about deploying a mediator [here](./features/Mediation.md). See the [Aries Mediator Service](https://github.com/hyperledger/aries-mediator-service) for a "best practices" configuration of an Aries mediator.
+Startup options allow the use of an ACA-Py as an Aries [mediator](https://github.com/hyperledger/aries-rfcs/tree/0.12.0rc2/concepts/0046-mediators-and-relays#summary) using core Aries protocols to coordinate its mediation role. Such an ACA-Py instance receives, stores and forwards messages to Aries  agents that (for example) lack an addressable endpoint on the Internet such as a mobile wallet. A live instance of a public mediator based on ACA-Py is available [here](https://indicio-tech.github.io/mediator/) from Indicio Technologies. Learn more about deploying a mediator [here](./features/Mediation.md). See the [Aries Mediator Service](https://github.com/hyperledger/aries-mediator-service) for a "best practices" configuration of an Aries mediator.
 
 ### Indy Transaction Endorsing
 
@@ -80,11 +80,9 @@ in the [Aries ACA-Py Plugins repository]. Check them out -- it might have the ve
 
 ### Installation and Usage
 
-Use the ["install and go" page for developers](./features/DevReadMe.md) if you are comfortable with Trust over IP and Aries concepts. ACA-Py can be run with Docker without installation (highly recommended), or can be installed [from PyPi](https://pypi.org/project/aries-cloudagent/). In the repository `/demo` folder there is a full set of demos for developers to use in getting up to speed quickly. Start with the [Traction Workshop] to go through a complete ACA-Py-based Issuer-Holder-Verifier flow in about 20 minutes. Next, the [Alice-Faber Demo](./demo/README.md) is a great way for developers try a zero-install example of how to use the ACA-Py API to operate a couple of Aries Agents. The [Read the Docs](https://aries-cloud-agent-python.readthedocs.io/en/latest/) overview is also a way to understand the internal modules and APIs that make up an ACA-Py instance.
+Use the ["install and go" page for developers](./features/DevReadMe.md) if you are comfortable with Trust over IP and Aries concepts. ACA-Py can be run with Docker without installation (highly recommended), or can be installed [from PyPi](https://pypi.org/project/aries-cloudagent/). In the [/demo directory](./demo) there is a full set of demos for developers to use in getting started, and the [demo read me](./demo/README.md) is a great starting point for developers to use an "in-browser" approach to run a zero-install example. The [Read the Docs](https://aries-cloud-agent-python.readthedocs.io/en/latest/) overview is also a way to understand the internal modules and APIs that make up an ACA-Py instance.
 
 If you would like to develop on ACA-Py locally note that we use Poetry for dependency management and packaging, if you are unfamiliar with poetry please see our [cheat sheet](./deploying/Poetry.md)
-
-[Traction Workshop]: ./demo/Aries-Workshop.md
 
 ## About the ACA-Py Admin API
 
