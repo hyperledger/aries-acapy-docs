@@ -32,6 +32,7 @@ echo Building pages for ACA-Py Version ${VERSION}
 rm -rf docs/*
 
 # The mkdocs nav used to be built here. Now managed in the mkdocs.yml in the root
+cp tmp/mkdocs.yml mkdocs.yml
 
 # Root folder -- README.md
 # For debugging the "sed" command, you can uncomment the "diff" at the end of the
@@ -39,54 +40,26 @@ rm -rf docs/*
 FOLDER=docs
 # The Introduction file is in this repo, not ACA-Py so pull it in.
 if [ "${VERSION}" == "main" ]; then
-  cp Introduction.md ${FOLDER}/README.md
+  cp Introduction.md ${FOLDER}/aca-py.org.md
 else
   # Change the link to the ReadTheDocs site to be ACA-Py version specific
   FILE=Introduction.md; sed -e "s#en/latest/#en/${VERSION}#g" \
-    ${FILE} > ${FOLDER}/README.md; # diff tmp/${FILE} ${FOLDER}/${FILE}
+    ${FILE} > ${FOLDER}/aca-py.org.md; # diff ${FILE} ${FOLDER}/aca-py.org.md
 fi
 
-# Release documents -- documents about this specific release
-# Starts with the ACA-Py readme, and includes some other files from the root ACA-Py folder
-# Fix up the links
-FOLDER=docs/release
-mkdir ${FOLDER}
-FILE=README.md; sed \
-  -e 's#docs/\(.*/.*md\)#../\1#g' \
-  -e 's#docs/\(.*/.*md\)#../\1#g' \
-  -e 's#(./\(.*\)\.md#(../contributing/\1.md#g' \
-  tmp/${FILE} > ${FOLDER}/acapy-${FILE}; # diff tmp/${FILE} ${FOLDER}/acapy-${FILE}
-cp tmp/aca-py_architecture.png ${FOLDER}
-cp tmp/CHANGELOG.md ${FOLDER}
-FILE=CHANGELOG.md; sed -e '1s/^/# Release Notes\n\n/' \
-  -e 's#\(Endorser\).md#../features/\1#g' \
-  -e 's#./\(Mediation\).md#../features/\1#g' \
-  -e 's#./\(Multitenancy\).md#../features/\1#g' \
-  -e 's#\/\(SupportedRFCs\).md#../features/\1#' \
-  -e 's#.\/\(UpgradingACA-Py\).md#../deploying/\1#' \
-  -e 's#(victorlee0505)#(https://github.com/victorlee0505)#' \
-  -e 's#^  - #    - #' \
-  tmp/${FILE} >${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
-
-# Direct copy of the all of the ACA-Py docs
+# Direct copy of the all of the ACA-Py docs folder docs
 cp -r tmp/docs/UpdateRTD.md tmp/docs/assets tmp/docs/demo tmp/docs/deploying tmp/docs/design tmp/docs/gettingStarted tmp/docs/features tmp/docs/testing docs/
 
-# Fix the links to the files not in the root
-FILE=DevReadMe.md; FOLDER=docs/features; sed \
-  -e 's#\.\./\.\./README.md#../release/acapy-README.md#g' \
-  -e 's#\.\./\.\./#../contributing/#g' \
-  tmp/${FOLDER}/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FOLDER}/${FILE} ${FOLDER}/${FILE}
-
-# Contributing docs are all in the root, so they are easily found in the ACA-Py repo, so they need to be copied.
-FOLDER=docs/contributing
-mkdir ${FOLDER}
-cp tmp/CONTRIBUTING.md ${FOLDER}
-cp tmp/MAINTAINERS.md ${FOLDER}
-cp tmp/CODE_OF_CONDUCT.md ${FOLDER}
-cp tmp/SECURITY.md ${FOLDER}
-FILE=PUBLISHING.md; sed \
-  -e 's#docs/\(.*/.*md\)#../\1#g' \
-  tmp/${FILE} > ${FOLDER}/${FILE}; # diff tmp/${FILE} ${FOLDER}/${FILE}
+# Copy all of the root level md files into the docs folder for deployment, tweaking the relative paths
+cd tmp
+for i in *.md; do sed -e "s#docs/#./#g" $i >../docs/$i; done
+for i in *.png; do cp $i ../docs/$i; done
+cp LICENSE ../docs
+cd ..
+# Fix references in DevReadMe.md to moved files
+sed -e "s#\.\./\.\./#../#g" docs/features/DevReadMe.md >tmp.md; mv tmp.md docs/features/DevReadMe.md
+# Fix image references in demo documents
+for i in docs/demo/AriesOpenAPIDemo.md docs/demo/AliceGetsAPhone.md; do sed -e "s#src=.collateral#src=\"../collateral#" $i >$i.tmp; mv $i.tmp $i; done
 
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:
