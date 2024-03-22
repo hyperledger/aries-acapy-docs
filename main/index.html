@@ -9,20 +9,22 @@
       
       
       
+        <link rel="prev" href="aca-py.org/">
       
-        <link rel="next" href="release/acapy-README/">
+      
+        <link rel="next" href="CHANGELOG/">
       
       
-      <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <link rel="icon" href="https://raw.githubusercontent.com/hyperledger/aries-cloudagent-python/main/docs/assets/aries-favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
-        <title>Welcome - Hyperledger Aries ACA-Py Docs</title>
+        <title>ACA-Py README - Hyperledger Aries ACA-Py Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome" class="md-skip">
+        <a href="#hyperledger-aries-cloud-agent-python" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome
+              ACA-Py README
             
           </span>
         </div>
@@ -214,7 +216,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="." class="md-tabs__link">
+        <a href="aca-py.org/" class="md-tabs__link">
           
   
   Welcome!
@@ -250,7 +252,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="demo/" class="md-tabs__link">
+        <a href="demo/Aries-Workshop/" class="md-tabs__link">
           
   
   Demos
@@ -322,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="contributing/CONTRIBUTING/" class="md-tabs__link">
+        <a href="CONTRIBUTING/" class="md-tabs__link">
           
   
   Contributing
@@ -430,6 +432,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="aca-py.org/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -446,7 +469,7 @@
           
   
   <span class="md-ellipsis">
-    Welcome
+    ACA-Py README
   </span>
   
 
@@ -457,7 +480,7 @@
         
   
   <span class="md-ellipsis">
-    Welcome
+    ACA-Py README
   </span>
   
 
@@ -479,9 +502,147 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code-internals-documentation" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Code Internals Documentation
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Tenant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediator-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mediator Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indy-transaction-endorsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indy Transaction Endorsing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaled-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaled Deployments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vc-api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      VC-API Endpoints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-uses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Uses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-aca-py-admin-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      About the ACA-Py Admin API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
     </span>
   </a>
   
@@ -503,28 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release/acapy-README/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ACA-Py README
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="release/CHANGELOG/" class="md-nav__link">
+      <a href="CHANGELOG/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,6 +900,27 @@
   
   
     <li class="md-nav__item">
+      <a href="features/AnonCredsMethods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publishing AnonCreds Objects To Other Ledgers/Verifiable Data Registries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="features/Multiledger/" class="md-nav__link">
         
   
@@ -975,6 +1136,27 @@
   
   
     <li class="md-nav__item">
+      <a href="demo/Aries-Workshop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperledger Aries / AnonCreds Workshop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="demo/" class="md-nav__link">
         
   
@@ -1106,6 +1288,27 @@
   
   <span class="md-ellipsis">
     Aries Using Postman Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo/ReusingAConnection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reusing a Connection Between Agents
   </span>
   
 
@@ -1961,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/CONTRIBUTING/" class="md-nav__link">
+      <a href="CONTRIBUTING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1982,7 +2185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/MAINTAINERS/" class="md-nav__link">
+      <a href="MAINTAINERS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2003,7 +2206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/CODE_OF_CONDUCT/" class="md-nav__link">
+      <a href="CODE_OF_CONDUCT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2024,7 +2227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/SECURITY/" class="md-nav__link">
+      <a href="SECURITY/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2045,7 +2248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/PUBLISHING/" class="md-nav__link">
+      <a href="PUBLISHING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2114,9 +2317,147 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#code-internals-documentation" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Code Internals Documentation
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Tenant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediator-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mediator Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indy-transaction-endorsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indy Transaction Endorsing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaled-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaled Deployments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vc-api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      VC-API Endpoints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-uses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Uses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-aca-py-admin-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      About the ACA-Py Admin API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
     </span>
   </a>
   
@@ -2140,27 +2481,84 @@
   
 
 
-<h1 id="welcome">Welcome!<a class="headerlink" href="#welcome" title="Permanent link">&para;</a></h1>
-<p><img alt="Hyperledger Aries" src="https://raw.githubusercontent.com/hyperledger/aries-acapy-docs/main/assets/Hyperledger_Aries_Logo_Color.png" /></p>
-<p>Welcome to the Aries Cloud Agent Python documentation site. On this site you
-will find documentation for recent releases of ACA-Py. You'll find a few of the
-older versions of ACA-Py (pre-<code>0.8.0</code>), all versions since <code>0.8.0</code>, and the
-<code>main</code> branch, which is the latest and greatest.</p>
-<p>All of the documentation here is extracted from the <a href="https://github.com/hyperledger/aries-cloudagent-python">Aries Cloud Agent Python repository</a>.
-If you want to contribute to the documentation, please start there.</p>
-<p>Ready to go? Scan the tabs in the page header to find the documentation you need now!</p>
-<h2 id="code-internals-documentation">Code Internals Documentation<a class="headerlink" href="#code-internals-documentation" title="Permanent link">&para;</a></h2>
-<p>In addition to this documentation site, the ACA-Py community also maintains an
-ACA-Py internals documentation site. The internals documentation consists of the
-<code>docstrings</code> extracted from the ACA-Py Python code and covers all of the
-(non-test) modules in the codebase. Check it out on the <a href="https://aries-cloud-agent-python.readthedocs.io/en/latest/">Aries Cloud
-Agent-Python ReadTheDocs site</a>.
-As with this site, the ReadTheDocs documentation is version specific.</p>
-<p>Got questions?</p>
+<h1 id="hyperledger-aries-cloud-agent-python">Hyperledger Aries Cloud Agent - Python  <!-- omit in toc --><a class="headerlink" href="#hyperledger-aries-cloud-agent-python" title="Permanent link">&para;</a></h1>
+<p><a href="https://pypi.org/project/aries-cloudagent/"><img alt="pypi releases" src="https://img.shields.io/pypi/v/aries_cloudagent" /></a>
+<a href="https://codecov.io/gh/hyperledger/aries-cloudagent-python"><img alt="codecov" src="https://codecov.io/gh/hyperledger/aries-cloudagent-python/branch/main/graph/badge.svg" /></a></p>
+<!-- ![logo](/doc/assets/aries-cloudagent-python-logo-bw.png) -->
+
+<blockquote>
+<p>An easy to use Aries agent for building SSI services using any language that supports sending/receiving HTTP requests.</p>
+</blockquote>
+<p>Full access to an organized set of all of the ACA-Py documents is available at <a href="https://aca-py.org">https://aca-py.org</a>.
+Check it out! It's much easier to navigate than this GitHub repo for reading the documentation.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Hyperledger Aries Cloud Agent Python (ACA-Py) is a foundation for building Verifiable Credential (VC) ecosystems. It operates in the second and third layers of the <a href="https://trustoverip.org/wp-content/uploads/2020/05/toip_050520_primer.pdf">Trust Over IP framework (PDF)</a> using <a href="https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0005-didcomm">DIDComm messaging</a> and <a href="https://www.hyperledger.org/use/aries">Hyperledger Aries</a> protocols. The "cloud" in the name means that ACA-Py runs on servers (cloud, enterprise, IoT devices, and so forth), and is not designed to run on mobile devices.</p>
+<p>ACA-Py is built on the Aries concepts and features that make up <a href="https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0302-aries-interop-profile#aries-interop-profile-version-20">Aries Interop Profile (AIP) 2.0</a>. <a href="features/SupportedRFCs/">ACA-Py’s supported Aries protocols</a> include, most importantly, protocols for issuing, verifying, and holding verifiable credentials using both <a href="https://www.hyperledger.org/use/anoncreds">Hyperledger AnonCreds</a> verifiable credential format, and the <a href="https://www.w3.org/TR/vc-data-model/">W3C Standard Verifiable Credential Data Model</a> format using JSON-LD with LD-Signatures and BBS+ Signatures. Coming soon -- issuing and presenting <a href="https://www.hyperledger.org/use/anoncreds">Hyperledger AnonCreds</a> verifiable credentials using the <a href="https://www.w3.org/TR/vc-data-model/">W3C Standard Verifiable Credential Data Model</a> format.</p>
+<p>To use ACA-Py you create a business logic controller that "talks to" an ACA-Py instance (sending HTTP requests and receiving webhook notifications), and ACA-Py handles the Aries and DIDComm protocols and related functionality. Your controller can be built in any language that supports making and receiving HTTP requests; knowledge of Python is not needed. Together, this means you can focus on building VC solutions using familiar web development technologies, instead of having to learn the nuts and bolts of low-level cryptography and Trust over IP-type Aries protocols.</p>
+<p>This <a href="features/SupportedRFCs/">checklist-style overview document</a> provides a full list of the features in ACA-Py.
+The following is a list of some of the core features needed for a production deployment, with a link to detailed information about the capability.</p>
+<h3 id="multi-tenant">Multi-Tenant<a class="headerlink" href="#multi-tenant" title="Permanent link">&para;</a></h3>
+<p>ACA-Py supports "multi-tenant" scenarios. In these scenarios, one (scalable) instance of ACA-Py uses one database instance, and are together capable of managing separate secure storage (for private keys, DIDs, credentials, etc.) for many different actors. This enables (for example) an "issuer-as-a-service", where an enterprise may have many VC issuers, each with different identifiers, using the same instance of ACA-Py to interact with VC holders as required. Likewise, an ACA-Py instance could be a "cloud wallet" for many holders (e.g. people or organizations) that, for whatever reason, cannot use a mobile device for a wallet. Learn more about multi-tenant deployments <a href="features/Multitenancy/">here</a>.</p>
+<h3 id="mediator-service">Mediator Service<a class="headerlink" href="#mediator-service" title="Permanent link">&para;</a></h3>
+<p>Startup options allow the use of an ACA-Py as an Aries <a href="https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0046-mediators-and-relays#summary">mediator</a> using core Aries protocols to coordinate its mediation role. Such an ACA-Py instance receives, stores and forwards messages to Aries  agents that (for example) lack an addressable endpoint on the Internet such as a mobile wallet. A live instance of a public mediator based on ACA-Py is available <a href="https://indicio-tech.github.io/mediator/">here</a> from Indicio Technologies. Learn more about deploying a mediator <a href="features/Mediation/">here</a>. See the <a href="https://github.com/hyperledger/aries-mediator-service">Aries Mediator Service</a> for a "best practices" configuration of an Aries mediator.</p>
+<h3 id="indy-transaction-endorsing">Indy Transaction Endorsing<a class="headerlink" href="#indy-transaction-endorsing" title="Permanent link">&para;</a></h3>
+<p>ACA-Py supports a Transaction Endorsement protocol, for agents that don't have write access to an Indy ledger.  Endorser support is documented <a href="features/Endorser/">here</a>.</p>
+<h3 id="scaled-deployments">Scaled Deployments<a class="headerlink" href="#scaled-deployments" title="Permanent link">&para;</a></h3>
+<p>ACA-Py supports deployments in scaled environments such as in Kubernetes environments where ACA-Py and its storage components can be horizontally scaled as needed to handle the load.</p>
+<h3 id="vc-api-endpoints">VC-API Endpoints<a class="headerlink" href="#vc-api-endpoints" title="Permanent link">&para;</a></h3>
+<p>A set of endpoints conforming to the vc-api specification are included to manage w3c credentials and presentations. They are documented <a href="features/JsonLdCredentials/#vc-api">here</a> and a postman demo is available <a href="features/JsonLdCredentials/#vc-api">here</a>.</p>
+<h2 id="example-uses">Example Uses<a class="headerlink" href="#example-uses" title="Permanent link">&para;</a></h2>
+<p>The business logic you use with ACA-Py is limited only by your imagination. Possible applications include:</p>
 <ul>
-<li>Join us on the <a href="https://chat.hyperledger.org">Hyperledger Discord Server</a>, in the <code>#aries-cloudagent-python</code> channel.</li>
-<li>Add an issue in the <a href="https://github.com/hyperledger/aries-cloudagent-python">Aries Cloud Agent Python repository</a>.</li>
+<li>An interface to a legacy system to issue verifiable credentials</li>
+<li>An authentication service based on the presentation of verifiable credential proofs</li>
+<li>An enterprise wallet to hold and present verifiable credentials about that enterprise</li>
+<li>A user interface for a person to use a wallet not stored on a mobile device</li>
+<li>An application embedded in an IoT device, capable of issuing verifiable credentials about collected data</li>
+<li>A persistent connection to other agents that enables secure messaging and notifications</li>
+<li>Custom code to implement a new service.</li>
 </ul>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>For those new to SSI, Aries and ACA-Py, there are a couple of Linux Foundation edX courses that provide a good starting point.</p>
+<ul>
+<li><a href="https://www.edx.org/course/identity-in-hyperledger-aries-indy-and-ursa">Identity in Hyperledger: Indy, Aries and Ursa</a></li>
+<li><a href="https://www.edx.org/course/becoming-a-hyperledger-aries-developer">Becoming a Hyperledger Aries Developer</a></li>
+</ul>
+<p>The latter is the most useful for developers wanting to get a solid basis in using ACA-Py and other Aries Frameworks.</p>
+<p>Also included here is a much more concise (but less maintained) <a href="gettingStarted/">Getting Started Guide</a> that will take you from knowing next to nothing about decentralized identity to developing Aries-based business apps and services. You’ll run an Indy ledger (with no ramp-up time), ACA-Py apps and developer-oriented demos. The guide has a table of contents so you can skip the parts you already know.</p>
+<h3 id="understanding-the-architecture">Understanding the Architecture<a class="headerlink" href="#understanding-the-architecture" title="Permanent link">&para;</a></h3>
+<p>There is an <a href="https://www.youtube.com/watch?v=FXTQEtB4fto&amp;feature=youtu.be">architectural deep dive webinar</a> presented by the ACA-Py team, and <a href="https://docs.google.com/presentation/d/1K7qiQkVi4n-lpJ3nUZY27OniUEM0c8HAIk4imCWCx5Q/edit#slide=id.g5d43fe05cc_0_77">slides from the webinar</a> are also available. The picture below gives a quick overview of the architecture, showing an instance of ACA-Py, a controller and the interfaces between the controller and ACA-Py, and the external paths to other agents and public ledgers on the Internet.</p>
+<p><img alt="drawing" src="aca-py_architecture.png" /></p>
+<p>You can extend ACA-Py using plug-ins, which can be loaded at runtime.  Plug-ins are mentioned in the <a href="https://docs.google.com/presentation/d/1K7qiQkVi4n-lpJ3nUZY27OniUEM0c8HAIk4imCWCx5Q/edit#slide=id.g5d43fe05cc_0_145">webinar</a> and are <a href="features/PlugIns/">described in more detail here</a>. An ever-expanding set of ACA-Py plugins can be found
+in the <a href="https://github.com/hyperledger/aries-acapy-plugins">Aries ACA-Py Plugins repository</a>. Check them out -- it might have the very plugin you need!</p>
+<h3 id="installation-and-usage">Installation and Usage<a class="headerlink" href="#installation-and-usage" title="Permanent link">&para;</a></h3>
+<p>Use the <a href="features/DevReadMe/">"install and go" page for developers</a> if you are comfortable with Trust over IP and Aries concepts. ACA-Py can be run with Docker without installation (highly recommended), or can be installed <a href="https://pypi.org/project/aries-cloudagent/">from PyPi</a>. In the repository <code>/demo</code> folder there is a full set of demos for developers to use in getting up to speed quickly. Start with the <a href="demo/Aries-Workshop/">Traction Workshop</a> to go through a complete ACA-Py-based Issuer-Holder-Verifier flow in about 20 minutes. Next, the <a href="demo/">Alice-Faber Demo</a> is a great way for developers try a zero-install example of how to use the ACA-Py API to operate a couple of Aries Agents. The <a href="https://aries-cloud-agent-python.readthedocs.io/en/latest/">Read the Docs</a> overview is also a way to understand the internal modules and APIs that make up an ACA-Py instance.</p>
+<p>If you would like to develop on ACA-Py locally note that we use Poetry for dependency management and packaging, if you are unfamiliar with poetry please see our <a href="deploying/Poetry/">cheat sheet</a></p>
+<h2 id="about-the-aca-py-admin-api">About the ACA-Py Admin API<a class="headerlink" href="#about-the-aca-py-admin-api" title="Permanent link">&para;</a></h2>
+<p>The <a href="features/AdminAPI/">overview of ACA-Py’s API</a> is a great starting place for learning about the ACA-Py API when you are starting to build your own controller.</p>
+<p>An ACA-Py instance puts together an OpenAPI-documented REST interface based on the protocols that are loaded. This is used by a controller application (written in any language) to manage the behavior of the agent. The controller can initiate actions (e.g. issuing a credential) and can respond to agent events (e.g. sending a presentation request after a connection is accepted). Agent events are delivered to the controller as webhooks to a configured URL.</p>
+<p>Technical note: the administrative API exposed by the agent for the controller to use must be protected with an API key (using the --admin-api-key command line arg) or deliberately left unsecured using the --admin-insecure-mode command line arg. The latter should not be used other than in development if the API is not otherwise secured.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>There are a number of resources for getting help with ACA-Py and troubleshooting
+any problems you might run into. The
+<a href="testing/Troubleshooting/">Troubleshooting</a> document contains some
+guidance about issues that have been experienced in the past. Feel free to
+submit PRs to supplement the troubleshooting document! Searching the <a href="https://github.com/hyperledger/aries-cloudagent-python/issues">ACA-Py
+GitHub issues</a>
+may uncovers challenges you are having that others have experienced, often
+with solutions. As well, there is the "aries-cloudagent-python"
+channel on the Hyperledger Discord chat server (<a href="https://discord.gg/hyperledger">invitation
+here</a>).</p>
+<h2 id="credit">Credit<a class="headerlink" href="#credit" title="Permanent link">&para;</a></h2>
+<p>The initial implementation of ACA-Py was developed by the Government of British Columbia’s Digital Trust Team in Canada. To learn more about what’s happening with decentralized identity and digital trust in British Columbia, checkout the <a href="https://digital.gov.bc.ca/digital-trust/">BC Digital Trust</a> website.</p>
+<p>See the <a href="MAINTAINERS/">MAINTAINERS.md</a> file for a list of the current ACA-Py
+maintainers, and the guidelines for becoming a Maintainer. We'd love to have you
+join the team if you are willing and able to carry out the <a href="MAINTAINERS/#the-duties-of-a-maintainer">duties of a
+Maintainer</a>.</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>Pull requests are welcome! Please read our <a href="CONTRIBUTING/">contributions guide</a> and submit your PRs. We enforce <a href="https://developercertificate.org/">developer certificate of origin</a> (DCO) commit signing — <a href="https://github.com/apps/dco">guidance</a> on this is available. We also welcome issues submitted about problems you encounter in using ACA-Py.</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p><a href="LICENSE">Apache License Version 2.0</a></p>
 
 
 
@@ -2195,15 +2593,31 @@ As with this site, the ReadTheDocs documentation is version specific.</p>
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="aca-py.org/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Welcome
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="release/acapy-README/" class="md-footer__link md-footer__link--next" aria-label="Next: ACA-Py README">
+          <a href="CHANGELOG/" class="md-footer__link md-footer__link--next" aria-label="Next: Release Notes">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                ACA-Py README
+                Release Notes
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2240,7 +2654,7 @@ As with this site, the ReadTheDocs documentation is version specific.</p>
     <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
   </body>

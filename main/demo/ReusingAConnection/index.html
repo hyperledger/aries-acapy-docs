@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../AriesPostmanDemo/">
       
       
-        <link rel="next" href="../CHANGELOG/">
+        <link rel="next" href="../../gettingStarted/">
       
       
-      <link rel="icon" href="https://aries.js.org/img/aries-logo.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <link rel="icon" href="https://raw.githubusercontent.com/hyperledger/aries-cloudagent-python/main/docs/assets/aries-favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
-        <title>ACA-Py README - Hyperledger Aries ACA-Py Docs</title>
+        <title>Reusing a Connection Between Agents - Hyperledger Aries ACA-Py Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hyperledger-aries-cloud-agent-python" class="md-skip">
+        <a href="#reusing-a-connection" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ACA-Py README
+              Reusing a Connection Between Agents
             
           </span>
         </div>
@@ -210,13 +210,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../.." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../aca-py.org/" class="md-tabs__link">
           
   
   Welcome!
@@ -248,11 +246,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../demo/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Aries-Workshop/" class="md-tabs__link">
           
   
   Demos
@@ -324,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../contributing/CONTRIBUTING/" class="md-tabs__link">
+        <a href="../../CONTRIBUTING/" class="md-tabs__link">
           
   
   Contributing
@@ -389,28 +389,25 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -421,7 +418,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Welcome!
@@ -435,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../aca-py.org/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -453,30 +450,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    ACA-Py README
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -485,173 +462,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multi-tenant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multi-Tenant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mediator-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mediator Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#indy-transaction-endorsing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Indy Transaction Endorsing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scaled-deployments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scaled Deployments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vc-api-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      VC-API Endpoints
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-uses" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Uses
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting Started
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting Started">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#understanding-the-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding the Architecture
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-and-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation and Usage
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-the-aca-py-admin-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      About the ACA-Py Admin API
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#credit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credit
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -664,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CHANGELOG/" class="md-nav__link">
+      <a href="../../CHANGELOG/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -900,6 +710,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/AnonCredsMethods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publishing AnonCreds Objects To Other Ledgers/Verifiable Data Registries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/Multiledger/" class="md-nav__link">
         
   
@@ -1072,25 +903,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1101,7 +935,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Demos
@@ -1115,7 +949,28 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/" class="md-nav__link">
+      <a href="../Aries-Workshop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperledger Aries / AnonCreds Workshop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1136,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/AriesOpenAPIDemo/" class="md-nav__link">
+      <a href="../AriesOpenAPIDemo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/AliceGetsAPhone/" class="md-nav__link">
+      <a href="../AliceGetsAPhone/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1178,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/Endorser/" class="md-nav__link">
+      <a href="../Endorser/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1199,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/AliceWantsAJsonCredential/" class="md-nav__link">
+      <a href="../AliceWantsAJsonCredential/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1220,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/AcmeDemoWorkshop/" class="md-nav__link">
+      <a href="../AcmeDemoWorkshop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1241,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../demo/AriesPostmanDemo/" class="md-nav__link">
+      <a href="../AriesPostmanDemo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1250,6 +1105,37 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Reusing a Connection Between Agents
+  </span>
+  
+
+      </a>
+      
     </li>
   
 
@@ -2101,7 +1987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/CONTRIBUTING/" class="md-nav__link">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2122,7 +2008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/MAINTAINERS/" class="md-nav__link">
+      <a href="../../MAINTAINERS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2143,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/CODE_OF_CONDUCT/" class="md-nav__link">
+      <a href="../../CODE_OF_CONDUCT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2164,7 +2050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/SECURITY/" class="md-nav__link">
+      <a href="../../SECURITY/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2185,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/PUBLISHING/" class="md-nav__link">
+      <a href="../../PUBLISHING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2247,161 +2133,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multi-tenant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multi-Tenant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mediator-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mediator Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#indy-transaction-endorsing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Indy Transaction Endorsing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scaled-deployments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scaled Deployments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vc-api-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      VC-API Endpoints
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-uses" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Uses
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting Started
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting Started">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#understanding-the-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding the Architecture
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation-and-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation and Usage
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-the-aca-py-admin-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      About the ACA-Py Admin API
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#credit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credit
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2418,84 +2149,124 @@
   
 
 
-<h1 id="hyperledger-aries-cloud-agent-python">Hyperledger Aries Cloud Agent - Python  <!-- omit in toc --><a class="headerlink" href="#hyperledger-aries-cloud-agent-python" title="Permanent link">&para;</a></h1>
-<p><a href="https://pypi.org/project/aries-cloudagent/"><img alt="pypi releases" src="https://img.shields.io/pypi/v/aries_cloudagent" /></a>
-<a href="https://codecov.io/gh/hyperledger/aries-cloudagent-python"><img alt="codecov" src="https://codecov.io/gh/hyperledger/aries-cloudagent-python/branch/main/graph/badge.svg" /></a></p>
-<!-- ![logo](/doc/assets/aries-cloudagent-python-logo-bw.png) -->
-
-<blockquote>
-<p>An easy to use Aries agent for building SSI services using any language that supports sending/receiving HTTP requests.</p>
-</blockquote>
-<p>Full access to an organized set of all of the ACA-Py documents is available at <a href="https://aca-py.org">https://aca-py.org</a>.
-Check it out! It's much easier to navigate than this GitHub repo for reading the documentation.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Hyperledger Aries Cloud Agent Python (ACA-Py) is a foundation for building Verifiable Credential (VC) ecosystems. It operates in the second and third layers of the <a href="https://trustoverip.org/wp-content/uploads/2020/05/toip_050520_primer.pdf">Trust Over IP framework (PDF)</a> using <a href="https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0005-didcomm">DIDComm messaging</a> and <a href="https://www.hyperledger.org/use/aries">Hyperledger Aries</a> protocols. The "cloud" in the name means that ACA-Py runs on servers (cloud, enterprise, IoT devices, and so forth), and is not designed to run on mobile devices.</p>
-<p>ACA-Py is built on the Aries concepts and features that make up <a href="https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0302-aries-interop-profile#aries-interop-profile-version-20">Aries Interop Profile (AIP) 2.0</a>. <a href="../../features/SupportedRFCs/">ACA-Py’s supported Aries protocols</a> include, most importantly, protocols for issuing, verifying, and holding verifiable credentials using both <a href="https://www.hyperledger.org/use/anoncreds">Hyperledger AnonCreds</a> verifiable credential format, and the <a href="https://www.w3.org/TR/vc-data-model/">W3C Standard Verifiable Credential Data Model</a> format using JSON-LD with LD-Signatures and BBS+ Signatures. Coming soon -- issuing and presenting <a href="https://www.hyperledger.org/use/anoncreds">Hyperledger AnonCreds</a> verifiable credentials using the <a href="https://www.w3.org/TR/vc-data-model/">W3C Standard Verifiable Credential Data Model</a> format.</p>
-<p>To use ACA-Py you create a business logic controller that "talks to" an ACA-Py instance (sending HTTP requests and receiving webhook notifications), and ACA-Py handles the Aries and DIDComm protocols and related functionality. Your controller can be built in any language that supports making and receiving HTTP requests; knowledge of Python is not needed. Together, this means you can focus on building VC solutions using familiar web development technologies, instead of having to learn the nuts and bolts of low-level cryptography and Trust over IP-type Aries protocols.</p>
-<p>This <a href="../../features/SupportedRFCs/">checklist-style overview document</a> provides a full list of the features in ACA-Py.
-The following is a list of some of the core features needed for a production deployment, with a link to detailed information about the capability.</p>
-<h3 id="multi-tenant">Multi-Tenant<a class="headerlink" href="#multi-tenant" title="Permanent link">&para;</a></h3>
-<p>ACA-Py supports "multi-tenant" scenarios. In these scenarios, one (scalable) instance of ACA-Py uses one database instance, and are together capable of managing separate secure storage (for private keys, DIDs, credentials, etc.) for many different actors. This enables (for example) an "issuer-as-a-service", where an enterprise may have many VC issuers, each with different identifiers, using the same instance of ACA-Py to interact with VC holders as required. Likewise, an ACA-Py instance could be a "cloud wallet" for many holders (e.g. people or organizations) that, for whatever reason, cannot use a mobile device for a wallet. Learn more about multi-tenant deployments <a href="../../features/Multitenancy/">here</a>.</p>
-<h3 id="mediator-service">Mediator Service<a class="headerlink" href="#mediator-service" title="Permanent link">&para;</a></h3>
-<p>Startup options allow the use of an ACA-Py as an Aries <a href="https://github.com/hyperledger/aries-rfcs/tree/main/concepts/0046-mediators-and-relays#summary">mediator</a> using core Aries protocols to coordinate its mediation role. Such an ACA-Py instance receives, stores and forwards messages to Aries  agents that (for example) lack an addressable endpoint on the Internet such as a mobile wallet. A live instance of a public mediator based on ACA-Py is available <a href="https://indicio-tech.github.io/mediator/">here</a> from Indicio Technologies. Learn more about deploying a mediator <a href="../../features/Mediation/">here</a>. See the <a href="https://github.com/hyperledger/aries-mediator-service">Aries Mediator Service</a> for a "best practices" configuration of an Aries mediator.</p>
-<h3 id="indy-transaction-endorsing">Indy Transaction Endorsing<a class="headerlink" href="#indy-transaction-endorsing" title="Permanent link">&para;</a></h3>
-<p>ACA-Py supports a Transaction Endorsement protocol, for agents that don't have write access to an Indy ledger.  Endorser support is documented <a href="../../features/Endorser/">here</a>.</p>
-<h3 id="scaled-deployments">Scaled Deployments<a class="headerlink" href="#scaled-deployments" title="Permanent link">&para;</a></h3>
-<p>ACA-Py supports deployments in scaled environments such as in Kubernetes environments where ACA-Py and its storage components can be horizontally scaled as needed to handle the load.</p>
-<h3 id="vc-api-endpoints">VC-API Endpoints<a class="headerlink" href="#vc-api-endpoints" title="Permanent link">&para;</a></h3>
-<p>A set of endpoints conforming to the vc-api specification are included to manage w3c credentials and presentations. They are documented <a href="../../features/JsonLdCredentials/#vc-api">here</a> and a postman demo is available <a href="../../features/JsonLdCredentials/#vc-api">here</a>.</p>
-<h2 id="example-uses">Example Uses<a class="headerlink" href="#example-uses" title="Permanent link">&para;</a></h2>
-<p>The business logic you use with ACA-Py is limited only by your imagination. Possible applications include:</p>
+<h1 id="reusing-a-connection">Reusing a Connection<a class="headerlink" href="#reusing-a-connection" title="Permanent link">&para;</a></h1>
+<p>The Aries <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband">RFC 0434 Out of Band</a> protocol enables the concept of reusing a
+connection such that when using <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0023-did-exchange">RFC 0023 DID Exchange</a> to establish a
+connection with an agent with which you already have a connection, you can reuse
+the existing connection instead of creating a new one. This is something you
+couldn't do a with the older <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0160-connection-protocol">RFC 0160 Connection Protocol</a> that we used in the
+early days of Aries. It was a pain, and made for a lousy user experience, as on
+every visit to an existing contact, the invitee got a new connection.</p>
+<p>The requirements on your invitations (such as in the example below) are:</p>
 <ul>
-<li>An interface to a legacy system to issue verifiable credentials</li>
-<li>An authentication service based on the presentation of verifiable credential proofs</li>
-<li>An enterprise wallet to hold and present verifiable credentials about that enterprise</li>
-<li>A user interface for a person to use a wallet not stored on a mobile device</li>
-<li>An application embedded in an IoT device, capable of issuing verifiable credentials about collected data</li>
-<li>A persistent connection to other agents that enables secure messaging and notifications</li>
-<li>Custom code to implement a new service.</li>
+<li>The invitation <code>services</code> item <strong>MUST</strong> be a resolvable DID.</li>
+<li>Or alternatively, the invitation <code>services</code> item <strong>MUST NOT</strong> be an <code>inline</code> service.</li>
+<li>The DID in the invitation <code>services</code> item is the same one in every invitation.</li>
 </ul>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>For those new to SSI, Aries and ACA-Py, there are a couple of Linux Foundation edX courses that provide a good starting point.</p>
+<p>Example invitation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    &quot;@type&quot;: &quot;https://didcomm.org/out-of-band/1.1/invitation&quot;,
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    &quot;@id&quot;: &quot;77489d63-caff-41fe-a4c1-ec7e2ff00695&quot;,
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    &quot;label&quot;: &quot;faber.agent&quot;,
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    &quot;handshake_protocols&quot;: [
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        &quot;https://didcomm.org/didexchange/1.0&quot;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ],
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    &quot;services&quot;: [
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        &quot;did:sov:4JiUsoK85pVkkB1bAPzFaP&quot;
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    ]
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>}
+</code></pre></div>
+<p>Here's the flow that demonstrates where reuse helps. For simplicity, we'll use the terms "Issuer"
+and "Wallet" in this example, but it applies to any connection between any two
+agents (the inviter and the invitee) that establish connections with one another.</p>
 <ul>
-<li><a href="https://www.edx.org/course/identity-in-hyperledger-aries-indy-and-ursa">Identity in Hyperledger: Indy, Aries and Ursa</a></li>
-<li><a href="https://www.edx.org/course/becoming-a-hyperledger-aries-developer">Becoming a Hyperledger Aries Developer</a></li>
+<li>The Wallet user is using a browser on the Issuers website and gets to the
+  point where they are going to be offered a credential. As part of that flow,
+  they are presented with a QR code that they scan with their wallet app.</li>
+<li>The QR contains an <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband#invitation-httpsdidcommorgout-of-bandverinvitation">RFC 0434 Out of Band invitation</a> to connect that the
+  Wallet processes as the <em>invitee</em>.</li>
+<li>The Wallet uses the information in the invitation to send an <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0023-did-exchange#1-exchange-request">RFC 0023 DID Exchange request</a>
+  DIDComm message back to the Issuer to initiate establishing a connection.</li>
+<li>The Issuer responds back to the <code>request</code> with a <code>response</code> message, and the
+  connection is established.</li>
+<li>Later, the Wallet user returns to the Issuer's website, and does something
+  (perhaps starts the process to get another credential) that results in the
+  same QR code being displayed, and again the users scans the QR code with their
+  Wallet app.</li>
+<li>The Wallet recognizes (based on the DID in the <code>services</code> item in the
+  invitation -- see example below) that it already has a connection to the
+  Issuer, so instead of sending a DID Exchange <code>request</code> message back to the
+  Issuer, they send an <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband#reuse-messages">RFC 0434 Out of Band reuse</a> DIDComm message, and both
+  parties know to use the existing connection.</li>
+<li>Had the Wallet used the DID Exchange <code>request</code> message, a new connection
+    would have been established.</li>
 </ul>
-<p>The latter is the most useful for developers wanting to get a solid basis in using ACA-Py and other Aries Frameworks.</p>
-<p>Also included here is a much more concise (but less maintained) <a href="../../gettingStarted/">Getting Started Guide</a> that will take you from knowing next to nothing about decentralized identity to developing Aries-based business apps and services. You’ll run an Indy ledger (with no ramp-up time), ACA-Py apps and developer-oriented demos. The guide has a table of contents so you can skip the parts you already know.</p>
-<h3 id="understanding-the-architecture">Understanding the Architecture<a class="headerlink" href="#understanding-the-architecture" title="Permanent link">&para;</a></h3>
-<p>There is an <a href="https://www.youtube.com/watch?v=FXTQEtB4fto&amp;feature=youtu.be">architectural deep dive webinar</a> presented by the ACA-Py team, and <a href="https://docs.google.com/presentation/d/1K7qiQkVi4n-lpJ3nUZY27OniUEM0c8HAIk4imCWCx5Q/edit#slide=id.g5d43fe05cc_0_77">slides from the webinar</a> are also available. The picture below gives a quick overview of the architecture, showing an instance of ACA-Py, a controller and the interfaces between the controller and ACA-Py, and the external paths to other agents and public ledgers on the Internet.</p>
-<p><img alt="drawing" src="../aca-py_architecture.png" /></p>
-<p>You can extend ACA-Py using plug-ins, which can be loaded at runtime.  Plug-ins are mentioned in the <a href="https://docs.google.com/presentation/d/1K7qiQkVi4n-lpJ3nUZY27OniUEM0c8HAIk4imCWCx5Q/edit#slide=id.g5d43fe05cc_0_145">webinar</a> and are <a href="../../features/PlugIns/">described in more detail here</a>. An ever-expanding set of ACA-Py plugins can be found
-in the <a href="https://github.com/hyperledger/aries-acapy-plugins">Aries ACA-Py Plugins repository</a>. Check them out -- it might have the very plugin you need!</p>
-<h3 id="installation-and-usage">Installation and Usage<a class="headerlink" href="#installation-and-usage" title="Permanent link">&para;</a></h3>
-<p>Use the <a href="../../features/DevReadMe/">"install and go" page for developers</a> if you are comfortable with Trust over IP and Aries concepts. ACA-Py can be run with Docker without installation (highly recommended), or can be installed <a href="https://pypi.org/project/aries-cloudagent/">from PyPi</a>. In the <a href="../contributing/demo">/demo directory</a> there is a full set of demos for developers to use in getting started, and the <a href="../../demo/">demo read me</a> is a great starting point for developers to use an "in-browser" approach to run a zero-install example. The <a href="https://aries-cloud-agent-python.readthedocs.io/en/latest/">Read the Docs</a> overview is also a way to understand the internal modules and APIs that make up an ACA-Py instance.</p>
-<p>If you would like to develop on ACA-Py locally note that we use Poetry for dependency management and packaging, if you are unfamiliar with poetry please see our <a href="../../deploying/Poetry/">cheat sheet</a></p>
-<h2 id="about-the-aca-py-admin-api">About the ACA-Py Admin API<a class="headerlink" href="#about-the-aca-py-admin-api" title="Permanent link">&para;</a></h2>
-<p>The <a href="../../features/AdminAPI/">overview of ACA-Py’s API</a> is a great starting place for learning about the ACA-Py API when you are starting to build your own controller.</p>
-<p>An ACA-Py instance puts together an OpenAPI-documented REST interface based on the protocols that are loaded. This is used by a controller application (written in any language) to manage the behavior of the agent. The controller can initiate actions (e.g. issuing a credential) and can respond to agent events (e.g. sending a presentation request after a connection is accepted). Agent events are delivered to the controller as webhooks to a configured URL.</p>
-<p>Technical note: the administrative API exposed by the agent for the controller to use must be protected with an API key (using the --admin-api-key command line arg) or deliberately left unsecured using the --admin-insecure-mode command line arg. The latter should not be used other than in development if the API is not otherwise secured.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<p>There are a number of resources for getting help with ACA-Py and troubleshooting
-any problems you might run into. The
-<a href="../../testing/Troubleshooting/">Troubleshooting</a> document contains some
-guidance about issues that have been experienced in the past. Feel free to
-submit PRs to supplement the troubleshooting document! Searching the <a href="https://github.com/hyperledger/aries-cloudagent-python/issues">ACA-Py
-GitHub issues</a>
-may uncovers challenges you are having that others have experienced, often
-with solutions. As well, there is the "aries-cloudagent-python"
-channel on the Hyperledger Discord chat server (<a href="https://discord.gg/hyperledger">invitation
-here</a>).</p>
-<h2 id="credit">Credit<a class="headerlink" href="#credit" title="Permanent link">&para;</a></h2>
-<p>The initial implementation of ACA-Py was developed by the Government of British Columbia’s Digital Trust Team in Canada. To learn more about what’s happening with decentralized identity and digital trust in British Columbia, checkout the <a href="https://digital.gov.bc.ca/digital-trust/">BC Digital Trust</a> website.</p>
-<p>See the <a href="../../contributing/MAINTAINERS/">MAINTAINERS.md</a> file for a list of the current ACA-Py
-maintainers, and the guidelines for becoming a Maintainer. We'd love to have you
-join the team if you are willing and able to carry out the <a href="../../contributing/MAINTAINERS/#the-duties-of-a-maintainer">duties of a
-Maintainer</a>.</p>
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>Pull requests are welcome! Please read our <a href="../../contributing/CONTRIBUTING/">contributions guide</a> and submit your PRs. We enforce <a href="https://developercertificate.org/">developer certificate of origin</a> (DCO) commit signing — <a href="https://github.com/apps/dco">guidance</a> on this is available. We also welcome issues submitted about problems you encounter in using ACA-Py.</p>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p><a href="LICENSE">Apache License Version 2.0</a></p>
+<p>The <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband">RFC 0434 Out of Band</a> protocol requirement enables <code>reuse</code> message by the
+invitee (the Wallet in the flow above) is that the <code>service</code> in the invitation
+<strong>MUST</strong> be a resolvable DID that is the same in all of the invitations. In the
+example invitation above, the DID is a <code>did:sov</code> DID that is resolvable on a public
+Hyperledger Indy network. The DID could also be a <a href="https://identity.foundation/peer-did-method-spec/">Peer DID</a> of types 2 or 4,
+which encode the entire DIDDoc contents into the DID identifier (thus they are
+"resolvable DIDs"). What cannot be used is either the old "unqualified" DIDs
+that were commonly used in Aries prior to 2024, and <a href="https://identity.foundation/peer-did-method-spec/">Peer DID</a> type 1. Both of
+those have DID types include both an identifier and a DIDDoc in the <code>services</code>
+item of the Out of Band invitation. As noted in the Out of Band specification,
+<code>reuse</code> cannot be used with such DID types even if the contents are the same.</p>
+<p>Example invitation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    &quot;@type&quot;: &quot;https://didcomm.org/out-of-band/1.1/invitation&quot;,
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    &quot;@id&quot;: &quot;77489d63-caff-41fe-a4c1-ec7e2ff00695&quot;,
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    &quot;label&quot;: &quot;faber.agent&quot;,
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    &quot;handshake_protocols&quot;: [
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        &quot;https://didcomm.org/didexchange/1.0&quot;
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    ],
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    &quot;services&quot;: [
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        &quot;did:sov:4JiUsoK85pVkkB1bAPzFaP&quot;
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    ]
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>}
+</code></pre></div>
+<p>The use of connection reuse can be demonstrated with the Alice / Faber demos as
+follows. We assume you have already somewhat familiar with your options for
+running the <a href="../">Alice Faber Demo</a> (e.g. locally or in a browser). Follow those
+instruction up to the point where you are about to start the Faber and Alice agents.</p>
+<ol>
+<li>On a command line, run Faber with these parameters: <code>./run_demo faber
+   --reuse-connections --public-did-connections --events</code>.</li>
+<li>On a second command line, run Alice as normal, perhaps with the <code>events</code>
+   option: <code>./run_demo alice --reuse-connections --events</code></li>
+<li>Copy the invitation from the Faber terminal and paste it into the Alice
+   terminal at the prompt.</li>
+<li>Verify that the connection was established.</li>
+<li>If you want, go to the Alice OpenAPI screen (port <code>8031</code>, path
+      <code>api/docs</code>), and then use the <code>GET Connections</code> to see that Alice has one
+      connection to Faber.</li>
+<li>In the Faber terminal, type <code>4</code> to get a prompt for a new connection. This
+   will generate a new invitation with the same public DID.</li>
+<li>In the Alice terminal, type <code>4</code> to get a prompt for a new connection, and
+   paste the new invitation.</li>
+<li>Note from the webhook events in the Faber terminal that the <code>reuse</code> message
+   is received from Alice, and as a result, no new connection was created.</li>
+<li>Execute again the <code>GET Connections</code> endpoint on the Alice OpenAPI screen
+      to confirm that there is still just one established connection.</li>
+<li>Try running the demo again <strong>without</strong> the <code>--reuse-connections</code> parameter and
+   compare the <code>services</code> value in the new invitation vs. what was generated in
+   Steps 3 and 7. It is not a DID, but rather a one time use, inline DIDDoc
+   item.</li>
+</ol>
+<p>While in the demo Faber uses in the invitation the same DID they publish as an
+issuer (and uses in creating the schema and Cred Def for the demo), Faber could
+use any <em>resolvable</em> (not inline) DID, including DID Peer types 2 or 4 DIDs, as
+long as the DID is the same in every invitation. It is the fact that the DID is
+always the same that tells the invitee that they can reuse an existing connection.</p>
+<p>For example, to run faber with connection reuse using a non-public DID:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--events
+</code></pre></div>
+<p>To run faber using a <code>did_peer</code> and reusable connections:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">DEMO_EXTRA_AGENT_ARGS</span><span class="o">=</span><span class="s2">&quot;[\&quot;--emit-did-peer-2\&quot;]&quot;</span><span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--events
+</code></pre></div>
+<p>To run this demo using a multi-use invitation (from Faber):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">DEMO_EXTRA_AGENT_ARGS</span><span class="o">=</span><span class="s2">&quot;[\&quot;--emit-did-peer-2\&quot;]&quot;</span><span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--multi-use-invitations<span class="w"> </span>--events
+</code></pre></div>
 
 
 
@@ -2531,7 +2302,7 @@ Maintainer</a>.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome">
+          <a href="../AriesPostmanDemo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Aries Using Postman Demo">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2541,20 +2312,20 @@ Maintainer</a>.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Welcome
+                Aries Using Postman Demo
               </div>
             </div>
           </a>
         
         
           
-          <a href="../CHANGELOG/" class="md-footer__link md-footer__link--next" aria-label="Next: Release Notes">
+          <a href="../../gettingStarted/" class="md-footer__link md-footer__link--next" aria-label="Next: Becoming an Indy/Aries Developer">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Release Notes
+                Becoming an Indy/Aries Developer
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2591,7 +2362,7 @@ Maintainer</a>.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
   </body>
