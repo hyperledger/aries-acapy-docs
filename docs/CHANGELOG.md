@@ -8,7 +8,7 @@ Release 0.12.0 is a relatively large release with many new capabilities, feature
 
 Much progress has been made on `did:peer` support in this release, with the handling of inbound [DID Peer] 1 added, and inbound and outbound support for DID Peer 2 and 4. Much attention was also paid to making sure that the Peer DID and DID Exchange capabilities match those of [Credo-TS] (formerly Aries Framework JavaScript). The completion of that work eliminates the remaining places where "unqualified" DIDs are being used, and to enable the "connection reuse" in the Out of Band protocol when using DID Peer 2 and 4 DIDs. See the document [Qualified DIDs] for details about how to control the use of DID Peer 2 or 4 in an ACA-Py deployment, and how to eliminate the use of unqualified DIDs. Support for DID Exchange v1.1 has been added to ACA-Py, with support for DID Exchange v1.0 retained, and we've added support for DID Rotation.
 
-[Qualified DIDs]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/./features/QualifiedDIDs.md
+[Qualified DIDs]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/./features/QualifiedDIDs.md
 [Credo-TS]:  https://github.com/openwallet-foundation/credo-ts
 
 Work continues towards supporting ledger agnostic [AnonCreds], and the new [Hyperledger AnonCreds Rust] library. Some of that work is in this release, the rest will be in the next release.
@@ -876,9 +876,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/ContainerImagesAndGithubActions.md
 
 ### Breaking Changes and Upgrades
 
@@ -892,7 +892,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.12.0rc3/features/0023-did-exchange/README.md).
 
 #### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -1338,7 +1338,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/main/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.12.0rc3/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse

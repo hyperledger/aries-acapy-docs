@@ -129,6 +129,6 @@ storage](#no-version-in-secure-storage)" handling, it is unlikely this
 capability will ever be needed. We expect to deprecate and remove these
 options in future (post-0.8.1) ACA-Py versions.
 
-[CHANGELOG.md]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/CHANGELOG.md
-[version.py]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/version.py
-[Upgrade Definition YML file]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/commands/default_version_upgrade_config.yml
+[CHANGELOG.md]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/CHANGELOG.md
+[version.py]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/aries_cloudagent/version.py
+[Upgrade Definition YML file]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0rc3/aries_cloudagent/commands/default_version_upgrade_config.yml
