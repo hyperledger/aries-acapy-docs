@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://raw.githubusercontent.com/hyperledger/aries-cloudagent-python/main/docs/assets/aries-favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -652,6 +652,27 @@
   
   <span class="md-ellipsis">
     Multitenant ACA-Py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/QualifiedDIDs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qualified DIDs
   </span>
   
 
@@ -2261,11 +2282,11 @@ always the same that tells the invitee that they can reuse an existing connectio
 <p>For example, to run faber with connection reuse using a non-public DID:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--events
 </code></pre></div>
-<p>To run faber using a <code>did_peer</code> and reusable connections:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">DEMO_EXTRA_AGENT_ARGS</span><span class="o">=</span><span class="s2">&quot;[\&quot;--emit-did-peer-2\&quot;]&quot;</span><span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--events
+<p>To run faber using a <code>did:peer</code> and reusable connections:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--emit-did-peer-2<span class="w"> </span>--events
 </code></pre></div>
 <p>To run this demo using a multi-use invitation (from Faber):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">DEMO_EXTRA_AGENT_ARGS</span><span class="o">=</span><span class="s2">&quot;[\&quot;--emit-did-peer-2\&quot;]&quot;</span><span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--multi-use-invitations<span class="w"> </span>--events
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./run_demo<span class="w"> </span>faber<span class="w"> </span>--reuse-connections<span class="w"> </span>--emit-did-peer-2<span class="w"> </span>--multi-use-invitations<span class="w"> </span>--events
 </code></pre></div>
 
 
@@ -2362,7 +2383,7 @@ always the same that tells the invitee that they can reuse an existing connectio
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   </body>
