@@ -40,8 +40,8 @@ will be the identifier constructs that will trigger the appropriate AnonCreds Re
 Resolver that will be called for any given AnonCreds object identifier. Check out this
 [example of the registration] of the ["legacy" Indy] AnonCreds method for more details.
 
-[initialization routine]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/__init__.py
-[example of the registration]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/default/legacy_indy/registry.py
+[initialization routine]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/__init__.py
+[example of the registration]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/default/legacy_indy/registry.py
 
 ## The Implementation
 
@@ -53,17 +53,17 @@ that for your new AnonCreds method, you will need to:
 - Implement `BaseAnonCredsRegistrar` - [here](https://github.com/hyperledger/aries-cloudagent-python/blob/1786553ffea244c67d82ceaa3f1793dd1ec1c0f5/aries_cloudagent/anoncreds/base.py#L139)
 
 The links above are to a specific commit and the code may have been updated since. You might want to
-look at the methods in the current version of [aries_cloudagent/anoncreds/base.py](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/base.py) in the `main` branch.
+look at the methods in the current version of [aries_cloudagent/anoncreds/base.py](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/base.py) in the `main` branch.
 
 The interface for those methods are very clean, and there are currently two implementations of the 
 methods in the ACA-Py codebase -- the ["legacy" Indy] implementation, and the [did:indy] Indy implementation.
 There is also a [did:web] resolver implementation.
 
-["legacy" Indy]: https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/anoncreds/default/legacy_indy
-[did:indy]: https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/anoncreds/default/did_indy
-[did:web]: https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/anoncreds/default/did_web
+["legacy" Indy]: https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/legacy_indy
+[did:indy]: https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/did_indy
+[did:web]: https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/did_web
 
-Models for the API are defined [here](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/anoncreds/models)
+Models for the API are defined [here](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/models)
 
 ## Events
 
@@ -78,8 +78,8 @@ credentials. Your AnonCreds method implementation doesn't have to do much to mak
 does it automatically -- but your implementation must call the `finish_*` to make trigger ACA-Py to continue
 the automation. You can see in [Revocation Setup] the automation setup.
 
-[AnonCreds Issuer]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/issuer.py#L56
-[Revocation Setup]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/revocation_setup.py
+[AnonCreds Issuer]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/issuer.py#L56
+[Revocation Setup]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/revocation_setup.py
 
 ## Questions or Comments
 

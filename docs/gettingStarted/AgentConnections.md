@@ -6,4 +6,4 @@ will be gone in a few weeks!) Aries Cloud Agent Python-based issuer/verifier
 agent. Connect to the wallet on your mobile phone, issue a credential and then
 present it back. Lots to learn, without ever leaving your browser!
 
-[Traction AnonCreds Workshop]: https://github.com/bcgov/traction/blob/main/docs/traction-anoncreds-workshop.md
+[Traction AnonCreds Workshop]: https://github.com/bcgov/traction/blob/0.12.0/docs/traction-anoncreds-workshop.md
