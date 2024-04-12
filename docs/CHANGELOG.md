@@ -2,7 +2,7 @@
 
 ## 0.12.0
 
-### April 11, 2024
+### April 11, 2024 
 
 Release 0.12.0 is a large release with many new capabilities, feature improvements, upgrades, and bug fixes. Importantly, this release completes the ACA-Py implementation of [Aries Interop Profile v2.0], and enables the elimination of unqualified DIDs. While only deprecated for now, all deployments of ACA-Py **SHOULD** move to using only fully qualified DIDs as soon as possible.
 
