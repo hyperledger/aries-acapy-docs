@@ -83,6 +83,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You are viewing the documentation for ACA-Py Release, 0.12.0.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -2343,7 +2352,7 @@ The log config can be set by <code>ACAPY_LOG_CONFIG</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">ACAPY_LOG_LEVEL</span><span class="o">=</span>info<span class="w"> </span><span class="nv">ACAPY_LOG_FILE</span><span class="o">=</span>./acapy.log<span class="w"> </span><span class="nv">ACAPY_LOG_CONFIG</span><span class="o">=</span>./acapy_log.ini<span class="w"> </span>./bin/aca-py<span class="w"> </span>start
 </code></pre></div>
 <h2 id="acapy-config-file">Acapy Config File<a class="headerlink" href="#acapy-config-file" title="Permanent link">&para;</a></h2>
-<p>Following parameters can be used in a configuration file like <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/demo-args.yaml">this</a>.</p>
+<p>Following parameters can be used in a configuration file like <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/demo-args.yaml">this</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">log-level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WARNING</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">debug-connections</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">debug-presentations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
@@ -2353,9 +2362,9 @@ Both parameters are independent of the log level, which means:
 Also if log-level is set to WARNING, connections and presentations will be logged like in debug log level.</p>
 <h2 id="log-config-file">Log config file<a class="headerlink" href="#log-config-file" title="Permanent link">&para;</a></h2>
 <p>The path to config file is provided via <code>--log-config</code>.</p>
-<p>Find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/config/default_logging_config.ini">default_logging_config.ini</a>.</p>
+<p>Find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/config/default_logging_config.ini">default_logging_config.ini</a>.</p>
 <p>You can find more detail description in the <a href="https://docs.python.org/3/howto/logging.html#configuring-logging">logging documentation</a>.</p>
-<p>For per tenant logging, find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/config/default_per_tenant_logging_config.ini">default_per_tenant_logging_config.ini</a>, which sets up  <code>TimedRotatingFileMultiProcessHandler</code> and <code>StreamHandler</code> handlers. Custom <code>TimedRotatingFileMultiProcessHandler</code> handler supports the ability to cleanup logs by time and maintain backup logs and a custom JSON formatter for logs. The arguments for it such as <code>file name</code>, <code>when</code>, <code>interval</code> and <code>backupCount</code> can be passed as <code>args=('acapy.log', 'd', 7, 1,)</code> (also shown below). Note: <code>backupCount</code> of 0 will mean all backup log files will be retained and not deleted at all. More details about these attributes can be found <a href="https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler">here</a></p>
+<p>For per tenant logging, find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/config/default_per_tenant_logging_config.ini">default_per_tenant_logging_config.ini</a>, which sets up  <code>TimedRotatingFileMultiProcessHandler</code> and <code>StreamHandler</code> handlers. Custom <code>TimedRotatingFileMultiProcessHandler</code> handler supports the ability to cleanup logs by time and maintain backup logs and a custom JSON formatter for logs. The arguments for it such as <code>file name</code>, <code>when</code>, <code>interval</code> and <code>backupCount</code> can be passed as <code>args=('acapy.log', 'd', 7, 1,)</code> (also shown below). Note: <code>backupCount</code> of 0 will mean all backup log files will be retained and not deleted at all. More details about these attributes can be found <a href="https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler">here</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[loggers]</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">keys</span><span class="o">=</span><span class="s">root</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -2384,7 +2393,7 @@ Also if log-level is set to WARNING, connections and presentations will be logge
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">[formatter_formatter]</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="na">format</span><span class="o">=</span><span class="s">%(asctime)s %(wallet_id)s %(levelname)s %(pathname)s:%(lineno)d %(message)s</span>
 </code></pre></div>
-<p>For <code>DictConfig</code> (<code>dict</code> logging config file), find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/config/default_per_tenant_logging_config.yml">default_per_tenant_logging_config.yml</a> with same attributes as <code>default_per_tenant_logging_config.ini</code> file.</p>
+<p>For <code>DictConfig</code> (<code>dict</code> logging config file), find an example in <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/config/default_per_tenant_logging_config.yml">default_per_tenant_logging_config.yml</a> with same attributes as <code>default_per_tenant_logging_config.ini</code> file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">formatters</span><span class="p">:</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span>

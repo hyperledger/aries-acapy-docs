@@ -83,6 +83,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You are viewing the documentation for ACA-Py Release, 0.12.0.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -2264,7 +2273,7 @@
 
 <h1 id="anoncreds-proof-validation-in-aca-py">Anoncreds Proof Validation in ACA-Py<a class="headerlink" href="#anoncreds-proof-validation-in-aca-py" title="Permanent link">&para;</a></h1>
 <p>ACA-Py performs pre-validation when verifying Anoncreds presentations (proofs). Some scenarios are rejected (such as those indicative of tampering), while some attributes are removed before running the anoncreds validation (e.g., removing superfluous non-revocation timestamps). Any ACA-Py validations or presentation modifications are indicated by the "verify_msgs" attribute in the final presentation exchange object.</p>
-<p>The list of possible verification messages can be found <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/indy/verifier.py#L24">here</a>, and consists of:</p>
+<p>The list of possible verification messages can be found <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/indy/verifier.py#L24">here</a>, and consists of:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">PresVerifyMsg</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Credential verification codes.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -2307,7 +2316,7 @@
 <p>The following pre-verification checks are performed, which will cause the proof to fail (before calling anoncreds) and result in the following message:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>VALUE_ERROR::&lt;description of the failed validation&gt;
 </code></pre></div>
-<p>These validations are all performed within the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/indy/verifier.py">Indy verifier class</a> - to see the detailed validation, look for any occurrences of <code>raise ValueError(...)</code> in the code.</p>
+<p>These validations are all performed within the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/indy/verifier.py">Indy verifier class</a> - to see the detailed validation, look for any occurrences of <code>raise ValueError(...)</code> in the code.</p>
 <p>A summary of the possible errors includes:</p>
 <ul>
 <li>Information missing in presentation exchange record</li>

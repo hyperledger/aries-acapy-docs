@@ -79,6 +79,15 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You are viewing the documentation for ACA-Py Release, 0.12.0.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -2352,7 +2361,7 @@
 <li>The availability of support in the AnonCreds RS Python Wrapper for the W3C VC/VP capabilities in AnonCreds RS.</li>
 <li>Agreement on the Aries Issue Credential v2.0 and Present Proof v2.0 protocol attachment formats to use when issuing AnonCreds W3C VC format credentials, and when presenting AnonCreds W3C VP format presentations.</li>
 <li>For issuing, use the (proposed) <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> Attachments</li>
-<li>For presenting, use the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> Attachments</li>
+<li>For presenting, use the <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> Attachments</li>
 </ul>
 <p>As of 2024-01-15, these pre-requisites have been met.</p>
 <h2 id="impacts-on-aca-py">Impacts on ACA-Py<a class="headerlink" href="#impacts-on-aca-py" title="Permanent link">&para;</a></h2>
@@ -2367,8 +2376,8 @@
 <p>A mechanism must be defined such that an Issuer controller can use the ACA-Py Admin API to initiate the sending of an AnonCreds credential Offer using the <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> attachment format.</p>
 <p>A credential's encoded attributes are not included in the issued AnonCreds W3C VC format credential. To be determined how that impacts the issuing process.</p>
 <h3 id="verifier">Verifier<a class="headerlink" href="#verifier" title="Permanent link">&para;</a></h3>
-<p>A verifier wanting a W3C VP Format presentation will send the Present Proof v2.0 <code>request</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> format attachment.</p>
-<p>If needed, the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> document will be clarified and possibly updated to enable its use for handling AnonCreds W3C VP format presentations.</p>
+<p>A verifier wanting a W3C VP Format presentation will send the Present Proof v2.0 <code>request</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> format attachment.</p>
+<p>If needed, the <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> document will be clarified and possibly updated to enable its use for handling AnonCreds W3C VP format presentations.</p>
 <p>An AnonCreds W3C VP format presentation does not include the encoded revealed attributes, and the encoded values must be calculated as needed. To be determined where those would be needed.</p>
 <h3 id="holder">Holder<a class="headerlink" href="#holder" title="Permanent link">&para;</a></h3>
 <p>A holder must support <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> attachments when receiving Issue Credential v2.0 <code>offer</code> and <code>issue</code> messages, and when sending <code>request</code> messages.</p>
@@ -2377,14 +2386,14 @@
 <ul>
 <li>The AnonCreds verifiable credential <strong>MUST</strong> support being used in both legacy AnonCreds and W3C VP format (DIF Presentation Exchange) presentations.</li>
 </ul>
-<p>On receiving an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> <code>request</code> message, a holder must include AnonCreds verifiable credentials in the search for credentials satisfying the request, and if found and selected for use, must construct the presentation using the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> presentation format, with an embedded AnonCreds W3C VP format presentation.</p>
+<p>On receiving an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> <code>request</code> message, a holder must include AnonCreds verifiable credentials in the search for credentials satisfying the request, and if found and selected for use, must construct the presentation using the <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> presentation format, with an embedded AnonCreds W3C VP format presentation.</p>
 <h2 id="issues-to-consider">Issues to consider<a class="headerlink" href="#issues-to-consider" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If and how the W3C VC Format attachments for the Issue Credential V2.0 and Present Proof V2 Aries DIDComm Protocols should be used when using AnonCreds W3C VC Format credentials. Anticipated triggers:</li>
 <li>An Issuer Controller invokes the Admin API to trigger an Issue Credential v2.0 protocol instance such that the <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> will be used.</li>
 <li>A Holder receives an Issue Credential v2.0 <code>offer</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> attachment.</li>
-<li>A Verifier initiates a Present Proof v2.0 protocol instance with an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> that can be satisfied by AnonCreds VCs held by the holder.</li>
-<li>A Holder receives a present proof <code>request</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> format attachment that can be satisfied with AnonCreds credentials held by the holder.<ul>
+<li>A Verifier initiates a Present Proof v2.0 protocol instance with an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> that can be satisfied by AnonCreds VCs held by the holder.</li>
+<li>A Holder receives a present proof <code>request</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> format attachment that can be satisfied with AnonCreds credentials held by the holder.<ul>
 <li>How are the <code>restrictions</code> and <code>revocation</code> data elements conveyed?</li>
 </ul>
 </li>
@@ -2400,16 +2409,16 @@
 <ol>
 <li>Update Admin API endpoints to initiate an Issue Credential v2.0 protocol to issue an AnonCreds credential in W3C VC format using <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> format attachments.</li>
 <li>Add support for the <a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> message attachment formats.</li>
-<li>Should the attachment format be made pluggable as part of this? From the maintainers: <em>If we did make it pluggable, <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/messages/cred_format.py#L23">this</a> would be the point where that would take place. Since these values are hard coded, it is not pluggable currently, as noted. I've been dissatisfied with how this particular piece works for a while. I think making it pluggable, if done right, could help clean it up nicely. A plugin would then define their own implementation of <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/formats/handler.py#L28">V20CredFormatHandler</a>. (<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/dbluhm" title="GitHub User: dbluhm">@dbluhm</a>)</em></li>
+<li>Should the attachment format be made pluggable as part of this? From the maintainers: <em>If we did make it pluggable, <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/messages/cred_format.py#L23">this</a> would be the point where that would take place. Since these values are hard coded, it is not pluggable currently, as noted. I've been dissatisfied with how this particular piece works for a while. I think making it pluggable, if done right, could help clean it up nicely. A plugin would then define their own implementation of <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/formats/handler.py#L28">V20CredFormatHandler</a>. (<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/dbluhm" title="GitHub User: dbluhm">@dbluhm</a>)</em></li>
 <li>Update the v2.0 Issue Credential protocol handler to support a "<a href="https://github.com/hyperledger/aries-rfcs/pull/809">RFC 0809 VC-DI</a> mode" such that when a protocol instance starts with that format, it continues with it until completion, supporting issuing AnonCreds credentials in the process. This includes both the sending and receiving of all protocol message types.</li>
 </ol>
 <h4 id="present-proof">Present Proof<a class="headerlink" href="#present-proof" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Adjust as needed the sending of a Present Proof request using the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> with support (to be defined) for requesting AnonCreds VCs.</li>
-<li>Adjust as needed the processing of a Present Proof <code>request</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> attachment so that AnonCreds VCs can found and used in the subsequent response.</li>
+<li>Adjust as needed the sending of a Present Proof request using the <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> with support (to be defined) for requesting AnonCreds VCs.</li>
+<li>Adjust as needed the processing of a Present Proof <code>request</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> attachment so that AnonCreds VCs can found and used in the subsequent response.</li>
 <li>AnonCreds VCs issued as legacy or W3C VC format credentials should be usable in AnonCreds W3C VP format presentations.</li>
-<li>Update the creation of an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> presentation submission to support the use of AnonCreds VCs as the source of the VPs.</li>
-<li>Update the verifier receipt of a Present Proof v2.0 <code>presentation</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> containing AnonCreds W3C VP(s) derived from AnonCreds source VCs.</li>
+<li>Update the creation of an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> presentation submission to support the use of AnonCreds VCs as the source of the VPs.</li>
+<li>Update the verifier receipt of a Present Proof v2.0 <code>presentation</code> message with an <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> containing AnonCreds W3C VP(s) derived from AnonCreds source VCs.</li>
 </ol>
 <h3 id="what-are-the-functions-we-are-going-to-wrap">What are the functions we are going to wrap?<a class="headerlink" href="#what-are-the-functions-we-are-going-to-wrap" title="Permanent link">&para;</a></h3>
 <p>After thoroughly reviewing upcoming changes from <a href="https://github.com/hyperledger/anoncreds-rs/pull/273">anoncreds-rs PR273</a>, the classes or <code>AnoncredsObject</code> impacted by changes are as follows:</p>
@@ -2426,7 +2435,7 @@
 <li>instance methods (<code>verify</code>)</li>
 <li>bindings functions (<code>create_w3c_presentation</code>, <code>_object_from_json</code>, <code>verify_w3c_presentation</code>)</li>
 </ul>
-<p>They will be added to <a href="https://github.com/hyperledger/anoncreds-rs/blob/main/wrappers/python/anoncreds/__init__.py">__init__.py</a> as additional exports of AnoncredsObject.</p>
+<p>They will be added to <a href="https://github.com/hyperledger/anoncreds-rs/blob/0.12.0/wrappers/python/anoncreds/__init__.py">__init__.py</a> as additional exports of AnoncredsObject.</p>
 <p>We also have to consider which classes or anoncreds objects have been modified</p>
 <p>The classes modified according to the same <a href="https://github.com/hyperledger/anoncreds-rs/pull/273">PR</a> mentioned above are:</p>
 <p><a href="https://github.com/hyperledger/anoncreds-rs/pull/273/files#diff-6f8cbd34bbd373240b6af81f159177023c05b074b63c7757fc6b3796a66ee240R402">Credential</a></p>
@@ -2440,10 +2449,10 @@
 <li>modified instance methods (<code>_get_entry</code>, <code>add_attributes</code>, <code>add_predicates</code>)</li>
 </ul>
 <h4 id="creating-a-w3c-vc-credential-from-credential-definition-and-issuing-and-presenting-it-as-is">Creating a W3C VC credential from credential definition, and issuing and presenting it as is<a class="headerlink" href="#creating-a-w3c-vc-credential-from-credential-definition-and-issuing-and-presenting-it-as-is" title="Permanent link">&para;</a></h4>
-<p>The issuance, presentation and verification of legacy anoncreds are implemented in this <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/anoncreds">./aries_cloudagent/anoncreds</a> directory. Therefore, we will also start from there.</p>
-<p>Let us navigate these implementation examples through the respective processes of the concerning agents - <strong>Issuer</strong> and <strong>Holder</strong> as described in <a href="https://github.com/hyperledger/anoncreds-rs/blob/main/README.md">https://github.com/hyperledger/anoncreds-rs/blob/main/README.md</a>.
+<p>The issuance, presentation and verification of legacy anoncreds are implemented in this <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds">./aries_cloudagent/anoncreds</a> directory. Therefore, we will also start from there.</p>
+<p>Let us navigate these implementation examples through the respective processes of the concerning agents - <strong>Issuer</strong> and <strong>Holder</strong> as described in <a href="https://github.com/hyperledger/anoncreds-rs/blob/main/README.md">https://github.com/hyperledger/anoncreds-rs/blob/0.12.0/README.md</a>.
 We will proceed through the following processes in comparison with the legacy anoncreds implementations while watching out for signature differences between the two.
-Looking at the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/issuer.py">/anoncreds/issuer.py</a> file, from <code>AnonCredsIssuer</code> class:</p>
+Looking at the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/issuer.py">/anoncreds/issuer.py</a> file, from <code>AnonCredsIssuer</code> class:</p>
 <p>Create VC_DI Credential Offer</p>
 <p>According to this DI credential offer attachment format - <a href="https://github.com/hyperledger/aries-rfcs/pull/809/files#diff-40b1f86053dd6f0b34250d5be1319d3a0662b96a5a121957fe4dc8cceaa9cbc8R30-R63">didcomm/w3c-di-vc-offer@v0.1</a>,</p>
 <ul>
@@ -2649,7 +2658,7 @@ Looking at the <a href="https://github.com/hyperledger/aries-cloudagent-python/b
 </code></pre></div>
 <p>Doing so would allow us to be more independent in defining the schema suited for anoncreds in w3c format and once the proposal protocol can handle the w3c format, probably the rest of the flow can be easily implemented by adding <code>vc_di</code> flag to the corresponding routes.</p>
 <h3 id="admin-api-attachments">Admin API Attachments<a class="headerlink" href="#admin-api-attachments" title="Permanent link">&para;</a></h3>
-<p>To make sure that once an endpoint has been called to trigger the <code>Issue Credential</code> flow in <code>0809 W3C_DI attachment formats</code> the subsequent endpoints also follow this format, we can keep track of this <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/message_types.py#L41-L59">ATTACHMENT_FORMAT</a> dictionary with the proposed <code>VC_DI</code> format.</p>
+<p>To make sure that once an endpoint has been called to trigger the <code>Issue Credential</code> flow in <code>0809 W3C_DI attachment formats</code> the subsequent endpoints also follow this format, we can keep track of this <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/message_types.py#L41-L59">ATTACHMENT_FORMAT</a> dictionary with the proposed <code>VC_DI</code> format.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Format specifications</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">ATTACHMENT_FORMAT</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">CRED_20_PROPOSAL</span><span class="p">:</span> <span class="p">{</span>
@@ -2674,18 +2683,18 @@ Looking at the <a href="https://github.com/hyperledger/aries-cloudagent-python/b
 <a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="p">},</span>
 <a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="p">}</span>
 </code></pre></div>
-<p>And this <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L442-L461">_formats_filter</a> function takes care of keeping the attachment formats uniform across the iteration of the flow. We can see this function gets called in:</p>
+<p>And this <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L442-L461">_formats_filter</a> function takes care of keeping the attachment formats uniform across the iteration of the flow. We can see this function gets called in:</p>
 <ul>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L877">_create_free_offer</a> function that gets called in the handler function of <code>/issue-credential-2.0/send-offer</code> route (in addition to other offer routes)</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L1229">credential_exchange_send_free_request</a> handler function of <code>/issue-credential-2.0/send-request</code> route</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L630">credential_exchange_create</a> handler function of <code>/issue-credential-2.0/create</code> route</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L721">credential_exchange_send</a> handler function of <code>/issue-credential-2.0/send</code> route</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L877">_create_free_offer</a> function that gets called in the handler function of <code>/issue-credential-2.0/send-offer</code> route (in addition to other offer routes)</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L1229">credential_exchange_send_free_request</a> handler function of <code>/issue-credential-2.0/send-request</code> route</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L630">credential_exchange_create</a> handler function of <code>/issue-credential-2.0/create</code> route</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L721">credential_exchange_send</a> handler function of <code>/issue-credential-2.0/send</code> route</li>
 </ul>
-<p>The same goes for <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/message_types.py#L33-L47">ATTACHMENT_FORMAT</a> of <code>Present Proof</code> flow. In this case, DIF Presentation Exchange formats in these <a href="https://github.com/TimoGlastra/anoncreds-w3c-test-vectors/tree/main/test-vectors">test vectors</a> that are influenced by <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> will be implemented. Here, the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L403-L422">_formats_attach</a> function is the key for the same purpose above. It gets called in:</p>
+<p>The same goes for <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/present_proof/v2_0/message_types.py#L33-L47">ATTACHMENT_FORMAT</a> of <code>Present Proof</code> flow. In this case, DIF Presentation Exchange formats in these <a href="https://github.com/TimoGlastra/anoncreds-w3c-test-vectors/tree/0.12.0/test-vectors">test vectors</a> that are influenced by <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> will be implemented. Here, the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L403-L422">_formats_attach</a> function is the key for the same purpose above. It gets called in:</p>
 <ul>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L833">present_proof_send_proposal</a> handler function of <code>/present-proof-2.0/send-proposal</code> route</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L916">present_proof_create_request</a> handler function of <code>/present-proof-2.0/create-request</code> route</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L998">present_proof_send_free_request</a> handler function of <code>/present-proof-2.0/send-request</code> route</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L833">present_proof_send_proposal</a> handler function of <code>/present-proof-2.0/send-proposal</code> route</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L916">present_proof_create_request</a> handler function of <code>/present-proof-2.0/create-request</code> route</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L998">present_proof_send_free_request</a> handler function of <code>/present-proof-2.0/send-request</code> route</li>
 </ul>
 <h4 id="credential-exchange-admin-routes">Credential Exchange Admin Routes<a class="headerlink" href="#credential-exchange-admin-routes" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2880,7 +2889,7 @@ Looking at the <a href="https://github.com/hyperledger/aries-cloudagent-python/b
 <p>Any significant bugs in the Rust implementation may prevent our wrappers from working, which would also prevent progress (or at least confirmed test results) on the higher-level code.</p>
 <p>If AFJ lags behind in delivering equivalent functionality, we may not be able to demonstrate compatibility with the test harness.</p>
 <h3 id="where-should-the-new-issuance-code-go">Where should the new issuance code go?<a class="headerlink" href="#where-should-the-new-issuance-code-go" title="Permanent link">&para;</a></h3>
-<p>So the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/vc">vc</a> directory contains code to verify vc's, is this a logical place to add the code for issuance?</p>
+<p>So the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/vc">vc</a> directory contains code to verify vc's, is this a logical place to add the code for issuance?</p>
 <h3 id="what-do-we-call-the-new-things-flexcreds-or-just-w3c_xxx">What do we call the new things? Flexcreds? or just W3C_xxx<a class="headerlink" href="#what-do-we-call-the-new-things-flexcreds-or-just-w3c_xxx" title="Permanent link">&para;</a></h3>
 <p>Are we defining a concept called Flexcreds that is a credential with a proof array that you can generate more specific or limited credentials from? If so should this be included in the naming?</p>
 <ul>
@@ -2890,7 +2899,7 @@ Looking at the <a href="https://github.com/hyperledger/aries-cloudagent-python/b
 <p>If the wallet receives a "Flexcred" credential object with an array of proofs, the wallet may wish to present ONLY the more zero-knowledge anoncreds proof</p>
 <p>How will wallets support that in a way that is developer-friendly to wallet devs?</p>
 <ul>
-<li>The trigger for wallets to generate a W3C VP Format presentation is that they have receive a <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> that can be satisfied with an AnonCreds verifiable credential in their storage. Once we decide to use one or more AnonCreds VCs to satisfy a presentation, we'll derive such a presentation and send it using the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> for the <code>presentation</code> message of the Present Proof v2.0 protocol.</li>
+<li>The trigger for wallets to generate a W3C VP Format presentation is that they have receive a <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> that can be satisfied with an AnonCreds verifiable credential in their storage. Once we decide to use one or more AnonCreds VCs to satisfy a presentation, we'll derive such a presentation and send it using the <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0510-dif-pres-exch-attach/README.md">RFC 0510 DIF Presentation Exchange</a> for the <code>presentation</code> message of the Present Proof v2.0 protocol.</li>
 </ul>
 
 
