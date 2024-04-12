@@ -60,6 +60,8 @@ cd ..
 sed -e "s#\.\./\.\./#../#g" docs/features/DevReadMe.md >tmp.md; mv tmp.md docs/features/DevReadMe.md
 # Fix image references in demo documents
 for i in docs/demo/AriesOpenAPIDemo.md docs/demo/AliceGetsAPhone.md; do sed -e "s#src=.collateral#src=\"../collateral#" $i >$i.tmp; mv $i.tmp $i; done
+# Cleanup indented bullets in at least the CHANGELOG.md so they look right when published
+for i in docs/CHANGELOG.md; do sed -e 's#^  - #    - #' $i >$i.tmp; mv $i.tmp $i; done
 
 # Update all references to "main" to "${VERSION}" in Github pathes
 # Naively for now:
