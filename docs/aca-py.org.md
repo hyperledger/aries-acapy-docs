@@ -18,7 +18,7 @@ In addition to this documentation site, the ACA-Py community also maintains an
 ACA-Py internals documentation site. The internals documentation consists of the
 `docstrings` extracted from the ACA-Py Python code and covers all of the
 (non-test) modules in the codebase. Check it out on the [Aries Cloud
-Agent-Python ReadTheDocs site](https://aries-cloud-agent-python.readthedocs.io/en/latest/).
+Agent-Python ReadTheDocs site](https://aries-cloud-agent-python.readthedocs.io/en/0.12.0).
 As with this site, the ReadTheDocs documentation is version specific.
 
 Got questions?
