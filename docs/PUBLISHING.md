@@ -94,7 +94,7 @@ Once you have the list of PRs:
 4. Check to see if there are any other PRs that should be included in the release.
 
 5. Update the ReadTheDocs in the `/docs` folder by following the instructions in
-   the `./README.md` file. That will likely add a number of new and modified
+   the `./UpdateRTD.md` file. That will likely add a number of new and modified
    files to the PR. Eliminate all of the errors in the generation process,
    either by mocking external dependencies or by fixing ACA-Py code. If
    necessary, create an issue with the errors and assign it to the appropriate
@@ -117,6 +117,8 @@ Once you have the list of PRs:
 7. Regenerate openapi.json and swagger.json by running
    `../scripts/generate-open-api-spec` from within the `aries_cloudagent` folder.
 
+   Command: `cd aries_cloudagent;../scripts/generate-open-api-spec;cd ..`
+
 8.  Double check all of these steps above, and then submit a PR from the branch.
    Add this new PR to CHANGELOG.md so that all the PRs are included.
    If there are still further changes to be merged, mark the PR as "Draft",
@@ -126,7 +128,7 @@ Once you have the list of PRs:
 
 9.  Immediately after it is merged, create a new GitHub tag representing the
    version. The tag name and title of the release should be the same as the
-   version in [pyproject.toml](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/pyproject.toml). Use
+   version in [pyproject.toml](https://github.com/hyperledger/aries-cloudagent-python/tree/main/pyproject.toml). Use
    the "Generate Release Notes" capability to get a sequential listing of the
    PRs in the release, to complement the manually curated Changelog. Verify on
    PyPi that the version is published.
@@ -142,8 +144,8 @@ Once you have the list of PRs:
    Additional information about the container image publication process can be
    found in the document [Container Images and Github Actions](./deploying/ContainerImagesAndGithubActions.md).
 
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/.github/workflows/publish-indy.yml
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/main/.github/workflows/publish-indy.yml
 
 11. Update the ACA-Py Read The Docs site by building the new "latest" (main
     branch) and activating and building the new release. Appropriate permissions

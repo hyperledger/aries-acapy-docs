@@ -60,12 +60,12 @@ Jump to the [Follow the Script](#follow-the-script) section below for further in
 
 ### Running in Docker
 
-Running the demo in docker requires having a `von-network` (a Hyperledger Indy public ledger sandbox) instance running in docker locally. See the [VON Network Tutorial](https://github.com/bcgov/von-network/blob/0.12.0/docs/UsingVONNetwork.md) for guidance
+Running the demo in docker requires having a `von-network` (a Hyperledger Indy public ledger sandbox) instance running in docker locally. See the [VON Network Tutorial](https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md) for guidance
 on starting and stopping your own local Hyperledger Indy instance.
 
 Open three `bash` shells. For Windows users, `git-bash` is highly recommended. bash is the default shell in Linux and Mac terminal sessions. For Mac users on the newer M1/2/3 Apple Silicon devices, make sure that you install Apple's Rosetta 2 software, using these [installation instructions from Apple](https://support.apple.com/en-us/102527), and this even more useful [guidance on how to install Rosetta 2 from the command line](https://osxdaily.com/2020/12/04/how-install-rosetta-2-apple-silicon-mac/) which amounts to running this MacOS command: `softwareupdate --install-rosetta`.
 
-In the first terminal window, start `von-network` by following the [Building and Starting](https://github.com/bcgov/von-network/blob/0.12.0/docs/UsingVONNetwork.md#building-and-starting) instructions.
+In the first terminal window, start `von-network` by following the [Building and Starting](https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting) instructions.
 
 In the second terminal, change directory into `demo` directory of your clone of the Aries Cloud Agent Python repository. Start the `faber` agent by issuing the following command:
 
@@ -99,7 +99,7 @@ While that process will include the installation of the Indy python prerequisite
 
 #### Start a local Indy ledger
 
-Start a local `von-network` Hyperledger Indy network running in Docker by following the VON Network [Building and Starting](https://github.com/bcgov/von-network/blob/0.12.0/docs/UsingVONNetwork.md#building-and-starting) instructions.
+Start a local `von-network` Hyperledger Indy network running in Docker by following the VON Network [Building and Starting](https://github.com/bcgov/von-network/blob/main/docs/UsingVONNetwork.md#building-and-starting) instructions.
 
 We strongly recommend you use Docker for the local Indy network until you really, really need to know the details of running an Indy Node instance on a bare machine.
 
@@ -109,7 +109,7 @@ We strongly recommend you use Docker for the local Indy network until you really
 
 An Aries agent (or other client) connecting to an Indy ledger must know the contents of the `genesis` file for the ledger. The genesis file lets the agent/client know the IP addresses of the initial nodes of the ledger, and the agent/client sends ledger requests to those IP addresses. When using the `indy-sdk` ledger, look for the instructions in that repo for how to find/update the ledger genesis file, and note the path to that file on your local system.
 
-The envrionment variable `GENESIS_FILE` is used to let the Aries demo agents know the location of the genesis file. Use the path to that file as value of the `GENESIS_FILE` environment variable in the instructions below. You might want to copy that file to be local to the demo so the path is shorter.
+The environment variable `GENESIS_FILE` is used to let the Aries demo agents know the location of the genesis file. Use the path to that file as value of the `GENESIS_FILE` environment variable in the instructions below. You might want to copy that file to be local to the demo so the path is shorter.
 
 #### Run a local Postgres instance
 
@@ -201,7 +201,7 @@ Note there is an option "2a" to initiate a connectionless proof - you can execut
 
 ## Additional Options in the Alice/Faber demo
 
-You can enable support for various ACA-Py features by providing additional command-line arguements when starting up `alice` or `faber`.
+You can enable support for various ACA-Py features by providing additional command-line arguments when starting up `alice` or `faber`.
 
 Note that when the controller starts up the agent, it prints out the ACA-Py startup command with *all* parameters - you can inspect this command to see what parameters are provided in each case.  For more details on the parameters, just start ACA-Py with the `--help` parameter, for example:
 
@@ -383,9 +383,9 @@ You can inspect the additional multi-tenancy admin API's (i.e. the "agency API" 
 Note that with multi-tenancy enabled:
 
 - The "base" wallet will have access to this new "agency API" - the agent's admin key, if enabled, must be provided in a header
-- "Base wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/runners/support/agent.py#L606)
-- The "sub-wallets" will have access to the "normal" ACA-Py admin API - to identify the sub-wallet, a JWT token must be provided, this token is created upon creation of the new wallet (see: [this code here](https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/runners/support/agent.py#L378))
-- "Sub-wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/runners/support/agent.py#L632)
+- "Base wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L606)
+- The "sub-wallets" will have access to the "normal" ACA-Py admin API - to identify the sub-wallet, a JWT token must be provided, this token is created upon creation of the new wallet (see: [this code here](https://github.com/hyperledger/aries-cloudagent-python/blob/master/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L378))
+- "Sub-wallet" API calls are handled [here](https://github.com/hyperledger/aries-cloudagent-python/blob/244194e68330835e5e2e53cc6c2993899d2437fb/demo/https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py#L632)
 
 Documentation on ACA-Py's multi-tenancy support can be found [here](https://github.com/hyperledger/aries-cloudagent-python/blob/master/Multitenancy.md).
 
@@ -407,7 +407,7 @@ This works exactly as the *vanilla* multi-tenancy, except that all connections a
 
 The agents run on a pre-defined set of ports, however occasionally your local system may already be using one of these ports.  (For example MacOS recently decided to use 8021 for the ftp proxy service.)
 
-To overriide the default port settings:
+To override the default port settings:
 
 ```bash
 AGENT_PORT_OVERRIDE=8010 ./run_demo faber
@@ -415,7 +415,7 @@ AGENT_PORT_OVERRIDE=8010 ./run_demo faber
 
 (The agent requires up to 10 available ports.)
 
-To pass extra arguements to the agent (for example):
+To pass extra arguments to the agent (for example):
 
 ```bash
 DEMO_EXTRA_AGENT_ARGS="[\"--emit-did-peer-2\"]" ./run_demo faber --did-exchange --reuse-connections
@@ -437,15 +437,15 @@ Run Command:
 
 These Alice and Faber scripts (in the `demo/runners` folder) implement the controller and run the agent as a sub-process (see the documentation for `aca-py`). The controller publishes a REST service to receive web hook callbacks from their agent. Note that this architecture, running the agent as a sub-process, is a variation on the documented architecture of running the controller and agent as separate processes/containers.
 
-The controllers for this demo can be found in the [alice.py](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/runners/alice.py) and [faber.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/faber.py) files. Alice and Faber are instances of the agent class found in [agent.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py).
+The controllers for this demo can be found in the [alice.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/alice.py) and [faber.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/faber.py) files. Alice and Faber are instances of the agent class found in [agent.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/support/agent.py).
 
 ## OpenAPI (Swagger) Demo
 
-Developing an ACA-Py controller is much like developing a web app that uses a REST API. As you develop, you will want an easy way to test out the behaviour of the API. That's where the industry-standard OpenAPI (aka Swagger) UI comes in. ACA-Py (optionally) exposes an OpenAPI UI in ACA-Py that you can use to learn the ins and outs of the API. This [Aries OpenAPI demo](AriesOpenAPIDemo.md) shows how you can use the OpenAPI UI with an ACA-Py agent by walking through the connectiing, issuing a credential, and presenting a proof sequence.
+Developing an ACA-Py controller is much like developing a web app that uses a REST API. As you develop, you will want an easy way to test out the behaviour of the API. That's where the industry-standard OpenAPI (aka Swagger) UI comes in. ACA-Py (optionally) exposes an OpenAPI UI in ACA-Py that you can use to learn the ins and outs of the API. This [Aries OpenAPI demo](AriesOpenAPIDemo.md) shows how you can use the OpenAPI UI with an ACA-Py agent by walking through the connecting, issuing a credential, and presenting a proof sequence.
 
 ## Performance Demo
 
-Another example in the `demo/runners` folder is [performance.py](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/runners/performance.py), that is used to test out the performance of interacting agents. The script starts up agents for Alice and Faber, initializes them, and then runs through an interaction some number of times. In this case, Faber issues a credential to Alice 300 times.
+Another example in the `demo/runners` folder is [performance.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/performance.py), that is used to test out the performance of interacting agents. The script starts up agents for Alice and Faber, initializes them, and then runs through an interaction some number of times. In this case, Faber issues a credential to Alice 300 times.
 
 To run the demo, make sure that you shut down any running Alice/Faber agents. Then, follow the same steps to start the Alice/Faber demo, but:
 
@@ -462,7 +462,7 @@ You can also run the demo against a postgres database using the following:
 ./run_demo performance --arg-file demo/postgres-indy-args.yml
 ```
 
-(Obvs you need to be running a postgres database - the command to start postgres is in the yml file provided above.)
+(Obviously you need to be running a postgres database - the command to start postgres is in the yml file provided above.)
 
 You can tweak the number of credentials issued using the `--count` and `--batch` parameters, and you can run against an Askar database using the `--wallet-type askar` option (or run using indy-sdk using `--wallet-type indy`).
 
@@ -486,7 +486,7 @@ Now that you have a solid foundation in using ACA-Py, time for a coding challeng
 * ACME requesting a proof of her College degree
 * ACME issuing Alice a credential after she is hired.
 
-The framework for the code is in the [acme.py](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/demo/runners/acme.py) file, but the code is incomplete. Using the knowledge you gained from running demo and viewing the alice.py and faber.py code, fill in the blanks for the code.  When you are ready to test your work:
+The framework for the code is in the [acme.py](https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo/runners/acme.py) file, but the code is incomplete. Using the knowledge you gained from running demo and viewing the alice.py and faber.py code, fill in the blanks for the code.  When you are ready to test your work:
 
 * Use the instructions above to start the Alice/Faber demo (above).
 * Start another terminal session and run the same commands as for "Alice", but replace "alice" with "acme".
