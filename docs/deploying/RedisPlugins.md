@@ -1,11 +1,11 @@
 # ACA-Py Redis Plugins
 
-## [aries-acapy-plugin-redis-events](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc0/redis_events/README.md) `redis_queue`
+## [aries-acapy-plugin-redis-events](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc1/redis_events/README.md) `redis_queue`
 
 <!-- Adopted from aries-acapy-cache-redis/README.md -->
 It provides a mechanism to persists both inbound and outbound messages using redis, deliver messages and webhooks, and dispatch events.
 
-More details can be found [here](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc0/redis_events/README.md).
+More details can be found [here](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc1/redis_events/README.md).
 
 ### Redis Queue configuration `yaml`
 
@@ -67,13 +67,13 @@ redis_queue:
 #### Redis Plugin With Docker
 
 Running the plugin with docker is simple. An
-example [docker-compose.yml](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc0/redis_events/docker/docker-compose.yml) file is available which launches both ACA-Py with redis and an accompanying Redis cluster.
+example [docker-compose.yml](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc1/redis_events/docker/docker-compose.yml) file is available which launches both ACA-Py with redis and an accompanying Redis cluster.
 
 ```sh
 docker-compose up --build -d
 ```
 
-More details can be found [here](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc0/redis_events/README.md).
+More details can be found [here](https://github.com/hyperledger/aries-acapy-plugins/blob/0.12.1rc1/redis_events/README.md).
 
 #### Without Docker
 
@@ -204,14 +204,14 @@ Regardless of the options above, you will need to startup `deliverer` and `relay
 
 Both relay and mediator [demos](https://github.com/bcgov/aries-acapy-plugin-redis-events/tree/master/demo) are also available.
 
-## [aries-acapy-cache-redis](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc0/README.md) `redis_cache`
+## [aries-acapy-cache-redis](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc1/README.md) `redis_cache`
 
 <!-- Adopted from aries-acapy-cache-redis/README.md -->
 ACA-Py uses a modular cache layer to story key-value pairs of data. The purpose
 of this plugin is to allow ACA-Py to use Redis as the storage medium for it's
 caching needs.
 
-More details can be found [here](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc0/README.md).
+More details can be found [here](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc1/README.md).
 
 ### Redis Cache Plugin configuration `yaml`
 
@@ -237,7 +237,7 @@ redis_cache:
 #### Redis Cache Using Docker
 
 - Running the plugin with docker is simple and straight-forward. There is an
-example [docker-compose.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc0/docker-compose.yml) file in the root of the
+example [docker-compose.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc1/docker-compose.yml) file in the root of the
 project that launches both ACA-Py and an accompanying Redis instance. Running
 it is as simple as:
 
@@ -245,7 +245,7 @@ it is as simple as:
     docker-compose up --build -d
     ```
 
-- To launch ACA-Py with an accompanying redis cluster of 6 nodes (3 primaries and 3 replicas), please refer to example [docker-compose.cluster.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc0/docker-compose.cluster.yml) and run the following:
+- To launch ACA-Py with an accompanying redis cluster of 6 nodes (3 primaries and 3 replicas), please refer to example [docker-compose.cluster.yml](https://github.com/Indicio-tech/aries-acapy-cache-redis/blob/0.12.1rc1/docker-compose.cluster.yml) and run the following:
 
     Note: Cluster requires external docker network with specified subnet
 
