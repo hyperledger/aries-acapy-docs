@@ -1,16 +1,16 @@
 # Aries Cloud Agent Python Changelog
 
-## 0.12.1rc1
+## 0.12.1
 
 ### April 26, 2024
 
-Release 0.12.1rc1 is a small patch to cleanup some edge case issues in the handling of Out of Band invitations, revocation notification webhooks, and connection querying uncovered after the 0.12.0 release. Fixes and improvements were also made to the generation of ACA-Py's OpenAPI specifications.
+Release 0.12.1 is a small patch to cleanup some edge case issues in the handling of Out of Band invitations, revocation notification webhooks, and connection querying uncovered after the 0.12.0 release. Fixes and improvements were also made to the generation of ACA-Py's OpenAPI specifications.
 
-### 0.12.1rc1 Breaking Changes
+### 0.12.1 Breaking Changes
 
 There are no breaking changes in this release.
 
-#### 0.12.1rc1 Categorized List of Pull Requests
+#### 0.12.1 Categorized List of Pull Requests
 
 - Out of Band Invitations and Connection Establishment updates/fixes:
     - 🐛 Fix ServiceDecorator parsing in oob record handling [\#2910](https://github.com/hyperledger/aries-cloudagent-python/pull/2910) [ff137](https://github.com/ff137)
@@ -40,6 +40,7 @@ There are no breaking changes in this release.
     - Update GHA so that broken image links work on docs site - without breaking them on GitHub [\#2852](https://github.com/hyperledger/aries-cloudagent-python/pull/2852) [swcurran](https://github.com/swcurran)
 
 - Dependencies and Internal Updates:
+    - chore(deps): Bump psf/black from 24.4.0 to 24.4.2 in the all-actions group [\#2924](https://github.com/hyperledger/aries-cloudagent-python/pull/2924) [dependabot bot](https://github.com/dependabot bot)
     - fix: fixes a regression that requires a log file in multi-tenant mode [\#2918](https://github.com/hyperledger/aries-cloudagent-python/pull/2918) [amanji](https://github.com/amanji)
     - Update AnonCreds to 0.2.2 [\#2917](https://github.com/hyperledger/aries-cloudagent-python/pull/2917) [swcurran](https://github.com/swcurran)
     - chore(deps): Bump aiohttp from 3.9.3 to 3.9.4  dependencies python [\#2902](https://github.com/hyperledger/aries-cloudagent-python/pull/2902) [dependabot bot](https://github.com/dependabot bot)
@@ -49,6 +50,7 @@ There are no breaking changes in this release.
     - refactor: logging configs setup [\#2870](https://github.com/hyperledger/aries-cloudagent-python/pull/2870) [amanji](https://github.com/amanji)
 
 - Release management pull requests:
+    - 0.12.1 [\#2926](https://github.com/hyperledger/aries-cloudagent-python/pull/2926) [swcurran](https://github.com/swcurran)
     - 0.12.1rc1 [\#2921](https://github.com/hyperledger/aries-cloudagent-python/pull/2921) [swcurran](https://github.com/swcurran)
     - 0.12.1rc0 [\#2912](https://github.com/hyperledger/aries-cloudagent-python/pull/2912) [swcurran](https://github.com/swcurran)
 
@@ -62,7 +64,7 @@ Much progress has been made on `did:peer` support in this release, with the hand
 
 [Qualified DIDs]: https://aca-py.org/latest/features/QualifiedDIDs/
 [Credo-TS]:  https://github.com/openwallet-foundation/credo-ts
-[Aries Interop Profile v2.0]: https://github.com/hyperledger/aries-rfcs/tree/0.12.1rc1/concepts/0302-aries-interop-profile#aries-interop-profile-version-20
+[Aries Interop Profile v2.0]: https://github.com/hyperledger/aries-rfcs/tree/0.12.1/concepts/0302-aries-interop-profile#aries-interop-profile-version-20
 
 Work continues towards supporting ledger agnostic [AnonCreds], and the new [Hyperledger AnonCreds Rust] library. Some of that work is in this release, the rest will be in the next release.
 
@@ -935,9 +937,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1rc1/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1rc1/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1rc1/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/ContainerImagesAndGithubActions.md
 
 ### Breaking Changes and Upgrades
 
@@ -951,7 +953,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.12.1rc1/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0023-did-exchange/README.md).
 
 #### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -1397,7 +1399,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.12.1rc1/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.12.1/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
