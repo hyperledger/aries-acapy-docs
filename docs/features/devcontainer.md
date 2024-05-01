@@ -9,9 +9,9 @@ By no means is ACA-Py limited to these tools; they are merely examples.
 
 ## Caveats
 
-The primary use case for this `devcontainer` is for developing, debugging and unit testing (pytest) the [aries_cloudagent](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1rc1/aries_cloudagent) source code.
+The primary use case for this `devcontainer` is for developing, debugging and unit testing (pytest) the [aries_cloudagent](https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent) source code.
 
-There are limitations running this devcontainer, such as all networking is within this container. This container has [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/0.12.1rc1/script-library/docs/docker-in-docker.md) which allows running demos, building docker images, running `docker compose` all within this container.
+There are limitations running this devcontainer, such as all networking is within this container. This container has [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/0.12.1/script-library/docs/docker-in-docker.md) which allows running demos, building docker images, running `docker compose` all within this container.
 
 ### Files
 
@@ -44,7 +44,7 @@ To open ACA-Py in a devcontainer, we open the *root* of this repository. We can 
 
 #### devcontainer.json
 
-When the [.devcontainer/devcontainer.json](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1rc1/.devcontainer/devcontainer.json) is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).
+When the [.devcontainer/devcontainer.json](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/.devcontainer/devcontainer.json) is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).
 
 ### Poetry
 
