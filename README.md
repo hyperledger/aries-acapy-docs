@@ -236,3 +236,26 @@ To update the documentation in this repo for an existing release of ACA-Py:
 
 As you see mistakes in this documentation, please make updates or create suggestion issues. We really 
 need some GitHub Actions to automate this stuff!
+
+### Removing Published Releases
+
+From time to time it is necessary to remove published branches, such as when a final release is completed and you want to 
+get rid of the Release Candidate (rc) releases that preceded the release. Here are the steps to do that.
+
+- Checkout the `gh-pages` branch and use git to update it with a `pull`.
+- Checkout the `main` branch of the repo, and update it with a `pull`.
+- Run the command `mike` to delete the branch(es) that you want removed from the public site.
+  - `mike delete -m "Signed-off-by: Stephen Curran <swcurran@gmail.com>" -p v0.12.1rc1 v0.12.0rc0 v0.12.0rc2 v0.12.0rc3`
+  - Note that the "-m" is the DCO sign-off that is required for all Hyperledger projects. Update the information for what you use for your commits with DCO.
+  - The `mike` command creates a commit on the (by default) `gh-pages` branch, in this case, deleting the unwanted versions of the docs.
+  - The `-p` instructs `mike` to push the update to the `gh-pages` branch.
+_ Checkout the `gh-pages` branch. You should see that your branch is now one commit ahead of the remote (Hyperledger) branch.
+- Push the branch so that you can create a Pull Request. 
+- Create a pull request targeting the remote (Hyperledger repository) `gh-pages` branch.
+  - For example, if you use GitHub's `gh` command line utility, the command is `gh pr create -t remove-rc-docs --base gh-pages`
+  - Note the use of `--base gh-pages` to target the pull request to the gh-pages branch.
+- Review and get the pull request approved and merge it.
+- Update your gh-pages branch.
+- Use git to checkout the `main` branch.
+
+Done!
