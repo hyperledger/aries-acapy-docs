@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for ACA-Py Release, 0.12.0.
+  You are viewing the documentation for ACA-Py Release 0.12.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2405,11 +2405,11 @@
 <h2 id="how-aca-py-handles-endorsements">How Aca-py Handles Endorsements<a class="headerlink" href="#how-aca-py-handles-endorsements" title="Permanent link">&para;</a></h2>
 <p>Internally, the Endorsement functionality is implemented as a protocol, and is implemented consistently with other protocols:</p>
 <ul>
-<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py">routes.py</a> file exposes the admin endpoints</li>
-<li><a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers">handler files</a> implement responses to any received Endorse protocol messages</li>
-<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py">manager.py</a> file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)</li>
+<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/protocols/endorse_transaction/v1_0/routes.py">routes.py</a> file exposes the admin endpoints</li>
+<li><a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent/protocols/endorse_transaction/v1_0/handlers">handler files</a> implement responses to any received Endorse protocol messages</li>
+<li>a <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/protocols/endorse_transaction/v1_0/manager.py">manager.py</a> file implements common functionality that is called from both the routes.py and handler classes (as well as from other classes that need to interact with Endorser functionality)</li>
 </ul>
-<p>The Endorser makes use of the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/CHANGELOG.md#july-14-2021">Event Bus</a> (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Definition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).</p>
+<p>The Endorser makes use of the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/CHANGELOG.md#july-14-2021">Event Bus</a> (links to the PR which links to a hackmd doc) to notify other protocols of any Endorser events of interest.  For example, after a Credential Definition endorsement is received, the TransactionManager writes the endorsed transaction to the ledger and uses the Event Bus to notify the Credential Definition manager that it can do any required post-processing (such as writing the cred def record to the wallet, initiating the revocation registry, etc.).</p>
 <p>The overall architecture can be illustrated as:</p>
 <p><img alt="Class Diagram" src="../../assets/endorser-design.png" /></p>
 <h3 id="create-credential-definition-and-revocation-registry">Create Credential Definition and Revocation Registry<a class="headerlink" href="#create-credential-definition-and-revocation-registry" title="Permanent link">&para;</a></h3>

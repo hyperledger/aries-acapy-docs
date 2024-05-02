@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for ACA-Py Release, 0.12.0.
+  You are viewing the documentation for ACA-Py Release 0.12.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2311,11 +2311,11 @@ repository to help you get started. When you finish your AnonCreds method, we re
 in the <a href="https://github.com/hyperledger/aries-acapy-plugins">aries-acapy-plugins</a> repository. If you think that the AnonCreds method you create should
 be part of ACA-Py core, get your plugin complete and raise the question of adding it to ACA-Py. The
 Maintainers will be happy to discuss the merits of the idea. No promises though.</p>
-<p>Your AnonCreds plugin will have an <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/__init__.py">initialization routine</a> that will register your AnonCreds
+<p>Your AnonCreds plugin will have an <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/anoncreds/__init__.py">initialization routine</a> that will register your AnonCreds
 implementation. It will be registering the identifiers that your method will be using such. It
 will be the identifier constructs that will trigger the appropriate AnonCreds Registrar and
 Resolver that will be called for any given AnonCreds object identifier. Check out this
-<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/default/legacy_indy/registry.py">example of the registration</a> of the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/legacy_indy">"legacy" Indy</a> AnonCreds method for more details.</p>
+<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/anoncreds/default/legacy_indy/registry.py">example of the registration</a> of the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent/anoncreds/default/legacy_indy">"legacy" Indy</a> AnonCreds method for more details.</p>
 <h2 id="the-implementation">The Implementation<a class="headerlink" href="#the-implementation" title="Permanent link">&para;</a></h2>
 <p>The basic work involved in creating an AnonCreds method is the implementation of both a "registrar" to
 write AnonCreds objects to a VDR, and a "resolver" to read AnonCreds objects from a VDR. To do
@@ -2325,22 +2325,22 @@ that for your new AnonCreds method, you will need to:</p>
 <li>Implement <code>BaseAnonCredsRegistrar</code> - <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/1786553ffea244c67d82ceaa3f1793dd1ec1c0f5/aries_cloudagent/anoncreds/base.py#L139">here</a></li>
 </ul>
 <p>The links above are to a specific commit and the code may have been updated since. You might want to
-look at the methods in the current version of <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/base.py">aries_cloudagent/anoncreds/base.py</a> in the <code>main</code> branch.</p>
+look at the methods in the current version of <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/anoncreds/base.py">aries_cloudagent/anoncreds/base.py</a> in the <code>main</code> branch.</p>
 <p>The interface for those methods are very clean, and there are currently two implementations of the 
-methods in the ACA-Py codebase -- the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/legacy_indy">"legacy" Indy</a> implementation, and the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/did_indy">did:indy</a> Indy implementation.
-There is also a <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/default/did_web">did:web</a> resolver implementation.</p>
-<p>Models for the API are defined <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.0/aries_cloudagent/anoncreds/models">here</a></p>
+methods in the ACA-Py codebase -- the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent/anoncreds/default/legacy_indy">"legacy" Indy</a> implementation, and the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent/anoncreds/default/did_indy">did:indy</a> Indy implementation.
+There is also a <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent/anoncreds/default/did_web">did:web</a> resolver implementation.</p>
+<p>Models for the API are defined <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.12.1/aries_cloudagent/anoncreds/models">here</a></p>
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
 <p>When you create your AnonCreds method registrar, make sure that your implementations call appropriate
 <code>finish_*</code> event (e.g., <code>AnonCredsIssuer.finish_schema</code>, <code>AnonCredsIssuer.finish_cred_def</code>, etc.) in
-<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/issuer.py#L56">AnonCreds Issuer</a>. The calls are necessary to trigger the automation of AnonCreds event creation that
+<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/anoncreds/issuer.py#L56">AnonCreds Issuer</a>. The calls are necessary to trigger the automation of AnonCreds event creation that
 is done by ACA-Py, particularly around the handling of Revocation Registries. As you (should) know, when
 an Issuer uses ACA-Py to create a Credential Definition that supports revocation, ACA-Py automatically
 creates and publishes two Revocation Registries related to the Credential Definition, publishes the tails
 file for each, makes one active, and sets the other to be activated as soon as the active one runs out of
 credentials. Your AnonCreds method implementation doesn't have to do much to make that happen -- ACA-Py
 does it automatically -- but your implementation must call the <code>finish_*</code> to make trigger ACA-Py to continue
-the automation. You can see in <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/aries_cloudagent/anoncreds/revocation_setup.py">Revocation Setup</a> the automation setup.</p>
+the automation. You can see in <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/aries_cloudagent/anoncreds/revocation_setup.py">Revocation Setup</a> the automation setup.</p>
 <h2 id="questions-or-comments">Questions or Comments<a class="headerlink" href="#questions-or-comments" title="Permanent link">&para;</a></h2>
 <p>The ACA-Py maintainers welcome questions from those new to the community that
 have the skills to implement a new AnonCreds method. Use the <code>#aries-cloudagent-python</code> channel

@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for ACA-Py Release, 0.12.0.
+  You are viewing the documentation for ACA-Py Release 0.12.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2367,10 +2367,10 @@ in revoking credentials. The only thing the controller writer has to do is track
 the minimum things necessary to the business rules around revocation, such as
 whose credentials should be revoked, and how close to real-time should
 revocations be published?</p>
-<p>Here is a  summary of all of the AnonCreds revocation activities performed
+<p>Here is a summary of all of the AnonCreds revocation activities performed
 by issuers. After this, we'll provide a (much shorter) list of what an ACA-Py
 issuer controller has to do. For those interested, there is a more
-<a href="https://github.com/hyperledger/indy-hipe/blob/0.12.0/text/0011-cred-revocation/README.md">complete overview of AnonCreds revocation</a>, including all of the roles, and some details
+<a href="https://github.com/hyperledger/indy-hipe/blob/0.12.1/text/0011-cred-revocation/README.md">complete overview of AnonCreds revocation</a>, including all of the roles, and some details
 of the cryptography behind the approach:</p>
 <ul>
 <li>Issuers indicate that a credential will support revocation when creating the
@@ -2416,7 +2416,7 @@ issuer controller does:</p>
 <li>On Revocation, the controller passes in the logical “revocation ID" of the
   credential to be revoked, including a “notify holder” flag. ACA-Py records the
   revocation as pending and, if asked, sends a notification to the holder using
-  a DIDComm message (<a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0183-revocation-notification/README.md">Aries RFC 0183: Revocation Notification</a>).</li>
+  a DIDComm message (<a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0183-revocation-notification/README.md">Aries RFC 0183: Revocation Notification</a>).</li>
 <li>The Issuer requests that the revocations for a CredDefId be published. ACA-Py
   figures out what RevRegs contain pending revocation and so need to be
   published, and publishes each.</li>
@@ -2534,7 +2534,7 @@ pending revocations in batches. Revocation are not written to ledger until this 
 </li>
 </ol>
 <h2 id="revocation-notification">Revocation Notification<a class="headerlink" href="#revocation-notification" title="Permanent link">&para;</a></h2>
-<p>ACA-Py supports <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.0/features/0183-revocation-notification/README.md">Revocation Notification v1.0</a>.</p>
+<p>ACA-Py supports <a href="https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0183-revocation-notification/README.md">Revocation Notification v1.0</a>.</p>
 <blockquote>
 <p><strong>Note:</strong> The optional <code>~please_ack</code> is not currently supported.</p>
 </blockquote>

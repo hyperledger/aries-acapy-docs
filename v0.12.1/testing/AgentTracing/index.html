@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for ACA-Py Release, 0.12.0.
+  You are viewing the documentation for ACA-Py Release 0.12.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2353,7 +2353,7 @@
 </code></pre></div>
 <p>When <code>Exchange Tracing</code> is <code>ON</code>, all exchanges will include tracing.</p>
 <h2 id="logging-trace-events-to-an-elk-stack">Logging Trace Events to an ELK Stack<a class="headerlink" href="#logging-trace-events-to-an-elk-stack" title="Permanent link">&para;</a></h2>
-<p>You can use the <code>ELK</code> stack in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.0/demo/elk-stack">ELK Stack sub-directory</a> as a target for trace events, just start the ELK stack using the docker-compose file and then in two separate bash shells, startup the demo as follows:</p>
+<p>You can use the <code>ELK</code> stack in the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/demo/elk-stack">ELK Stack sub-directory</a> as a target for trace events, just start the ELK stack using the docker-compose file and then in two separate bash shells, startup the demo as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">DOCKER_NET</span><span class="o">=</span>elknet<span class="w"> </span><span class="nv">TRACE_TARGET_URL</span><span class="o">=</span>logstash:9700<span class="w"> </span>./run_demo<span class="w"> </span>faber<span class="w"> </span>--trace-http
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">DOCKER_NET</span><span class="o">=</span>elknet<span class="w"> </span><span class="nv">TRACE_TARGET_URL</span><span class="o">=</span>logstash:9700<span class="w"> </span>./run_demo<span class="w"> </span>alice<span class="w"> </span>--trace-http

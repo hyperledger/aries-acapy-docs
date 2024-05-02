@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for ACA-Py Release, 0.12.0.
+  You are viewing the documentation for ACA-Py Release 0.12.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2523,7 +2523,7 @@ from ..resolver.did_resolver import DIDResolver</p>
 </code></pre></div>
 <p>The following is a fully functional Dockerfile encapsulating this setup:</p>
 <p>```dockerfile=
-FROM ghcr.io/hyperledger/aries-cloudagent-python:py3.9-0.12.0
+FROM ghcr.io/hyperledger/aries-cloudagent-python:py3.9-0.12.1
 RUN pip3 install git+<a href="https://github.com/dbluhm/acapy-resolver-github">https://github.com/dbluhm/acapy-resolver-github</a></p>
 <p>CMD ["aca-py", "start", "-it", "http", "0.0.0.0", "3000", "-ot", "http", "-e", "<a href="http://localhost:3000">http://localhost:3000</a>", "--admin", "0.0.0.0", "3001", "--admin-insecure-mode", "--no-ledger", "--plugin", "acapy_resolver_github"]
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>To use the above dockerfile:

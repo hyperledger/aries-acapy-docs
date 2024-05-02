@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for ACA-Py Release, 0.12.0.
+  You are viewing the documentation for ACA-Py Release 0.12.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2306,7 +2306,7 @@
 </ul>
 <p>With these changes, an existing ACA-Py installation using unqualified DIDs can upgrade to use qualified DIDs:</p>
 <ul>
-<li>Reactively in 0.12.0, by using like DIDs from the other agent.</li>
+<li>Reactively in 0.12.0 and later, by using like DIDs from the other agent.</li>
 <li>Proactively, by adding the <code>use_did</code> or <code>use_did_method</code> parameter on the <code>POST /out-of-band/create-invitation</code>, <code>POST /didexchange/create-request</code>. and <code>POST /didexchange/{conn_id}/accept_invitation</code> endpoints and specifying <code>did:peer:2</code> or <code>did_peer:4</code>.</li>
 <li>The other agent must be able to process the selected DID Method.</li>
 <li>Proactively, by updating to use DID Exchange v1.1 and having the other side <code>auto-accept</code> the connection.</li>
