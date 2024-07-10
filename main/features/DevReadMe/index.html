@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://raw.githubusercontent.com/hyperledger/aries-cloudagent-python/main/docs/assets/aries-favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
     
     
       
@@ -183,7 +183,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -635,6 +635,15 @@
   
     <nav class="md-nav" aria-label="Running">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-aca-py-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring ACA-PY: Environment Variables
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#configuring-aca-py-command-line-parameters" class="md-nav__link">
@@ -2447,6 +2456,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#configuring-aca-py-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring ACA-PY: Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configuring-aca-py-command-line-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       Configuring ACA-PY: Command Line Parameters
@@ -2644,6 +2662,7 @@
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#developer-demos">Developer Demos</a></li>
 <li><a href="#running">Running</a></li>
+<li><a href="#configuring-aca-py-environment-variables">Configuring ACA-PY: Environment Variables</a></li>
 <li><a href="#configuring-aca-py-command-line-parameters">Configuring ACA-PY: Command Line Parameters</a></li>
 <li><a href="#docker">Docker</a></li>
 <li><a href="#locally-installed">Locally Installed</a></li>
@@ -2673,6 +2692,26 @@ to learn more.</p>
 <h2 id="developer-demos">Developer Demos<a class="headerlink" href="#developer-demos" title="Permanent link">&para;</a></h2>
 <p>To put ACA-Py through its paces at the command line, checkout our <a href="../../demo/">demos</a> page.</p>
 <h2 id="running">Running<a class="headerlink" href="#running" title="Permanent link">&para;</a></h2>
+<h3 id="configuring-aca-py-environment-variables">Configuring ACA-PY: Environment Variables<a class="headerlink" href="#configuring-aca-py-environment-variables" title="Permanent link">&para;</a></h3>
+<p>All CLI parameters in ACA-PY have equivalent environment variables. To convert a CLI argument to an environment
+variable:</p>
+<ol>
+<li>
+<p><strong>Basic Conversion</strong>: Convert the CLI argument to uppercase and prefix it with <code>ACAPY_</code>. For example, <code>--admin</code>
+   becomes <code>ACAPY_ADMIN</code>.</p>
+</li>
+<li>
+<p><strong>Multiple Parameters</strong>: Arguments that take multiple parameters, such as <code>--admin 0.0.0.0 11000</code>, should be wrapped
+   in an array. For example, <code>ACAPY_ADMIN="[0.0.0.0, 11000]"</code></p>
+</li>
+<li><strong>Repeat Parameters</strong>: Arguments like <code>-it &lt;module&gt; &lt;host&gt; &lt;port&gt;</code>, which can be repeated, must be wrapped inside
+   another array and string escaped. For example, instead of: <code>-it http 0.0.0.0 11000 ws 0.0.0.0 8023</code>
+   use: <code>ACAPY_INBOUND_TRANSPORT=[[\"http\",\"0.0.0.0\",\"11000\"],[\"ws\",\"0.0.0.0\",\"8023\"]]</code></li>
+</ol>
+<p>For a comprehensive list of all arguments, argument groups, CLI args, and their environment variable equivalents, please
+see
+the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/config/argparse.py">argparse.py</a>
+file.</p>
 <h3 id="configuring-aca-py-command-line-parameters">Configuring ACA-PY: Command Line Parameters<a class="headerlink" href="#configuring-aca-py-command-line-parameters" title="Permanent link">&para;</a></h3>
 <p>ACA-Py agent instances are configured through the use of command line
 parameters, environment variables and/or YAML files. All of the configurations
@@ -2772,7 +2811,6 @@ secure storage seed on every invocation of an agent (e.g. on every <code>aca-py 
 <p>The <code>manage</code> script is described in detail <a href="https://github.com/hyperledger/aries-agent-test-harness#the-manage-bash-script">here</a>, including how to modify the AATH code to run the tests against your aca-py repo/branch.</p>
 <h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
 <p>We use <a href="https://github.com/astral-sh/ruff">Ruff</a> to enforce a coding style guide.</p>
-<p>We use <a href="https://black.readthedocs.io/en/stable/">Black</a> to automatically format code.</p>
 <p>Please write tests for the work that you submit.</p>
 <p>Tests should reside in a directory named <code>tests</code> alongside the code under test. Generally, there is one test file for each file module under test. Test files <em>must</em> have a name starting with <code>test_</code> to be automatically picked up the test runner.</p>
 <p>There are some good examples of various test scenarios for you to work from including mocking external imports and working with async code so take a look around!</p>
@@ -2879,7 +2917,7 @@ secure storage seed on every invocation of an agent (e.g. on every <code>aca-py 
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>
