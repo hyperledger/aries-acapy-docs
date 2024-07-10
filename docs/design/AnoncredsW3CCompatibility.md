@@ -14,7 +14,7 @@ The pre-requisites for the work are:
   - For presenting, use the [RFC 0510 DIF Presentation Exchange] Attachments
 
 [RFC 0809 VC-DI]: https://github.com/hyperledger/aries-rfcs/pull/809
-[RFC 0510 DIF Presentation Exchange]: https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md
+[RFC 0510 DIF Presentation Exchange]: https://github.com/hyperledger/aries-rfcs/blob/1.0.0rc4/features/0510-dif-pres-exch-attach/README.md
 
 As of 2024-01-15, these pre-requisites have been met.
 
@@ -79,7 +79,7 @@ It appears that the issue and presentation sides can be approached independently
 
 1. Update Admin API endpoints to initiate an Issue Credential v2.0 protocol to issue an AnonCreds credential in W3C VC format using [RFC 0809 VC-DI] format attachments.
 2. Add support for the [RFC 0809 VC-DI] message attachment formats.
-   1. Should the attachment format be made pluggable as part of this? From the maintainers: _If we did make it pluggable, [this](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/messages/cred_format.py#L23) would be the point where that would take place. Since these values are hard coded, it is not pluggable currently, as noted. I've been dissatisfied with how this particular piece works for a while. I think making it pluggable, if done right, could help clean it up nicely. A plugin would then define their own implementation of [V20CredFormatHandler](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/formats/handler.py#L28). (@dbluhm)_
+   1. Should the attachment format be made pluggable as part of this? From the maintainers: _If we did make it pluggable, [this](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/messages/cred_format.py#L23) would be the point where that would take place. Since these values are hard coded, it is not pluggable currently, as noted. I've been dissatisfied with how this particular piece works for a while. I think making it pluggable, if done right, could help clean it up nicely. A plugin would then define their own implementation of [V20CredFormatHandler](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/formats/handler.py#L28). (@dbluhm)_
 3. Update the v2.0 Issue Credential protocol handler to support a "[RFC 0809 VC-DI] mode" such that when a protocol instance starts with that format, it continues with it until completion, supporting issuing AnonCreds credentials in the process. This includes both the sending and receiving of all protocol message types.
 
 #### Present Proof
@@ -107,7 +107,7 @@ After thoroughly reviewing upcoming changes from [anoncreds-rs PR273](https://gi
 - instance methods (`verify`)
 - bindings functions (`create_w3c_presentation`, `_object_from_json`, `verify_w3c_presentation`)
 
-They will be added to [\_\_init\_\_.py](https://github.com/hyperledger/anoncreds-rs/blob/main/wrappers/python/anoncreds/__init__.py) as additional exports of AnoncredsObject.
+They will be added to [\_\_init\_\_.py](https://github.com/hyperledger/anoncreds-rs/blob/1.0.0rc4/wrappers/python/anoncreds/__init__.py) as additional exports of AnoncredsObject.
 
 We also have to consider which classes or anoncreds objects have been modified
 
@@ -125,11 +125,11 @@ The classes modified according to the same [PR](https://github.com/hyperledger/a
 
 #### Creating a W3C VC credential from credential definition, and issuing and presenting it as is
 
-The issuance, presentation and verification of legacy anoncreds are implemented in this [./aries_cloudagent/anoncreds](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/anoncreds) directory. Therefore, we will also start from there.
+The issuance, presentation and verification of legacy anoncreds are implemented in this [./aries_cloudagent/anoncreds](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0rc4/aries_cloudagent/anoncreds) directory. Therefore, we will also start from there.
 
-Let us navigate these implementation examples through the respective processes of the concerning agents - **Issuer** and **Holder** as described in [https://github.com/hyperledger/anoncreds-rs/blob/main/README.md](https://github.com/hyperledger/anoncreds-rs/blob/main/README.md).
+Let us navigate these implementation examples through the respective processes of the concerning agents - **Issuer** and **Holder** as described in [https://github.com/hyperledger/anoncreds-rs/blob/1.0.0rc4/README.md](https://github.com/hyperledger/anoncreds-rs/blob/main/README.md).
 We will proceed through the following processes in comparison with the legacy anoncreds implementations while watching out for signature differences between the two.
-Looking at the [/anoncreds/issuer.py](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/anoncreds/issuer.py) file, from `AnonCredsIssuer` class:
+Looking at the [/anoncreds/issuer.py](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/anoncreds/issuer.py) file, from `AnonCredsIssuer` class:
 
 Create VC_DI Credential Offer
 
@@ -376,7 +376,7 @@ Doing so would allow us to be more independent in defining the schema suited for
 
 ### Admin API Attachments
 
-To make sure that once an endpoint has been called to trigger the `Issue Credential` flow in `0809 W3C_DI attachment formats` the subsequent endpoints also follow this format, we can keep track of this [ATTACHMENT_FORMAT](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/message_types.py#L41-L59) dictionary with the proposed `VC_DI` format.
+To make sure that once an endpoint has been called to trigger the `Issue Credential` flow in `0809 W3C_DI attachment formats` the subsequent endpoints also follow this format, we can keep track of this [ATTACHMENT_FORMAT](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/message_types.py#L41-L59) dictionary with the proposed `VC_DI` format.
 
 ```python
 # Format specifications
@@ -404,18 +404,18 @@ ATTACHMENT_FORMAT = {
 }
 ```
 
-And this [\_formats_filter](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L442-L461) function takes care of keeping the attachment formats uniform across the iteration of the flow. We can see this function gets called in:
+And this [\_formats_filter](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L442-L461) function takes care of keeping the attachment formats uniform across the iteration of the flow. We can see this function gets called in:
 
-- [\_create_free_offer](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L877) function that gets called in the handler function of `/issue-credential-2.0/send-offer` route (in addition to other offer routes)
-- [credential_exchange_send_free_request](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L1229) handler function of `/issue-credential-2.0/send-request` route
-- [credential_exchange_create](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L630) handler function of `/issue-credential-2.0/create` route
-- [credential_exchange_send](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L721) handler function of `/issue-credential-2.0/send` route
+- [\_create_free_offer](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L877) function that gets called in the handler function of `/issue-credential-2.0/send-offer` route (in addition to other offer routes)
+- [credential_exchange_send_free_request](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L1229) handler function of `/issue-credential-2.0/send-request` route
+- [credential_exchange_create](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L630) handler function of `/issue-credential-2.0/create` route
+- [credential_exchange_send](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/issue_credential/v2_0/routes.py#L721) handler function of `/issue-credential-2.0/send` route
 
-The same goes for [ATTACHMENT_FORMAT](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/message_types.py#L33-L47) of `Present Proof` flow. In this case, DIF Presentation Exchange formats in these [test vectors](https://github.com/TimoGlastra/anoncreds-w3c-test-vectors/tree/main/test-vectors) that are influenced by [RFC 0510 DIF Presentation Exchange](https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md) will be implemented. Here, the [\_formats_attach](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L403-L422) function is the key for the same purpose above. It gets called in:
+The same goes for [ATTACHMENT_FORMAT](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/present_proof/v2_0/message_types.py#L33-L47) of `Present Proof` flow. In this case, DIF Presentation Exchange formats in these [test vectors](https://github.com/TimoGlastra/anoncreds-w3c-test-vectors/tree/1.0.0rc4/test-vectors) that are influenced by [RFC 0510 DIF Presentation Exchange](https://github.com/hyperledger/aries-rfcs/blob/main/features/0510-dif-pres-exch-attach/README.md) will be implemented. Here, the [\_formats_attach](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L403-L422) function is the key for the same purpose above. It gets called in:
 
-- [present_proof_send_proposal](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L833) handler function of `/present-proof-2.0/send-proposal` route
-- [present_proof_create_request](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L916) handler function of `/present-proof-2.0/create-request` route
-- [present_proof_send_free_request](https://github.com/hyperledger/aries-cloudagent-python/blob/main/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L998) handler function of `/present-proof-2.0/send-request` route
+- [present_proof_send_proposal](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L833) handler function of `/present-proof-2.0/send-proposal` route
+- [present_proof_create_request](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L916) handler function of `/present-proof-2.0/create-request` route
+- [present_proof_send_free_request](https://github.com/hyperledger/aries-cloudagent-python/blob/1.0.0rc4/aries_cloudagent/protocols/present_proof/v2_0/routes.py#L998) handler function of `/present-proof-2.0/send-request` route
 
 #### Credential Exchange Admin Routes
 
@@ -647,7 +647,7 @@ If AFJ lags behind in delivering equivalent functionality, we may not be able to
 
 ### Where should the new issuance code go?
 
-So the [vc](https://github.com/hyperledger/aries-cloudagent-python/tree/main/aries_cloudagent/vc) directory contains code to verify vc's, is this a logical place to add the code for issuance?
+So the [vc](https://github.com/hyperledger/aries-cloudagent-python/tree/1.0.0rc4/aries_cloudagent/vc) directory contains code to verify vc's, is this a logical place to add the code for issuance?
 
 ### What do we call the new things? Flexcreds? or just W3C_xxx
 
