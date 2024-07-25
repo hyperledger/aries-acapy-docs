@@ -2,6 +2,23 @@
 
 # Aries Cloud Agent Python Changelog
 
+## 0.11.2
+
+A patch release to add the verification of a linkage between an inbound message and its associated connection (if any) before processing the message.
+
+### 0.11.2 Breaking Changes
+
+There are no breaking changes in this release.
+
+#### 0.11.2 Categorized List of Pull Requests
+
+- Dependency update and release PR
+  - Apply security patch 0.11.x [\#3120](https://github.com/hyperledger/aries-cloudagent-python/pull/3120) [jamshale](https://github.com/jamshale)
+- Release management pull requests
+  - 0.11.2 [\#3122](https://github.com/hyperledger/aries-cloudagent-python/pull/3122) [swcurran](https://github.com/swcurran)
+- PRs cherry-picked into [\#3120](https://github.com/hyperledger/aries-cloudagent-python/pull/3120) from the `main` branch:
+  - Check connection is ready in all connection required handlers [\#3095](https://github.com/hyperledger/aries-cloudagent-python/pull/3095) [jamshale](https://github.com/jamshale)
+
 ## 0.11.1
 
 A patch release to update the `aiohttp` library such that a reported serious
@@ -704,9 +721,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.2/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.2/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.2/ContainerImagesAndGithubActions.md
 
 ### Breaking Changes and Upgrades
 
@@ -720,7 +737,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.11.1/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.11.2/features/0023-did-exchange/README.md).
 
 #### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -1166,7 +1183,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.11.1/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.11.2/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
