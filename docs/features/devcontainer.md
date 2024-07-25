@@ -8,9 +8,9 @@ By no means is ACA-Py limited to these tools; they are merely examples.
 
 ## Caveats
 
-The primary use case for this `devcontainer` is for developing, debugging and unit testing (pytest) the [aries_cloudagent](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.1/aries_cloudagent) source code.
+The primary use case for this `devcontainer` is for developing, debugging and unit testing (pytest) the [aries_cloudagent](https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.2/aries_cloudagent) source code.
 
-There are limitations running this devcontainer, such as all networking is within this container. This container has [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/0.11.1/script-library/docs/docker-in-docker.md) which allows running demos, building docker images, running `docker compose` all within this container.
+There are limitations running this devcontainer, such as all networking is within this container. This container has [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/0.11.2/script-library/docs/docker-in-docker.md) which allows running demos, building docker images, running `docker compose` all within this container.
 
 ### Files
 The `.devcontainer` folder contains the `devcontainer.json` file which defines this container. We are using a `Dockerfile` and `post-install.sh` to build and configure the container run image. The `Dockerfile` is simple but in place for simplifying image enhancements (ex. adding `poetry` to the image). The `post-install.sh` will install some additional development libraries (including for BDD support).
@@ -70,7 +70,7 @@ To open ACA-Py in a devcontainer, we open the *root* of this repository. We can 
 
 #### devcontainer.json
 
-When the [.devcontainer/devcontainer.json](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.devcontainer/devcontainer.json) is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports `9060` and `9061`, allowing you to run/debug ACA-Py with those ports available to your `localhost` (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).
+When the [.devcontainer/devcontainer.json](https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.2/.devcontainer/devcontainer.json) is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports `9060` and `9061`, allowing you to run/debug ACA-Py with those ports available to your `localhost` (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).
 
 In VS Code, open a Terminal, you should be able to run the following commands:
 
