@@ -266,4 +266,4 @@ yourself, with your Sandbox tenant. Once you review the code, you should have an
 excellent idea of how you can add these same capabilities to your line of
 business application.
 
-[Traction Issuance Demo]: https://github.com/hyperledger/aries-acapy-controllers/tree/0.12.1/TractionIssuanceDemo
+[Traction Issuance Demo]: https://github.com/hyperledger/aries-acapy-controllers/tree/0.12.2rc1/TractionIssuanceDemo
