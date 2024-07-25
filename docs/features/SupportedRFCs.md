@@ -1,14 +1,14 @@
 # Aries AIP and RFCs Supported in Aries Cloud Agent Python
 
 This document provides a summary of the adherence of ACA-Py to the [Aries Interop
-Profiles](https://github.com/hyperledger/aries-rfcs/tree/0.12.1/concepts/0302-aries-interop-profile),
+Profiles](https://github.com/hyperledger/aries-rfcs/tree/0.12.2rc1/concepts/0302-aries-interop-profile),
 and an overview of the ACA-Py feature set. This document is
 manually updated and as such, may not be up to date with the most recent release of
 ACA-Py or the repository `main` branch. Reminders (and PRs!) to update this page are
 welcome! If you have any questions, please contact us on the #aries channel on
 [Hyperledger Discord](https://discord.gg/hyperledger) or through an issue in this repo.
 
-**Last Update**: 2024-05-01, Release 0.12.1
+**Last Update**: 2024-05-01, Release 0.12.2rc1
 
 > The checklist version of this document was created as a joint effort
 > between [Northern Block](https://northernblock.io/), [Animo Solutions](https://animo.id/) and the Ontario government, on behalf of the Ontario government.
@@ -93,8 +93,8 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 | Invitations using public did     | :white_check_mark:        |         |
 | Invitations using peer dids supporting connection reuse     | :white_check_mark:        |         |
 | Implicit pickup of messages in role of mediator | :white_check_mark:        |         |
-| [Revocable AnonCreds Credentials](https://github.com/hyperledger/indy-hipe/tree/0.12.1/text/0011-cred-revocation) | :white_check_mark:        |         |
-| Multi-Tenancy      | :white_check_mark:        | [Documentation](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/Multitenancy.md) |
+| [Revocable AnonCreds Credentials](https://github.com/hyperledger/indy-hipe/tree/0.12.2rc1/text/0011-cred-revocation) | :white_check_mark:        |         |
+| Multi-Tenancy      | :white_check_mark:        | [Documentation](https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.2rc1/Multitenancy.md) |
 | Multi-Tenant Management | :white_check_mark: | The [Traction] open source project from BC Gov is a layer on top of ACA-Py that enables the easy management of ACA-Py tenants, with an Administrative UI ("The Innkeeper") and a Tenant UI for using ACA-Py in a web UI (setting up, issuing, holding and verifying credentials) |
 | Connection-less (non OOB protocol / AIP 1.0)               | :white_check_mark:        | Only for issue credential and present proof          |
 | Connection-less (OOB protocol / AIP 2.0)               | :white_check_mark:        | Only for present proof          |
@@ -112,7 +112,7 @@ A summary of the Aries Interop Profiles and Aries RFCs supported in ACA-Py can b
 
 ### AIP 1.0
 
-All RFCs listed in [AIP 1.0](https://github.com/hyperledger/aries-rfcs/tree/0.12.1/concepts/0302-aries-interop-profile#aries-interop-profile-version-10) are fully supported in ACA-Py. The following table
+All RFCs listed in [AIP 1.0](https://github.com/hyperledger/aries-rfcs/tree/0.12.2rc1/concepts/0302-aries-interop-profile#aries-interop-profile-version-10) are fully supported in ACA-Py. The following table
 provides notes about the implementation of specific RFCs.
 
 | RFC | Supported | Notes |
@@ -122,7 +122,7 @@ provides notes about the implementation of specific RFCs.
 
 ### AIP 2.0
 
-All RFCs listed in [AIP 2.0](https://github.com/hyperledger/aries-rfcs/tree/0.12.1/concepts/0302-aries-interop-profile#aries-interop-profile-version-20) (including the sub-targets)
+All RFCs listed in [AIP 2.0](https://github.com/hyperledger/aries-rfcs/tree/0.12.2rc1/concepts/0302-aries-interop-profile#aries-interop-profile-version-20) (including the sub-targets)
 are fully supported in ACA-Py **EXCEPT** as noted in the table below.
 
 | RFC | Supported | Notes |
@@ -133,6 +133,6 @@ are fully supported in ACA-Py **EXCEPT** as noted in the table below.
 
 | RFC | Supported | Notes |
 | --- | :--: | -- |
-| [0031-discover-features](https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0031-discover-features/README.md)           | :white_check_mark:        | Rarely (never?) used, and in implementing the V2 version of the protocol, the V1 version was found to be incomplete and was updated as part of Release 0.7.3  |
-| [0028-introduce](https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0028-introduce/README.md)            | :white_check_mark:        |      |
-| [00509-action-menu](https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0509-action-menu/README.md)       | :white_check_mark:        |      |
+| [0031-discover-features](https://github.com/hyperledger/aries-rfcs/blob/0.12.2rc1/features/0031-discover-features/README.md)           | :white_check_mark:        | Rarely (never?) used, and in implementing the V2 version of the protocol, the V1 version was found to be incomplete and was updated as part of Release 0.7.3  |
+| [0028-introduce](https://github.com/hyperledger/aries-rfcs/blob/0.12.2rc1/features/0028-introduce/README.md)            | :white_check_mark:        |      |
+| [00509-action-menu](https://github.com/hyperledger/aries-rfcs/blob/0.12.2rc1/features/0509-action-menu/README.md)       | :white_check_mark:        |      |

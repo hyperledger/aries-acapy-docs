@@ -1,5 +1,28 @@
 # Aries Cloud Agent Python Changelog
 
+## 0.12.2rc1
+
+A patch release to add the verification of a linkage between an inbound message and its associated connection (if any) before processing the message. Also adds some additional cleanup/fix PRs from the main branch (see list below) that might be useful for deployments currently using [Release 0.12.1](#0121).
+
+### 0.12.2rc1 Breaking Changes
+
+There are no breaking changes in this release.
+
+#### 0.12.2rc1 Categorized List of Pull Requests
+
+- Dependency update and release PR
+    - Patch release 0.12.x [\#3121](https://github.com/hyperledger/aries-cloudagent-python/pull/3121) [jamshale](https://github.com/jamshale)
+- Release management pull requests
+    - 0.12.2rc1 [\#3123](https://github.com/hyperledger/aries-cloudagent-python/pull/3123) [swcurran](https://github.com/swcurran)
+- PRs cherry-picked into [\#3121](https://github.com/hyperledger/aries-cloudagent-python/pull/3120) from the `main` branch:
+    - Check connection is ready in all connection required handlers [\#3095](https://github.com/hyperledger/aries-cloudagent-python/pull/3095) [jamshale](https://github.com/jamshale)
+    - fix: multiuse invites with did peer 4 [\#3112](https://github.com/hyperledger/aries-cloudagent-python/pull/3112) [dbluhm](https://github.com/dbluhm)
+    - fix: respond to did:peer:1 with did:peer:4 [\#3050](https://github.com/hyperledger/aries-cloudagent-python/pull/3050) [dbluhm](https://github.com/dbluhm)
+    - feat: soft binding for plugin flexibility [\#3010](https://github.com/hyperledger/aries-cloudagent-python/pull/3010) [dbluhm](https://github.com/dbluhm)
+    - feat: inject profile and session [\#2997](https://github.com/hyperledger/aries-cloudagent-python/pull/2997) [dbluhm](https://github.com/dbluhm)
+    - feat: external signature suite provider interface [\#2835](https://github.com/hyperledger/aries-cloudagent-python/pull/2835) [dbluhm](https://github.com/dbluhm)
+    - fix(interop): overly strict validation [\#2943](https://github.com/hyperledger/aries-cloudagent-python/pull/2943) [dbluhm](https://github.com/dbluhm)
+
 ## 0.12.1
 
 ### April 26, 2024
@@ -64,7 +87,7 @@ Much progress has been made on `did:peer` support in this release, with the hand
 
 [Qualified DIDs]: https://aca-py.org/latest/features/QualifiedDIDs/
 [Credo-TS]:  https://github.com/openwallet-foundation/credo-ts
-[Aries Interop Profile v2.0]: https://github.com/hyperledger/aries-rfcs/tree/0.12.1/concepts/0302-aries-interop-profile#aries-interop-profile-version-20
+[Aries Interop Profile v2.0]: https://github.com/hyperledger/aries-rfcs/tree/0.12.2rc1/concepts/0302-aries-interop-profile#aries-interop-profile-version-20
 
 Work continues towards supporting ledger agnostic [AnonCreds], and the new [Hyperledger AnonCreds Rust] library. Some of that work is in this release, the rest will be in the next release.
 
@@ -937,9 +960,9 @@ those published to the [Hyperledger Package Repository under
 aries-cloudagent-python].
 
 [Hyperledger Package Repository under aries-cloudagent-python]: https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.1/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.2rc1/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.2rc1/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.12.2rc1/ContainerImagesAndGithubActions.md
 
 ### Breaking Changes and Upgrades
 
@@ -953,7 +976,7 @@ case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm `service` in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the `service` endpoint.
 This is called an "implicit" connection in [RFC 0023 DID
-Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.12.1/features/0023-did-exchange/README.md).
+Exchange](https://github.com/hyperledger/aries-rfcs/blob/0.12.2rc1/features/0023-did-exchange/README.md).
 
 #### PR [\#1913](https://github.com/hyperledger/aries-cloudagent-python/pull/1913) -- Unrevealed attributes in presentations
 
@@ -1399,7 +1422,7 @@ However, anyone else using an external queue should be aware of the impact of th
 included in the release.
 
 For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.12.1/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
+[RFC 434 Out of Band](https://github.com/hyperledger/aries-rfcs/tree/0.12.2rc1/features/0434-outofband) and the "reuse connection" as the invitee. In PR #1453
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
