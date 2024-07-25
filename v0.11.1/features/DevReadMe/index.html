@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for the current version of ACA-Py, Release 0.11.0.
+  You are viewing the documentation for the current version of ACA-Py, Release 0.11.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2546,7 +2546,7 @@ them--for good and bad.</p>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">                </span>--outbound-transport<span class="w"> </span>ws<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">                </span>--outbound-transport<span class="w"> </span>http
 </code></pre></div>
-<p>ACA-Py ships with both inbound and outbound transport drivers for <code>http</code> and <code>ws</code> (websockets). Additional transport drivers can be added as pluggable implementations. See the existing implementations in the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0/aries_cloudagent/transport">transports module</a> for getting started on adding a new transport.</p>
+<p>ACA-Py ships with both inbound and outbound transport drivers for <code>http</code> and <code>ws</code> (websockets). Additional transport drivers can be added as pluggable implementations. See the existing implementations in the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.1/aries_cloudagent/transport">transports module</a> for getting started on adding a new transport.</p>
 <p>Most configuration parameters are provided to the agent at startup. Refer to the <code>Running</code> sections above for details on listing the available command line parameters.</p>
 <h3 id="provisioning-secure-storage">Provisioning Secure Storage<a class="headerlink" href="#provisioning-secure-storage" title="Permanent link">&para;</a></h3>
 <p>It is possible to provision a secure storage (sometimes called a wallet--but not
@@ -2610,7 +2610,7 @@ secure storage seed on every invocation of an agent (e.g. on every <code>aca-py 
 <p>The test suite also displays the current code coverage after each run so you can see how much of your work is covered by tests. Use your best judgement for how much coverage is sufficient.</p>
 <p>Please also refer to the <a href="../../contributing/CONTRIBUTING/">contributing guidelines</a> and <a href="../../contributing/CODE_OF_CONDUCT/">code of conduct</a>.</p>
 <h2 id="publishing-releases">Publishing Releases<a class="headerlink" href="#publishing-releases" title="Permanent link">&para;</a></h2>
-<p>The <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/PUBLISHING.md">publishing</a> document provides information on tagging a release and publishing the release artifacts to PyPi.</p>
+<p>The <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/PUBLISHING.md">publishing</a> document provides information on tagging a release and publishing the release artifacts to PyPi.</p>
 <h2 id="dynamic-injection-of-services">Dynamic Injection of Services<a class="headerlink" href="#dynamic-injection-of-services" title="Permanent link">&para;</a></h2>
 <p>The Agent employs a dynamic injection system whereby providers of base classes are registered with the <code>RequestContext</code> instance, currently within <code>conductor.py</code>. Message handlers and services request an instance of the selected implementation using <code>context.inject(BaseClass)</code>; for instance the wallet instance may be injected using <code>wallet = context.inject(BaseWallet)</code>. The <code>inject</code> method normally throws an exception if no implementation of the base class is provided, but can be called with <code>required=False</code> for optional dependencies (in which case a value of <code>None</code> may be returned).</p>
 <p>Providers are registered with either <code>context.injector.bind_instance(BaseClass, instance)</code> for previously-constructed (singleton) object instances, or <code>context.injector.bind_provider(BaseClass, provider)</code> for dynamic providers. In some cases it may be desirable to write a custom provider which switches implementations based on configuration settings, such as the wallet provider.</p>

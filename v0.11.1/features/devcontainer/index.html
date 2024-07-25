@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for the current version of ACA-Py, Release 0.11.0.
+  You are viewing the documentation for the current version of ACA-Py, Release 0.11.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2310,8 +2310,8 @@
 We provide a <a href="https://containers.dev"><code>devcontainer</code></a> and will use <a href="https://code.visualstudio.com"><code>VS Code</code></a> to illustrate.</p>
 <p>By no means is ACA-Py limited to these tools; they are merely examples.  </p>
 <h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
-<p>The primary use case for this <code>devcontainer</code> is for developing, debugging and unit testing (pytest) the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.0/aries_cloudagent">aries_cloudagent</a> source code.</p>
-<p>There are limitations running this devcontainer, such as all networking is within this container. This container has <a href="https://github.com/microsoft/vscode-dev-containers/blob/0.11.0/script-library/docs/docker-in-docker.md">docker-in-docker</a> which allows running demos, building docker images, running <code>docker compose</code> all within this container.</p>
+<p>The primary use case for this <code>devcontainer</code> is for developing, debugging and unit testing (pytest) the <a href="https://github.com/hyperledger/aries-cloudagent-python/tree/0.11.1/aries_cloudagent">aries_cloudagent</a> source code.</p>
+<p>There are limitations running this devcontainer, such as all networking is within this container. This container has <a href="https://github.com/microsoft/vscode-dev-containers/blob/0.11.1/script-library/docs/docker-in-docker.md">docker-in-docker</a> which allows running demos, building docker images, running <code>docker compose</code> all within this container.</p>
 <h3 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h3>
 <p>The <code>.devcontainer</code> folder contains the <code>devcontainer.json</code> file which defines this container. We are using a <code>Dockerfile</code> and <code>post-install.sh</code> to build and configure the container run image. The <code>Dockerfile</code> is simple but in place for simplifying image enhancements (ex. adding <code>poetry</code> to the image). The <code>post-install.sh</code> will install some additional development libraries (including for BDD support).</p>
 <h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
@@ -2356,7 +2356,7 @@ We provide a <a href="https://containers.dev"><code>devcontainer</code></a> and 
 <p><em>NOTE</em> follow any prompts to install <code>Python Extension</code> or reload window for <code>Pylance</code> when first building the container.</p>
 <p><em>ADDITIONAL NOTE</em> we advise that after each time you rebuild the container that you also perform: <code>Developer: Reload Window</code> as some extensions seem to require this in order to work as expected.</p>
 <h4 id="devcontainerjson">devcontainer.json<a class="headerlink" href="#devcontainerjson" title="Permanent link">&para;</a></h4>
-<p>When the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/.devcontainer/devcontainer.json">.devcontainer/devcontainer.json</a> is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports <code>9060</code> and <code>9061</code>, allowing you to run/debug ACA-Py with those ports available to your <code>localhost</code> (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).</p>
+<p>When the <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.devcontainer/devcontainer.json">.devcontainer/devcontainer.json</a> is opened, you will see it building... it is building a Python 3.9 image (bash shell) and loading it with all the ACA-Py requirements (and black). Since this is a Docker container, we will also open ports <code>9060</code> and <code>9061</code>, allowing you to run/debug ACA-Py with those ports available to your <code>localhost</code> (more on those later). We also load a few Visual Studio settings (for running Pytests and formatting with Flake and Black).</p>
 <p>In VS Code, open a Terminal, you should be able to run the following commands:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python -m aries_cloudagent -v
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cd aries_cloudagent

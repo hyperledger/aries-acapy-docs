@@ -86,7 +86,7 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
-  You are viewing the documentation for the current version of ACA-Py, Release 0.11.0.
+  You are viewing the documentation for the current version of ACA-Py, Release 0.11.1.
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -2034,6 +2034,19 @@
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
 <h1 id="aries-cloud-agent-python-changelog">Aries Cloud Agent Python Changelog<a class="headerlink" href="#aries-cloud-agent-python-changelog" title="Permanent link">&para;</a></h1>
+<h2 id="0111">0.11.1<a class="headerlink" href="#0111" title="Permanent link">&para;</a></h2>
+<p>A patch release to update the <code>aiohttp</code> library such that a reported serious
+vulnerability is addressed such that a crafted payload delivered to <code>aiohttp</code>
+can put it in an infinite loop, which can be used for a low cost denial of
+service attack. <a href="https://github.com/advisories/GHSA-5m98-qgg9-wh84">CVE-2024-30251</a> describes the issue.</p>
+<h3 id="0111-breaking-changes">0.11.1 Breaking Changes<a class="headerlink" href="#0111-breaking-changes" title="Permanent link">&para;</a></h3>
+<p>There are no breaking changes in this release. The only changed is the updated
+<code>aiohttp</code> dependency.</p>
+<h4 id="0111-categorized-list-of-pull-requests">0.11.1 Categorized List of Pull Requests<a class="headerlink" href="#0111-categorized-list-of-pull-requests" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Dependency update and release PR</li>
+<li>0.11.1 and aiohttp update <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/2936">#2936</a> <a href="https://github.com/swcurran">swcurran</a></li>
+</ul>
 <h2 id="0110">0.11.0<a class="headerlink" href="#0110" title="Permanent link">&para;</a></h2>
 <h3 id="november-24-2023">November 24, 2023<a class="headerlink" href="#november-24-2023" title="Permanent link">&para;</a></h3>
 <p>Release 0.11.0 is a relatively large release of new features, fixes, and
@@ -2569,12 +2582,12 @@ components. For details see the converter in the
 <h4 id="container-publishing-updated">Container Publishing Updated<a class="headerlink" href="#container-publishing-updated" title="Permanent link">&para;</a></h4>
 <p>With this release, a new automated process publishes container images in the
 Hyperledger container image repository. New images for the release are
-automatically published by the GitHubAction Workflows: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/.github/workflows/publish.yml">publish.yml</a> and
-<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/.github/workflows/publish-indy.yml">publish-indy.yml</a>. The actions are triggered when a release is tagged, so no
+automatically published by the GitHubAction Workflows: <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.github/workflows/publish.yml">publish.yml</a> and
+<a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.github/workflows/publish-indy.yml">publish-indy.yml</a>. The actions are triggered when a release is tagged, so no
 manual action is needed. The images are published in the <a href="https://github.com/orgs/hyperledger/packages?repo_name=aries-cloudagent-python">Hyperledger Package
 Repository under aries-cloudagent-python</a> and a link to the packages added to
 the repositories main page (under "Packages"). Additional information about the
-container image publication process can be found in the document <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/ContainerImagesAndGithubActions.md">Container
+container image publication process can be found in the document <a href="https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/ContainerImagesAndGithubActions.md">Container
 Images and Github Actions</a>.</p>
 <p>The ACA-Py container images are based on <a href="https://hub.docker.com/_/python">Python 3.6 and 3.9 <code>slim-bullseye</code>
 images</a>, and are designed to support <code>linux/386
@@ -2603,7 +2616,7 @@ explicit invitation. Such deployments need to add the configuration parameter
 case is that an ACA-Py instance publishes a public DID on a ledger with a
 DIDComm <code>service</code> in the DIDDoc. Other agents resolve that DID, and attempt to
 establish a connection with the ACA-Py instance using the <code>service</code> endpoint.
-This is called an "implicit" connection in <a href="https://github.com/hyperledger/aries-rfcs/blob/0.11.0/features/0023-did-exchange/README.md">RFC 0023 DID
+This is called an "implicit" connection in <a href="https://github.com/hyperledger/aries-rfcs/blob/0.11.1/features/0023-did-exchange/README.md">RFC 0023 DID
 Exchange</a>.</p>
 <h4 id="pr-1913-unrevealed-attributes-in-presentations">PR <a href="https://github.com/hyperledger/aries-cloudagent-python/pull/1913">#1913</a> -- Unrevealed attributes in presentations<a class="headerlink" href="#pr-1913-unrevealed-attributes-in-presentations" title="Permanent link">&para;</a></h4>
 <p>Updates the handling of "unrevealed attributes" during verification of AnonCreds
@@ -3109,7 +3122,7 @@ were involved in the creation of this PR, so we are not making this release a mi
 However, anyone else using an external queue should be aware of the impact of this PR that is
 included in the release.</p>
 <p>For those that have an existing deployment of ACA-Py with long-lasting connection records, an upgrade is needed to use
-<a href="https://github.com/hyperledger/aries-rfcs/tree/0.11.0/features/0434-outofband">RFC 434 Out of Band</a> and the "reuse connection" as the invitee. In PR <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1453" title="GitHub Issue: squidfunk/mkdocs-material #1453">#1453</a>
+<a href="https://github.com/hyperledger/aries-rfcs/tree/0.11.1/features/0434-outofband">RFC 434 Out of Band</a> and the "reuse connection" as the invitee. In PR <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1453" title="GitHub Issue: squidfunk/mkdocs-material #1453">#1453</a>
 (details below) a performance improvement was made when finding a connection for reuse. The new approach
 (adding a tag to the connection to enable searching) applies only to connections made using this ACA-Py
 release and later, and "as-is" connections made using earlier releases of ACA-Py will not be found as reuse
