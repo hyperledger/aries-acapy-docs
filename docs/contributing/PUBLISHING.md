@@ -22,7 +22,7 @@ Once ready to do a release, create a local branch that includes the following up
   - Use a command like the following, adjusting the tag parameters as
     appropriate. `docker run -it --rm -v "$(pwd)":/usr/local/src/your-app
     githubchangeloggenerator/github-changelog-generator --user hyperledger
-    --project aries-cloudagent-python --output 0.11.0rc2.md --since-tag 0.10.4
+    --project aries-cloudagent-python --output 0.11.1.md --since-tag 0.11.0
     --future-release 0.11.1rc2 --release-branch main --token <your-token>`
   - In the generated file, use only the PR list -- we don't include the list of
     closed issues in the Change Log.
@@ -101,8 +101,8 @@ Once you have the list of PRs:
 
 5. Update the version number listed in
    [pyproject.toml](pyproject.toml) and, prefixed with
-   a "v" in [open-api/openapi.json](https://github.com/hyperledger/open-api/tree/0.11.0/openapi.json) and
-   [open-api/swagger.json](https://github.com/hyperledger/open-api/tree/0.11.0/swagger.json) (e.g. "0.7.2" in the
+   a "v" in [open-api/openapi.json](https://github.com/hyperledger/open-api/tree/0.11.1/openapi.json) and
+   [open-api/swagger.json](https://github.com/hyperledger/open-api/tree/0.11.1/swagger.json) (e.g. "0.7.2" in the
    version.py file and "v0.7.2" in the openapi.json file). The incremented
    version number should adhere to the [Semantic Versioning
    Specification](https://semver.org/#semantic-versioning-specification-semver)
@@ -144,9 +144,9 @@ Once you have the list of PRs:
    Additional information about the container image publication process can be
    found in the document [Container Images and Github Actions]().
 
-[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/.github/workflows/publish.yml
-[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/.github/workflows/publish-indy.yml
-[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.0/ContainerImagesAndGithubActions.md
+[publish.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.github/workflows/publish.yml
+[publish-indy.yml]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/.github/workflows/publish-indy.yml
+[Container Images and Github Actions]: https://github.com/hyperledger/aries-cloudagent-python/blob/0.11.1/ContainerImagesAndGithubActions.md
 
 11. Update the ACA-Py Read The Docs site by building the new "latest" (main
     branch) and activating and building the new release. Appropriate permissions
