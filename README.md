@@ -1,15 +1,20 @@
 # Aries ACA-Py Docs
 
-This repository is used to publish the [Aries Cloud Agent Python] documentation to
-the site [https://acapy.com]. The documentation in this site is **NOT**
-maintained here. Rather, the documents for select past and all future ACA-Py
-release tag are extracted from the ACA-Py repository via a script and then saved
-to a branch in this repository. Each version branch in this repository is published as a
+**Go to [https://aca-py.org] to access the documentation for recent [Aries Cloud Agent Python] releases.**
+**Go to [https://history.aca-py.org] to access Aries Cloud Agent Python documentation up through version 0.11.x.**
+
+This repository is used to publish documentation for historical (pre-0.12.x)
+releases of [Aries Cloud Agent Python] documentation to the site
+[https://history.aca-py.org]. The documentation in this site is **NOT**
+maintained here. Rather, the documents for these past ACA-Py releases are
+extracted from the ACA-Py repository via a script and then saved to a branch in
+this repository. Each version branch in this repository is published as a
 version of the documentation on the public site. The "main" branch of this site
-is updated from time-to-time from the ACA-Py and published as the "main" and "latest" version
-on the published site.
+points to the latest historical release -- the most recent 0.11.x release.
 
 [Aries Cloud Agent Python]: https://github.com/hyperledger/aries-cloudagent-python
+[https://aca-py.org]: https://aca-py.org
+[https://history.aca-py.org]: https://history.aca-py.org
 
 Details of how to add releases and update main are described in this document.
 
