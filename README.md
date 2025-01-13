@@ -1,11 +1,16 @@
 # Aries ACA-Py Docs
 
+**This repository is now archived and obsolete. The repository holder the gh-pages source documentation for [ACA-Py] (now part of the [OpenWallet Foundation] for all releases up to 0.11.x. When that Long Term Support release reached "end of life" in January 2025, the documentation for the 0.11.x releases was removed from the [https://aca-py.org] website, and this repository was archived. Prior to that, the [ACA-Py] documentation website [https://aca-py.org] generation process was put into the [ACA-Py] repository itself -- making this repository irrelevant, except for 0.11.x LTS releases.**
+
+[OpenWallet Foundation]: https://openwallet.foundation/
+[https://aca-py.org]: https://aca-py.org
+[ACA-Py]: https://github.com/openwallet-foundation/acapy
+
 **Go to [https://aca-py.org] to access the documentation for recent [Aries Cloud Agent Python] releases.**
-**Go to [https://history.aca-py.org] to access Aries Cloud Agent Python documentation up through version 0.11.x.**
 
 This repository is used to publish documentation for historical (pre-0.12.x)
 releases of [Aries Cloud Agent Python] documentation to the site
-[https://history.aca-py.org]. The documentation in this site is **NOT**
+[https://aca-py.org]. The documentation in this site is **NOT**
 maintained here. Rather, the documents for these past ACA-Py releases are
 extracted from the ACA-Py repository via a script and then saved to a branch in
 this repository. Each version branch in this repository is published as a
